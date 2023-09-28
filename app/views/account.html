@@ -1,0 +1,68 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Start page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+
+
+{% block content %}
+
+<nav aria-label="Account navigation" class="account-navigation">
+  <div class="govuk-width-container">
+    <ul class="account-navigation__list">
+      
+        <li class="account-navigation__list-item account-navigation__list-item--active"><a class="account-navigation__link" href="/your-services">Your services</a></li>
+      
+        <li class="account-navigation__list-item "><a class="account-navigation__link" href="/security">Security</a></li>
+      
+        <li class="account-navigation__list-item "><a class="account-navigation__link" href="/sign-out">Sign out</a></li>
+      
+    </ul>
+  </div>
+</nav>
+
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">
+        {{ serviceName }}
+      </h1>
+
+      <p class="govuk-body">In this service you can</p>
+
+
+      <ul class="govuk-list">
+        <li>
+          <a class="govuk-link" href="#">Upload information</a>
+        </li>
+        <li>
+          <a class="govuk-link" href="#">Download information</a>
+        </li>
+        <li>
+          <a class="govuk-link" href="#">View information</a>
+        </li>
+        <li>
+          <a class="govuk-link" href="#">View previous uploaded information</a>
+        </li>
+      
+      </ul>
+
+      
+  
+      
+    </div>
+
+    <div class="govuk-grid-column-one-third">
+
+     
+
+    </div>
+  </div>
+
+
+
+            
+
+{% endblock %}
