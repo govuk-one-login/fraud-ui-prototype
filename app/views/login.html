@@ -26,7 +26,7 @@
     <!-- <form action="/mfa" method="post" novalidate> -->
       {{ govukInput({
         label: {
-          text: "Enter your username",
+          text: "Enter username",
           isPageHeading: true,
           classes: "govuk-label--l"
         },
@@ -38,7 +38,7 @@
 
       {{ govukInput({
         label: {
-          text: "Enter your password",
+          text: "Enter password",
           isPageHeading: true,
           classes: "govuk-label--l"
         },
@@ -48,11 +48,14 @@
         autocomplete: "password"
       }) }}
 
-      ive forgotten my password
+  
 
       {{ govukButton({
         text: "Continue"
       }) }}
+      <p class="govuk-body">
+        <a href="#" class="govuk-link">I have forgotten my password</a>.
+      </p>
 
     </form>
   </div>
