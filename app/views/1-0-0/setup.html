@@ -1,0 +1,102 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form action="/setup-answer" method="post" novalidate>
+        <h1 class="govuk-heading-xl govuk-!-margin-bottom-2">Prototype setup</h1>
+
+        <div id="setup-hint" class="govuk-hint">
+          Setup the prototype based on product milestone
+        </div>
+        {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+        
+        {{ govukRadios({
+          name: "uploadstate",
+          fieldset: {
+            legend: {
+              text: "Upload functionality",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--m"
+            }
+          },
+       
+           items: [
+            {
+              value: "uploadstring",
+              text: "Upload by string"
+            },
+            {
+              value: "uploadfile",
+              text: "Upload by file"
+            }
+  
+          ]
+        }) }}
+
+
+        {{ govukRadios({
+          name: "downloadstate",
+          fieldset: {
+            legend: {
+              text: "Download functionality",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--m"
+            }
+          },
+         
+           items: [
+            {
+              value: "downloadall",
+              text: "Download all"
+            },
+            {
+              value: "downloadfilter",
+              text: "Filtered download"
+            }
+  
+          ]
+        }) }}
+
+
+        {{ govukRadios({
+          name: "submissionhistory",
+          fieldset: {
+            legend: {
+              text: "Submission history",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--m"
+            }
+          },
+         
+           items: [
+  
+            {
+              value: "submissionhistory",
+              text: "Submission history"
+            }
+  
+          ]
+        }) }}
+
+        
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+      </form>
+    </div>
+  </div>
+{% endblock %}
