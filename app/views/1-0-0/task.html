@@ -1,0 +1,96 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Start page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+
+{% block content %}
+
+
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <!-- <h1 class="govuk-heading-xl">
+        {{ serviceName }}
+      </h1> -->
+
+      <form action="task-answer" method="post" novalidate>
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <h1 class="govuk-fieldset__heading">
+              What would you like to do?
+            </h1>
+          </legend>
+          <div class="govuk-radios" data-module="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="task" name="task" type="radio" value="addinfo">
+              <label class="govuk-label govuk-radios__label" for="task">
+                Add information
+              </label>
+            </div>
+
+          {% if (data['downloadstate'] != "downloadoff") %}
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="task-2" name="task" type="radio" value="getinfo">
+              <label class="govuk-label govuk-radios__label" for="task-2">
+                Get information
+              </label>
+            </div>
+            {% endif %}
+            {% if (data['viewstate'] != "viewoff") %}
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="task-3" name="task" type="radio" value="viewinfo">
+              <label class="govuk-label govuk-radios__label" for="task-3">
+                View information
+              </label>
+            </div>
+            {% endif %}
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="task-4" name="task" type="radio" value="viewprevious">
+              <label class="govuk-label govuk-radios__label" for="task-4">
+                View previous uploaded information
+              </label>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+
+
+
+
+      
+
+      {{ govukButton({
+        text: "Continue"
+      }) }}
+
+    </form>
+  
+      
+    </div>
+
+    <div class="govuk-grid-column-one-third">
+
+     
+
+    </div>
+  </div>
+
+
+
+            
+
+{% endblock %}

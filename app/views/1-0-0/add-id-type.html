@@ -14,7 +14,7 @@
 {% block content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <form action="/add-format-answer" method="post" novalidate>
+      <form action="add-id" method="post" novalidate>
 
         {% from "govuk/components/radios/macro.njk" import govukRadios %}
 
@@ -39,24 +39,21 @@
               text: "Account related"
             },
             {
-              value: "identifier changed or recylced",
-              text: "Identifier"
+              value: "identifier",
+              text: "Identifier changed or recylced"
             },
             {
               value: "credential",
               text: "Credential comprimised"
             },
             {
-              value: "opt-in",
+              value: "optin",
               text: "Account Opted in or out from RISC exchanges"
             },
-            {
-              value: "opt-in",
-              text: "Opt in"
-            },
+ 
             {
               value: "recovery",
-              text: "Recovery information changed"
+              text: "Recovery requested or information changed"
             }
           ]
         }) }}

@@ -14,85 +14,101 @@
 {% block content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds-from-desktop">
+      <h1 class="govuk-heading-l">Check your answers before sending your information</h1>
+      <!-- <h2 class="govuk-heading-m">Personal details</h2> -->
 
-      <h1 class="govuk-heading-xl">
-        Check your answers before sending your application
-      </h1>
+      {% if (data['file-upload'] == "true") %}
 
-      {{ govukSummaryList({
-        rows: [
-          {
-            key: {
-              text: "Question 1"
-            },
-            value: {
-              text: "Answer 1"
-            },
-            actions: {
-              items: [
-                {
-                  href: "#",
-                  text: "Change",
-                  visuallyHiddenText: "Question 1"
-                }
-              ]
-            }
-          }
-          ,
-          {
-            key: {
-              text: "Question 2"
-            },
-            value: {
-              text: "Answer 2"
-            },
-            actions: {
-              items: [
-                {
-                  href: "#",
-                  text: "Change",
-                  visuallyHiddenText: "Question 2"
-                }
-              ]
-            }
-          }
-          ,
-          {
-            key: {
-              text: "Question 3"
-            },
-            value: {
-              text: "Answer 3"
-            },
-            actions: {
-              items: [
-                {
-                  href: "#",
-                  text: "Change",
-                  visuallyHiddenText: "Question 3"
-                }
-              ]
-            }
-          }
-        ]
-      }) }}
+      {% include('./includes/file-upload-cya.html') %}
 
-      <h2 class="govuk-heading-m">
-        Now send your application
-      </h2>
 
-      <p>
-        By submitting this application you are confirming that, to the best of your knowledge, the details you are providing are correct.
-      </p>
+      {% else %}
 
-      <form action="/confirmation" method="post" novalidate>
 
-        {{ govukButton({
-          text: "Accept and send"
-        }) }}
+      <dl class="govuk-summary-list govuk-!-margin-bottom-9">
 
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Update reason
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['reason'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="reason">
+              Change<span class="govuk-visually-hidden"> date of birth</span>
+            </a>
+          </dd>
+        </div>
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Multiple IDs to add
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['id-multiple'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="id-multiple">
+              Change<span class="govuk-visually-hidden"> id number</span>
+            </a>
+          </dd>
+        </div>
+
+        {% if (data['id-multiple'] == "no") %}
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            User ID
+          </dt>
+          <dd class="govuk-summary-list__value">
+        
+            {{ data['user-id'] }}
+ 
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="add-id">
+              Change<span class="govuk-visually-hidden"> id</span>
+            </a>
+          </dd>
+        </div>
+
+        {% else %}
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            User IDs
+          </dt>
+          <dd class="govuk-summary-list__value">
+          
+             joeblogs165683 <br>
+             joeblogs87683 <br>
+             joeblogs87654383 <br>
+             joeblogs87383
+ 
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="add-ids">
+              Change<span class="govuk-visually-hidden"> ids</span>
+            </a>
+          </dd>
+        </div>
+
+  
+        {% endif %}
+
+      </dl>
+      {% endif %}
+
+      <!-- <h2 class="govuk-heading-m">Now send your information</h2>
+      <p class="govuk-body">By submitting this application you are confirming that, to the best of your knowledge, the details you are providing are correct.</p>
+      -->
+      <form action="confirmation" method="post" novalidate>
+        <input type="hidden" name="answers-checked" value="true">
+        <button class="govuk-button" data-module="govuk-button">
+          Accept and send
+        </button>
       </form>
-
     </div>
+
   </div>
 {% endblock %}
