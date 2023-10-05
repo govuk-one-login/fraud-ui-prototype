@@ -1,4 +1,30 @@
-<h2 class="govuk-heading-m">File details</h2>
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Check your answers template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+      <h1 class="govuk-heading-l">Check the details before sending your information</h1>
+      <!-- <h2 class="govuk-heading-m">Submission details</h2> -->
+
+      {% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
+
+      {{ govukInsetText({
+        text: "This submission was unable to be added to One Login on 02 October 2023. You will need to resubmit it."
+      }) }}
+
+ 
+      <h2 class="govuk-heading-m">File details</h2>
 
 <dl class="govuk-summary-list govuk-!-margin-bottom-9">
   <div class="govuk-summary-list__row">
@@ -140,3 +166,18 @@
 
 
 </dl>
+
+<!-- 
+      <h2 class="govuk-heading-m">Now send your information</h2>
+      <p class="govuk-body">By submitting this application you are confirming that, to the best of your knowledge, the details you are providing are correct.</p>
+      -->
+      <form action="confirmation" method="post" novalidate>
+        <input type="hidden" name="answers-checked" value="true">
+        <button class="govuk-button" data-module="govuk-button">
+          Accept and send
+        </button>
+      </form>
+    </div>
+
+  </div>
+{% endblock %}

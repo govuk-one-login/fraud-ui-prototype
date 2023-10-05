@@ -21,14 +21,25 @@ router.post('/1-0-0/setup-answer', function(request, response) {
 router.post('/1-0-0/task-answer', function(request, response) {
 
     var task = request.session.data['task']
-    if (task == "addinfo"){
-        response.redirect("/1-0-0/add-format")
+    var uploadstate = request.session.data['upload-state']
+    var submissionhistory = request.session.data['submission-history']
+    if (uploadstate == "uploadfileoff"){
+        response.redirect("/1-0-0/reason")
     } else if (task == "getinfo"){
         response.redirect("/1-0-0/get-format")
-    } else {
-        response.redirect("/1-0-0/view")
+    }
+    else if (task == "addinfo"){
+        response.redirect("/1-0-0/add-format")
+    }
+    else if (submissionhistory == "yes"){
+        response.redirect("/1-0-0/submission-history")
+    }
+  else {
+        response.redirect("/1-0-0/view-submission-history")
     }
 })
+
+
 
 router.post('/1-0-0/add-format-answer', function(request, response) {
 

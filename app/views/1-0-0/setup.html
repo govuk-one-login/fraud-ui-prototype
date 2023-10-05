@@ -22,13 +22,12 @@
         </div>
         {% from "govuk/components/radios/macro.njk" import govukRadios %}
 
-        {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
 
 
 
 
-{{ govukCheckboxes({
-  name: "uploadstate",
+{{ govukRadios({
+  name: "upload-state",
   fieldset: {
     legend: {
       text: "Upload functionality",
@@ -36,30 +35,25 @@
       classes: "govuk-fieldset__legend--m"
     }
   },
-
-  items: [
-    {
-      checked: true,
-      value: "uploadstring",
-      text: "Upload by string"
-    },
-    {
-      checked: true,
-      value: "uploadfile",
-      text: "Upload by file"
-    },
-    {
-      checked: true,
-      value: "uploadone",
-      text: "Upload 1 by 1"
+ 
+   items: [
+   {
+    value: "uploadfileoff",
+    text: "Upload file off"
+  },
+   {
+    value: "uploadsingleoff",
+      text: "Upload single off"
     }
+
   ]
 }) }}
 
 
 
+
         {{ govukRadios({
-          name: "downloadstate",
+          name: "download-state",
           fieldset: {
             legend: {
               text: "Download functionality",
@@ -73,13 +67,10 @@
             value: "downloadoff",
             text: "Download off"
           },
-           {
-              value: "downloadall",
-              text: "Download all"
-            },
+
             {
-              value: "downloadfilter",
-              text: "Filtered download"
+              value: "downloadtailored",
+              text: "Tailored subscription"
             }
   
           ]
@@ -88,7 +79,7 @@
 
 
         {{ govukRadios({
-          name: "viewstate",
+          name: "view-state",
           fieldset: {
             legend: {
               text: "View information",
@@ -99,15 +90,15 @@
          
            items: [
             {
-              value: "viewoff",
-              text: "View off"
+              value: "yes",
+              text: "View information on"
             }
   
           ]
         }) }}
 
         {{ govukRadios({
-          name: "submissionhistory",
+          name: "view-submission-history",
           fieldset: {
             legend: {
               text: "Submission history",
@@ -119,14 +110,16 @@
            items: [
   
             {
-              value: "submissionhistory",
-              text: "Submission history"
+              value: "yes",
+              text: "Submission history on"
+            },
+            {
+              value: "submission-failed",
+              text: "Show failed submission"
             }
   
           ]
         }) }}
-
-
 
 
         

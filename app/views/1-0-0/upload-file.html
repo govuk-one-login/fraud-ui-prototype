@@ -32,16 +32,32 @@
           For example, 31 3 1980
         </div> -->
 
+        
+        {% if (data['file-upload'] == "true") %}
 
-        {% from "govuk/components/file-upload/macro.njk" import govukFileUpload %}
 
-{{ govukFileUpload({
-  id: "file-upload-1",
-  name: "fileUpload1",
-  label: {
-    text: "Upload a file"
-  }
-}) }}
+        
+  
+  
+        <div class="govuk-inset-text">
+          rp-upload465.csv uploaded. You can replace it with a new file, using the upload link below.
+
+        </div>
+  
+        {% endif %}
+
+
+
+
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="file-upload">
+            Upload a file
+          </label>
+          <input class="govuk-file-upload" id="file-upload" name="fileUpload" type="file">
+        </div>
+  
+
+        
 
 
 
