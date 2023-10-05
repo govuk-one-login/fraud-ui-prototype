@@ -4,10 +4,6 @@
   Start page template – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
-{% block header %}
-  <!-- Blank header with no service name for the start page -->
-  {{ govukHeader() }}
-{% endblock %}
 
 {% block beforeContent %}
 
@@ -21,35 +17,19 @@
     <div class="govuk-grid-column-two-thirds">
 
       <h1 class="govuk-heading-xl">
-        {{ serviceName }} Design History
+       Design History
       </h1>
-      <p>Use this service to manually downlod fraud data from One Login, or manually upload information to One Login.</p>
+      <p>This is the design history for the Share Signals UI prototype. This will show rational for design decisions, highlighting ket elements that have iterated between versions.</p>
 
       <p>Use can use this service to:</p>
 
       <ul class="govuk-list govuk-list--bullet">
         <li>Upload information</li>
-        <li>Download information</li>
-        <li>View information</li>
         <li>View previous uploaded information</li>
       </ul>
 
-      <p>Registering takes around 5 minutes.</p>
-
-      {{ govukButton({
-        text: "Update shared information",
-        href: "login",
-        isStartButton: true
-      }) }}
-
-      <h2 class="govuk-heading-m">
-        Before you start
-      </h2>
-
       <p>
-      The information you are uploading must be in line with the <a href="#">Shared Signals Framwork (SSF) guidelines</a></p>
-        <p>
-        You can also upload and download information automatically, if you have the <a href="#">SSF capabilities</a>.
+        Working progress
       </p>
     </div>
 
@@ -68,14 +48,10 @@
             </li>
             <li>
               <a href="#">
-                Related link
+                Version 1-0-0 (October 2023)
               </a>
             </li>
-            <li>
-              <a href="#" class="govuk-!-font-weight-bold">
-                More <span class="govuk-visually-hidden">in Subsection</span>
-              </a>
-            </li>
+           
           </ul>
         </nav>
       </aside>
