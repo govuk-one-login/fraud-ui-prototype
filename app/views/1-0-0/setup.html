@@ -14,7 +14,7 @@
 {% block content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <form action="task" method="post" novalidate>
+      <form action="./" method="post" novalidate>
         <h1 class="govuk-heading-xl govuk-!-margin-bottom-2">Prototype setup</h1>
 
         <div id="setup-hint" class="govuk-hint">
@@ -110,12 +110,8 @@
            items: [
   
             {
-              value: "yes",
-              text: "Submission history on"
-            },
-            {
-              value: "submission-failed",
-              text: "Show failed submission"
+              value: "no",
+              text: "Submission history off"
             }
   
           ]

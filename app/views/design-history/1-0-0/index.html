@@ -1,0 +1,60 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Start page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+
+
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <span class="govuk-caption-l">Version 1-0-0</span>
+      <h1 class="govuk-heading-l">Design History </h1>
+
+      <p>This is the first design story for the Shared Signals UI prototype.</p>
+      <p>The main features of this initial prototype include:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>Upload information</li>
+        <li>View previous uploaded information</li>
+      </ul>
+
+      <h2 class="govuk-heading-m">Upload information</h2>
+      <p>Initial upload functionality includes upload by file, one by one by a form.</p>
+
+      <h2 class="govuk-heading-m">View previous uploaded information</h2>
+      <p>This initial prototype covers the unhappy path of showing unsuccessful submissions. This is handled with a list of submissions and links to view submission details.</p>
+
+      <h2 class="govuk-heading-m">Areas to look at next</h2>
+      <p>Look to iterate the upload functionality after usability testing, and understanding of impact wider discussions.</p>
+
+      <h2 class="govuk-heading-m">Issues flagged</h2>
+      <p>Due to the complexity of the language used to describe RISC events, I've flagged there could be a need for a Content Designer, or Technical Writer.</p>
+      <p>Other design activities for a content designer would be to input in the flow and hierachy of the journey and naming of the sservice.</p>
+      <p>Also we are still understanding the RP requirements, so initially the designs that we will be testing, are focused on the core functionality - initially Uploading information and Downloading information.</p>
+
+    </div>
+
+    <div class="govuk-grid-column-one-third">
+
+      
+
+    </div>
+  </div>
+
+  
+
+  
+
+{% endblock %}

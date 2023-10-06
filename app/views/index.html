@@ -20,32 +20,77 @@
         Prototype landing page
       </h1>
     
+      {% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
 
-      <h2 class="govuk-heading-m">Version 1-0-0  <strong class="govuk-tag govuk-tag--blue">
-        Design
-      </strong></h2>
-
-      <ul class="govuk-list govuk-list--bullet">
-        <li>Upload information</li>
-        <li>View previous uploaded information</li>
-      </ul>
-
-      <p>Updated 06.10.23
+      <div class="govuk-summary-card">
+        <div class="govuk-summary-card__title-wrapper">
+          
+          <h2 class="govuk-summary-card__title">
+            Version 1-0-0
+          </h2>
+          <a class="govuk-button govuk-body govuk-!-margin-bottom-0" data-module="govuk-button" href="/1-0-0/">
+            Start prototype
+          </a>
+        </div>
+        <div class="govuk-summary-card__content">
+          <dl class="govuk-summary-list">
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Phase
+              </dt>
+              <dd class="govuk-summary-list__value">
+                <strong class="govuk-tag govuk-tag--blue">
+                  Design
+                </strong>
+              </dd>
        
-      </p>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+               Last updated
+
+              </dt>
+              <dd class="govuk-summary-list__value">
+                06 October 2023
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Summary
+              </dt>
+              <dd class="govuk-summary-list__value">
+                <ul class="govuk-list govuk-list--bullet govuk-body govuk-!-margin-bottom-0">
+                  <li>Upload information</li>
+                  <li>View previous uploaded information</li>
+                </ul>
+                <a class="govuk-link" href="/design-history/1-0-0/">View design history<span class="govuk-visually-hidden"> design history</span>
+                </a>
+              </dd>
+             </div>
+             <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Additional setup
+              </dt>
+              <dd class="govuk-summary-list__value">
+          
+                <a href="/1-0-0/setup">Setup prototype</a>
+
+              </dd>
+           
+            </div>
+          </dl>
+        </div>
+      </div>
+
+
+  
       {% from "govuk/components/button/macro.njk" import govukButton %}
 
-      <div class="govuk-button-group">
-        <a class="govuk-button" data-module="govuk-button" href="/1-0-0/">
-          Start prototype
-        </a>
-        <a class="govuk-button govuk-button--secondary" href="/1-0-0/setup">Setup prototype</a>
-      </div>
 
     </div>
 
     <div class="govuk-grid-column-one-third">
-
+<!-- 
       <aside class="govuk-prototype-kit-common-templates-related-items" role="complementary">
         <h2 class="govuk-heading-m" id="subsection-title">
           Related content
@@ -53,7 +98,7 @@
         <nav role="navigation" aria-labelledby="subsection-title">
           <ul class="govuk-list govuk-!-font-size-16">
             <li>
-              <a href="/design-history">
+              <a href="/design-history/">
                 Full Design History
               </a>
             </li>
@@ -61,7 +106,7 @@
             
           </ul>
         </nav>
-      </aside>
+      </aside> -->
 
     </div>
   </div>
