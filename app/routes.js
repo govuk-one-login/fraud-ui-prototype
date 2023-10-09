@@ -3,8 +3,10 @@
 // https://prototype-kit.service.gov.uk/docs/create-routes
 //
 
-const express = require('express')
-const router = express.Router()
+
+
+const govukPrototypeKit = require('govuk-prototype-kit')
+const router = govukPrototypeKit.requests.setupRouter()
 
 // myData object to pass to prototype versions
 var myData = {
