@@ -4,3 +4,20 @@
 // 
 
 // Add extra styles here
+
+.govuk-masthead {
+    width: 100%;
+    background: #1d70b8;
+    margin-top: -10px;
+}
+
+.govuk-masthead h1,
+.govuk-masthead p,
+.govuk-masthead a.govuk-back-link:link, 
+.govuk-masthead .govuk-back-link:visited  {
+    color: #ffffff;
+}
+
+.govuk-masthead .govuk-back-link:before {
+    border-color: #ffffff;
+}

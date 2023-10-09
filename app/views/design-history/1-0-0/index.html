@@ -8,20 +8,46 @@
 
 
 {% block beforeContent %}
+
+</div>
+<div class="govuk-masthead govuk-!-padding-top-1 govuk-!-padding-bottom-6 govuk-!-margin-bottom-2">
+  <div class="govuk-width-container">
+    
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds-from-desktop">
+
   {{ govukBackLink({
-  text: "Back",
-  href: "javascript:window.history.back()"
-}) }}
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+  
+        <h1 class="govuk-heading-xl">
+          A design history for the Shared Signals UI prototype
+        </h1>
+        <p>
+          A record of how our service has iterated.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="govuk-width-container">
+
+
 {% endblock %}
 
 
 {% block content %}
 
+
+
+
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <span class="govuk-caption-l">Version 1-0-0</span>
-      <h1 class="govuk-heading-l">Design History </h1>
+      <span class="govuk-caption-l">October 2023</span>
+      <h1 class="govuk-heading-l">Version 1-0-0 </h1>
 
       <p>This is the first design story for the Shared Signals UI prototype.</p>
       <p>The main features of this initial prototype include:</p>
@@ -43,7 +69,6 @@
       <p>Due to the complexity of the language used to describe RISC events, I've flagged there could be a need for a Content Designer, or Technical Writer.</p>
       <p>Other design activities for a content designer would be to input in the flow and hierachy of the journey and naming of the sservice.</p>
       <p>Also we are still understanding the RP requirements, so initially the designs that we will be testing, are focused on the core functionality - initially Uploading information and Downloading information.</p>
-     
 
     </div>
 
