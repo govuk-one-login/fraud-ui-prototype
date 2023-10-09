@@ -32,7 +32,13 @@
             Update reason
           </dt>
           <dd class="govuk-summary-list__value">
+            {% if (data['reason'] == null) %}
+            Credentials comprimised
+            {% else %}
             {{ data['reason'] }}
+
+            {% endif %}
+
           </dd>
           <dd class="govuk-summary-list__actions">
             <a class="govuk-link" href="reason">
