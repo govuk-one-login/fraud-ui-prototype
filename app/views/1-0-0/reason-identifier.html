@@ -14,33 +14,42 @@
 {% block content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <form action="add-more-answer" method="post" novalidate>
 
+        {% if (data['upload-state'] == "uploadsingleoff") %}
+        <form action="add-ids" method="post" novalidate>
+        {% else %}
+      <form action="id-multiple" method="post" novalidate>
+        {% endif %}
 
         {% from "govuk/components/radios/macro.njk" import govukRadios %}
 
+
         {{ govukRadios({
-          classes: "govuk-radios--inline",
-          name: "add-more",
+          name: "reason",
           fieldset: {
             legend: {
-              text: "Do you have any more updates to add?",
+              text: "What has happened to the identifier?",
               isPageHeading: true,
               classes: "govuk-fieldset__legend--l"
             }
           },
-
-          items: [
+  
+           items: [
             {
-              value: "yes",
-              text: "Yes"
+              value: "identifier changed",
+              text: "Identifier changed"
             },
             {
-              value: "no",
-              text: "No"
+              value: "identifier changed",
+              text: "Identifier reused"
             }
           ]
         }) }}
+
+
+
+
+        
 
         {{ govukButton({
           text: "Continue"
