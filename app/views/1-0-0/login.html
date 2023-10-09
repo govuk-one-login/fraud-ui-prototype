@@ -15,46 +15,47 @@
 
 {% block content %}
 
-<p>
-  You need to login to use this service.
-</p>
+
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
     <form action="task" method="post" novalidate>
-
+      <h1 class="govuk-heading-l">
+        Sign in to update fraud information
+      </h1>
     <!-- <form action="/mfa" method="post" novalidate> -->
-      {{ govukInput({
-        label: {
-          text: "Username",
-          isPageHeading: true,
-          classes: "govuk-label--l"
-        },
-        classes: "govuk-input--width-20",
-        id: "username",
-        name: "username",
-        autocomplete: "sername"
-      }) }}
 
-      {{ govukInput({
-        label: {
-          text: "Password",
-          isPageHeading: true,
-          classes: "govuk-label--l"
-        },
-        classes: "govuk-input--width-20",
-        id: "password",
-        name: "password",
-        autocomplete: "password"
-      }) }}
+      {% from "govuk/components/input/macro.njk" import govukInput %}
+
+{{ govukInput({
+  label: {
+    text: "Username"
+  },
+  id: "username",
+  name: "username",
+  autocomplete: "username",
+  classes: "govuk-input--width-20",
+  spellcheck: false
+}) }}
+
+{{ govukInput({
+  label: {
+    text: "Password"
+  },
+  id: "password",
+  name: "password",
+  autocomplete: "password",
+  classes: "govuk-input--width-20",
+  spellcheck: false
+}) }}
 
   
 
       {{ govukButton({
-        text: "Continue"
+        text: "Sign in"
       }) }}
       <p class="govuk-body">
-        <a href="#" class="govuk-link">I have forgotten my password</a>.
+        You can <a href="#" class="govuk-link">reset your password</a> if you've forgotten it.
       </p>
 
     </form>
