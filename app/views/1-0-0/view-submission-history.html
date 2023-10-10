@@ -43,11 +43,12 @@
           {% if (data['view-submission-history'] != "submission-failed") %}
           <li class="govuk-prototype-kit-task-list__item">
             <span class="govuk-prototype-kit-task-list__task-name">
+
               <a href="view-failed-submission?date=10 October 2023" aria-describedby="submission-date">
                 10 October 2023
               </a>
             </span>
-            <strong class="govuk-tag govuk-tag--red govuk-prototype-kit-task-list__tag" id="financial-evidence-status">Unsuccessful</strong>
+            <strong class="govuk-tag govuk-tag--orange govuk-prototype-kit-task-list__tag" id="financial-evidence-status">Pending</strong>
           </li>
           {% else %}
           <li class="govuk-prototype-kit-task-list__item">
@@ -84,7 +85,7 @@
               10 September 2023
               </a>
             </span>
-            <strong class="govuk-tag govuk-tag--red govuk-prototype-kit-task-list__tag" id="medical-information-status">Unsuccessful</strong>
+            <strong class="govuk-tag govuk-tag--orange govuk-prototype-kit-task-list__tag" id="medical-information-status">Pending</strong>
           </li>
           {% else %}
           <li class="govuk-prototype-kit-task-list__item">
@@ -126,7 +127,7 @@
               08 September 2023
               </a>
             </span>
-            <strong class="govuk-tag govuk-tag--red govuk-prototype-kit-task-list__tag" id="medical-information-status">Unsuccessful</strong>
+            <strong class="govuk-tag govuk-tag--red govuk-prototype-kit-task-list__tag" id="medical-information-status">Rejected</strong>
           </li>
           {% endif %}
 
