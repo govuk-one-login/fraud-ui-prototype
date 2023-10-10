@@ -1,0 +1,69 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Check your answers template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full-width">
+    <h1 class="govuk-heading-xl">
+      View information
+    </h1>
+
+    <div class="govuk-form-group">
+     
+      <label class="govuk-label" for="width-20">
+        Search
+      </label>
+      <input class="govuk-input govuk-input--width-20" id="width-20" name="width20" type="text">
+      <button class="govuk-button" data-module="govuk-button">
+        Search
+      </button>
+    </div>
+
+    <table class="govuk-table">
+      <!-- <caption class="govuk-table__caption govuk-table__caption--m">Month you apply</caption> -->
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header app-custom-class">User ID</th>
+          <th scope="col" class="govuk-table__header app-custom-class">Reason</th>
+          <th scope="col" class="govuk-table__header app-custom-class">Date updated</th>
+          <th scope="col" class="govuk-table__header app-custom-class">Action</th>
+
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">First 6 weeks</th>
+          <td class="govuk-table__cell">£109.80 per week</td>
+          <td class="govuk-table__cell">£59.10 per week</td>
+          <td class="govuk-table__cell">£109.80 per week</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">Next 33 weeks</th>
+          <td class="govuk-table__cell">£159.80 per week</td>
+          <td class="govuk-table__cell">£89.10 per week</td>
+          <td class="govuk-table__cell">£89.10 per week</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">Total estimated pay</th>
+          <td class="govuk-table__cell">£4,282.20</td>
+          <td class="govuk-table__cell">£2,182.20</td>
+          <td class="govuk-table__cell">£2,182.20</td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+</div>
+
+{% endblock %}
