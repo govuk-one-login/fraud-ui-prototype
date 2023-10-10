@@ -43,8 +43,8 @@
           {% if (data['view-submission-history'] != "submission-failed") %}
           <li class="govuk-prototype-kit-task-list__item">
             <span class="govuk-prototype-kit-task-list__task-name">
-              <a href="view-failed-submission" aria-describedby="submission-date">
-                02 October 2023
+              <a href="view-failed-submission?date=10 October 2023" aria-describedby="submission-date">
+                10 October 2023
               </a>
             </span>
             <strong class="govuk-tag govuk-tag--red govuk-prototype-kit-task-list__tag" id="financial-evidence-status">Unsuccessful</strong>
@@ -52,8 +52,8 @@
           {% else %}
           <li class="govuk-prototype-kit-task-list__item">
             <span class="govuk-prototype-kit-task-list__task-name">
-              <a href="view-submission?date=02 October 2023" aria-describedby="submission-date">
-                02 October 2023
+              <a href="view-submission?date=0 October 2023" aria-describedby="submission-date">
+                10 October 2023
               </a>
             </span>
             <strong class="govuk-tag govuk-prototype-kit-task-list__tag" id="submission-date">Completed</strong>
@@ -70,8 +70,8 @@
           </li>
           <li class="govuk-prototype-kit-task-list__item">
             <span class="govuk-prototype-kit-task-list__task-name">
-              <a href="view-submission?date=11 August 2023" aria-describedby="lsubmission-date">
-                11 August 2023
+              <a href="view-submission?date=11 September 2023" aria-describedby="lsubmission-date">
+                11 September 2023
               </a>
             </span>
             <strong class="govuk-tag govuk-prototype-kit-task-list__tag" id="submission-date">Completed</strong>
@@ -80,8 +80,8 @@
 
           <li class="govuk-prototype-kit-task-list__item">
             <span class="govuk-prototype-kit-task-list__task-name">
-              <a href="view-failed-submission-lite" aria-describedby="submission-date">
-              10 August 2023
+              <a href="view-failed-submission-lite?date=10 October 2023" aria-describedby="submission-date">
+              10 September 2023
               </a>
             </span>
             <strong class="govuk-tag govuk-tag--red govuk-prototype-kit-task-list__tag" id="medical-information-status">Unsuccessful</strong>
@@ -89,8 +89,8 @@
           {% else %}
           <li class="govuk-prototype-kit-task-list__item">
             <span class="govuk-prototype-kit-task-list__task-name">
-              <a href="view-submission?date=10 August 2023" aria-describedby="submission-date">
-              10 August 2023
+              <a href="view-submission?date=10 September 2023" aria-describedby="submission-date">
+              10 September 2023
               </a>
             </span>
             <strong class="govuk-tag govuk-prototype-kit-task-list__tag" id="submission-date">Completed</strong>
@@ -100,13 +100,36 @@
 
           <li class="govuk-prototype-kit-task-list__item">
             <span class="govuk-prototype-kit-task-list__task-name">
-              <a href="view-submission?date=28 June 2023" aria-describedby="submission-date">
-              28 June 2023
+              <a href="view-submission?date=09 September 2023 at 1:30pm" aria-describedby="submission-date">
+              09 September 2023 at 1:30pm
               </a>
             </span>
             <strong class="govuk-tag govuk-prototype-kit-task-list__tag" id="submission-date">Completed</strong>
 
           </li>
+
+
+          <li class="govuk-prototype-kit-task-list__item">
+            <span class="govuk-prototype-kit-task-list__task-name">
+              <a href="view-submission?date=09 September 2023 at 12:37pm" aria-describedby="submission-date">
+              09 September 2023 at 12:37pm
+              </a>
+            </span>
+            <strong class="govuk-tag govuk-prototype-kit-task-list__tag" id="submission-date">Completed</strong>
+
+          </li>
+          {% if (data['view-submission-history'] == "post-mvp-submission") %}
+
+          <li class="govuk-prototype-kit-task-list__item">
+            <span class="govuk-prototype-kit-task-list__task-name">
+              <a href="view-failed-submission?date=08 September 2023" aria-describedby="submission-date">
+              08 September 2023
+              </a>
+            </span>
+            <strong class="govuk-tag govuk-tag--red govuk-prototype-kit-task-list__tag" id="medical-information-status">Unsuccessful</strong>
+          </li>
+          {% endif %}
+
         </ul>
       </li>
 

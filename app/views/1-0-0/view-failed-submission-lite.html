@@ -23,7 +23,17 @@
         text: "This submission was unable to be added to One Login on 02 October 2023. You will need to resubmit it."
       }) }} -->
 
-      <p class="govuk-body">This submission was unable to be added to One Login on 02 October 2023. You will need to try again.</p>
+      <p class="govuk-body">This submission was unable to be added to One Login on 
+        
+      
+        {% if (data['date'] == null) %}
+        02 October 2023
+        {% else %}
+      
+        {{ data['date'] }}
+        {% endif %}.
+
+         You will need to try again.</p>
       <p class="govuk-body">Use this service to
         <a class="govuk-link" href="add-format">add information</a> to One Login, or go back to view <a class="govuk-link" href="view-submission-history">previous submission</a>.
       </p>
