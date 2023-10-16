@@ -16,13 +16,17 @@
     <div class="govuk-grid-column-two-thirds-from-desktop">
       <h1 class="govuk-heading-l">File not downloaded</h1>
 
-        <p>
-          You chose not to download the file. You can <a href="get-options">download other information</a>, or <a href="task">carry out other tasks</a>.
-        </p>
+      <p>
+        You chose not to download the file. You can <a href="get-options">
+          {% if (data['task'] == "getinfo") %}
+          download 
+          {% else %}
+          view
+          {% endif %}
+          other information</a>, or <a href="task">carry out other tasks</a>.
+      </p>
 
-      
- 
-   
+
     </div>
 
   </div>
