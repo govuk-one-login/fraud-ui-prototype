@@ -1,0 +1,188 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Check your answers template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+
+      <h1 class="govuk-heading-l">
+        View submission
+      </h1>
+
+     
+
+  
+
+<!-- <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+  <h2 class="govuk-heading-m">File details</h2>
+
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      File upload
+    </dt>
+    <dd class="govuk-summary-list__value">
+
+      {% if (data['file-upload'] == "true") %}
+
+      rp-upload465.csv
+
+      {% endif %}
+     
+
+    </dd>
+    <dd class="govuk-summary-list__actions">
+      <a class="govuk-link" href="upload-file">
+        Change<span class="govuk-visually-hidden"> file</span>
+      </a>
+    </dd>
+  </div>
+
+</dl> -->
+
+
+
+<dl class="govuk-summary-list govuk-!-margin-bottom-9">
+
+
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Submission date
+    </dt>
+    <dd class="govuk-summary-list__value">
+      
+      {% if (data['date'] == null) %}
+      02 October 2023
+      {% else %}
+    
+      {{ data['date'] }}
+      {% endif %}
+      
+    </dd>
+    <dd class="govuk-summary-list__actions">
+
+    </dd>
+  </div>
+
+
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Update reason
+    </dt>
+    <dd class="govuk-summary-list__value">
+      Credentials comprimised
+    </dd>
+    <dd class="govuk-summary-list__actions">
+      <!-- <a class="govuk-link" href="reason">
+        Change<span class="govuk-visually-hidden">reason</span>
+      </a> -->
+    </dd>
+  </div>
+
+
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      User IDs
+    </dt>
+    <dd class="govuk-summary-list__value">
+    
+       joeblogs165683 <br>
+       joeblogs87683 <br>
+       joeblogs87654383 <br>
+       joeblogs87383
+
+    </dd>
+    <dd class="govuk-summary-list__actions">
+      <!-- <a class="govuk-link" href="reason">
+        Change<span class="govuk-visually-hidden">reason</span>
+      </a> -->
+    </dd>
+  </div>
+
+
+
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Update reason
+    </dt>
+    <dd class="govuk-summary-list__value">
+      Account suspended
+    </dd>
+    <dd class="govuk-summary-list__actions">
+      <!-- <a class="govuk-link" href="reason">
+        Change<span class="govuk-visually-hidden">reason</span>
+      </a> -->
+    </dd>
+  </div>
+
+
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      User IDs
+    </dt>
+    <dd class="govuk-summary-list__value">
+    
+       claireahmeed165683 <br>
+       claireahmeed87654383 <br>
+       claireahmeed8765438387383
+
+    </dd>
+    <dd class="govuk-summary-list__actions">
+      <!-- <a class="govuk-link" href="reason">
+        Change<span class="govuk-visually-hidden">reason</span>
+      </a> -->
+    </dd>
+  </div>
+
+
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Update reason
+    </dt>
+    <dd class="govuk-summary-list__value">
+      Identifier changed 
+    </dd>
+    <dd class="govuk-summary-list__actions">
+      <!-- <a class="govuk-link" href="reason">
+        Change<span class="govuk-visually-hidden">reason</span>
+      </a> -->
+    </dd>
+  </div>
+
+
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      User IDs
+    </dt>
+    <dd class="govuk-summary-list__value">
+    
+       Vikhbentley87678987<br>
+       Vikhbentley87654383 <br>
+       Vikhbentley8765432383 <br>
+       Vikhbentley8765438387383
+
+    </dd>
+    <!-- <dd class="govuk-summary-list__actions">
+      <a class="govuk-link" href="add-ids">
+        Change<span class="govuk-visually-hidden"> ids</span>
+      </a>
+    </dd> -->
+  </div>
+
+
+
+</dl>
+
+    </div>
+
+  </div>
+{% endblock %}

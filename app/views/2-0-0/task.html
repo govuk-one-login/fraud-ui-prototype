@@ -57,7 +57,24 @@
               </label>
             </div>
 
-    
+          {% if (data['download-state'] != "downloadoff") %}
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="task-2" name="task" type="radio" value="getinfo">
+              <label class="govuk-label govuk-radios__label" for="task-2">
+                Get information
+              </label>
+            </div>
+            {% endif %}
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="task-3" name="task" type="radio" value="viewinfo">
+              <label class="govuk-label govuk-radios__label" for="task-3">
+                View information
+              </label>
+
+              
+            </div>
             {% if (data['view-submission-history'] != "no")  %}
 
             <div class="govuk-radios__item">

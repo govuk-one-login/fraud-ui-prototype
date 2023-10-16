@@ -18,5 +18,6 @@ var myData = {
 //Version routing
 //Pass myData variable as parameter into version specific routes file
 require('./routes/1-0-0/routes.js')(router,myData);
+require('./routes/2-0-0/routes.js')(router,myData);
 
 module.exports = router

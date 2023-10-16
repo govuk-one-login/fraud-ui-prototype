@@ -1,0 +1,101 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form action="get-options-are-you-sure-answer" method="post" novalidate>
+
+
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset" aria-describedby="get-confirm-hint">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+              <h1 class="govuk-fieldset__heading">
+
+                   
+
+                Are you sure you want to download
+
+                {% if (data['get-options'] == "all") %}
+                all the information
+                {% elseif (data['get-options'] == "30days") %}
+                all updates from the last 30 days
+                {% elseif (data['get-options'] == "certain-events") %}
+                all updates from the selected events
+
+                {% else %}
+                all updates since my last login
+                {% endif %}   
+                ?
+
+              </h1>
+            </legend>
+            <!-- <div id="get-confirm-hint" class="govuk-hint">
+              This includes changing your last name or spelling your name differently.
+            </div> -->
+            <p>
+              {% if (data['get-options'] == "all") %}
+              There is currently 1000 records, the file size will be around 200mb.
+              {% elseif (data['get-options'] == "30days") %}
+
+              There is currently 100 records from the last 30 days, the file size will be around 200mb.
+              {% elseif (data['get-options'] == "certain-events") %}
+              There is currently 106 records from the following event types; Account related, Identifier changed or recylced, addinfo Credential comprimised. The file size will be around 200mb.
+
+              {% else %}
+              There is currently 100 records since the last login, the file size will be around 200mb.
+
+              {% endif %} 
+
+              
+            </p>
+            <!-- {% if (data['get-options'] == "certain-events") %}
+            <p class="govuk-body">You have selected:</p>
+              <ul class="govuk-list govuk-list--bullet">
+                   <li>Account related</li>
+                <li>Identifier changed or recylced</li>
+                <li>Credential comprimised</li>
+              </ul>
+            {% endif %}  -->
+
+            <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="get-confirm" name="get-confirm" type="radio" value="yes">
+                <label class="govuk-label govuk-radios__label" for="get-confirm">
+                  Yes
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="get-confirm-2" name="get-confirm" type="radio" value="no">
+                <label class="govuk-label govuk-radios__label" for="get-confirm-2">
+                  No
+                </label>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+
+
+     
+
+
+
+        
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+      </form>
+    </div>
+  </div>
+{% endblock %}

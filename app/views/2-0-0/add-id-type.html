@@ -1,0 +1,69 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form action="add-id" method="post" novalidate>
+
+        {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+
+        
+        {{ govukRadios({
+          name: "addreason",
+          fieldset: {
+            legend: {
+              text: "What is the reason for the update",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          hint: {
+            text: "This is often refered to as the event"
+        
+        },
+           items: [
+            {
+              value: "accounts",
+              text: "Account related"
+            },
+            {
+              value: "identifier",
+              text: "Identifier changed or recylced"
+            },
+            {
+              value: "credential",
+              text: "Credential comprimised"
+            },
+            {
+              value: "optin",
+              text: "Account Opted in or out from RISC exchanges"
+            },
+ 
+            {
+              value: "recovery",
+              text: "Recovery requested or information changed"
+            }
+          ]
+        }) }}
+
+        
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+      </form>
+    </div>
+  </div>
+{% endblock %}

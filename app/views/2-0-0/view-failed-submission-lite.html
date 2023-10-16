@@ -1,0 +1,45 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Check your answers template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+      <h1 class="govuk-heading-l">There was a problem with this submission</h1>
+      <!-- <h2 class="govuk-heading-m">Submission details</h2> -->
+
+      <!-- {% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
+
+      {{ govukInsetText({
+        text: "This submission was unable to be added to One Login on 02 October 2023. You will need to resubmit it."
+      }) }} -->
+
+      <p class="govuk-body">This submission was unable to be added to One Login on 
+        
+      
+        {% if (data['date'] == null) %}
+        02 October 2023
+        {% else %}
+      
+        {{ data['date'] }}
+        {% endif %}.
+
+         You will need to try again.</p>
+      <p class="govuk-body">Use this service to
+        <a class="govuk-link" href="add-format">add information</a> to One Login, or go back to view <a class="govuk-link" href="view-submission-history">previous submission</a>.
+      </p>
+ 
+   
+    </div>
+
+  </div>
+{% endblock %}

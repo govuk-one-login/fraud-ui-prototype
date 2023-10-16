@@ -1,5 +1,5 @@
 module.exports = function (router) {
-    var version = "1-0-0";
+    var version = "2-0-0";
 
 // Add your routes here
 router.post('/' + version + '/setup-answer', function(request, response) {

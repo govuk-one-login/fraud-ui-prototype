@@ -14,46 +14,41 @@
 {% block content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <form action="add-reason-answer" method="post" novalidate>
+      <form action="get-options-answer" method="post" novalidate>
 
         {% from "govuk/components/radios/macro.njk" import govukRadios %}
 
 
         
         {{ govukRadios({
-          name: "reason",
+          name: "get-options",
           fieldset: {
             legend: {
-              text: "What is the reason for the update",
+              text: "What information would you like to download?",
               isPageHeading: true,
               classes: "govuk-fieldset__legend--l"
             }
           },
           hint: {
-            text: "This is often refered to as the event type"
+            text: "This will be downloaded in a .csv format"
         
         },
            items: [
             {
-              value: "accounts",
-              text: "Account related"
+              value: "all",
+              text: "All the information"
             },
             {
-              value: "identifier",
-              text: "Identifier changed or recylced"
+              value: "certain-events",
+              text: "Certain event information"
             },
             {
-              value: "credential",
-              text: "Credential comprimised"
+              value: "30days",
+              text: "All updates from the last 30 days"
             },
             {
-              value: "optin",
-              text: "Account Opted in or out from RISC exchanges"
-            },
- 
-            {
-              value: "recovery",
-              text: "Recovery requested or information changed"
+              value: "last-login",
+              text: "All updates since my last login"
             }
           ]
         }) }}
