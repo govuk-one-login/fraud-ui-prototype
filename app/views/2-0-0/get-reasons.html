@@ -12,17 +12,79 @@
 {% endblock %}
 
 {% block content %}
+
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
+      {% if (data['task'] == "viewinfo") %}
+      <form action="view-information" method="post" novalidate>
+      {% else %}
       <form action="get-are-you-sure" method="post" novalidate>
+      {% endif %}
+        <!-- Change content for all -->
+        {% set question = "Which types of information do you want to download?" %}
+        <!-- Change content for view -->
+        {% if (data['task'] == "viewinfo") %}
+        {% set question = "Which types of information do you want to view?" %}
+
+        {% endif %}
+
 
         {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+
+
+        {% if (data['download-state'] != "getallreasons") %}
+
+
 
 {{ govukCheckboxes({
   name: "waste",
   fieldset: {
     legend: {
-      text: "Which types of information do you want to download?",
+      html: question,
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--l"
+    }
+  },
+  
+  hint: {
+    text: "Select all that apply."
+  },
+
+
+  items: [
+  {
+    value: "account related",
+    text: "Account Credential Change Required"
+  },
+  {
+    value: "identifier related",
+    text: "Identifier changed"
+  },
+  {
+    value: "credential",
+    text: "Credential comprimised"
+  },
+  {
+    value: "optin",
+    text: "Account Opted in or opted out"
+  },
+  {
+    value: "recovery related",
+    text: "Recovery Activated"
+  }
+  ]
+}) 
+}}
+
+
+{% else %}
+
+
+{{ govukCheckboxes({
+  name: "waste",
+  fieldset: {
+    legend: {
+      html: question,
       isPageHeading: true,
       classes: "govuk-fieldset__legend--l"
     }
@@ -36,8 +98,35 @@
   items: [
   {
     value: "accounts",
-    text: "Account related"
+    text: "Account Credential Change Required"
   },
+
+  {
+    value: "accounts",
+    text: "Account Purged"
+  },
+
+
+  {
+    value: "accounts",
+    text: "Account Disabled"
+  },
+
+  {
+    value: "accounts",
+    text: "Account Enabled"
+  },
+
+  {
+    value: "identifier",
+    text: "Identifier changed"
+  },
+
+  {
+    value: "identifier",
+    text: "Identifier recylced"
+  },
+
   {
     value: "identifier",
     text: "Identifier changed or recylced"
@@ -48,15 +137,42 @@
   },
   {
     value: "optin",
-    text: "Account Opted in or out from RISC exchanges"
+    text: "Account Opted in"
+  },
+
+  {
+    value: "optout",
+    text: "Opt Out Initiated"
+  },
+
+  {
+    value: "optout",
+    text: "Opt Out Cancelled"
+  },
+
+  {
+    value: "optout",
+    text: "Opt Out Effective"
+  },
+
+  {
+    value: "optout",
+    text: "Opt Out Effective"
   },
 
   {
     value: "recovery",
-    text: "Recovery requested or information changed"
+    text: "Recovery Activated"
+  },
+  {
+    value: "recovery",
+    text: "Recovery Information Changed"
   }
   ]
-}) }}
+}) 
+}}
+
+{% endif %}
 
         
 

@@ -14,12 +14,59 @@
 {% block content %}
 
 <div class="govuk-grid-row">
-  <div class="govuk-grid-column-full-width">
-    <h1 class="govuk-heading-xl">
-      View information
+  <div class="govuk-grid-column-two-thirds">
+ 
+
+    <h1 class="govuk-heading-l">
+      View fraud information
     </h1>
 
-    <div class="govuk-form-group">
+    {% if (data['get-options'] == "all") %}
+
+   
+    <p>Showing 40 of 1000 fraud records</p>
+
+    {% elseif (data['get-options'] == "30days") %}
+
+   
+    <p>Showing all updates from the last 30 days.</p>
+
+    {% elseif (data['get-options'] == "last-login") %}
+
+    <p>Showing all updates since you last logged in</p>
+
+    {% elseif (data['get-options'] == "certain-events") %}
+
+   
+    <p>
+      Showing fraud information based on chosen events:      
+    </p>
+
+    <ul class="govuk-list govuk-list--bullet">
+      <li>Account related</li>
+   <li>Identifier changed or recylced</li>
+   <li>Credential comprimised</li>
+ </ul>
+
+ <a class="govuk-button govuk-body govuk-button--secondary" data-module="govuk-button" href="get-reasons">
+
+  Change reasons
+ </a>
+    
+    {% else %}
+
+    {% endif %}   
+    
+
+
+  
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+    <!-- <div class="govuk-form-group">
      
       <label class="govuk-label" for="width-20">
         Search
@@ -28,40 +75,121 @@
       <button class="govuk-button" data-module="govuk-button">
         Search
       </button>
-    </div>
+    </div> -->
 
     <table class="govuk-table">
-      <!-- <caption class="govuk-table__caption govuk-table__caption--m">Month you apply</caption> -->
+      <!-- <caption class="govuk-table__caption govuk-table__caption--m">Updates from the last 30 days</caption> -->
       <thead class="govuk-table__head">
         <tr class="govuk-table__row">
           <th scope="col" class="govuk-table__header app-custom-class">User ID</th>
-          <th scope="col" class="govuk-table__header app-custom-class">Reason</th>
+          <th scope="col" class="govuk-table__header app-custom-class">Event type</th>
+          <th scope="col" class="govuk-table__header app-custom-class">Rationale code</th>
           <th scope="col" class="govuk-table__header app-custom-class">Date updated</th>
-          <th scope="col" class="govuk-table__header app-custom-class"></th>
 
         </tr>
       </thead>
       <tbody class="govuk-table__body">
         <tr class="govuk-table__row">
-          <td class="govuk-table__cell">joebloggs49873</th>
+          <td class="govuk-table__cell"><a href="#">joebloggs49873</a></th>
           <td class="govuk-table__cell">Credential comprimised</td>
+          <td class="govuk-table__cell">987293</td>
           <td class="govuk-table__cell">02.10.23</td>
-          <td class="govuk-table__cell">View</td>
         </tr>
         <tr class="govuk-table__row">
-          <td class="govuk-table__cell">jimbigggs443273</th>
+          <td class="govuk-table__cell"><a href="#">jimbigggs443273</a></th>
             <td class="govuk-table__cell">Account suspended</td>
-            <td class="govuk-table__cell">02.09.23</td>
-            <td class="govuk-table__cell">View</td>
+            <td class="govuk-table__cell">987293</td>
+            <td class="govuk-table__cell">02.10.23</td>
           </tr>
         <tr class="govuk-table__row">
-          <td class="govuk-table__cell">vpatel9873</th>
+          <td class="govuk-table__cell"><a href="#">vpatel9873</a></th>
             <td class="govuk-table__cell">Account purged</td>
-            <td class="govuk-table__cell">01.09.23</td>
-            <td class="govuk-table__cell">View</td>
+            <td class="govuk-table__cell">987293</td>
+            <td class="govuk-table__cell">02.10.23</td>
           </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell"><a href="#">joebloggs49873</a></th>
+            <td class="govuk-table__cell">Credential comprimised</td>
+            <td class="govuk-table__cell">987293</td>
+            <td class="govuk-table__cell">02.10.23</td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell"><a href="#">jimbigggs443273</a></th>
+              <td class="govuk-table__cell">Account suspended</td>
+              <td class="govuk-table__cell">987293</td>
+              <td class="govuk-table__cell">02.10.23</td>
+            </tr>
+
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell"><a href="#">joebloggs49873</a></th>
+              <td class="govuk-table__cell">Credential comprimised</td>
+              <td class="govuk-table__cell">987293</td>
+              <td class="govuk-table__cell">02.10.23</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell"><a href="#">jimbigggs443273</a></th>
+                <td class="govuk-table__cell">Account suspended</td>
+                <td class="govuk-table__cell">987293</td>
+                <td class="govuk-table__cell">02.10.23</td>
+              </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell"><a href="#">vpatel9873</a></th>
+                <td class="govuk-table__cell">Account purged</td>
+                <td class="govuk-table__cell">987293</td>
+                <td class="govuk-table__cell">02.10.23</td>
+              </tr>
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell"><a href="#">joebloggs49873</a></th>
+                <td class="govuk-table__cell">Credential comprimised</td>
+                <td class="govuk-table__cell">987293</td>
+                <td class="govuk-table__cell">02.10.23</td>
+              </tr>
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell"><a href="#">jimbigggs443273</a></th>
+                  <td class="govuk-table__cell">Account suspended</td>
+                  <td class="govuk-table__cell">987293</td>
+                  <td class="govuk-table__cell">02.10.23</td>
+                </tr>
       </tbody>
     </table>
+
+    {% if (data['get-options'] == "all") %}
+
+
+    {% from "govuk/components/pagination/macro.njk" import govukPagination %}
+
+{{ govukPagination({
+  previous: {
+    href: "#"
+  },
+  next: {
+    href: "#"
+  },
+  items: [
+    {
+      number: 1,
+      href: "#"
+    },
+    {
+      number: 2,
+      current: true,
+      href: "#"
+    },
+    {
+      number: 3,
+      href: "#"
+    }
+  ]
+}) }}
+
+{% endif %}   
+
+
+    <a class="govuk-button govuk-body govuk-!-margin-bottom-0" data-module="govuk-button" href="get-are-you-sure">
+      Download information
+    </a>
+
+    
 
   </div>
 </div>

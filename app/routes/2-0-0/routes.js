@@ -27,7 +27,7 @@ router.post('/' + version + '/task-answer', function(request, response) {
         response.redirect("add-format")
     }
     else if (task == "viewinfo"){
-        response.redirect("view-information")
+        response.redirect("get-options")
     }
     else if (submissionhistory == "yes"){
         response.redirect("submission-history")
@@ -91,13 +91,21 @@ router.post('/' + version + '/add-more-answer', function(request, response) {
     // GET
 
 router.post('/' + version + '/get-options-answer', function(request, response) {
+    var task = request.session.data['task']
     var getoptions = request.session.data['get-options']
     if (getoptions == "certain-events"){
         response.redirect("get-reasons")
-    } else {
-        response.redirect("get-are-you-sure")
-    }
+     
+    } else if (task == "viewinfo"){
+        response.redirect("view-information")
+    } 
+    else {
+            response.redirect("get-are-you-sure")
+        }
 })
+
+
+
 
 router.post('/' + version + '/get-options-are-you-sure-answer', function(request, response) {
     var getconfirm = request.session.data['get-confirm']

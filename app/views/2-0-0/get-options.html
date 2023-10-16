@@ -16,27 +16,40 @@
     <div class="govuk-grid-column-two-thirds">
       <form action="get-options-answer" method="post" novalidate>
 
+            <!-- Change content for all -->
+            {% set question = "What fraud information would you like to download?" %}
+            {% set hint = "This will be downloaded in a .csv format" %}
+
+            <!-- Change content for view -->
+            {% if (data['task'] == "viewinfo") %}
+            {% set question = "What fraud information would you like to view?" %}
+            {% set hint = "" %}
+
+            {% endif %}
+            
         {% from "govuk/components/radios/macro.njk" import govukRadios %}
 
-
+   
+ 
         
         {{ govukRadios({
           name: "get-options",
-          fieldset: {
-            legend: {
-              text: "What fraud information would you like to download?",
-              isPageHeading: true,
-              classes: "govuk-fieldset__legend--l"
-            }
-          },
-          hint: {
-            text: "This will be downloaded in a .csv format"
         
-        },
+            fieldset: {
+              legend: {
+                html: question,
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--l"
+              }
+            },
+            
+            hint: {
+              html: hint
+            },
            items: [
             {
               value: "all",
-              text: "All stored information"
+              text: "All fraud information"
             },
             {
               value: "certain-events",
@@ -44,7 +57,7 @@
             },
             {
               value: "30days",
-              text: "All updates from the last 30 days"
+              text: "Recently updated fraud information"
             },
             {
               value: "last-login",
