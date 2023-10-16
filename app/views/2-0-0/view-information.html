@@ -13,6 +13,7 @@
 
 {% block content %}
 
+
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
  
@@ -20,6 +21,8 @@
     <h1 class="govuk-heading-l">
       View fraud information
     </h1>
+
+
 
     {% if (data['get-options'] == "all") %}
 
@@ -89,6 +92,43 @@
         </tr>
       </thead>
       <tbody class="govuk-table__body">
+
+        {% if (data['notification'] == "yes") %}
+
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell"><a href="#">joebloggs49873</a>
+            <strong class="govuk-tag govuk-tag--blue">
+            New
+          </strong>
+          </th>
+          <td class="govuk-table__cell">Credential comprimised</td>
+          <td class="govuk-table__cell">987293</td>
+          <td class="govuk-table__cell">02.10.23</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell"><a href="#">jimbigggs443273</a>
+            <strong class="govuk-tag govuk-tag--blue">
+              New
+            </strong>
+          </th>
+            <td class="govuk-table__cell">Account suspended</td>
+            <td class="govuk-table__cell">987293</td>
+            <td class="govuk-table__cell">02.10.23</td>
+          </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell"><a href="#">vpatel9873</a>
+            <strong class="govuk-tag govuk-tag--blue">
+              New
+            </strong>
+          </th>
+            <td class="govuk-table__cell">Account purged</td>
+            <td class="govuk-table__cell">987293</td>
+            <td class="govuk-table__cell">02.10.23</td>
+          </tr>
+   
+      {% endif %}
+
+
         <tr class="govuk-table__row">
           <td class="govuk-table__cell"><a href="#">joebloggs49873</a></th>
           <td class="govuk-table__cell">Credential comprimised</td>

@@ -116,6 +116,28 @@
         }) }}
 
 
+
+        {{ govukRadios({
+          name: "notification",
+          fieldset: {
+            legend: {
+              text: "Notification",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--m"
+            }
+          },
+         
+           items: [
+  
+            {
+              value: "yes",
+              text: "Notification on"
+            }
+  
+          ]
+        }) }}
+
+
         
 
         {{ govukButton({

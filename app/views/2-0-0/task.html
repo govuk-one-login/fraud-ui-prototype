@@ -33,7 +33,9 @@
             </h1>
           </legend>
 
-          <!-- <div class="govuk-notification-banner" role="region"
+          {% if (data['notification'] == "yes") %}
+
+          <div class="govuk-notification-banner" role="region"
           aria-labelledby="govuk-notification-banner-title"
           data-module="govuk-notification-banner">
           <div class="govuk-notification-banner__header">
@@ -43,11 +45,12 @@
           </div>
           <div class="govuk-notification-banner__content">
             <p class="govuk-notification-banner__heading">
-              You have 7 updates for events you have subscribed to
-              <a class="govuk-notification-banner__link" href="#">View updates</a>.
+              There are 3 updates for events you have downloaded or viewed
+              <a class="govuk-notification-banner__link" href="view-information?get-options=certain-events">View updates</a>.
             </p>
           </div>
-        </div> -->
+        </div>
+        {% endif %}
 
           <div class="govuk-radios" data-module="govuk-radios">
             <div class="govuk-radios__item">
