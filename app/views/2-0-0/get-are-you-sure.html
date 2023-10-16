@@ -27,38 +27,45 @@
                 Are you sure you want to download
 
                 {% if (data['get-options'] == "all") %}
-                all the information
+                all stored information?
                 {% elseif (data['get-options'] == "30days") %}
-                all updates from the last 30 days
+                all updates from the last 30 days?
                 {% elseif (data['get-options'] == "certain-events") %}
-                all updates from the selected events
+                all updates from the selected events?
 
                 {% else %}
-                all updates since my last login
+                all updates since you last logged in?
                 {% endif %}   
-                ?
+                
 
               </h1>
             </legend>
             <!-- <div id="get-confirm-hint" class="govuk-hint">
               This includes changing your last name or spelling your name differently.
             </div> -->
-            <p>
+          
               {% if (data['get-options'] == "all") %}
-              There is currently 1000 records, the file size will be around 200mb.
+              <p>There is currently 1000 records, the file size will be around 200mb.</p>
               {% elseif (data['get-options'] == "30days") %}
 
-              There is currently 100 records from the last 30 days, the file size will be around 200mb.
+              <p>There is currently 100 records from the last 30 days, the file size will be around 200mb.</p>
               {% elseif (data['get-options'] == "certain-events") %}
-              There is currently 106 records from the following event types; Account related, Identifier changed or recylced, addinfo Credential comprimised. The file size will be around 200mb.
+
+
+              <p>There is currently 106 records from the following event types:</p>
+              <ul class="govuk-list govuk-list--bullet">
+                <li>Account related</li>
+             <li>Identifier changed or recylced</li>
+             <li>Credential comprimised</li>
+           </ul>
 
               {% else %}
-              There is currently 100 records since the last login, the file size will be around 200mb.
+              <p> There is currently 100 records since you last logged in, the file size will be around 200mb.</p>
 
               {% endif %} 
 
               
-            </p>
+            
             <!-- {% if (data['get-options'] == "certain-events") %}
             <p class="govuk-body">You have selected:</p>
               <ul class="govuk-list govuk-list--bullet">
