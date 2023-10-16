@@ -67,20 +67,22 @@
             </div>
             {% endif %}
 
+            {% if (data['view-state'] == "yes") %}
             <div class="govuk-radios__item">
               <input class="govuk-radios__input" id="task-3" name="task" type="radio" value="viewinfo">
               <label class="govuk-label govuk-radios__label" for="task-3">
                 View information
               </label>
 
-              
             </div>
+            {% endif %}
+
             {% if (data['view-submission-history'] != "no")  %}
 
             <div class="govuk-radios__item">
               <input class="govuk-radios__input" id="task-4" name="task" type="radio" value="viewprevious">
               <label class="govuk-label govuk-radios__label" for="task-4">
-                View previously submitted information
+                View your previous submissions
               </label>
             </div>
             {% endif %}
