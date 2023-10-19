@@ -54,7 +54,12 @@
             Multiple IDs to add
           </dt>
           <dd class="govuk-summary-list__value">
-            {{ data['id-multiple'] }}
+            {% if (data['id-multiple'] == "yes") %}
+            Yes
+            {% else %}
+            No
+            {% endif %}
+
           </dd>
           <dd class="govuk-summary-list__actions">
             <a class="govuk-link" href="id-multiple">

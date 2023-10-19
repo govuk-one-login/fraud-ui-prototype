@@ -17,20 +17,29 @@
     <div class="govuk-grid-column-two-thirds">
 
       <h1 class="govuk-heading-l">
-        Add information by uploading a file
+        Add information using a .csv file
       </h1>
 
+
+      <div id="upload-hint" class="govuk-hint">
+        Use the <a href="#">template provided
+          (opens in a new tab)</a>  to make sure you use the correct format. 
+      </div>
       <form class="form" action="add-more?file-upload=true" method="post">
+       
+        <!-- <details class="govuk-details" data-module="govuk-details">
+          <summary class="govuk-details__summary">
+            <span class="govuk-details__summary-text">
+              Help with nationality
+            </span>
+          </summary>
+          <div class="govuk-details__text">
+            Use the <a href="#">template provided
+             (opens in a new tab)</a>  to make sure you use the correct format. 
+          </div>
+        </details> -->
 
-        <p>
-          You can add information by uploading a file, following the <a href="#">guidance on how to format the file
-          </a> (opens in a new tab).
-          
-        </p>
 
-        <!-- <div id="upload-hint" class="govuk-hint">
-          For example, 31 3 1980
-        </div> -->
 
         
         {% if (data['file-upload'] == "true") %}

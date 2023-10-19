@@ -33,14 +33,17 @@
       <h1 class="govuk-heading-xl">
         {{ serviceName }}
       </h1>
-      <p>Use this service to manually downlod fraud data from One Login, or manually upload information to One Login.</p>
+      <p>Use this service if you are unable to automatically share fraud information using the Shared Signals Framework.</p>
 
       <p>Use can use this service to:</p>
 
       <ul class="govuk-list govuk-list--bullet">
         <li>Add fraud information</li>
         <li>Get fraud information</li>
+        {% if (data['view-state'] == "yes") %}
         <li>View fraud information</li>
+        {% endif %}
+
         <li>View my previous submissions</li>
 
       </ul>
