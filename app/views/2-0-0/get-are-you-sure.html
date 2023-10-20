@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+Are you sure you want to download – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
 {% block beforeContent %}
@@ -30,11 +30,12 @@
                 all stored information?
                 {% elseif (data['get-options'] == "30days") %}
                 all updates from the last 30 days?
-                {% elseif (data['get-options'] == "certain-events") %}
-                all updates from the selected events?
+                {% elseif (data['get-options'] == "last-login") %}
+                all updates since you last logged in?
 
                 {% else %}
-                all updates since you last logged in?
+                
+                all updates from the selected events?
                 {% endif %}   
                 
 
@@ -49,8 +50,13 @@
               {% elseif (data['get-options'] == "30days") %}
 
               <p>There is currently 100 records from the last 30 days, the file size will be around 200mb.</p>
-              {% elseif (data['get-options'] == "certain-events") %}
+              {% elseif (data['get-options'] == "last-login") %}
 
+
+              <p> There is currently 100 records since you last logged in, the file size will be around 200mb.</p>
+
+
+              {% else %}
 
               <p>There is currently 106 records from the following event types:</p>
               <ul class="govuk-list govuk-list--bullet">
@@ -58,10 +64,6 @@
              <li>Identifier changed or recylced</li>
              <li>Credential comprimised</li>
            </ul>
-
-              {% else %}
-              <p> There is currently 100 records since you last logged in, the file size will be around 200mb.</p>
-
               {% endif %} 
 
               

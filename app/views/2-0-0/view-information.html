@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-  Check your answers template – {{ serviceName }} – GOV.UK Prototype Kit
+View fraud information – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
 {% block beforeContent %}
@@ -23,8 +23,14 @@
     </h1>
 
 
+    <div class="govuk-inset-text">
+      Showing fraud information based on chosen events; Account related, Identifier changed or recylced, Credential comprimised.     
+    </div>
 
-    {% if (data['get-options'] == "all") %}
+    <p>Showing 40 of 90 fraud records</p>
+   
+
+    <!-- {% if (data['get-options'] == "all") %}
 
    
     <p>Showing 40 of 1000 fraud records</p>
@@ -33,32 +39,23 @@
 
    
     <p>Showing all updates from the last 30 days.</p>
+    <p>Showing 40 of 1000 fraud records</p>
 
     {% elseif (data['get-options'] == "last-login") %}
 
     <p>Showing all updates since you last logged in</p>
-
-    {% elseif (data['get-options'] == "certain-events") %}
+    <p>Showing 40 of 1000 fraud records</p>
 
    
-    <p>
-      Showing fraud information based on chosen events:      
-    </p>
-
-    <ul class="govuk-list govuk-list--bullet">
-      <li>Account related</li>
-   <li>Identifier changed or recylced</li>
-   <li>Credential comprimised</li>
- </ul>
-
- <a class="govuk-button govuk-body govuk-button--secondary" data-module="govuk-button" href="get-reasons">
-
-  Change reasons
- </a>
-    
     {% else %}
 
-    {% endif %}   
+    <div class="govuk-inset-text">
+      Showing fraud information based on chosen events; Account related, Identifier changed or recylced, Credential comprimised.     
+    </div>
+
+    <p>Showing 40 of 90 fraud records</p>
+
+    {% endif %}    -->
     
 
 
@@ -227,12 +224,15 @@
 }) }}
 
 {% endif %}   
+<a class="govuk-button govuk-body govuk-button--secondary govuk-!-margin-right-3" data-module="govuk-button" href="get-reasons">
 
+  Change events
+ </a>
 
     <a class="govuk-button govuk-body govuk-!-margin-bottom-0" data-module="govuk-button" href="get-are-you-sure">
       Download information
     </a>
-
+ 
     
 
   </div>
