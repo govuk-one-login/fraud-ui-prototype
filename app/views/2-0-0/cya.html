@@ -14,7 +14,7 @@
 {% block content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds-from-desktop">
-      <h1 class="govuk-heading-l">Check the details before sending your information</h1>
+      <h1 class="govuk-heading-l">Check the details before submitting your information</h1>
       <!-- <h2 class="govuk-heading-m">Personal details</h2> -->
 
       {% if (data['file-upload'] == "true") %}
@@ -120,7 +120,7 @@
       <form action="confirmation" method="post" novalidate>
         <input type="hidden" name="answers-checked" value="true">
         <button class="govuk-button" data-module="govuk-button">
-          Accept and send
+          Accept and submit
         </button>
       </form>
     </div>
