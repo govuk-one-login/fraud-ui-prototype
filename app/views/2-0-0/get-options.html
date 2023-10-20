@@ -16,8 +16,11 @@
     <div class="govuk-grid-column-two-thirds">
       <form action="get-options-answer" method="post" novalidate>
 
+
             <!-- Change content for all -->
-            {% set question = "What fraud information would you like to download?" %}
+   
+
+            {% set question = "Select the download" %}
             {% set hint = "This will be downloaded in a .csv format" %}
 
             <!-- Change content for view -->
@@ -47,22 +50,20 @@
               html: hint
             },
            items: [
-            {
-              value: "all",
-              text: "All fraud information"
-            },
-            {
-              value: "certain-events",
-              text: "Certain event information"
-            },
+          
             {
               value: "30days",
-              text: "Recently updated fraud information"
+              text: "All updates form the last 30 days"
             },
             {
               value: "last-login",
-              text: "All updates since I last logged in"
+              text: "All updates since your last logged in"
+            },
+            {
+              value: "all",
+              text: "All fraud information based on events selected"
             }
+   
           ]
         }) }}
 

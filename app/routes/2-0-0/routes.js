@@ -21,13 +21,13 @@ router.post('/' + version + '/task-answer', function(request, response) {
     if (uploadstate == "uploadfileoff"){
         response.redirect("add-reason")
     } else if (task == "getinfo"){
-        response.redirect("get-options")
+        response.redirect("get-reasons")
     }
     else if (task == "addinfo"){
         response.redirect("add-format")
     }
     else if (task == "viewinfo"){
-        response.redirect("get-options")
+        response.redirect("get-reasons")
     }
     else if (submissionhistory == "yes"){
         response.redirect("submission-history")
@@ -96,7 +96,7 @@ router.post('/' + version + '/get-options-answer', function(request, response) {
         response.redirect("view-information")
     } 
     else {
-            response.redirect("get-are-you-sure")
+            response.redirect("confirmation")
         }
 })
 
