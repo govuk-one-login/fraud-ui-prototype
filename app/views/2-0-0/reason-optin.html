@@ -23,29 +23,36 @@
 
         {% from "govuk/components/radios/macro.njk" import govukRadios %}
 
-
         {{ govukRadios({
           name: "reason",
           fieldset: {
             legend: {
-              text: "What has happened to the identifier?",
+              text: "What has happened to the accounts?",
               isPageHeading: true,
               classes: "govuk-fieldset__legend--l"
             }
           },
   
+    
            items: [
             {
-              value: "Identifier changed",
-              text: "Identifier changed"
+              value: "Opted into event changes",
+              text: "They have opted into event changes"
             },
             {
-              value: "Identifier reused",
-              text: "Identifier reused"
+              value: "Requested to opt out of event changes",
+              text: "They have requested to opt out of event changes"
+            },
+            {
+              value: "Cancelled a request to opt out of event changes",
+              text: "They have cancelled a request to opt out of event changes"
+            },
+            {
+              value: "Opted out of event changes",
+              text: "They have opted out of event changes"
             }
           ]
         }) }}
-
 
 
 

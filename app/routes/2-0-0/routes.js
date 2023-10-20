@@ -55,16 +55,12 @@ router.post('/' + version + '/add-reason-answer', function(request, response) {
     var reason = request.session.data['reason']
     if (reason == "accounts"){
         response.redirect("reason-accounts")
-    } else if (reason == "identifier"){
-        response.redirect("reason-identifier")
     } else if (reason == "credential"){
-        response.redirect("reason-credential")
+        response.redirect("id-multiple")
     } else if (reason == "optin"){
         response.redirect("reason-optin")
-    } else if (reason == "recovery"){
-        response.redirect("reason-recovery")
     } else {
-        response.redirect("reason-other")
+        response.redirect("id-multiple")
     }
 })
 
