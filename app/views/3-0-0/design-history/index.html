@@ -1,0 +1,92 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Start page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+
+
+
+{% block beforeContent %}
+
+</div>
+<div class="govuk-masthead govuk-!-padding-top-1 govuk-!-padding-bottom-6 govuk-!-margin-bottom-2">
+  <div class="govuk-width-container">
+    
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds-from-desktop">
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+  
+  <h1 class="govuk-heading-xl">
+    A design history for <br>
+    Version {% include('../includes/version.html') %} of the Shared Signals UI
+    prototype 
+  </h1>
+        <p>
+          A record of how our service has iterated.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="govuk-width-container">
+
+
+{% endblock %}
+
+
+{% block content %}
+
+
+
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      
+
+  <span class="govuk-caption-l">{% include('../includes/date.html') %}</span>
+<h1 class="govuk-heading-l">Version {% include('../includes/version.html') %}</h1>
+
+      <p>This is the design story for the Shared Signals UI prototype {% include('../includes/version.html') %}.</p>
+         
+      <p>The main features of this initial prototype include:</p>
+      {% include('../includes/summary.html') %}
+
+      <h2 class="govuk-heading-m">Event visability</h2>
+      <p>Based on early insights it appears users are event focused, and only interested in specific events. initial designs hid functionality and users had to look to find the releavant information.</p>
+      <p>This impacts both downloading information and viewing information.</p>
+   
+
+      <h2 class="govuk-heading-m">Downloading information</h2>
+           <p>Simplified the download journey by removing the are you sure screen.</p>
+
+         <p>This meant leading with the <a href="../get-reasons">reasons / events screen</a>, and then asking users to <a href="../get-options">select relevant download</a> in the next step.</p>
+
+         <h2 class="govuk-heading-m">Viewing information</h2>
+         <p>For early testing of this functionality we moved away from <a href="../get-options">3 "filter options" (last 30 days, since log in and all)</a>, instead leading with the <a href="../view-information">specific events selected</a>. We hope to identify the additional required views in research.</p>
+         <p>This has resulted in users gettingf to view the information they want to quicker, and in less steps.</p>
+         <p>We also removed rationale codes and replaced them with interventions, as that information will be available to API users and flagged as useful to UI users.</p>
+
+         <h2 class="govuk-heading-m">Upload information</h2>
+         <p>We iterated the upload screen based on early feedback, by including more of the reasons on the <a href="../add-reason">same screen</a> and also added secondry pages for the more complex reasons.</p>
+
+
+    </div>
+
+    <div class="govuk-grid-column-one-third">
+
+      
+
+    </div>
+  </div>
+
+  
+
+  
+
+{% endblock %}

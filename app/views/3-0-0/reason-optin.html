@@ -1,0 +1,67 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+hat has happened to the accounts – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {% if (data['upload-state'] == "uploadsingleoff") %}
+        <form action="add-ids" method="post" novalidate>
+        {% else %}
+      <form action="id-multiple" method="post" novalidate>
+        {% endif %}
+
+        {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+        {{ govukRadios({
+          name: "reason",
+          fieldset: {
+            legend: {
+              text: "What has happened to the accounts?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+  
+    
+           items: [
+            {
+              value: "Opted into event changes",
+              text: "They have opted into event changes"
+            },
+            {
+              value: "Requested to opt out of event changes",
+              text: "They have requested to opt out of event changes"
+            },
+            {
+              value: "Cancelled a request to opt out of event changes",
+              text: "They have cancelled a request to opt out of event changes"
+            },
+            {
+              value: "Opted out of event changes",
+              text: "They have opted out of event changes"
+            }
+          ]
+        }) }}
+
+
+
+        
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+      </form>
+    </div>
+  </div>
+{% endblock %}

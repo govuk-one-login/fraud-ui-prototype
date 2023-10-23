@@ -1,0 +1,84 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Add information using a file – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        Add information using a .csv file
+      </h1>
+
+
+      <div id="upload-hint" class="govuk-hint">
+        Use the <a href="#">template provided
+          (opens in a new tab)</a>  to make sure you use the correct format. 
+      </div>
+      <form class="form" action="add-more?file-upload=true" method="post">
+       
+        <!-- <details class="govuk-details" data-module="govuk-details">
+          <summary class="govuk-details__summary">
+            <span class="govuk-details__summary-text">
+              Help with nationality
+            </span>
+          </summary>
+          <div class="govuk-details__text">
+            Use the <a href="#">template provided
+             (opens in a new tab)</a>  to make sure you use the correct format. 
+          </div>
+        </details> -->
+
+
+
+        
+        {% if (data['file-upload'] == "true") %}
+
+
+        
+  
+  
+        <div class="govuk-inset-text">
+          rp-upload465.csv uploaded. You can replace it with a new file, using the upload link below.
+
+        </div>
+  
+        {% endif %}
+
+
+
+
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="file-upload">
+            Upload a file
+          </label>
+          <input class="govuk-file-upload" id="file-upload" name="fileUpload" type="file">
+        </div>
+  
+
+        
+
+
+
+
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

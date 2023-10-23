@@ -1,0 +1,122 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+What would you like to do? – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+
+{% block content %}
+
+
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <!-- <h1 class="govuk-heading-xl">
+        {{ serviceName }}
+      </h1> -->
+
+
+      <form action="task-answer" method="post" novalidate>
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <h1 class="govuk-fieldset__heading">
+              What would you like to do?
+            </h1>
+          </legend>
+
+          {% if (data['notification'] == "yes") %}
+
+          <div class="govuk-notification-banner" role="region"
+          aria-labelledby="govuk-notification-banner-title"
+          data-module="govuk-notification-banner">
+          <div class="govuk-notification-banner__header">
+            <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+              Important
+            </h2>
+          </div>
+          <div class="govuk-notification-banner__content">
+            <p class="govuk-notification-banner__heading">
+              There are 3 updates for events you have previously downloaded or viewed
+              <a class="govuk-notification-banner__link" href="view-information?get-options=certain-events">View updates</a>.
+            </p>
+          </div>
+        </div>
+        {% endif %}
+
+          <div class="govuk-radios" data-module="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="task" name="task" type="radio" value="addinfo">
+              <label class="govuk-label govuk-radios__label" for="task">
+                Add fraud information
+              </label>
+            </div>
+
+          {% if (data['download-state'] != "downloadoff") %}
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="task-2" name="task" type="radio" value="getinfo">
+              <label class="govuk-label govuk-radios__label" for="task-2">
+                Download fraud information
+              </label>
+            </div>
+            {% endif %}
+
+            {% if (data['view-state'] != "no") %}
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="task-3" name="task" type="radio" value="viewinfo">
+              <label class="govuk-label govuk-radios__label" for="task-3">
+                View fraud information
+              </label>
+
+            </div>
+            {% endif %}
+
+            {% if (data['view-submission-history'] != "no")  %}
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="task-4" name="task" type="radio" value="viewprevious">
+              <label class="govuk-label govuk-radios__label" for="task-4">
+                View my previous submissions
+              </label>
+            </div>
+            {% endif %}
+
+          </div>
+        </fieldset>
+      </div>
+
+
+
+
+      
+
+      {{ govukButton({
+        text: "Continue"
+      }) }}
+
+    </form>
+  
+      
+    </div>
+
+    <div class="govuk-grid-column-one-third">
+
+     
+
+    </div>
+  </div>
+
+
+
+            
+
+{% endblock %}

@@ -1,0 +1,60 @@
+{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+
+<div class="govuk-summary-card">
+  <div class="govuk-summary-card__title-wrapper">
+    
+    <h2 class="govuk-summary-card__title">
+      Version {% include('../includes/version.html') %}
+    </h2>
+    <a class="govuk-button govuk-body govuk-!-margin-bottom-0" data-module="govuk-button" href="/{% include('../includes/version.html') %}/">
+      Start prototype
+    </a>
+  </div>
+  <div class="govuk-summary-card__content">
+    <dl class="govuk-summary-list">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Phase
+        </dt>
+        <dd class="govuk-summary-list__value">
+          <strong class="govuk-tag govuk-tag--blue">
+            Design
+          </strong>
+        </dd>
+ 
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+         Last updated
+
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {% include('../includes/date.html') %}
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Summary
+        </dt>
+        <dd class="govuk-summary-list__value">
+
+          {% include('../includes/summary.html') %}
+
+         <p><a class="govuk-link" href="/{% include('../includes/version.html') %}/design-history/">View design history<span class="govuk-visually-hidden"> design history</span></a></p>
+        
+        </dd>
+       </div>
+       <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Additional setup
+        </dt>
+        <dd class="govuk-summary-list__value">
+          <a href="/{% include('../includes/version.html') %}/setup">Setup prototype</a>
+        </dd>
+     
+      </div>
+    </dl>
+
+    
+  </div>
+</div>

@@ -1,0 +1,129 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Check your answers – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+      <h1 class="govuk-heading-l">Check the details before submitting your information</h1>
+      <!-- <h2 class="govuk-heading-m">Personal details</h2> -->
+
+      {% if (data['file-upload'] == "true") %}
+
+      {% include('./includes/file-upload-cya.html') %}
+
+
+      {% else %}
+
+
+      <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Update reason
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {% if (data['reason'] == null) %}
+            Credentials comprimised
+            {% else %}
+            {{ data['reason'] }}
+
+            {% endif %}
+
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="add-reason">
+              Change<span class="govuk-visually-hidden"> date of birth</span>
+            </a>
+          </dd>
+        </div>
+
+        {% if (data['upload-state'] != "uploadsingleoff") %}
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Multiple IDs to add
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {% if (data['id-multiple'] == "yes") %}
+            Yes
+            {% else %}
+            No
+            {% endif %}
+
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="id-multiple">
+              Change<span class="govuk-visually-hidden"> id number</span>
+            </a>
+          </dd>
+        </div>
+
+        {% endif %}
+
+        {% if (data['id-multiple'] == "no") %}
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            User ID
+          </dt>
+          <dd class="govuk-summary-list__value">
+        
+            {{ data['user-id'] }}
+ 
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="add-id">
+              Change<span class="govuk-visually-hidden"> id</span>
+            </a>
+          </dd>
+        </div>
+
+        {% else %}
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            User IDs
+          </dt>
+          <dd class="govuk-summary-list__value">
+          
+             joeblogs165683 <br>
+             joeblogs87683 <br>
+             joeblogs87654383 <br>
+             joeblogs87383
+ 
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="add-ids">
+              Change<span class="govuk-visually-hidden"> ids</span>
+            </a>
+          </dd>
+        </div>
+
+  
+        {% endif %}
+
+      </dl>
+      {% endif %}
+
+      <!-- <h2 class="govuk-heading-m">Now send your information</h2>
+      <p class="govuk-body">By submitting this application you are confirming that, to the best of your knowledge, the details you are providing are correct.</p>
+      -->
+      <form action="confirmation" method="post" novalidate>
+        <input type="hidden" name="answers-checked" value="true">
+        <button class="govuk-button" data-module="govuk-button">
+          Accept and submit
+        </button>
+      </form>
+    </div>
+
+  </div>
+{% endblock %}

@@ -1,0 +1,80 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Select the download – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form action="get-options-answer" method="post" novalidate>
+
+
+            <!-- Change content for all -->
+   
+
+            {% set question = "Select the download" %}
+            {% set hint = "This will be downloaded in a .csv format" %}
+
+            <!-- Change content for view -->
+            {% if (data['task'] == "viewinfo") %}
+            {% set question = "What fraud information would you like to view?" %}
+            {% set hint = "" %}
+
+            {% endif %}
+            
+        {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+   
+ 
+        
+        {{ govukRadios({
+          name: "get-options",
+        
+            fieldset: {
+              legend: {
+                html: question,
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--l"
+              }
+            },
+            
+            hint: {
+              html: hint
+            },
+           items: [
+          
+            {
+              value: "30days",
+              text: "All updates form the last 30 days"
+           
+            },
+        
+            {
+              value: "last-login",
+              text: "All updates since your last logged in"
+            },
+            {
+              value: "all",
+              text: "All fraud information based on events selected"
+            }
+   
+          ]
+        }) }}
+   
+        
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+      </form>
+    </div>
+  </div>
+{% endblock %}

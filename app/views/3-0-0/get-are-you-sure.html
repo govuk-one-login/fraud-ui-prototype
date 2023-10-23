@@ -1,0 +1,110 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Are you sure you want to download – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form action="get-options-are-you-sure-answer" method="post" novalidate>
+
+
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset" aria-describedby="get-confirm-hint">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+              <h1 class="govuk-fieldset__heading">
+
+                   
+
+                Are you sure you want to download
+
+                {% if (data['get-options'] == "all") %}
+                all stored information?
+                {% elseif (data['get-options'] == "30days") %}
+                all updates from the last 30 days?
+                {% elseif (data['get-options'] == "last-login") %}
+                all updates since you last logged in?
+
+                {% else %}
+                
+                all updates from the selected events?
+                {% endif %}   
+                
+
+              </h1>
+            </legend>
+            <!-- <div id="get-confirm-hint" class="govuk-hint">
+              This includes changing your last name or spelling your name differently.
+            </div> -->
+          
+              {% if (data['get-options'] == "all") %}
+              <p>There is currently 1000 records, the file size will be around 200mb.</p>
+              {% elseif (data['get-options'] == "30days") %}
+
+              <p>There is currently 100 records from the last 30 days, the file size will be around 200mb.</p>
+              {% elseif (data['get-options'] == "last-login") %}
+
+
+              <p> There is currently 100 records since you last logged in, the file size will be around 200mb.</p>
+
+
+              {% else %}
+
+              <p>There is currently 106 records from the following event types:</p>
+              <ul class="govuk-list govuk-list--bullet">
+                <li>Account related</li>
+             <li>Identifier changed or recylced</li>
+             <li>Credential comprimised</li>
+           </ul>
+              {% endif %} 
+
+              
+            
+            <!-- {% if (data['get-options'] == "certain-events") %}
+            <p class="govuk-body">You have selected:</p>
+              <ul class="govuk-list govuk-list--bullet">
+                   <li>Account related</li>
+                <li>Identifier changed or recylced</li>
+                <li>Credential comprimised</li>
+              </ul>
+            {% endif %}  -->
+
+            <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="get-confirm" name="get-confirm" type="radio" value="yes">
+                <label class="govuk-label govuk-radios__label" for="get-confirm">
+                  Yes
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="get-confirm-2" name="get-confirm" type="radio" value="no">
+                <label class="govuk-label govuk-radios__label" for="get-confirm-2">
+                  No
+                </label>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+
+
+     
+
+
+
+        
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+      </form>
+    </div>
+  </div>
+{% endblock %}
