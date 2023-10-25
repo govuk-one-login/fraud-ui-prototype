@@ -21,3 +21,20 @@
 .govuk-masthead .govuk-back-link:before {
     border-color: #ffffff;
 }
+
+[aria-sort] button.sort:before,
+table .sortable th a::before {
+content: " ▼";
+    position: absolute;
+    right: -1px;
+    top: 9px;
+    font-size: .5em;
+}
+
+table .sortable th a::after {
+    content: " ▼";
+        position: absolute;
+        right: -1px;
+        top: 9px;
+        font-size: .5em;
+    }

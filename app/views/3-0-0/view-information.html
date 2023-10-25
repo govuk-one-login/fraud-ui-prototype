@@ -24,34 +24,55 @@ View fraud information – {{ serviceName }} – GOV.UK Prototype Kit
 
 
 
-    <!-- {% if (data['get-options'] == "all") %}
-
-   
-    <p>Showing 40 of 1000 fraud records</p>
-
-    {% elseif (data['get-options'] == "30days") %}
-
-   
-    <p>Showing all updates from the last 30 days.</p>
-    <p>Showing 40 of 1000 fraud records</p>
-
-    {% elseif (data['get-options'] == "last-login") %}
-
-    <p>Showing all updates since you last logged in</p>
-    <p>Showing 40 of 1000 fraud records</p>
-
-   
-    {% else %}
-
-    <div class="govuk-inset-text">
-      Showing fraud information based on chosen events; Account related, Identifier changed or recylced, Credential comprimised.     
-    </div>
-
-    <p>Showing 40 of 90 fraud records</p>
-
-    {% endif %}    -->
     
 
+    {% if (data['search-state'] == "on") %}
+    <div class="govuk-form-group" style="background:#e1e1e1; padding: 20px;">
+      <label class="govuk-label" for="width-20">
+        <b>Search information</b>
+      </label>
+      <div id="search-hint" class="govuk-hint moj-search__hint ">
+        You can search by user id, event type or national insurance number
+      </div>
+      <input class="govuk-input govuk-input--width-20" id="width-20" name="width20" type="text">
+      <button class="govuk-button" data-module="govuk-button">
+        Search
+      </button>
+  </div>
+  {% endif %}
+
+
+  {% if (data['get-reasons'] != null) %}
+
+
+<!-- <div class="govuk-form-group govuk-!-margin-bottom-3">
+
+  <button class="govuk-button govuk-button--secondary govuk-tag govuk-!-margin-bottom-2" data-module="govuk-button">
+    Account related [X]
+  </button>
+
+  <button class="govuk-button govuk-button--secondary govuk-tag govuk-!-margin-bottom-2" data-module="govuk-button">
+    Identifier changed [X]
+  </button>
+
+  <button class="govuk-button govuk-button--secondary govuk-tag govuk-!-margin-bottom-2" data-module="govuk-button">
+    Credential compromised [X]
+  </button>
+</div> -->
+<div class="govuk-inset-text">
+  Showing fraud information based on chosen events; <b>Account related</b>, <b>Identifier changed or recylced</b>, <b>Credential compromised</b>.
+  </div>
+
+
+
+
+      {% endif %}
+
+
+     
+
+
+  
 
   
   </div>
@@ -59,137 +80,392 @@ View fraud information – {{ serviceName }} – GOV.UK Prototype Kit
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
-    <p class="govuk-!-text-align-right">Showing <b>1</b> to <b>40</b> of <b>90</b> fraud records</p>
 
-    <!-- <div class="govuk-form-group">
-     
-      <label class="govuk-label" for="width-20">
-        Search
-      </label>
-      <input class="govuk-input govuk-input--width-20" id="width-20" name="width20" type="text">
-      <button class="govuk-button" data-module="govuk-button">
-        Search
-      </button>
-    </div> -->
 
-    <table class="govuk-table">
-      <!-- <caption class="govuk-table__caption govuk-table__caption--m">Updates from the last 30 days</caption> -->
-      <thead class="govuk-table__head">
-        <tr class="govuk-table__row">
-          <th scope="col" class="govuk-table__header app-custom-class">User ID</th>
-          <th scope="col" class="govuk-table__header app-custom-class">Event type</th>
-          <th scope="col" class="govuk-table__header app-custom-class">Action</th>
-          <th scope="col" class="govuk-table__header app-custom-class">Date updated</th>
+    
+  
 
-        </tr>
-      </thead>
-      <tbody class="govuk-table__body">
+
+      <div class="moj-filter-layout">
+
+
+        {% include('./includes/filter.html') %}
+      
+
+        <div class="moj-filter-layout__content">
+          {% if (data['filter-state'] == "on") %}
 
         
+          <div class="moj-action-bar">
+      
+            <div class="moj-action-bar__filter"></div>
+      
+            <div class="moj-button-menu">
+              <div class="moj-button-menu__wrapper">
+      
+                <!-- <button class="govuk-button moj-button-menu__item govuk-button--secondary " data-module="govuk-button">
+                  Download information
+                </button> -->
+      
+                   <a class="govuk-button govuk-button--secondary govuk-body govuk-!-margin-bottom-0" data-module="govuk-button" href="get-are-you-sure">
+                    Download information
+                  </a>
+ 
+                <!-- <button class="govuk-button moj-button-menu__item govuk-button--secondary " data-module="govuk-button">
+                  Action 2
+                </button> -->
+      
+              </div>
+            </div>
+
+          </div>
+      
+          {% else %}
+          <p><a class="govuk-button govuk-body govuk-button--secondary govuk-!-margin-right-3" data-module="govuk-button" href="get-reasons">
+            Filter events
+           </a> 
+           <a class="govuk-button govuk-button--secondary govuk-body govuk-!-margin-bottom-0" data-module="govuk-button" href="get-are-you-sure">
+            Download information
+          </a>
+          {% endif %}
+
+          <div class="moj-scrollable-pane">
+
+            {% if (data['js-state'] != "off") %}
+            <table class="govuk-table" data-module="moj-sortable-table">
+              {% else %}
+           <table class="govuk-table">
+             <div class="govuk-form-group" style="float:right">
+                <label class="govuk-label" for="sort">
+                  Sort by
+                </label>
+                <select class="govuk-select" id="sort" name="sort">
+                  <option value="published">Recently published</option>
+                  <option value="updated" selected>Recently updated</option>
+                  <option value="views">Most views</option>
+                  <option value="comments">Most comments</option>
+                </select>
+              </div>
 
 
+            {% endif %}
 
-        {% if (data['notification'] == "yes") %}
-
-        <tr class="govuk-table__row">
-          <td class="govuk-table__cell"><a href="view-information-detail?userid=joebloggs49873">joebloggs49873</a>
-            <strong class="govuk-tag govuk-tag--blue">
-            New
-          </strong>
-          </th>
-          <td class="govuk-table__cell">Credential comprimised</td>
-          <td class="govuk-table__cell">Reset password</td>
-          <td class="govuk-table__cell">20.10.23</td>
-        </tr>
-        <tr class="govuk-table__row">
-          <td class="govuk-table__cell"><a href="view-information-detail?userid=jimbigggs443273">jimbigggs443273</a>
-            <strong class="govuk-tag govuk-tag--blue">
-              New
-            </strong>
-          </th>
-            <td class="govuk-table__cell">Account suspended</td>
-            <td class="govuk-table__cell">Suspend account</td>
-            <td class="govuk-table__cell">20.10.23</td>
-          </tr>
-        <tr class="govuk-table__row">
-          <td class="govuk-table__cell"><a href="view-information-detail?userid=vpatel9873">vpatel9873</a>
-            <strong class="govuk-tag govuk-tag--blue">
-              New
-            </strong>
-          </th>
-            <td class="govuk-table__cell">Account purged</td>
-            <td class="govuk-table__cell">Reset password</td>
-            <td class="govuk-table__cell">20.10.23</td>
-          </tr>
-   
-      {% endif %}
-
-
-        <tr class="govuk-table__row">
-          <td class="govuk-table__cell"><a href="view-information-detail?userid=joebloggs49873">joebloggs49873</a></th>
-          <td class="govuk-table__cell">Credential comprimised</td>
-          <td class="govuk-table__cell">Force identity check</td>
-          <td class="govuk-table__cell">16.10.23</td>
-        </tr>
-        <tr class="govuk-table__row">
-          <td class="govuk-table__cell"><a href="view-information-detail?userid=jimbigggs443273">jimbigggs443273</a></th>
-            <td class="govuk-table__cell">Account suspended</td>
-            <td class="govuk-table__cell">Suspend account</td>
-            <td class="govuk-table__cell">12.10.23</td>
-          </tr>
-        <tr class="govuk-table__row">
-          <td class="govuk-table__cell"><a href="view-information-detail?userid=vpatel9873">vpatel9873</a></th>
-            <td class="govuk-table__cell">Account purged</td>
-            <td class="govuk-table__cell">Reset password</td>
-            <td class="govuk-table__cell">12.10.23</td>
-          </tr>
-          <tr class="govuk-table__row">
-            <td class="govuk-table__cell"><a href="view-information-detail?userid=joebloggs49873">joebloggs49873</a></th>
-            <td class="govuk-table__cell">Credential comprimised</td>
-            <td class="govuk-table__cell">Block account</td>
-            <td class="govuk-table__cell">11.10.23</td>
-          </tr>
-          <tr class="govuk-table__row">
-            <td class="govuk-table__cell"><a href="view-information-detail?userid=jimbigggs443273">jimbigggs443273</a></th>
-              <td class="govuk-table__cell">Account suspended</td>
-              <td class="govuk-table__cell">Suspend account</td>
-              <td class="govuk-table__cell">10.10.23</td>
-            </tr>
-
-            <tr class="govuk-table__row">
-              <td class="govuk-table__cell"><a href="view-information-detail?userid=joebloggs49873">joebloggs49873</a></th>
-              <td class="govuk-table__cell">Credential comprimised</td>
-              <td class="govuk-table__cell">Force identity check</td>
-              <td class="govuk-table__cell">06.10.23</td>
-            </tr>
-            <tr class="govuk-table__row">
-              <td class="govuk-table__cell"><a href="view-information-detail?userid=jimbigggs443273">jimbigggs443273</a></th>
-                <td class="govuk-table__cell">Account suspended</td>
-                <td class="govuk-table__cell">Suspend account</td>
-                <td class="govuk-table__cell">02.10.23</td>
-              </tr>
-            <tr class="govuk-table__row">
-              <td class="govuk-table__cell"><a href="view-information-detail?userid=vpatel9873">vpatel9873</a></th>
-                <td class="govuk-table__cell">Account purged</td>
-                <td class="govuk-table__cell">Reset password</td>
-                <td class="govuk-table__cell">23.09.23</td>
-              </tr>
-              <tr class="govuk-table__row">
-                <td class="govuk-table__cell"><a href="view-information-detail?userid=joebloggs49873">joebloggs49873</a></th>
-                <td class="govuk-table__cell">Credential comprimised</td>
-                <td class="govuk-table__cell">Force identity check<br>password reset</td>
-                <td class="govuk-table__cell">17.09.23</td>
-              </tr>
-              <tr class="govuk-table__row">
-                <td class="govuk-table__cell"><a href="view-information-detail?userid=joebloggs443273">jimbigggs443273</a></th>
-                  <td class="govuk-table__cell">Account suspended</td>
-                  <td class="govuk-table__cell">Suspend account</td>
-                  <td class="govuk-table__cell">01.09.23</td>
+      
+              <thead class="govuk-table__head">
+                <tr class="govuk-table__row">
+                  <th scope="col" class="govuk-table__header" aria-sort="ascending">User ID</th>
+                  <th scope="col" class="govuk-table__header" aria-sort="none">Event type</th>
+                  <th scope="col" class="govuk-table__header" aria-sort="none">Date updated</th>
+                  <th scope="col" class="govuk-table__header" aria-sort="none">Status</th>
+        
+      
                 </tr>
-      </tbody>
-    </table>
+              </thead>
+      
+              <tbody class="govuk-table__body">
+      
+                {% if (data['notification'] == "yes") %}
+      
+      
+       
+                <tr class="govuk-table__row">
+      
+                  <th scope="row" class="govuk-table__header"><a class="govuk-link" href="view-information-detail?userid=jonbigggs3">jonbigggs3</a>
+                    <strong class="govuk-tag govuk-tag--blue">
+                      New
+                    </strong>
+                  </th>
+      
+                  <td class="govuk-table__cell">Credential compromised</td>
+      
+                  <td class="govuk-table__cell">25 Sep 2023</td>
 
-    {% if (data['get-options'] == "all") %}
+                  <td class="govuk-table__cell">Force identity check</td>
+      
+                </tr>
+      
+                     
+                <tr class="govuk-table__row">
+      
+                  <th scope="row" class="govuk-table__header"><a class="govuk-link" href="view-information-detail?userid=charlotteh373">charlotteh373</a>
+                    <strong class="govuk-tag govuk-tag--blue">
+                      New
+                    </strong>
+                  </th>
+      
+                  <td class="govuk-table__cell">Credential compromised</td>      
+            
+                  <td class="govuk-table__cell">25 Sep 2023</td>
+      
+                  <td class="govuk-table__cell">Force identity check</td>
+
+                </tr>
+      
+                     
+                <tr class="govuk-table__row">
+      
+                  <th scope="row" class="govuk-table__header"><a class="govuk-link" href="view-information-detail?userid=samsmith173">samsmith173</a>
+                    <strong class="govuk-tag govuk-tag--blue">
+                      New
+                    </strong>
+                  </th>
+      
+                  <td class="govuk-table__cell">Credential compromised</td>
+      
+                  <td class="govuk-table__cell">25 Sep 2023</td>
+
+                  <td class="govuk-table__cell">Force identity check</td>
+      
+      
+                </tr>
+      
+           
+              {% endif %}
+      
+              
+              
+      
+                <tr class="govuk-table__row">
+      
+                  <th scope="row" class="govuk-table__header"><a class="govuk-link" href="view-information-detail?userid=adrianhop4323">adrianhop4323</a></th>
+      
+                  <td class="govuk-table__cell">Account purged</td>
+      
+                  <td class="govuk-table__cell">25 Aug 2023</td>
+
+                  <td class="govuk-table__cell">
+                    
+                        <strong class="govuk-tag govuk-tag--grey">
+          In progress
+        </strong>
+
+                  </td>
+      
+      
+                </tr>
+      
+                <tr class="govuk-table__row">
+      
+                  <th scope="row" class="govuk-table__header"><a class="govuk-link" href="view-information-detail?userid=jonbigggs443273">jonbigggs443273</a></th>
+      
+                  <td class="govuk-table__cell">Credential compromised</td>
+      
+                  <td class="govuk-table__cell">25 Sep 2023</td>
+
+      
+                  <td class="govuk-table__cell">Force identity check</td>
+      
+      
+                </tr>
+      
+                <tr class="govuk-table__row">
+      
+                  <th scope="row" class="govuk-table__header"><a class="govuk-link" href="view-information-detail?userid=jimbigggs443273">jimbigggs443273</a></th>
+      
+                  <td class="govuk-table__cell">Account suspended</td>
+      
+                  <td class="govuk-table__cell">9 Oct 2023</td>
+
+                  <td class="govuk-table__cell">Block account</td>
+      
+      
+                </tr>
+      
+                <tr class="govuk-table__row">
+      
+                  <th scope="row" class="govuk-table__header"><a class="govuk-link" href="view-information-detail?userid=vpatel9873">vpatel9873</a></th>
+      
+                  <td class="govuk-table__cell">Recovery activated</td>
+      
+                  <td class="govuk-table__cell">9 Oct 2023</td>
+
+                  <td class="govuk-table__cell">Reset password</td>
+      
+      
+                </tr>
+      
+                <tr class="govuk-table__row">
+      
+                  <th scope="row" class="govuk-table__header"><a class="govuk-link" href="view-information-detail?userid=kpatel9873">kpatel9873</a></th>
+      
+                  <td class="govuk-table__cell">Identifier changed</td>
+      
+                  <td class="govuk-table__cell">9 Oct 2023</td>
+
+                  <td class="govuk-table__cell">Force identity check<br>password reset</td>
+      
+      
+                </tr>
+      
+                <tr class="govuk-table__row">
+      
+                  <th scope="row" class="govuk-table__header"><a class="govuk-link" href="view-information-detail?userid=louharv978">louharv978</a></th>
+      
+                  <td class="govuk-table__cell">Account purged</td>
+                  <td class="govuk-table__cell">25 Sep 2023</td>
+
+      
+                  <td class="govuk-table__cell">Block account</td>
+      
+      
+                </tr>
+      
+                <tr class="govuk-table__row">
+      
+                  <th scope="row" class="govuk-table__header"><a class="govuk-link" href="view-information-detail?userid=2767776662">2767776662</a></th>
+      
+                  <td class="govuk-table__cell">Credential compromised</td>
+      
+                  <td class="govuk-table__cell">25 Sep 2023</td>
+
+                  <td class="govuk-table__cell">
+                    
+                        <strong class="govuk-tag govuk-tag--grey">
+          In progress
+        </strong>
+
+                  </td>
+      
+      
+                </tr>
+      
+                <tr class="govuk-table__row">
+      
+                  <th scope="row" class="govuk-table__header"><a class="govuk-link" href="view-information-detail?userid=siang@hmai.com">siang@hmai.com</a></th>
+      
+                  <td class="govuk-table__cell">Identifier recylced</td>
+      
+                  <td class="govuk-table__cell">9 Oct 2023</td>
+
+                  <td class="govuk-table__cell">Suspend account</td>
+      
+      
+                </tr>
+      
+                <tr class="govuk-table__row">
+      
+                  <th scope="row" class="govuk-table__header"><a class="govuk-link" href="view-information-detail?userid=siiughiuw@hmai.com">siiughiuw@hmai.com</a></th>
+      
+                  <td class="govuk-table__cell">Recovery activated</td>
+      
+                  <td class="govuk-table__cell">9 Oct 2023</td>
+
+                  <td class="govuk-table__cell">Block account</td>
+      
+      
+                </tr>
+      
+                <tr class="govuk-table__row">
+      
+                  <th scope="row" class="govuk-table__header"><a class="govuk-link" href="view-information-detail?userid=kainikhuds2345">kainikhuds2345</a></th>
+      
+                  <td class="govuk-table__cell">Identifier changed</td>
+      
+                  <td class="govuk-table__cell">9 Oct 2023</td>
+
+                  <td class="govuk-table__cell">Force identity check<br>password reset</td>
+      
+      
+                </tr>
+      
+                <tr class="govuk-table__row">
+      
+                  <th scope="row" class="govuk-table__header"><a class="govuk-link" href="view-information-detail?userid=vpatinqqe3">vpatel9873</a></th>
+      
+                  <td class="govuk-table__cell">Account purged</td>
+                  <td class="govuk-table__cell">9 Oct 2023</td>
+
+      
+                  <td class="govuk-table__cell">Suspend account</td>
+      
+      
+                </tr>
+      
+                <tr class="govuk-table__row">
+      
+                  <th scope="row" class="govuk-table__header"><a class="govuk-link" href="view-information-detail?userid=vpatel9873">vpatel9873</a></th>
+      
+                  <td class="govuk-table__cell">Margaret Blake</td>
+      
+                  <td class="govuk-table__cell">9 Oct 2023</td>
+
+                  <td class="govuk-table__cell">Force identity check</td>
+      
+      
+                </tr>
+      
+                <tr class="govuk-table__row">
+      
+                  <th scope="row" class="govuk-table__header"><a class="govuk-link" href="view-information-detail?userid=Sepepatel73">Sepepatel73</a></th>
+      
+                  <td class="govuk-table__cell">Account purged</td>
+      
+                  <td class="govuk-table__cell">25 Sep 2023</td>
+
+                  <td class="govuk-table__cell">Reset password</td>
+      
+      
+                </tr>
+      
+                <tr class="govuk-table__row">
+      
+                  <th scope="row" class="govuk-table__header"><a class="govuk-link" href="view-information-detail?userid=vpatel9874223">vpatel9874223</a></th>
+      
+                  <td class="govuk-table__cell">Credential compromised</td>
+                  <td class="govuk-table__cell">25 Sep 2023</td>
+
+                  <td class="govuk-table__cell">Reset password</td>
+      
+      
+                </tr>
+      
+                <tr class="govuk-table__row">
+      
+                  <th scope="row" class="govuk-table__header"><a class="govuk-link" href="view-information-detail?userid=waltD3243@pear.com">waltD3243@pear.com</a></th>
+      
+                  <td class="govuk-table__cell">Account suspended</td>
+                  <td class="govuk-table__cell">9 Oct 2023</td>
+
+      
+                  <td class="govuk-table__cell">Force identity check<br>password reset</td>
+      
+      
+                </tr>
+      
+                <tr class="govuk-table__row">
+      
+                  <th scope="row" class="govuk-table__header"><a class="govuk-link" href="view-information-detail?userid=bkahnl9873">bkahnl9873</a></th>
+      
+                  <td class="govuk-table__cell">Recovery activated</td>
+      
+                  <td class="govuk-table__cell">9 Oct 2023</td>
+
+                  <td class="govuk-table__cell">Reset password</td>
+      
+      
+                </tr>
+      
+              </tbody>
+            </table>
+      
+       
+
+          </div>
+
+          
+        </div>
+      
+      
+      
+      
+      </div>
+      
+    
+
+    
+
+
+      <p style="float:right" class="govuk-!-text-align-right">Showing <b>1</b> to <b>40</b> of <b>90</b> fraud records</p>
 
 
     {% from "govuk/components/pagination/macro.njk" import govukPagination %}
@@ -218,30 +494,24 @@ View fraud information – {{ serviceName }} – GOV.UK Prototype Kit
   ]
 }) }}
 
-{% endif %}   
 
-</div>
+
+
 </div>
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-<div class="govuk-inset-text">
-  Showing fraud information based on chosen events; Account related, Identifier changed or recylced, Credential comprimised.     
-</div>
+
+    {% if (data['js-state'] == "off") %}
 
 
-
-<a class="govuk-button govuk-body govuk-button--secondary govuk-!-margin-right-3" data-module="govuk-button" href="get-reasons">
-
-  Change events
- </a>
-
-    <a class="govuk-button govuk-body govuk-!-margin-bottom-0" data-module="govuk-button" href="get-are-you-sure">
+   <a class="govuk-button govuk-body govuk-!-margin-bottom-0" data-module="govuk-button" href="get-are-you-sure">
       Download information
     </a>
  
-    
+     
+    {% endif %}
 
 
     

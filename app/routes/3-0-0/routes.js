@@ -17,6 +17,7 @@ router.post('/' + version + '/task-answer', function(request, response) {
 
     var task = request.session.data['task']
     var uploadstate = request.session.data['upload-state']
+    var jsstate = request.session.data['js-state']
     var submissionhistory = request.session.data['submission-history']
     if (uploadstate == "uploadfileoff"){
         response.redirect("add-reason")
@@ -26,8 +27,11 @@ router.post('/' + version + '/task-answer', function(request, response) {
     else if (task == "addinfo"){
         response.redirect("add-format")
     }
+    // else if (jsstate == "off"){
+    //     response.redirect("get-reasons")
+    // }
     else if (task == "viewinfo"){
-        response.redirect("get-reasons")
+        response.redirect("view-information")
     }
     else if (submissionhistory == "yes"){
         response.redirect("submission-history")

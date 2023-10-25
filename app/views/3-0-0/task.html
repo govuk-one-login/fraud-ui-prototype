@@ -52,6 +52,17 @@ What would you like to do? – {{ serviceName }} – GOV.UK Prototype Kit
         </div>
         {% endif %}
 
+
+        {% if (data['view-state'] != "no") %}
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="task-3" name="task" type="radio" value="viewinfo">
+          <label class="govuk-label govuk-radios__label" for="task-3">
+            View and download fraud information
+          </label>
+
+        </div>
+        {% endif %}
+
           <div class="govuk-radios" data-module="govuk-radios">
             <div class="govuk-radios__item">
               <input class="govuk-radios__input" id="task" name="task" type="radio" value="addinfo">
@@ -60,7 +71,7 @@ What would you like to do? – {{ serviceName }} – GOV.UK Prototype Kit
               </label>
             </div>
 
-          {% if (data['download-state'] != "downloadoff") %}
+          {% if (data['download-state'] != "off") %}
 
             <div class="govuk-radios__item">
               <input class="govuk-radios__input" id="task-2" name="task" type="radio" value="getinfo">
@@ -70,15 +81,7 @@ What would you like to do? – {{ serviceName }} – GOV.UK Prototype Kit
             </div>
             {% endif %}
 
-            {% if (data['view-state'] != "no") %}
-            <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="task-3" name="task" type="radio" value="viewinfo">
-              <label class="govuk-label govuk-radios__label" for="task-3">
-                View fraud information
-              </label>
-
-            </div>
-            {% endif %}
+  
 
             {% if (data['view-submission-history'] != "no")  %}
 

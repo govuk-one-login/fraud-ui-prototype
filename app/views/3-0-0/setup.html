@@ -64,8 +64,8 @@
          
            items: [
            {
-            value: "getallreasons",
-            text: "Show all reasons"
+            value: "off",
+            text: "Download task off"
           }
   
           ]
@@ -73,10 +73,10 @@
 
 
         {{ govukRadios({
-          name: "view-state",
+          name: "js-state",
           fieldset: {
             legend: {
-              text: "View information",
+              text: "Javascript status",
               isPageHeading: true,
               classes: "govuk-fieldset__legend--m"
             }
@@ -84,12 +84,52 @@
          
            items: [
             {
-              value: "no",
-              text: "View information off"
+              value: "off",
+              text: "Disabled"
             }
   
           ]
         }) }}
+
+
+        {{ govukRadios({
+          name: "filter-state",
+          fieldset: {
+            legend: {
+              text: "Javascript status",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--m"
+            }
+          },
+         
+           items: [
+            {
+              value: "on",
+              text: "Enabled"
+            }
+  
+          ]
+        }) }}
+
+        {{ govukRadios({
+          name: "search-state",
+          fieldset: {
+            legend: {
+              text: "Javascript status",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--m"
+            }
+          },
+         
+           items: [
+            {
+              value: "on",
+              text: "Enabled"
+            }
+  
+          ]
+        }) }}
+
 
         {{ govukRadios({
           name: "view-submission-history",
