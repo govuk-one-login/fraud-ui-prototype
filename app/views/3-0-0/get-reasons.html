@@ -15,11 +15,13 @@ Which fraud events– {{ serviceName }} – GOV.UK Prototype Kit
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      {% if (data['task'] == "viewinfo") %}
+      <form action="view-information" method="post" novalidate>
+
+      <!-- {% if (data['task'] == "viewinfo") %}
       <form action="view-information" method="post" novalidate>
         {% else %}
       <form action="get-options" method="post" novalidate>
-      {% endif %}
+      {% endif %} -->
         <!-- Change content for all -->
         {% set question = "Which fraud events do you want to download?" %}
         <!-- Change content for view -->
