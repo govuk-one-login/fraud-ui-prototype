@@ -44,14 +44,19 @@ router.post('/' + version + '/task-answer', function(request, response) {
 
 
 router.post('/' + version + '/add-format-answer', function(request, response) {
-
     var formatfile = request.session.data['format-file']
+    var uploadstate = request.session.data['upload-state']
     if (formatfile == "yes"){
         response.redirect("upload-file")
-    } else {
-        response.redirect("add-reason")
+    }
+    else if (uploadstate == "uploadsingle"){
+        response.redirect("id-multiple")
+    } 
+    else {
+        response.redirect("add-ids")
     }
 })
+
 
 
 router.post('/' + version + '/add-reason-answer', function(request, response) {
@@ -59,12 +64,12 @@ router.post('/' + version + '/add-reason-answer', function(request, response) {
     var reason = request.session.data['reason']
     if (reason == "accounts"){
         response.redirect("reason-accounts")
-    } else if (reason == "credential"){
-        response.redirect("id-multiple")
+    } else if (reason == "Password compromised"){
+        response.redirect("reason-cc.html")
     } else if (reason == "optin"){
         response.redirect("reason-optin")
     } else {
-        response.redirect("id-multiple")
+        response.redirect("cya")
     }
 })
 

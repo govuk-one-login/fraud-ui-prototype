@@ -25,7 +25,42 @@
       {% else %}
 
 
+
       <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+
+            {% if (data['userid'] == null) %}
+            User IDs
+
+            {% else %}
+            User ID
+            {% endif %}
+
+          </dt>
+          <dd class="govuk-summary-list__value">
+          
+            {% if (data['userid'] == null) %}
+            joeblogs165683 <br>
+            joeblogs87683 <br>
+            joeblogs87654383 <br>
+            joeblogs87383
+
+            {% else %}
+            {{ data['userid'] }}
+
+            {% endif %}
+
+        
+ 
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="add-ids">
+              Change<span class="govuk-visually-hidden"> ids</span>
+            </a>
+          </dd>
+        </div>
 
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
@@ -33,7 +68,7 @@
           </dt>
           <dd class="govuk-summary-list__value">
             {% if (data['reason'] == null) %}
-            Credentials comprimised
+            Credentials compromised
             {% else %}
             {{ data['reason'] }}
 
@@ -47,69 +82,32 @@
           </dd>
         </div>
 
-        {% if (data['upload-state'] != "uploadsingleoff") %}
 
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
-            Multiple IDs to add
+            Information source
           </dt>
           <dd class="govuk-summary-list__value">
-            {% if (data['id-multiple'] == "yes") %}
-            Yes
+            {% if (data['source'] == null) %}
+            Details found on compromised list
             {% else %}
-            No
+            {{ data['source'] }}
+
             {% endif %}
 
           </dd>
           <dd class="govuk-summary-list__actions">
-            <a class="govuk-link" href="id-multiple">
+            <a class="govuk-link" href="reason-cc">
               Change<span class="govuk-visually-hidden"> id number</span>
             </a>
           </dd>
         </div>
 
-        {% endif %}
+       
 
-        {% if (data['id-multiple'] == "no") %}
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            User ID
-          </dt>
-          <dd class="govuk-summary-list__value">
-        
-            {{ data['user-id'] }}
- 
-          </dd>
-          <dd class="govuk-summary-list__actions">
-            <a class="govuk-link" href="add-id">
-              Change<span class="govuk-visually-hidden"> id</span>
-            </a>
-          </dd>
-        </div>
 
-        {% else %}
 
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            User IDs
-          </dt>
-          <dd class="govuk-summary-list__value">
-          
-             joeblogs165683 <br>
-             joeblogs87683 <br>
-             joeblogs87654383 <br>
-             joeblogs87383
- 
-          </dd>
-          <dd class="govuk-summary-list__actions">
-            <a class="govuk-link" href="add-ids">
-              Change<span class="govuk-visually-hidden"> ids</span>
-            </a>
-          </dd>
-        </div>
-
-  
-        {% endif %}
+     
 
       </dl>
       {% endif %}

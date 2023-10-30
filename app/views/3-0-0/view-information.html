@@ -23,6 +23,11 @@ View fraud information – {{ serviceName }} – GOV.UK Prototype Kit
     </h1>
 
 
+    {% if (data['tab-state'] == "on") %}
+
+    {% include('./includes/tabs.html') %}
+
+    {% endif %}
 
     
 
@@ -93,7 +98,7 @@ View fraud information – {{ serviceName }} – GOV.UK Prototype Kit
       
 
         <div class="moj-filter-layout__content">
-          {% if (data['filter-state'] == "on") %}
+            {% if (data['js-state'] != "off") %}
 
         
           <div class="moj-action-bar">
@@ -110,6 +115,7 @@ View fraud information – {{ serviceName }} – GOV.UK Prototype Kit
                    <a class="govuk-button govuk-button--secondary govuk-body govuk-!-margin-bottom-0" data-module="govuk-button" href="get-are-you-sure">
                     Download information
                   </a>
+                  
  
                 <!-- <button class="govuk-button moj-button-menu__item govuk-button--secondary " data-module="govuk-button">
                   Action 2
@@ -121,12 +127,41 @@ View fraud information – {{ serviceName }} – GOV.UK Prototype Kit
           </div>
       
           {% else %}
-          <p><a class="govuk-button govuk-body govuk-button--secondary govuk-!-margin-right-3" data-module="govuk-button" href="get-reasons">
+
+          <div class="govuk-grid-row">
+            <div class="govuk-grid-column-two-thirds">
+           
+          
+          <p><a class="govuk-button govuk-body govuk-button--secondary govuk-!-margin-right-1" data-module="govuk-button" href="get-reasons">
             Filter events
            </a> 
-           <a class="govuk-button govuk-button--secondary govuk-body govuk-!-margin-bottom-0" data-module="govuk-button" href="get-are-you-sure">
+           
+      
+          <a class="govuk-button govuk-button--secondary govuk-body govuk-!-margin-right-1" data-module="govuk-button" href="search-information">
+            Search information
+          </a>
+
+          <a class="govuk-button govuk-button--secondary govuk-body govuk-!-margin-bottom-0" data-module="govuk-button" href="get-are-you-sure">
             Download information
           </a>
+          </p>
+          </div>
+
+            <div class="govuk-grid-column-one-third">
+              <div class="govuk-form-group" style="float:right">
+                <label class="govuk-label" for="sort">
+                  Sort by
+                </label>
+                <select class="govuk-select" id="sort" name="sort">
+                  <option value="published">User ID</option>
+                  <option value="updated" selected>Event type</option>
+                  <option value="views">Date updated</option>
+                  <option value="comments">Status</option>
+                </select>
+              </div>
+          </div>
+          </div>
+
           {% endif %}
 
           <div class="moj-scrollable-pane">
@@ -135,17 +170,7 @@ View fraud information – {{ serviceName }} – GOV.UK Prototype Kit
             <table class="govuk-table" data-module="moj-sortable-table">
               {% else %}
            <table class="govuk-table">
-             <div class="govuk-form-group" style="float:right">
-                <label class="govuk-label" for="sort">
-                  Sort by
-                </label>
-                <select class="govuk-select" id="sort" name="sort">
-                  <option value="published">Recently published</option>
-                  <option value="updated" selected>Recently updated</option>
-                  <option value="views">Most views</option>
-                  <option value="comments">Most comments</option>
-                </select>
-              </div>
+          
 
 
             {% endif %}

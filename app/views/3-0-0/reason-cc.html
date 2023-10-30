@@ -14,53 +14,63 @@ What has happened to the account – {{ serviceName }} – GOV.UK Prototype Kit
 {% block content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
+      <form action="cya" method="post" novalidate>
 
 
-        <form action="cya" method="post" novalidate>
-
-
-        {% from "govuk/components/radios/macro.njk" import govukRadios %}
+       {% from "govuk/components/radios/macro.njk" import govukRadios %}
 
 
         {{ govukRadios({
-          name: "reason",
+          name: "source",
           fieldset: {
             legend: {
-              text: "What has happened to the accounts",
+              text: "What is the source of this information?",
               isPageHeading: true,
               classes: "govuk-fieldset__legend--l"
             }
           },
-  
+          hint: {
+            text: "This is often called the rational code"
+        
+        },
            items: [
             {
-              value: "accounts credential changes are required",
-              text: "Accounts credential changes are required"
+              value: "Details found on compromised list",
+              text: "Details found on compromised list"
             },
+  
             {
-              value: "Accounts are purged",
-              text: "Accounts are purged"
+              value: "Intelligence internally and third parties",
+              text: "Intelligence internally and third parties"
             },
+
             {
-              value: "Accounts are disabled",
-              text: "Accounts are disabled"
+              value: "Intelligence from criminal investigations",
+              text: "Intelligence from criminal investigations"
             },
+
             {
-              value: "Accounts are enabled",
-              text: "Accounts are enabled"
+              value: "Usual monitoring exercises",
+              text: "Usual monitoring exercises"
             }
           ]
         }) }}
 
 
+      
 
 
-        
+
+
 
         {{ govukButton({
           text: "Continue"
         }) }}
       </form>
+
+        
+
+    
     </div>
   </div>
 {% endblock %}

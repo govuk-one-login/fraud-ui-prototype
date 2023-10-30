@@ -38,12 +38,8 @@
  
    items: [
    {
-    value: "uploadfileoff",
-    text: "Upload file off"
-  },
-   {
-    value: "uploadsingleoff",
-      text: "Upload single off"
+    value: "uploadsingle",
+      text: "Upload single on"
     }
 
   ]
@@ -71,6 +67,44 @@
           ]
         }) }}
 
+        <!-- {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+
+        {{ govukCheckboxes({
+          name: "view-state",
+          fieldset: {
+            legend: {
+              text: "View functionality",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          hint: {
+            text: "Select all that apply."
+          },
+          items: [
+          {
+            value: "js-off",
+            text: "JS Disabled"
+          },
+          {
+            value: "filter-on",
+            text: "Filter on"
+          },
+          {
+            value: "search-on",
+            text: "Search on"
+          },
+          {
+            value: "notification-on",
+            text: "Notification on"
+          }
+          ]
+        }) }} -->
+
+
+
+
+
 
         {{ govukRadios({
           name: "js-state",
@@ -92,11 +126,11 @@
         }) }}
 
 
-        {{ govukRadios({
+        <!-- {{ govukRadios({
           name: "filter-state",
           fieldset: {
             legend: {
-              text: "Javascript status",
+              text: "Filter status",
               isPageHeading: true,
               classes: "govuk-fieldset__legend--m"
             }
@@ -105,17 +139,17 @@
            items: [
             {
               value: "on",
-              text: "Enabled"
+              text: "Filter on"
             }
   
           ]
-        }) }}
+        }) }} -->
 
-        {{ govukRadios({
+        <!-- {{ govukRadios({
           name: "search-state",
           fieldset: {
             legend: {
-              text: "Javascript status",
+              text: "Search status",
               isPageHeading: true,
               classes: "govuk-fieldset__legend--m"
             }
@@ -128,7 +162,7 @@
             }
   
           ]
-        }) }}
+        }) }} -->
 
 
         {{ govukRadios({
@@ -176,6 +210,10 @@
   
           ]
         }) }}
+
+
+
+        
 
 
         
