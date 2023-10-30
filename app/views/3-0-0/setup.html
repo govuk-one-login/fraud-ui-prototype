@@ -48,7 +48,7 @@
 
 
 
-        {{ govukRadios({
+        <!-- {{ govukRadios({
           name: "download-state",
           fieldset: {
             legend: {
@@ -65,7 +65,7 @@
           }
   
           ]
-        }) }}
+        }) }} -->
 
         <!-- {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
 
@@ -184,6 +184,27 @@
             {
               value: "post-mvp-submission",
               text: "Post MVP"
+            }
+  
+          ]
+        }) }}
+
+
+
+        {{ govukRadios({
+          name: "homepage-state",
+          fieldset: {
+            legend: {
+              text: "Homepage status",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--m"
+            }
+          },
+         
+           items: [
+            {
+              value: "on",
+              text: "On"
             }
   
           ]

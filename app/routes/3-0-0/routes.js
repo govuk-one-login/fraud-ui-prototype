@@ -62,16 +62,26 @@ router.post('/' + version + '/add-format-answer', function(request, response) {
 router.post('/' + version + '/add-reason-answer', function(request, response) {
 
     var reason = request.session.data['reason']
-    if (reason == "accounts"){
+    if (reason == "Account related"){
         response.redirect("reason-accounts")
     } else if (reason == "Password compromised"){
         response.redirect("reason-cc.html")
-    } else if (reason == "optin"){
+    } else if (reason == "Account opted in or out from event changes"){
         response.redirect("reason-optin")
-    } else {
+    } 
+    else if (reason == "Suspicion or Detection of Identity Fraud"){
+        response.redirect("reason-id-fraud")
+    }
+    else if (reason == "User is being investigated"){
+        response.redirect("reason-investigation")
+    }  
+    else {
         response.redirect("cya")
     }
 })
+
+
+
 
 router.post('/' + version + '/id-multiple-answer', function(request, response) {
 var idmultiple = request.session.data['id-multiple']
