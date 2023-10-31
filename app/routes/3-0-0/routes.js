@@ -125,7 +125,7 @@ router.post('/' + version + '/get-options-answer', function(request, response) {
 router.post('/' + version + '/get-options-are-you-sure-answer', function(request, response) {
     var getconfirm = request.session.data['get-confirm']
     if (getconfirm == "yes"){
-        response.redirect("confirmation")
+        response.redirect("confirmation?task=getinfo")
     } else {
         response.redirect("cancelled-download")
     }
