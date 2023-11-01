@@ -69,15 +69,7 @@ View fraud information – {{ serviceName }} – GOV.UK Prototype Kit
   </div>
 
 
-
-
       {% endif %}
-
-
-     
-
-
-  
 
   
   </div>
@@ -85,11 +77,6 @@ View fraud information – {{ serviceName }} – GOV.UK Prototype Kit
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
-
-
-    
-  
-
 
       <div class="moj-filter-layout">
 
@@ -164,7 +151,9 @@ View fraud information – {{ serviceName }} – GOV.UK Prototype Kit
 
           {% endif %}
 
-          <div class="moj-scrollable-pane">
+          <!-- <div class="moj-scrollable-pane govuk-!-margin-bottom-3"> -->
+
+          <div class="govuk-!-margin-bottom-3">
 
             {% if (data['js-state'] != "off") %}
             <table class="govuk-table" data-module="moj-sortable-table">
@@ -487,7 +476,6 @@ View fraud information – {{ serviceName }} – GOV.UK Prototype Kit
       
     
 
-    
 
 
       <p style="float:right" class="govuk-!-text-align-right">Showing <b>1</b> to <b>40</b> of <b>90</b> fraud records</p>
@@ -523,25 +511,7 @@ View fraud information – {{ serviceName }} – GOV.UK Prototype Kit
 
 
 </div>
-
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
-
-
-    {% if (data['js-state'] == "off") %}
-
-
-   <a class="govuk-button govuk-body govuk-!-margin-bottom-0" data-module="govuk-button" href="get-are-you-sure">
-      Download information
-    </a>
- 
-     
-    {% endif %}
-
-
-    
-
-  </div>
 </div>
+
 
 {% endblock %}
