@@ -1,0 +1,112 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Start page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+
+
+
+{% block beforeContent %}
+
+</div>
+<div class="govuk-masthead govuk-!-padding-top-1 govuk-!-padding-bottom-6 govuk-!-margin-bottom-2">
+  <div class="govuk-width-container">
+    
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds-from-desktop">
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+  
+  <h1 class="govuk-heading-xl">
+    A design history for <br>
+    Version {% include('../includes/version.html') %} of the Shared Signals UI
+    prototype 
+  </h1>
+        <p>
+          A record of how our service has iterated.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="govuk-width-container">
+
+
+{% endblock %}
+
+
+{% block content %}
+
+
+
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      
+
+  <span class="govuk-caption-l">{% include('../includes/date.html') %}</span>
+<h1 class="govuk-heading-l">Version {% include('../includes/version.html') %}</h1>
+
+      <p>This is the design story for the Shared Signals UI prototype {% include('../includes/version.html') %}.</p>
+         
+      <p>This iteration contains some significant changes, based on early insight from internal users. The main features of this initial prototype include:</p>
+      {% include('../includes/summary.html') %}
+
+  
+
+      <h2 class="govuk-heading-m">Removed download journey</h2>
+      <p>Users mentioned wanting to view the information before downloading. The call to action to download seemed redundanct and added to the cognitive load on the task screen.</p>
+      <p>One user mentioned wanting to see a "homepage" showing links to past submissions. We will wait to see if a pattern emmerges around this need.</p>
+      <p><a href="../task">View updated task screen</a>.</p>
+
+      <h2 class="govuk-heading-m">Added sort and filter to view screens</h2>
+      <p>Users wanted to get to the list page sooner and some users mentioned being user led, so seeing lists and filters on previous screens was jarring.</p>
+        <p>Filters and sortable tables were implemented, however for research we may look to add one interactive element at a time. In addition we have renamed Intervention with status and can make use of the GDS tags pattern, but will first do some research to see if that is needed  and some card sorting to understand how colours land with users. <a href="../view-information">View information lists with filters</a>.</p>
+        <p>A <a href="../view-information?filter-state=off&search-state=off">javascript disable approach</a> was also maintained.</p>
+        
+        
+
+        <h2 class="govuk-heading-m">Search</h2>
+        <p>Search was mentioned by both stakeholders and internal users. We created an initial search pattern. <a href="../view-information?search-state=on&filter-state=off">View search functionality</a>.</p>
+
+          
+      <h2 class="govuk-heading-m">Added ID details view</h2>
+      <p>Users expected to see more information than what was on the list page. Some audit history and a chronological view of the data was mentioned. 
+        The priority of the information is to be explored in the next round of research. <a href="../view-information-detail">View user id details</a>.</p>
+
+      <h2 class="govuk-heading-m">Iterated upload journey</h2>
+      <p>We made a number of changes to the upload journey including with updated event names, and additional optional fields <a href="#">here</a>. We also simplified the journey by removing the question around <a href="../add-more">"adding more updates"</a> during the same session. This question caused some confusion, as users expected to be able to add additional information. </p>
+
+    
+      <h2 class="govuk-heading-m">MoJ frontend and Jquery added</h2>
+      <p>MoJ frontend and Jquery were added to the prototype to allow for filtering and sorting</p>
+
+      <h2 class="govuk-heading-m">Adding informaiton</h2>
+      <p>We added a user ID led journey, as the users we spoke to expected to see user ID first.</p>
+      <p>We refined the reasons / event types, as more of those became better understood. We also tailored the following questions based on the eventy types and subsequent messages.</p>
+
+
+      <h2 class="govuk-heading-m">Service name</h2>
+      <p>With more focus on viewing information over downloading information, the temporary service name will need exploring in the next round of research.</p>
+
+
+
+    </div>
+
+    <div class="govuk-grid-column-one-third">
+
+      
+
+    </div>
+  </div>
+
+  
+
+  
+
+{% endblock %}

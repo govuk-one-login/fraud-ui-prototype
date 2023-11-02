@@ -1,0 +1,74 @@
+{% extends "layouts/main.html" %}
+
+
+
+{% block beforeContent %}
+
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "index"
+}) }}
+
+{% endblock %}
+
+{% block content %}
+
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    
+      {% if (data['manual-intervention-state'] == "on") %}
+      <form action="add-fraud-intervention" method="post" novalidate>
+        {% else %}
+        <form action="task" method="post" novalidate>
+
+      {% endif %}
+
+
+      <h1 class="govuk-heading-l">
+        Sign in to update fraud information
+      </h1>
+    <!-- <form action="/mfa" method="post" novalidate> -->
+
+      {% from "govuk/components/input/macro.njk" import govukInput %}
+
+{{ govukInput({
+  label: {
+    text: "Username"
+  },
+  id: "username",
+  name: "username",
+  autocomplete: "username",
+  classes: "govuk-input--width-20",
+  spellcheck: false
+}) }}
+
+{{ govukInput({
+  label: {
+    text: "Password"
+  },
+  id: "password",
+  name: "password",
+  autocomplete: "password",
+  classes: "govuk-input--width-20",
+  spellcheck: false
+}) }}
+
+  
+
+      {{ govukButton({
+        text: "Sign in"
+      }) }}
+      <p class="govuk-body">
+        You can <a href="#" class="govuk-link">reset your password</a> if you've forgotten it.
+      </p>
+
+    </form>
+  </div>
+</div>
+
+{% endblock %}

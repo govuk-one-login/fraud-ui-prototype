@@ -1,0 +1,80 @@
+
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+What has happened to the account – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form action="source-id-fraud" method="post" novalidate>
+
+
+       {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+
+        {{ govukRadios({
+          name: "method",
+          fieldset: {
+            legend: {
+              text: "What is the suspected method used?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+     
+
+
+           items: [
+            {
+              value: "Impersonation",
+              text: "Impersonation"
+            },
+  
+            {
+              value: "Coercion",
+              text: "Coercion"
+            },
+
+            {
+              value: "Account takeover",
+              text: "Account takeover"
+            },
+
+            {
+              value: "Agent misuse",
+              text: "Agent misuse"
+            },
+            {
+              value: "Synthetic identity",
+              text: "Synthetic identity"
+            }
+          ]
+        }) }}
+
+
+      
+
+
+
+
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+      </form>
+
+        
+
+    
+    </div>
+  </div>
+{% endblock %}

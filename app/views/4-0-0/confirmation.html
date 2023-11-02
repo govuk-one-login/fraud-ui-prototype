@@ -1,0 +1,76 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Confirmation page – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      
+
+  
+
+      {% if (data['task'] == "getinfo") %}
+      
+      {{ govukPanel({
+        titleText: "Information downloaded",
+        html: "124 records are being downloaded from One Login"
+      }) }}
+     
+      {% else %}
+      {{ govukPanel({
+        titleText: "Information submitted",
+        html: "Fraud information submitted to One Login"
+      }) }}
+      {% endif %}   
+
+
+  
+      {% if (data['task'] == "getinfo") %}
+      <p>
+        Your downloaded .csv file should appear in your download folder shortly.
+      </p>
+      <h2 class="govuk-heading-m">
+        What happens next
+      </h2>
+        {% if (data['task'] == "getinfo") %}
+        <p>
+          You can <a href="get-options">download other information</a>, or <a href="task">carry out other tasks</a>.
+        </p>
+        {% else %}
+        <p>
+          You can <a href="get-options">view other information</a>, or <a href="task">carry out other tasks</a>.
+        </p>
+
+        {% endif %}
+        {% else %}
+
+      <h2 class="govuk-heading-m">
+        What happens next
+      </h2>
+      <p>
+        You can view previously submitted data, or <a href="task">carry out other tasks</a>.
+      </p>
+      {% endif %}   
+
+
+    
+
+
+
+      <!-- <p>
+        They will contact you either to confirm your registration, or to ask for more information.
+      </p> -->
+      <p>
+        <a href="#">
+          What did you think of this service?
+        </a> (takes 30 seconds)
+      </p>
+
+
+    </div>
+  </div>
+
+{% endblock %}

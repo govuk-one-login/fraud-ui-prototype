@@ -1,0 +1,203 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Which fraud events– {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      {% if (data['release-state'] == "MVP") %}
+      <form action="get-are-you-sure" method="post" novalidate>
+
+      {% else %}
+      <form action="view-information" method="post" novalidate>
+
+      {% endif %}
+
+
+      <!-- {% if (data['task'] == "viewinfo") %}
+      <form action="view-information" method="post" novalidate>
+        {% else %}
+      <form action="get-options" method="post" novalidate>
+      {% endif %} -->
+        <!-- Change content for all -->
+        {% set question = "Which fraud events do you want to download?" %}
+        <!-- Change content for view -->
+        {% if (data['task'] == "viewinfo") %}
+        {% set question = "Which fraud events do you want to view?" %}
+
+        {% endif %}
+
+
+        {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+
+
+        {% if (data['download-state'] != "getallreasons") %}
+
+
+
+{{ govukCheckboxes({
+  name: "get-reasons",
+  fieldset: {
+    legend: {
+      html: question,
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--l"
+    }
+  },
+  
+  hint: {
+    text: "Select all that apply."
+  },
+
+
+  items: [
+  {
+    value: "accounts",
+    text: "Account related"
+  },
+  {
+    value: "Identifier changed",
+    text: "Identifier changed"
+  },
+  {
+    value: "Identifier recylced",
+    text: "Identifier recylced"
+  },
+  {
+    value: "Credential compromised",
+    text: "Credential compromised"
+  },
+  {
+    value: "optin",
+    text: "Account opted in or out from event changes"
+  },
+
+  {
+    value: "Recovery activated",
+      text: "Recovery activated"
+  },
+  {
+    value: "Recovered information changed",
+    text: "Recovered information changed"
+  }
+]
+}) 
+}}
+
+
+{% else %}
+
+
+{{ govukCheckboxes({
+  name: "waste",
+  fieldset: {
+    legend: {
+      html: question,
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--l"
+    }
+  },
+  
+  hint: {
+    text: "Select all that apply."
+  },
+
+
+  items: [
+  {
+    value: "accounts",
+    text: "Account Credential Change Required"
+  },
+
+  {
+    value: "accounts",
+    text: "Account Purged"
+  },
+
+
+  {
+    value: "accounts",
+    text: "Account Disabled"
+  },
+
+  {
+    value: "accounts",
+    text: "Account Enabled"
+  },
+
+  {
+    value: "identifier",
+    text: "Identifier changed"
+  },
+
+  {
+    value: "identifier",
+    text: "Identifier recylced"
+  },
+
+  {
+    value: "identifier",
+    text: "Identifier changed or recylced"
+  },
+  {
+    value: "credential",
+    text: "Credential compromised"
+  },
+  {
+    value: "optin",
+    text: "Account Opted in"
+  },
+
+  {
+    value: "optout",
+    text: "Opt Out Initiated"
+  },
+
+  {
+    value: "optout",
+    text: "Opt Out Cancelled"
+  },
+
+  {
+    value: "optout",
+    text: "Opt Out Effective"
+  },
+
+  {
+    value: "optout",
+    text: "Opt Out Effective"
+  },
+
+  {
+    value: "recovery",
+    text: "Recovery Activated"
+  },
+  {
+    value: "recovery",
+    text: "Recovery Information Changed"
+  }
+  ]
+}) 
+}}
+
+{% endif %}
+
+        
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+      </form>
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,292 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form action="setup-answer" method="post" novalidate>
+        <h1 class="govuk-heading-xl govuk-!-margin-bottom-2">Prototype setup</h1>
+
+        <div id="setup-hint" class="govuk-hint">
+          Setup the prototype based on product milestone
+        </div>
+        {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+
+
+
+        {{ govukRadios({
+          name: "release-state",
+          fieldset: {
+            legend: {
+              text: "Release state",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--m"
+            }
+          },
+         
+           items: [
+           {
+            value: "MVP",
+              text: "MVP"
+            }
+        
+          ]
+        }) }}
+
+
+
+
+        {{ govukRadios({
+          name: "manual-intervention-state",
+          fieldset: {
+            legend: {
+              text: "Manual Intervention",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--m"
+            }
+          },
+         
+           items: [
+           {
+            value: "on",
+              text: "Manual intervention on"
+            }
+        
+          ]
+        }) }}
+
+
+
+
+
+{{ govukRadios({
+  name: "upload-state",
+  fieldset: {
+    legend: {
+      text: "Upload functionality",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--m"
+    }
+  },
+ 
+   items: [
+   {
+    value: "uploadsingle",
+      text: "Upload single on"
+    }
+
+  ]
+}) }}
+
+
+
+
+        <!-- {{ govukRadios({
+          name: "download-state",
+          fieldset: {
+            legend: {
+              text: "Download functionality",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--m"
+            }
+          },
+         
+           items: [
+           {
+            value: "off",
+            text: "Download task off"
+          }
+  
+          ]
+        }) }} -->
+
+        <!-- {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+
+        {{ govukCheckboxes({
+          name: "view-state",
+          fieldset: {
+            legend: {
+              text: "View functionality",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          hint: {
+            text: "Select all that apply."
+          },
+          items: [
+          {
+            value: "js-off",
+            text: "JS Disabled"
+          },
+          {
+            value: "filter-on",
+            text: "Filter on"
+          },
+          {
+            value: "search-on",
+            text: "Search on"
+          },
+          {
+            value: "notification-on",
+            text: "Notification on"
+          }
+          ]
+        }) }} -->
+
+
+
+
+
+
+        {{ govukRadios({
+          name: "js-state",
+          fieldset: {
+            legend: {
+              text: "Javascript status",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--m"
+            }
+          },
+         
+           items: [
+            {
+              value: "off",
+              text: "Disabled"
+            }
+  
+          ]
+        }) }}
+
+
+        <!-- {{ govukRadios({
+          name: "filter-state",
+          fieldset: {
+            legend: {
+              text: "Filter status",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--m"
+            }
+          },
+         
+           items: [
+            {
+              value: "on",
+              text: "Filter on"
+            }
+  
+          ]
+        }) }} -->
+
+        <!-- {{ govukRadios({
+          name: "search-state",
+          fieldset: {
+            legend: {
+              text: "Search status",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--m"
+            }
+          },
+         
+           items: [
+            {
+              value: "on",
+              text: "Enabled"
+            }
+  
+          ]
+        }) }} -->
+
+
+        {{ govukRadios({
+          name: "view-submission-history",
+          fieldset: {
+            legend: {
+              text: "Submission history",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--m"
+            }
+          },
+         
+           items: [
+  
+            {
+              value: "no",
+              text: "Submission history off"
+            },
+            {
+              value: "post-mvp-submission",
+              text: "Post MVP"
+            }
+  
+          ]
+        }) }}
+
+
+
+        {{ govukRadios({
+          name: "homepage-state",
+          fieldset: {
+            legend: {
+              text: "Homepage status",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--m"
+            }
+          },
+         
+           items: [
+            {
+              value: "on",
+              text: "On"
+            }
+  
+          ]
+        }) }}
+
+
+
+        {{ govukRadios({
+          name: "notification",
+          fieldset: {
+            legend: {
+              text: "Notification",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--m"
+            }
+          },
+         
+           items: [
+  
+            {
+              value: "yes",
+              text: "Notification on"
+            }
+  
+          ]
+        }) }}
+
+
+
+        
+
+
+        
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+      </form>
+    </div>
+  </div>
+{% endblock %}

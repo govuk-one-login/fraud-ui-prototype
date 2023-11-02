@@ -1,0 +1,305 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+What would you like to do? – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+
+{% block content %}
+
+{% if (data['homepage-state'] == "on") or (data['release-state'] == "MVP")  %}
+
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-l">Update shared fraud information</h1>
+
+      
+    <!-- <h1 class="govuk-heading-l">Send and receive Fraud Shared Signals</h1> -->
+
+    <p>Use this service to view, download and add fraud informaiton, often called shared signals. You can also view your previously submitted information.    </p>
+  
+    {% if (data['notification'] == "yes") %}
+
+    <div class="govuk-inset-text">
+      There are 3 updates for events you have previously downloaded or viewed
+      <a class="govuk-notification-banner__link" href="view-information">View updates</a>
+    </div>
+
+ 
+  {% endif %}
+  
+  </div>
+    </div>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-one-third">
+
+      {% if (data['release-state'] == "MVP")  %}
+      <div class="govuk-summary-card">
+        <div class="govuk-summary-card__title-wrapper">
+          <h2 class="govuk-summary-card__title">Download information</h2>
+          
+        </div>
+        <div class="govuk-summary-card__content">
+          <dl class="govuk-summary-list">
+            <div class="govuk-summary-list__row">
+              
+              <p><a href="get-reasons">Download latest fraud information from One Login</a></p>
+    
+              {% if (data['notification'] == "yes") %}
+    
+              <p>
+                There are 3 updates for events you have previously downloaded or viewed
+                <a class="govuk-notification-banner__link" href="view-information?get-options=certain-events">View updates</a>
+              </p>
+            {% endif %}
+    
+    
+            </div>
+          </dl>
+        </div>
+      </div>
+      {% else %}
+      <div class="govuk-summary-card">
+        <div class="govuk-summary-card__title-wrapper">
+          <h2 class="govuk-summary-card__title">View information</h2>
+          
+        </div>
+        <div class="govuk-summary-card__content">
+          <dl class="govuk-summary-list">
+            <div class="govuk-summary-list__row">
+              
+              <p><a href="view-information">View and download latest fraud information from One Login</a></p>
+    
+              {% if (data['notification'] == "yes") %}
+    
+              <p>
+                There are 3 updates for events you have previously downloaded or viewed
+                <a class="govuk-notification-banner__link" href="view-information?get-options=certain-events">View updates</a>
+              </p>
+            {% endif %}
+    
+    
+            </div>
+          </dl>
+        </div>
+      </div>
+      {% endif %}
+
+ 
+</div>
+
+<div class="govuk-grid-column-one-third">
+  <div class="govuk-summary-card">
+    <div class="govuk-summary-card__title-wrapper">
+      <h2 class="govuk-summary-card__title">Add information</h2>
+    </div>
+    <div class="govuk-summary-card__content">
+      <dl class="govuk-summary-list">
+        <div class="govuk-summary-list__row">
+          {% if (data['release-state'] == "MVP")  %}
+          <p><a href="add-ids">Add fraud information to One Login using a form</a></p>
+          {% else %}
+          <p><a href="add-format">Add fraud information to One Login using a form or a file</a></p>
+          {% endif %}
+
+
+          {% if (data['notification'] == "yes") %}
+
+          <p>
+            There are 3 updates for events you have previously downloaded or viewed
+            <a class="govuk-notification-banner__link" href="view-information?get-options=certain-events">View updates</a>
+          </p>
+        {% endif %}
+
+
+        </div>
+      </dl>
+    </div>
+  </div>
+
+
+</div>
+{% if (data['release-state'] != "MVP")  %}
+
+<div class="govuk-grid-column-one-third">
+  <div class="govuk-summary-card">
+    <div class="govuk-summary-card__title-wrapper">
+      <h2 class="govuk-summary-card__title">View submissions</h2>
+    </div>
+    <div class="govuk-summary-card__content">
+      <dl class="govuk-summary-list">
+        <div class="govuk-summary-list__row">
+          <p><a href="view-submission-history">View your previous submissions to One Login</a></p>
+
+          {% if (data['notification'] == "yes") %}
+
+          <p>
+            There are 3 updates for events you have previously downloaded or viewed
+            <a class="govuk-notification-banner__link" href="view-information?get-options=certain-events">View updates</a>
+          </p>
+        {% endif %}
+
+
+        </div>
+      </dl>
+    </div>
+  </div>
+
+
+</div>
+{% endif %}
+
+
+</div>
+
+{% if (data['admin'] == "yes") %}
+<div class="govuk-grid-row">
+<div class="govuk-grid-column-one-third">
+  <div class="govuk-summary-card">
+    <div class="govuk-summary-card__title-wrapper">
+      <h2 class="govuk-summary-card__title">Manage users</h2>
+    </div>
+    <div class="govuk-summary-card__content">
+      <dl class="govuk-summary-list">
+        <div class="govuk-summary-list__row">
+          <p><a href="view-submission-history">Manage access for users withing your department</a></p>
+
+
+        </div>
+      </dl>
+    </div>
+  </div>
+</div>
+
+
+</div>
+
+
+{% endif %}
+
+
+</div>
+
+{% else %}
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <!-- <h1 class="govuk-heading-xl">
+      {{ serviceName }}
+    </h1> -->
+
+
+    <form action="task-answer" method="post" novalidate>
+    <div class="govuk-form-group">
+      <fieldset class="govuk-fieldset">
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+          <h1 class="govuk-fieldset__heading">
+            What would you like to do?
+          </h1>
+        </legend>
+
+        {% if (data['notification'] == "yes") %}
+
+        <div class="govuk-notification-banner" role="region"
+        aria-labelledby="govuk-notification-banner-title"
+        data-module="govuk-notification-banner">
+        <div class="govuk-notification-banner__header">
+          <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+            Important
+          </h2>
+        </div>
+        <div class="govuk-notification-banner__content">
+          <p class="govuk-notification-banner__heading">
+            There are 3 updates for events you have previously downloaded or viewed
+            <a class="govuk-notification-banner__link" href="view-information?get-options=certain-events">View updates</a>.
+          </p>
+        </div>
+      </div>
+      {% endif %}
+
+
+      {% if (data['view-state'] != "no") %}
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="task-3" name="task" type="radio" value="viewinfo">
+        <label class="govuk-label govuk-radios__label" for="task-3">
+          View and download fraud information
+        </label>
+
+      </div>
+      {% endif %}
+
+        <div class="govuk-radios" data-module="govuk-radios">
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="task" name="task" type="radio" value="addinfo">
+            <label class="govuk-label govuk-radios__label" for="task">
+              Add fraud information
+            </label>
+          </div>
+
+        {% if (data['download-state'] == "on") %}
+
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="task-2" name="task" type="radio" value="getinfo">
+            <label class="govuk-label govuk-radios__label" for="task-2">
+              Download fraud information
+            </label>
+          </div>
+          {% endif %}
+
+
+
+          {% if (data['view-submission-history'] != "no")  %}
+
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="task-4" name="task" type="radio" value="viewprevious">
+            <label class="govuk-label govuk-radios__label" for="task-4">
+              View my previous submissions
+            </label>
+          </div>
+          {% endif %}
+
+        </div>
+      </fieldset>
+    </div>
+
+
+
+    
+
+
+    
+
+    {{ govukButton({
+      text: "Continue"
+    }) }}
+
+  </form>
+
+    
+  </div>
+
+  <div class="govuk-grid-column-one-third">
+
+   
+
+  </div>
+</div>
+
+
+{% endif %}
+
+
+            
+
+{% endblock %}
