@@ -23,8 +23,14 @@ What would you like to do? – {{ serviceName }} – GOV.UK Prototype Kit
 
       
     <!-- <h1 class="govuk-heading-l">Send and receive Fraud Shared Signals</h1> -->
+    {% if (data['release-state'] == "MVP")  %}
+    <p>Use this service to download and add fraud information, often called shared signals.</p>
 
-    <p>Use this service to view, download and add fraud informaiton, often called shared signals. You can also view your previously submitted information.    </p>
+    {% else %}
+    <p>Use this service to view, download and add fraud information, often called shared signals. You can also view your previously submitted information.    </p>
+
+    {% endif %}
+
   
     {% if (data['notification'] == "yes") %}
 
