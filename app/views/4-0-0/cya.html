@@ -19,7 +19,13 @@
 
       {% if (data['file-upload'] == "true") %}
 
+      {% if (data['release-state'] == "MVP") %}
+      {% include('./includes/file-upload-MVP-cya.html') %}
+
+      {% else %}
+
       {% include('./includes/file-upload-cya.html') %}
+      {% endif %}
 
 
       {% else %}
