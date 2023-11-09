@@ -14,7 +14,7 @@ What would you like to do? – {{ serviceName }} – GOV.UK Prototype Kit
 
 {% block content %}
 
-{% if (data['homepage-state'] == "on") or (data['release-state'] == "MVP")  %}
+{% if (data['homepage-state'] != "off") or (data['release-state'] == "MVP")  %}
 
 
   <div class="govuk-grid-row">
@@ -76,8 +76,20 @@ What would you like to do? – {{ serviceName }} – GOV.UK Prototype Kit
       {% else %}
       <div class="govuk-summary-card">
         <div class="govuk-summary-card__title-wrapper">
-          <h2 class="govuk-summary-card__title">View information</h2>
+          <h2 class="govuk-summary-card__title">View information
+
+
+          <!-- {% if (data['notification'] == "yes") %}
+    
+          <strong class="govuk-tag govuk-tag--red">
+            3 updates
+          </strong>
+        {% endif %} -->
+
+          </h2>
           
+
+
         </div>
         <div class="govuk-summary-card__content">
           <dl class="govuk-summary-list">
@@ -85,13 +97,6 @@ What would you like to do? – {{ serviceName }} – GOV.UK Prototype Kit
               
               <p><a href="view-information">View and download latest fraud information from One Login</a></p>
     
-              {% if (data['notification'] == "yes") %}
-    
-              <p>
-                There are 3 updates for events you have previously downloaded or viewed
-                <a class="govuk-notification-banner__link" href="view-information?get-options=certain-events">View updates</a>
-              </p>
-            {% endif %}
     
     
             </div>
@@ -118,13 +123,6 @@ What would you like to do? – {{ serviceName }} – GOV.UK Prototype Kit
           {% endif %}
 
 
-          {% if (data['notification'] == "yes") %}
-
-          <p>
-            There are 3 updates for events you have previously downloaded or viewed
-            <a class="govuk-notification-banner__link" href="view-information?get-options=certain-events">View updates</a>
-          </p>
-        {% endif %}
 
 
         </div>
@@ -146,13 +144,6 @@ What would you like to do? – {{ serviceName }} – GOV.UK Prototype Kit
         <div class="govuk-summary-list__row">
           <p><a href="view-submission-history">View your previous submissions to One Login</a></p>
 
-          {% if (data['notification'] == "yes") %}
-
-          <p>
-            There are 3 updates for events you have previously downloaded or viewed
-            <a class="govuk-notification-banner__link" href="view-information?get-options=certain-events">View updates</a>
-          </p>
-        {% endif %}
 
 
         </div>
