@@ -73,6 +73,25 @@ What would you like to do? – {{ serviceName }} – GOV.UK Prototype Kit
           </dl>
         </div>
       </div>
+      {% elseif (data['release-state'] == "MVP2")  %}
+
+      <div class="govuk-summary-card">
+        <div class="govuk-summary-card__title-wrapper">
+          <h2 class="govuk-summary-card__title">View information</h2>
+          
+        </div>
+        <div class="govuk-summary-card__content">
+          <dl class="govuk-summary-list">
+            <div class="govuk-summary-list__row">
+                  
+              <p><a href="get-reasons?task=viewinfo">View and download latest fraud information from One Login</a></p>
+
+    
+            </div>
+          </dl>
+        </div>
+      </div>
+
       {% else %}
       <div class="govuk-summary-card">
         <div class="govuk-summary-card__title-wrapper">
@@ -132,7 +151,7 @@ What would you like to do? – {{ serviceName }} – GOV.UK Prototype Kit
 
 
 </div>
-{% if (data['release-state'] != "MVP")  %}
+{% if (data['release-state'] == null)  %}
 
 <div class="govuk-grid-column-one-third">
   <div class="govuk-summary-card">

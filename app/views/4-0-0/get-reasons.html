@@ -62,34 +62,33 @@ Which fraud events– {{ serviceName }} – GOV.UK Prototype Kit
 
   items: [
   {
-    value: "accounts",
-    text: "Account related"
-  },
-  {
-    value: "Identifier changed",
-    text: "Identifier changed"
-  },
-  {
-    value: "Identifier recylced",
-    text: "Identifier recylced"
-  },
-  {
-    value: "Credential compromised",
-    text: "Credential compromised"
-  },
-  {
-    value: "optin",
-    text: "Account opted in or out from event changes"
+    value: "Account disabled",
+    text: "Account disabled"
   },
 
   {
-    value: "Recovery activated",
-      text: "Recovery activated"
+    value: "Account enabled",
+    text: "Account enabled"
   },
+
+ 
+
   {
-    value: "Recovered information changed",
-    text: "Recovered information changed"
-  }
+    value: "Suspicion or Detection of Identity Fraud",
+    text: "Suspicion or Detection of Identity Fraud"
+  },
+
+  {
+    value: "Password compromised",
+    text: "Password compromised"
+  },
+
+
+
+  {
+  value: "User is being investigated",
+  text: "User is being investigated"
+}
 ]
 }) 
 }}
@@ -115,77 +114,33 @@ Which fraud events– {{ serviceName }} – GOV.UK Prototype Kit
 
   items: [
   {
-    value: "accounts",
-    text: "Account Credential Change Required"
+    value: "Account disabled",
+    text: "Account disabled"
   },
 
   {
-    value: "accounts",
-    text: "Account Purged"
+    value: "Account enabled",
+    text: "Account enabled"
   },
 
+ 
 
   {
-    value: "accounts",
-    text: "Account Disabled"
-  },
-
-  {
-    value: "accounts",
-    text: "Account Enabled"
+    value: "Suspicion or Detection of Identity Fraud",
+    text: "Suspicion or Detection of Identity Fraud"
   },
 
   {
-    value: "identifier",
-    text: "Identifier changed"
+    value: "Password compromised",
+    text: "Password compromised"
   },
 
-  {
-    value: "identifier",
-    text: "Identifier recylced"
-  },
+
 
   {
-    value: "identifier",
-    text: "Identifier changed or recylced"
-  },
-  {
-    value: "credential",
-    text: "Credential compromised"
-  },
-  {
-    value: "optin",
-    text: "Account Opted in"
-  },
-
-  {
-    value: "optout",
-    text: "Opt Out Initiated"
-  },
-
-  {
-    value: "optout",
-    text: "Opt Out Cancelled"
-  },
-
-  {
-    value: "optout",
-    text: "Opt Out Effective"
-  },
-
-  {
-    value: "optout",
-    text: "Opt Out Effective"
-  },
-
-  {
-    value: "recovery",
-    text: "Recovery Activated"
-  },
-  {
-    value: "recovery",
-    text: "Recovery Information Changed"
-  }
+  value: "User is being investigated",
+  text: "User is being investigated"
+}
   ]
 }) 
 }}
@@ -201,3 +156,6 @@ Which fraud events– {{ serviceName }} – GOV.UK Prototype Kit
     </div>
   </div>
 {% endblock %}
+
+
+

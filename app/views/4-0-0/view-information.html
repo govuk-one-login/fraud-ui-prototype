@@ -80,12 +80,17 @@ View fraud information – {{ serviceName }} – GOV.UK Prototype Kit
 
       <div class="moj-filter-layout">
 
+        {% if (data['release-state'] == "MVP2") %}
+        {% else %}
 
         {% include('./includes/filter.html') %}
       
+        {% endif %}
 
         <div class="moj-filter-layout__content">
             {% if (data['js-state'] != "off") %}
+           
+            {% if (data['release-state'] != "MVP2") %}
 
         
           <div class="moj-action-bar">
@@ -95,24 +100,20 @@ View fraud information – {{ serviceName }} – GOV.UK Prototype Kit
             <div class="moj-button-menu">
               <div class="moj-button-menu__wrapper">
       
-                <!-- <button class="govuk-button moj-button-menu__item govuk-button--secondary " data-module="govuk-button">
-                  Download information
-                </button> -->
       
                    <a class="govuk-button govuk-button--secondary govuk-body govuk-!-margin-bottom-0" data-module="govuk-button" href="get-are-you-sure">
                     Download information
                   </a>
                   
  
-                <!-- <button class="govuk-button moj-button-menu__item govuk-button--secondary " data-module="govuk-button">
-                  Action 2
-                </button> -->
+            
       
               </div>
             </div>
 
           </div>
-      
+          {% endif %}
+
           {% else %}
 
           <div class="govuk-grid-row">
@@ -184,7 +185,8 @@ View fraud information – {{ serviceName }} – GOV.UK Prototype Kit
        
                 <tr class="govuk-table__row">
       
-                  <th scope="row" class="govuk-table__header"><a class="govuk-link" href="view-information-detail?userid=jonbigggs3">jonbigggs3</a>
+                  <th scope="row" class="govuk-table__header">
+                    <a class="govuk-link" href="view-information-detail?userid=jonbigggs3">jonbigggs3</a>
                     <strong class="govuk-tag govuk-tag--blue">
                       New
                     </strong>
@@ -480,6 +482,7 @@ View fraud information – {{ serviceName }} – GOV.UK Prototype Kit
 
       <p style="float:right" class="govuk-!-text-align-right">Showing <b>1</b> to <b>40</b> of <b>90</b> fraud records</p>
 
+      
 
     {% from "govuk/components/pagination/macro.njk" import govukPagination %}
 
@@ -508,7 +511,16 @@ View fraud information – {{ serviceName }} – GOV.UK Prototype Kit
 }) }}
 
 
+<a class="govuk-button govuk-body govuk-button--secondary govuk-!-margin-right-3" data-module="govuk-button" href="get-reasons">
 
+  Change events
+ </a>
+
+    <a class="govuk-button govuk-body govuk-!-margin-bottom-0" data-module="govuk-button" href="get-are-you-sure">
+      Download information
+    </a>
+ 
+    
 
 </div>
 </div>
