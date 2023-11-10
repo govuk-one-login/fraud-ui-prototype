@@ -17,6 +17,7 @@ Which fraud events– {{ serviceName }} – GOV.UK Prototype Kit
     <div class="govuk-grid-column-two-thirds">
       {% if (data['release-state'] == "MVP") %}
       <form action="get-are-you-sure" method="post" novalidate>
+        <!-- <form action="add-ids?task=getinfo" method="post" novalidate> -->
 
       {% else %}
       <form action="view-information" method="post" novalidate>

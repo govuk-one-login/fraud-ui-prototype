@@ -135,7 +135,7 @@ What would you like to do? – {{ serviceName }} – GOV.UK Prototype Kit
     <div class="govuk-summary-card__content">
       <dl class="govuk-summary-list">
         <div class="govuk-summary-list__row">
-          {% if (data['release-state'] == "MVP")  %}
+          {% if (data['release-state'] != null)  %}
           <p><a href="add-ids">Add fraud information to One Login using a form</a></p>
           {% else %}
           <p><a href="add-format">Add fraud information to One Login using a form or a file</a></p>
