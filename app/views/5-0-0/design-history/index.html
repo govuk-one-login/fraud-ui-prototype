@@ -1,0 +1,101 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Start page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+
+
+
+{% block beforeContent %}
+
+</div>
+<div class="govuk-masthead govuk-!-padding-top-1 govuk-!-padding-bottom-6 govuk-!-margin-bottom-2">
+  <div class="govuk-width-container">
+    
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds-from-desktop">
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+  
+  <h1 class="govuk-heading-xl">
+    A design history for <br>
+    Version {% include('../includes/version.html') %} of the Shared Signals UI
+    prototype 
+  </h1>
+        <p>
+          A record of how our service has iterated.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="govuk-width-container">
+
+
+{% endblock %}
+
+
+{% block content %}
+
+
+
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      
+
+  <span class="govuk-caption-l">{% include('../includes/date.html') %}</span>
+<h1 class="govuk-heading-l">Version {% include('../includes/version.html') %}</h1>
+
+      <p>This is the design story for the Shared Signals UI prototype {% include('../includes/version.html') %}.</p>
+         
+      <p>This iteration contains some significant changes, based on early insight from internal users. The main features of this initial prototype include:</p>
+      {% include('../includes/summary.html') %}
+
+      <h2 class="govuk-heading-m">MVP+ View</h2>
+      <p>We've drafted an initial MVP journey based on early user insights, requirements and constraints. We will continue to test this as well as post MVP functioanlity that is emerging from user needs. The MVP functioanlity stays true to the strategic automated solution, allowing user to download (receive) and add (transmit) fraud shared signals.</p>
+      <p><a href="../?release-state=MVP2">View MVP+ view journey</a></p>
+
+
+
+      <h2 class="govuk-heading-m">Iterated event pages</h2>
+      <p>Expand on this</p>
+      <p><a href="../add-reason">View MVP journey</a></p>
+
+
+
+      <h2 class="govuk-heading-m">Refined MVP</h2>
+      <p>Expand on this</p>
+      <p><a href="../?release-state=MVP">View MVP journey</a></p>
+
+
+      <h2 class="govuk-heading-m">Confirmation screen</h2>
+      <p>Updated the confirmation screen to give user information around next steps and time scales.</p>
+      <p><a href="../confirmation">View MVP journey</a></p>
+
+
+
+   
+
+      
+
+
+    </div>
+
+    <div class="govuk-grid-column-one-third">
+
+      
+
+    </div>
+  </div>
+
+  
+
+  
+
+{% endblock %}

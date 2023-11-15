@@ -1,0 +1,66 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+What has happened to the account – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form action="cya" method="post" novalidate>
+
+
+       {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+
+        {{ govukRadios({
+          classes: "govuk-radios--inline",
+          name: "intervention",
+          fieldset: {
+            legend: {
+              text: "Would you like us to carry out an intervention?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+        
+           items: [
+      
+
+            {
+              value: "Yes",
+              text: "Yes"
+            },
+
+            {
+              value: "No",
+              text: "No"
+            }
+          ]
+        }) }}
+
+
+      
+
+
+
+
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+      </form>
+
+        
+
+    
+    </div>
+  </div>
+{% endblock %}

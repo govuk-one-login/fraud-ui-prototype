@@ -1,0 +1,145 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Add fraud intervention – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-l">Add fraud intervention</h1>
+      <p></p>
+
+      <form action="cya" method="post" novalidate>
+
+
+
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="user-id">
+            Enter the User ID
+          </label>
+          <input class="govuk-input govuk-input--width-20" id="user-id" name="width20" type="text">
+        </div>
+        
+
+
+
+        {% from "govuk/components/select/macro.njk" import govukSelect %}
+
+        {{ govukSelect({
+          id: "reason",
+          name: "reason",
+          label: {
+            text: "What is the reason for this intervention?"
+          },
+            hint: {
+            text: "This is often refered to as the event type"
+          },
+          items: [
+            {
+              value: "choose",
+              text: "Choose reason",
+              selected: true
+            },
+            {
+              value: "accounts",
+              text: "Account related"
+            },
+            {
+              value: "Identifier changed",
+              text: "Identifier changed"
+            },
+            {
+              value: "Identifier recylced",
+              text: "Identifier recylced"
+            },
+            {
+              value: "Password compromised",
+              text: "Password compromised"
+            },
+            {
+              value: "optin",
+              text: "Account opted in or out from event changes"
+            },
+ 
+            {
+              value: "Recovery activated",
+                text: "Recovery activated"
+            },
+            {
+              value: "Recovered information changed",
+              text: "Recovered information changed"
+            }
+          ]
+        }) }}
+
+
+
+
+<!-- 
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="subject">
+            Choose credential type
+          </label>
+
+          <select class="govuk-select" id="subject" name="subject" aria-describedby="subject-hint">
+            <option value="choose" selected>Choose credential type</option>
+            <option value="Password">Password</option>
+            <option value="Pin">Pin</option>
+            <option value="X509">X509</option>
+            <option value="fido2-platform">fido2-platform</option>
+            <option value="fido2-roaming">fido2-roaming</option>
+            <option value="fido-u2f">fido-u2f</option>
+            <option value="Verifiable-credential">Verifiable-credential</option>
+            <option value="Phone-voice">Phone-voice</option>
+            <option value="Phone-sms">Phone-sms</option>
+            <option value="App">App</option>
+          </select>
+        </div> -->
+
+
+        <div class="govuk-form-group">
+    
+
+          <label class="govuk-label" for="source">
+            Choose the source for this information (optional)
+          </label>
+
+          <!-- <div id="source-hint" class="govuk-hint">
+            This is often called the rational code
+          </div> -->
+          <select class="govuk-select" id="source" name="source" aria-describedby="source-hint">
+            <option value="choose" selected>Choose the source</option>
+            <option value="Details found on compromised list">Details found on compromised list</option>
+            <option value="Intelligence internally and third parties">Intelligence internally and third parties</option>
+            <option value="Intelligence from criminal investigations">Intelligence from criminal investigations</option>
+            <option value="Usual monitoring exercises">Usual monitoring exercises</option>
+          </select>
+        </div>
+
+        
+   
+
+
+      
+
+
+
+
+
+        
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+      </form>
+    </div>
+  </div>
+{% endblock %}

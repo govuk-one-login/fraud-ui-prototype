@@ -1,0 +1,82 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+What is the reason for this update? – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form action="add-reason-answer" method="post" novalidate>
+
+        {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+
+        
+        {{ govukRadios({
+          name: "reason",
+          fieldset: {
+            legend: {
+              text: "What is the reason for this update?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          hint: {
+            text: "This is often refered to as the event type"
+        
+        },
+           items: [
+           {
+            value: "Account disabled",
+            text: "Accounts blocked from using our services"
+          },
+        
+          {
+            value: "Account enabled",
+            text: "Accounts unblocked from using our services"
+          },
+
+          
+     
+            {
+              value: "Suspicion or Detection of Identity Fraud",
+              text: "Suspicion or Detection of Identity Fraud"
+            },
+
+            {
+              value: "Password compromised",
+              text: "Password compromised"
+            },
+      
+ 
+
+            {
+            value: "User is being investigated",
+            text: "User is being investigated"
+          }
+
+            
+          ]
+        }) }}
+
+
+        
+   
+
+        
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+      </form>
+    </div>
+  </div>
+{% endblock %}

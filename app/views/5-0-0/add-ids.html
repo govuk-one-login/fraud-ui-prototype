@@ -1,0 +1,46 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Enter the User IDs– {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        {% if (data['task'] == "getinfo") %}
+        <!-- <form action="get-are-you-sure" method="post" novalidate> -->
+          <form action="add-reason" method="post" novalidate>
+
+        {% else %}
+        <form action="add-reason" method="post" novalidate>
+
+        {% endif %}
+
+
+
+              <div class="govuk-form-group">
+                <h1 class="govuk-label-wrapper">
+                  <label class="govuk-label govuk-label--l" for="user-id">
+                    Enter the User IDs
+                  </label>
+                </h1>
+                <div id="user-id-hint" class="govuk-hint">
+                  Please enter all User IDs, separated by a comma (,)
+                </div>
+                <textarea class="govuk-textarea" id="user-id" name="user-id" rows="5" aria-describedby="user-id-hint"></textarea>
+              </div>
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+      </form>
+    </div>
+  </div>
+{% endblock %}

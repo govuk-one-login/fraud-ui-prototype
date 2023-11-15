@@ -1,0 +1,76 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+What has happened to the account – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form action="cya" method="post" novalidate>
+
+
+       {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+
+        {{ govukRadios({
+          name: "source",
+          fieldset: {
+            legend: {
+              text: "What is the source of this information?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          hint: {
+            text: "This is often called the rational code"
+        
+        },
+           items: [
+            {
+              value: "Details found on compromised list",
+              text: "Details found on compromised list"
+            },
+  
+            {
+              value: "Intelligence internally and third parties",
+              text: "Intelligence internally and third parties"
+            },
+
+            {
+              value: "Intelligence from criminal investigations",
+              text: "Intelligence from criminal investigations"
+            },
+
+            {
+              value: "Usual monitoring exercises",
+              text: "Usual monitoring exercises"
+            }
+          ]
+        }) }}
+
+
+      
+
+
+
+
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+      </form>
+
+        
+
+    
+    </div>
+  </div>
+{% endblock %}

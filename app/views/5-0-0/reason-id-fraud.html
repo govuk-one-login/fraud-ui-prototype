@@ -1,0 +1,105 @@
+
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+What has happened to the account – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form action="source-id-fraud" method="post" novalidate>
+
+
+       {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+
+        {{ govukRadios({
+          name: "method",
+          fieldset: {
+            legend: {
+              text: "What is the suspected method used?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+     
+
+
+           items: [
+            {
+              value: "Impersonation",
+              text: "Impersonation"
+            },
+  
+            {
+              value: "Coercion",
+              text: "Coercion"
+            },
+
+            {
+              value: "Account takeover",
+              text: "Account takeover",
+              hint: {
+                text:"Cybercriminals gained access to online accounts"
+              }
+            },
+
+            {
+              value: "Agent misuse",
+              text: "Agent misuse"
+            },
+            {
+              value: "Synthetic identity",
+              text: "Synthetic identity",  
+              hint: {
+                text: "Use a both fake information with real data"
+
+              }
+            
+            }
+          ]
+        }) }}
+
+
+      
+
+
+
+
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+      </form>
+
+        
+      <!-- <details class="govuk-details" data-module="govuk-details">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+            Help with fraud methods
+          </span>
+        </summary>
+        <div class="govuk-details__text">
+          <strong>Account takeover </strong><br>
+          This is when cybercriminals have gained access to online accounts and use them to withdraw money, make purchases or extract information they can sell or use to access your other accounts.
+          </p>
+          <p>
+          <strong>Synthetic identity </strong><br>
+          Instead of stealing an identity, fraudsters use a blend of fake information with real data, such as national insurance numbers, names, address etc to create fictitious identities and credit profiles.
+          </p>
+
+        </div>
+      </details> -->
+
+    
+    </div>
+  </div>
+{% endblock %}

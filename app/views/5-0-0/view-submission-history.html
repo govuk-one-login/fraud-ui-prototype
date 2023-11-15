@@ -1,0 +1,171 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  View submission history – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-xl">
+      Previous submissions
+    </h1>
+
+    <!-- <h2 class="govuk-heading-s govuk-!-margin-bottom-2">Application incomplete</h2> -->
+    <p class="govuk-body govuk-!-margin-bottom-7">Showing all submissions using the ID rp@digital.rpdept.gov.uk.</p>
+
+
+    {% if (data['view-submission-history'] != "submission-failed") %}
+
+    {% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
+
+      {{ govukInsetText({
+        text: "You have submissions that were unable to be added to One Login. You will need to resubmit them."
+      }) }}
+
+      {% endif %}
+
+
+    <ul class="govuk-prototype-kit-task-list">
+      <li>
+        <h2 class="govuk-prototype-kit-task-list__section">
+          Submissions made in the last 30 days
+        </h2>
+        <ul class="govuk-prototype-kit-task-list__items govuk-body govuk-!-padding-left-0">
+          {% if (data['view-submission-history'] != "submission-failed") %}
+          <li class="govuk-prototype-kit-task-list__item">
+            <span class="govuk-prototype-kit-task-list__task-name">
+
+              <a href="view-failed-submission?date=10 October 2023" aria-describedby="submission-date">
+                10 October 2023
+              </a>
+            </span>
+            <strong class="govuk-tag govuk-tag--red govuk-prototype-kit-task-list__tag" id="financial-evidence-status">Unsuccessful</strong>
+          </li>
+          {% else %}
+          <li class="govuk-prototype-kit-task-list__item">
+            <span class="govuk-prototype-kit-task-list__task-name">
+              <a href="view-submission?date=0 October 2023" aria-describedby="submission-date">
+                10 October 2023
+              </a>
+            </span>
+            <strong class="govuk-tag govuk-prototype-kit-task-list__tag" id="submission-date">Completed</strong>
+          </li>
+          {% endif %}
+
+          <li class="govuk-prototype-kit-task-list__item">
+            <span class="govuk-prototype-kit-task-list__task-name">
+              <a href="view-submission?date=23 September 2023" aria-describedby="submission-date">
+                23 September 2023
+              </a>
+            </span>
+            <strong class="govuk-tag govuk-prototype-kit-task-list__tag" id="submission-date">Completed</strong>
+          </li>
+          <li class="govuk-prototype-kit-task-list__item">
+            <span class="govuk-prototype-kit-task-list__task-name">
+              <a href="view-submission?date=11 September 2023" aria-describedby="lsubmission-date">
+                11 September 2023
+              </a>
+            </span>
+            <strong class="govuk-tag govuk-prototype-kit-task-list__tag" id="submission-date">Completed</strong>
+          </li>
+          {% if (data['view-submission-history'] != "submission-failed") %}
+
+          <li class="govuk-prototype-kit-task-list__item">
+            <span class="govuk-prototype-kit-task-list__task-name">
+              <a href="view-failed-submission-lite?date=10 October 2023" aria-describedby="submission-date">
+              10 September 2023
+              </a>
+            </span>
+            <strong class="govuk-tag govuk-tag--red govuk-prototype-kit-task-list__tag" id="medical-information-status">Unsuccessful</strong>
+          </li>
+          {% else %}
+          <li class="govuk-prototype-kit-task-list__item">
+            <span class="govuk-prototype-kit-task-list__task-name">
+              <a href="view-submission?date=10 September 2023" aria-describedby="submission-date">
+              10 September 2023
+              </a>
+            </span>
+            <strong class="govuk-tag govuk-prototype-kit-task-list__tag" id="submission-date">Completed</strong>
+          </li>
+          {% endif %}
+
+
+          <li class="govuk-prototype-kit-task-list__item">
+            <span class="govuk-prototype-kit-task-list__task-name">
+              <a href="view-submission?date=09 September 2023 at 1:30pm" aria-describedby="submission-date">
+              09 September 2023 at 1:30pm
+              </a>
+            </span>
+            <strong class="govuk-tag govuk-prototype-kit-task-list__tag" id="submission-date">Completed</strong>
+
+          </li>
+
+
+          <li class="govuk-prototype-kit-task-list__item">
+            <span class="govuk-prototype-kit-task-list__task-name">
+              <a href="view-submission?date=09 September 2023 at 12:37pm" aria-describedby="submission-date">
+              09 September 2023 at 12:37pm
+              </a>
+            </span>
+            <strong class="govuk-tag govuk-prototype-kit-task-list__tag" id="submission-date">Completed</strong>
+
+          </li>
+          {% if (data['view-submission-history'] == "post-mvp-submission") %}
+
+          <li class="govuk-prototype-kit-task-list__item">
+            <span class="govuk-prototype-kit-task-list__task-name">
+              <a href="view-failed-submission?date=08 September 2023" aria-describedby="submission-date">
+              08 September 2023
+              </a>
+            </span>
+            <strong class="govuk-tag govuk-tag--red govuk-prototype-kit-task-list__tag" id="medical-information-status">Rejected</strong>
+          </li>
+          {% endif %}
+
+        </ul>
+      </li>
+
+    </ul>
+
+
+    <!-- <table class="govuk-table">
+      <caption class="govuk-table__caption govuk-table__caption--m">Months and rates</caption>
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header">Month you apply</th>
+          <th scope="col" class="govuk-table__header govuk-table__header--numeric">Rate for bicycles</th>
+          <th scope="col" class="govuk-table__header govuk-table__header--numeric">Rate for vehicles</th>
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">January</th>
+          <td class="govuk-table__cell govuk-table__cell--numeric">£85</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">£95</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">February</th>
+          <td class="govuk-table__cell govuk-table__cell--numeric">£75</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">£55</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">March</th>
+          <td class="govuk-table__cell govuk-table__cell--numeric">£165</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">£125</td>
+        </tr>
+      </tbody>
+    </table> -->
+
+  </div>
+</div>
+
+{% endblock %}

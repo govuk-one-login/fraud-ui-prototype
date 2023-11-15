@@ -1,0 +1,307 @@
+{% extends "layouts/main.html" %}
+
+{% block pDateTitle %}
+View fraud information – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+ 
+
+    <h1 class="govuk-heading-l">
+      View fraud details for 
+
+      {% if (data['userid'] == null) %}
+      joebloggs123
+      {% else %}
+      {{ data['userid'] }}
+
+      {% endif %}
+    </h1>
+
+<!-- 
+    <div class="govuk-inset-text">
+      Showing fraud information based on chosen events; Account related, Identifier changed or recylced, Credential compromised.     
+    </div> -->
+
+    <p>Showing all information stored from the last 3 months.</p>
+   
+
+
+                
+    
+
+
+
+
+    <div class="govuk-summary-card">
+      <div class="govuk-summary-card__title-wrapper">
+        <h2 class="govuk-summary-card__title">16 October 2023 at 2:09pm
+          </h2>
+      </div>
+      <div class="govuk-summary-card__content">
+        <dl class="govuk-summary-list">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Type
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Intervention
+            </dd>
+
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Reference no.
+            </dt>
+            <dd class="govuk-summary-list__value">
+              #3576INTV
+            </dd>
+
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Related signal
+            </dt>
+            <dd class="govuk-summary-list__value">
+              #3576
+            </dd>
+
+          </div>
+
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Status
+            </dt>
+            <dd class="govuk-summary-list__value">
+              
+              <strong class="govuk-tag govuk-tag--grey">
+                In progress
+              </strong>
+
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Author
+            </dt>
+            <dd class="govuk-summary-list__value">
+              ol-email@.digital.cabinet-office.gov.uk
+            </dd>
+
+          </div>
+
+
+
+        </dl>
+      </div>
+    </div>
+
+    
+    
+    
+    <div class="govuk-summary-card">
+      <div class="govuk-summary-card__title-wrapper">
+        <h2 class="govuk-summary-card__title">14 October 2023 at 3:16pm
+          </h2>
+      </div>
+      <div class="govuk-summary-card__content">
+        <dl class="govuk-summary-list">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Type
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Information submitted
+            </dd>
+
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Reference no.
+            </dt>
+            <dd class="govuk-summary-list__value">
+              #3576
+            </dd>
+
+          </div>
+
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Rational
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Suspicion of fraud due to VAT refund request
+            </dd>
+
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Event type
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Identifier compromised
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Author
+            </dt>
+            <dd class="govuk-summary-list__value">
+              authoremail@rp.gov.uk
+            </dd>
+
+          </div>
+
+        </dl>
+      </div>
+    </div>
+    
+
+    <div class="govuk-summary-card">
+      <div class="govuk-summary-card__title-wrapper">
+        <h2 class="govuk-summary-card__title">09 October 2023 at 2:09pm
+          </h2>
+      </div>
+      <div class="govuk-summary-card__content">
+        <dl class="govuk-summary-list">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Type
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Intervention
+            </dd>
+
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Reference no.
+            </dt>
+            <dd class="govuk-summary-list__value">
+              #962INTV
+            </dd>
+
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Related signal
+            </dt>
+            <dd class="govuk-summary-list__value">
+              #962
+            </dd>
+
+          </div>
+
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Status
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Force identity check
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Author
+            </dt>
+            <dd class="govuk-summary-list__value">
+              ol-email@.digital.cabinet-office.gov.uk
+            </dd>
+
+          </div>
+
+
+
+        </dl>
+      </div>
+    </div>
+
+
+    <div class="govuk-summary-card">
+      <div class="govuk-summary-card__title-wrapper">
+        <h2 class="govuk-summary-card__title">29 September 2023 at 11:45am
+          </h2>
+      </div>
+      <div class="govuk-summary-card__content">
+        <dl class="govuk-summary-list">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Type
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Information submitted
+            </dd>
+
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Reference no.
+            </dt>
+            <dd class="govuk-summary-list__value">
+              #962
+            </dd>
+
+          </div>
+         
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Rational
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Suspicion of fraud due to login failure
+            </dd>
+
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Event type
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Identifier compromised
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Author
+            </dt>
+            <dd class="govuk-summary-list__value">
+              authoremail@rp.gov.uk
+            </dd>
+
+          </div>
+
+
+        </dl>
+      </div>
+    </div>
+
+    
+    <a class="govuk-button govuk-body govuk-!-margin-bottom-0" data-module="govuk-button" href="add-reason?userid={{ data['userid'] }}">
+      Add information
+    </a>
+ 
+     
+
+  </div>
+</div>
+
+{% endblock %}
