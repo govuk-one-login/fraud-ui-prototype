@@ -129,7 +129,7 @@ router.post('/' + version + '/get-options-are-you-sure-answer', function(request
     if (getconfirm == "yes"){
         response.redirect("confirmation?task=getinfo")
     } else {
-        response.redirect("cancelled-download")
+        response.redirect("get-are-you-sure")
     }
 })
 

@@ -31,10 +31,10 @@ Which fraud events– {{ serviceName }} – GOV.UK Prototype Kit
       <form action="get-options" method="post" novalidate>
       {% endif %} -->
         <!-- Change content for all -->
-        {% set question = "Which fraud events do you want to download?" %}
+        {% set question = "What types of fraud activity do you want to download?" %}
         <!-- Change content for view -->
         {% if (data['task'] == "viewinfo") %}
-        {% set question = "Which fraud events do you want to view?" %}
+        {% set question = "What types of fraud activity do you want to view?" %}
 
         {% endif %}
 

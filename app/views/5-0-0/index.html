@@ -39,7 +39,7 @@
 
       <ul class="govuk-list govuk-list--bullet">
         {% if (data['release-state'] == "MVP")  %}
-        <li>Download fraud information from the last 6 months</li>
+        <li>Download fraud information from the last 30 days</li>
         <li>Add fraud information</li>
 
   
@@ -64,7 +64,7 @@
       </h2>
       {% if (data['release-state'] == "MVP") or (data['release-state'] == "MVP2")  %}
 
-      <p>The shared signals fraud information is available for up to 6 months.</p>
+      <p>You should be aware the shared signals fraud information is only available for up 30 days.</p>
     
       {% endif %}
 

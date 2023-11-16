@@ -51,28 +51,27 @@ What would you like to do? – {{ serviceName }} – GOV.UK Prototype Kit
       {% if (data['release-state'] == "MVP")  %}
       <div class="govuk-summary-card">
         <div class="govuk-summary-card__title-wrapper">
-          <h2 class="govuk-summary-card__title">Download information</h2>
+          
+
+          <h2 class="govuk-summary-card__title">            
+            Download information</h2>
           
         </div>
         <div class="govuk-summary-card__content">
           <dl class="govuk-summary-list">
             <div class="govuk-summary-list__row">
-              
               <p><a href="get-reasons">Download latest fraud information from One Login</a></p>
     
-              {% if (data['notification'] == "yes") %}
-    
-              <p>
-                There are 3 updates for events you have previously downloaded or viewed
-                <a class="govuk-notification-banner__link" href="view-information?get-options=certain-events">View updates</a>
-              </p>
-            {% endif %}
+      
     
     
             </div>
           </dl>
         </div>
+        
       </div>
+     
+
       {% elseif (data['release-state'] == "MVP2")  %}
 
       <div class="govuk-summary-card">
@@ -151,6 +150,7 @@ What would you like to do? – {{ serviceName }} – GOV.UK Prototype Kit
 
 
 </div>
+
 {% if (data['release-state'] == null)  %}
 
 <div class="govuk-grid-column-one-third">
@@ -203,7 +203,10 @@ What would you like to do? – {{ serviceName }} – GOV.UK Prototype Kit
 {% endif %}
 
 
+<p class="govuk-body govuk-!-margin-top-9"">Service last updated on 23 June </p>
+
 </div>
+
 
 {% else %}
 
@@ -310,12 +313,12 @@ What would you like to do? – {{ serviceName }} – GOV.UK Prototype Kit
    
 
   </div>
+  
 </div>
 
 
 {% endif %}
 
 
-            
 
 {% endblock %}

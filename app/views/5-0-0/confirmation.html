@@ -54,13 +54,29 @@
 
         {% endif %}
         {% else %}
+        
+        <p>We've sent your fraud information to One Login fraud analysts. </p>
+
 
       <h2 class="govuk-heading-m">
         What happens next
       </h2>
+      {% if (data['release-state'] != "MVP") %}
+
+      <p>They will look to provide an update or intervention within 2-3 working days.</p>
       <p>
         You can view previously submitted data, or <a href="task?task=clear">carry out other tasks</a>.
       </p>
+
+      {% else %}
+      <p>
+        You can <a href="task?task=clear">carry out other tasks</a>.
+      </p>
+      {% endif %}
+
+
+
+     
       {% endif %}   
 
 
