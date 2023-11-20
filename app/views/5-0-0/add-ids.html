@@ -19,7 +19,13 @@ Enter the User IDs– {{ serviceName }} – GOV.UK Prototype Kit
           <form action="add-reason" method="post" novalidate>
 
         {% else %}
-        <form action="add-reason" method="post" novalidate>
+
+          {% if (data['add'] == "event1st")  %}
+          <form action="cya" method="post" novalidate>
+          {% else %}
+          <form action="add-reason" method="post" novalidate>
+          {% endif %}
+
 
         {% endif %}
 

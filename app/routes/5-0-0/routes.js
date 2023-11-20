@@ -62,7 +62,7 @@ router.post('/' + version + '/add-format-answer', function(request, response) {
 
 
 router.post('/' + version + '/add-reason-answer', function(request, response) {
-          var reason = request.session.data['add']
+          var add = request.session.data['add']
 
     var reason = request.session.data['reason']
     if (reason == "Account related"){
@@ -77,7 +77,11 @@ router.post('/' + version + '/add-reason-answer', function(request, response) {
     }
     else if (reason == "User is being investigated"){
         response.redirect("reason-investigation")
+    } 
+    else if (add == "event1st"){
+        response.redirect("add-ids")
     }  
+
     else {
         response.redirect("cya")
     }
