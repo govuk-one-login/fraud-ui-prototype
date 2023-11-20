@@ -148,3 +148,106 @@
 
 
 </dl>
+
+
+ <!-- SUSPECT STOLEN ACCOUNT _ MULTIPLE SUBMISSIONS -->
+      
+ {% if (data['source'] == "Suspected stolen account") %} <!-- SUSPECT STOLEN ACCOUNT _ MULTIPLE SUBMISSIONS -->
+
+ <h2 class="govuk-heading-m">Recently submitted fraud information</h2>
+ 
+ <div class="govuk-inset-text">
+   The following fraud information has recently been submitted. We will only submit new fraud information.
+ </div>
+ <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+
+   <div class="govuk-summary-list__row">
+     <dt class="govuk-summary-list__key">
+
+       {% if (data['userid'] == null) %}
+       User IDs
+
+       {% else %}
+       User ID
+       {% endif %}
+
+     </dt>
+     <dd class="govuk-summary-list__value">
+     
+      {{ data['id9'] }}
+
+   
+
+     </dd>
+     <dd class="govuk-summary-list__actions">
+  
+     </dd>
+   </div>
+
+   <div class="govuk-summary-list__row">
+     <dt class="govuk-summary-list__key">
+       Update reason
+     </dt>
+     <dd class="govuk-summary-list__value">
+       Suspicion or Detection of Identity Fraud
+
+     </dd>
+     <dd class="govuk-summary-list__actions">
+  
+     </dd>
+   </div>
+
+
+   <div class="govuk-summary-list__row">
+     <dt class="govuk-summary-list__key">
+       Method used
+     </dt>
+     <dd class="govuk-summary-list__value">
+     
+     Agent misuse
+
+
+     </dd>
+     <dd class="govuk-summary-list__actions">
+    
+     </dd>
+   </div>
+
+
+
+
+
+
+
+   <div class="govuk-summary-list__row">
+     <dt class="govuk-summary-list__key">
+       
+     
+       Information source
+
+     </dt>
+     <dd class="govuk-summary-list__value">
+      
+       Suspected stolen account
+     </dd>
+     <dd class="govuk-summary-list__actions">
+     
+
+
+
+       
+
+     
+     </dd>
+   </div>
+
+
+
+
+
+
+
+ </dl>
+
+
+ {% endif %}
