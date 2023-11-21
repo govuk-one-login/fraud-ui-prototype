@@ -58,9 +58,12 @@
             {{ data['id3'] }} <br>
             {{ data['id4'] }}
 
-       
+            {% if (data['adddupe'] == "Yes") %}
 
-            
+            <br>{{ data['id9'] }}
+
+            {% endif %}
+
 
             {% else %}
             {{ data['userid'] }}
@@ -188,7 +191,6 @@
           </dt>
           <dd class="govuk-summary-list__value">
                        {{ data['adddupe'] }}
-            <br>User ID :  {{ data['id9'] }}
 
           </dd>
           <dd class="govuk-summary-list__actions">
