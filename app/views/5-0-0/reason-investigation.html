@@ -14,8 +14,14 @@ What has happened to the account – {{ serviceName }} – GOV.UK Prototype Kit
 {% block content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <form action="cya" method="post" novalidate>
 
+        {% if (data['add'] == "event1st")  %}
+        <form action="add-ids" method="post" novalidate>
+  
+        {% else %}
+        <form action="cya" method="post" novalidate>
+  
+        {% endif %}
 
        {% from "govuk/components/radios/macro.njk" import govukRadios %}
 
@@ -25,7 +31,7 @@ What has happened to the account – {{ serviceName }} – GOV.UK Prototype Kit
           name: "intervention",
           fieldset: {
             legend: {
-              text: "Would you like us to carry out an intervention?",
+              text: "Are you users still under active investigation?",
               isPageHeading: true,
               classes: "govuk-fieldset__legend--l"
             }

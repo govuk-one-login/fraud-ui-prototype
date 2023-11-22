@@ -14,7 +14,7 @@ What has happened to the account – {{ serviceName }} – GOV.UK Prototype Kit
 {% block content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <h1 class="govuk-heading-l">Add fraud information</h1>
+      <h1 class="govuk-heading-l">Start a manual intervention</h1>
       <p></p>
 
       <form action="cya" method="post" novalidate>
@@ -26,69 +26,72 @@ What has happened to the account – {{ serviceName }} – GOV.UK Prototype Kit
             </label>
           </h2> -->
 
-          <label class="govuk-label" for="more-detail">
-            Enter the User IDs
-          </label>
-          <div id="user-id-hint" class="govuk-hint">
-            Please enter all User IDs, separated by a comma (,)
-          </div>
-          <textarea class="govuk-textarea" id="user-id" name="user-id" rows="5" aria-describedby="user-id-hint"></textarea>
-        </div>
-
+         
 
 
 
         {% from "govuk/components/select/macro.njk" import govukSelect %}
 
         {{ govukSelect({
-          id: "reason",
-          name: "reason",
+          id: "intervention",
+          name: "intervention",
           label: {
-            text: "What is the reason for this update?"
+            text: "What is the intervention?"
           },
-            hint: {
+          hint: {
             text: "This is often refered to as the event type"
-          },
+        
+        },
+
           items: [
             {
               value: "choose",
               text: "Choose reason",
               selected: true
             },
-      
+  
   {
-    value: "Account disabled",
-    text: "Account disabled"
+    value: "Temporary Suspension",
+    text: "Temporary Suspension"
   },
 
   {
-    value: "Account enabled",
-    text: "Account enabled"
+    value: "Unsuspend Temporary Suspension",
+    text: "Unsuspend Temporary Suspension"
   },
 
  
 
   {
-    value: "Suspicion or Detection of Identity Fraud",
-    text: "Suspicion or Detection of Identity Fraud"
+    value: "Indefinite Suspension",
+    text: "Indefinite Suspension"
   },
 
   {
-    value: "Password compromised",
-    text: "Password compromised"
+    value: "Unsuspend Indefinite Suspension",
+    text: "Unsuspend Indefinite Suspension"
   },
 
-
-
   {
-  value: "User is being investigated",
-  text: "User is being investigated"
+  value: "Reset Password",
+  text: "Reset Password"
+},
+{
+  value: "Reverify Identity",
+  text: "Reverify Identity"
+},
+{
+  value: "Reset Password and Reverify Identity",
+  text: "Reset Password and Reverify Identity"
 }
+
+
           ]
         }) }}
 
 
 
+        
 
 <!-- 
         <div class="govuk-form-group">
@@ -116,7 +119,7 @@ What has happened to the account – {{ serviceName }} – GOV.UK Prototype Kit
     
 
           <label class="govuk-label" for="source">
-            Choose the source for this information (optional)
+            Choose the intervention reason
           </label>
 
           <!-- <div id="source-hint" class="govuk-hint">
@@ -134,6 +137,14 @@ What has happened to the account – {{ serviceName }} – GOV.UK Prototype Kit
         
    
 
+        <label class="govuk-label" for="more-detail">
+          Enter the User IDs
+        </label>
+        <div id="user-id-hint" class="govuk-hint">
+          Please enter all User IDs, separated by a comma (,)
+        </div>
+        <textarea class="govuk-textarea" id="user-id" name="user-id" rows="5" aria-describedby="user-id-hint"></textarea>
+      </div>
 
       
 

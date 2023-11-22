@@ -27,7 +27,13 @@ What would you like to do? – {{ serviceName }} – GOV.UK Prototype Kit
     <p>Use this service to download and add fraud information, often called shared signals.</p>
 
     {% else %}
-    <p>Use this service to view, download and add fraud information, often called shared signals. You can also view your previously submitted information.    </p>
+    <p>Use this service to view, download and add fraud information, often called shared signals. 
+      {% if (data['release-state'] == null)  %}
+  
+      You can also view your previously submitted information.    
+      {% endif %}
+
+    </p>
 
     {% endif %}
 
