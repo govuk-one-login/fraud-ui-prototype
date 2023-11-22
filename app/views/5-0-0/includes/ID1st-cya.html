@@ -1,8 +1,25 @@
-
-
-
-
 <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+
+
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      User IDs
+    </dt>
+    <dd class="govuk-summary-list__value">
+    
+      {{ data['id1'] }} <br>
+      {{ data['id2'] }} <br>
+      {{ data['id3'] }} <br>
+      {{ data['id4'] }}
+
+    </dd>
+    <dd class="govuk-summary-list__actions">
+      <a class="govuk-link" href="add-ids">
+        Change<span class="govuk-visually-hidden"> ids</span>
+      </a>
+    </dd>
+  </div>
+
 
   <div class="govuk-summary-list__row">
     <dt class="govuk-summary-list__key">
@@ -117,25 +134,6 @@
 
 
 
-
-  <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">
-      User IDs
-    </dt>
-    <dd class="govuk-summary-list__value">
-    
-      {{ data['id1'] }} <br>
-      {{ data['id2'] }} <br>
-      {{ data['id3'] }} <br>
-      {{ data['id4'] }}
-
-    </dd>
-    <dd class="govuk-summary-list__actions">
-      <a class="govuk-link" href="add-ids">
-        Change<span class="govuk-visually-hidden"> ids</span>
-      </a>
-    </dd>
-  </div>
 
 
 

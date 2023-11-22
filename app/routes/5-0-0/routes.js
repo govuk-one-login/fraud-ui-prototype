@@ -46,6 +46,7 @@ router.post('/' + version + '/task-answer', function(request, response) {
 
 
 router.post('/' + version + '/add-format-answer', function(request, response) {
+    var add = request.session.data['add']
     var formatfile = request.session.data['format-file']
     var uploadstate = request.session.data['upload-state']
     if (formatfile == "yes"){
@@ -54,8 +55,11 @@ router.post('/' + version + '/add-format-answer', function(request, response) {
     else if (uploadstate == "uploadsingle"){
         response.redirect("id-multiple")
     } 
-    else {
+    else if (add == "ID1st"){
         response.redirect("add-ids")
+    } 
+    else {
+        response.redirect("add-reason")
     }
 })
 
@@ -78,12 +82,12 @@ router.post('/' + version + '/add-reason-answer', function(request, response) {
     else if (reason == "User is being investigated"){
         response.redirect("reason-investigation")
     } 
-    else if (add == "event1st"){
-        response.redirect("add-ids")
+    else if (add == "ID1st"){
+        response.redirect("cya")
     }  
 
     else {
-        response.redirect("cya")
+        response.redirect("add-ids")
     }
 })
 

@@ -20,21 +20,22 @@ Enter the User IDs– {{ serviceName }} – GOV.UK Prototype Kit
 
         {% else %}
 
-          {% if (data['add'] == "event1st")  %}
-
-
-          {% if (data['reason'] == "Password compromised") %}
-          <form action="add-are-you-sure" method="post" novalidate>
-
-          {% else %}
-          <form action="cya" method="post" novalidate>
-
-          {% endif %}
-
-
-
-          {% else %}
+          {% if (data['add'] == "ID1st")  %}
           <form action="add-reason" method="post" novalidate>
+
+
+          {% else %}
+
+
+            {% if (data['reason'] == "Password compromised") %}
+            <form action="add-are-you-sure" method="post" novalidate>
+
+            {% else %}
+            <form action="cya" method="post" novalidate>
+
+            {% endif %}
+
+
           {% endif %}
 
 

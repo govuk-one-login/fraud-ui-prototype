@@ -30,8 +30,8 @@
 
    
 
-      {% elseif (data['add'] == "event1st")  %}
-      {% include('./includes/event1st-cya.html') %}
+      {% elseif (data['add'] == "ID1st")  %}
+      {% include('./includes/ID1st-cya.html') %}
 
       {% else %}
 
@@ -39,46 +39,7 @@
 
       <dl class="govuk-summary-list govuk-!-margin-bottom-9">
 
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-
-            {% if (data['userid'] == null) %}
-            User IDs
-
-            {% else %}
-            User ID
-            {% endif %}
-
-          </dt>
-          <dd class="govuk-summary-list__value">
-          
-            {% if (data['userid'] == null) %}
-            {{ data['id1'] }} <br>
-            {{ data['id2'] }} <br>
-            {{ data['id3'] }} <br>
-            {{ data['id4'] }}
-
-            {% if (data['adddupe'] == "Yes") %}
-
-            <br>{{ data['id9'] }}
-
-            {% endif %}
-
-
-            {% else %}
-            {{ data['userid'] }}
-
-            {% endif %}
-
-        
  
-          </dd>
-          <dd class="govuk-summary-list__actions">
-            <a class="govuk-link" href="add-ids">
-              Change<span class="govuk-visually-hidden"> ids</span>
-            </a>
-          </dd>
-        </div>
 
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
@@ -125,7 +86,7 @@
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
             
-            Intervention
+            Active investigation
 
           </dt>
           <dd class="govuk-summary-list__value">
@@ -211,6 +172,46 @@
 
 
 
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+
+            {% if (data['userid'] == null) %}
+            User IDs
+
+            {% else %}
+            User ID
+            {% endif %}
+
+          </dt>
+          <dd class="govuk-summary-list__value">
+          
+            {% if (data['userid'] == null) %}
+            {{ data['id1'] }} <br>
+            {{ data['id2'] }} <br>
+            {{ data['id3'] }} <br>
+            {{ data['id4'] }}
+
+            {% if (data['adddupe'] == "Yes") %}
+
+            <br>{{ data['id9'] }}
+
+            {% endif %}
+
+
+            {% else %}
+            {{ data['userid'] }}
+
+            {% endif %}
+
+        
+ 
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="add-ids">
+              Change<span class="govuk-visually-hidden"> ids</span>
+            </a>
+          </dd>
+        </div>
 
      
 
