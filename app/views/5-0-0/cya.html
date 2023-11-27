@@ -140,33 +140,7 @@
         </div>
 
 
-        {% if (data['adddupe'] != null) %}
 
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            
-          
-            Resubmit information
-
-
-          </dt>
-          <dd class="govuk-summary-list__value">
-                       {{ data['adddupe'] }}
-
-          </dd>
-          <dd class="govuk-summary-list__actions">
-            <a class="govuk-link" href="add-are-you-sure">
-              Change<span class="govuk-visually-hidden"> id number</span>
-            </a>
-
-
-            
-
-          
-          </dd>
-        </div>
-
-        {% endif %}
 
         {% endif %}
 
@@ -213,6 +187,34 @@
           </dd>
         </div>
 
+        {% if (data['adddupe'] != null) %}
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            
+          
+            Resubmit information
+
+
+          </dt>
+          <dd class="govuk-summary-list__value">
+                       {{ data['adddupe'] }}
+
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="add-are-you-sure">
+              Change<span class="govuk-visually-hidden"> id number</span>
+            </a>
+
+
+            
+
+          
+          </dd>
+        </div>
+
+        {% endif %}
+        
      
 
       </dl>
@@ -224,12 +226,18 @@
       <!-- <h2 class="govuk-heading-m">Now send your information</h2>
       <p class="govuk-body">By submitting this application you are confirming that, to the best of your knowledge, the details you are providing are correct.</p>
       -->
+
+   
+
+
       {% from "govuk/components/button/macro.njk" import govukButton %}
 
 
       {% if (data['file-upload'] == "true") %}
   
       <form action="confirmation" method="post" novalidate>
+
+      
 
       <div class="govuk-button-group">
         {{ govukButton({
@@ -242,12 +250,29 @@
 
       {% else %}
 
-        <form action="confirmation" method="post" novalidate>
-          <input type="hidden" name="answers-checked" value="true">
-          <button class="govuk-button" data-module="govuk-button">
-            Accept and submit
-          </button>
-        </form>
+      {% if (data['add'] == "another1") %}
+      <form action="confirmation" method="post" novalidate>
+        <button class="govuk-button" data-module="govuk-button">
+          Accept and submit
+        </button>
+
+        <a class="govuk-button govuk-button--secondary" data-module="govuk-button" style="text-decoration: none" href="add-reason">
+          Add another update
+        </a>
+      </form>
+
+      
+      {% else %}
+      <form action="confirmation" method="post" novalidate>
+        <input type="hidden" name="answers-checked" value="true">
+        <button class="govuk-button" data-module="govuk-button">
+          Accept and submit
+        </button>
+      </form>
+    {% endif %}
+
+
+
   
 
       {% endif %}

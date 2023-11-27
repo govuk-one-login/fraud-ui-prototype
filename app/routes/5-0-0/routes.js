@@ -106,7 +106,7 @@ if (idmultiple == "no"){
 router.post('/' + version + '/add-more-answer', function(request, response) {
     var addmore = request.session.data['add-more']
     if (addmore == "yes"){
-        response.redirect("add-format")
+        response.redirect("add-reason")
     } else {
         response.redirect("cya")
     }

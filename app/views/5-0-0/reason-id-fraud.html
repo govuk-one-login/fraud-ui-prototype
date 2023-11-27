@@ -25,7 +25,7 @@ What has happened to the account – {{ serviceName }} – GOV.UK Prototype Kit
           name: "method",
           fieldset: {
             legend: {
-              text: "What is the suspected method used?",
+              text: "What is the suspected method used? (optional)",
               isPageHeading: true,
               classes: "govuk-fieldset__legend--l"
             }
@@ -56,15 +56,22 @@ What has happened to the account – {{ serviceName }} – GOV.UK Prototype Kit
               value: "Agent misuse",
               text: "Agent misuse"
             },
+
             {
               value: "Synthetic identity",
-              text: "Synthetic identity",  
+              text: "Synthetic identity", 
               hint: {
                 text: "Use a both fake information with real data"
-
               }
+            },
+
+              {
+                value: "I do not know",
+                text: "I do not know"
+              }
+
+           
             
-            }
           ]
         }) }}
 
