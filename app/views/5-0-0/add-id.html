@@ -47,9 +47,12 @@ Enter the User ID – {{ serviceName }} – GOV.UK Prototype Kit
 
         {{ govukInput({
           label: {
-            text: "Enter the User ID",
+            text: "Enter the HMRC user ID",
             classes: "govuk-label--l",
             isPageHeading: true
+          },
+          hint: {
+            text: "For example, 502135326"
           },
           id: "user-id",
           name: "user-id",

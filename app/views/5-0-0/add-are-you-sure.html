@@ -86,8 +86,13 @@
   
             </dt>
             <dd class="govuk-summary-list__value">
-            
+              
+              {% if (data['user-id'] == null) %}
               {{ data['id9'] }}
+              {% else %}
+              {{ data['user-id'] }}
+              {% endif %}
+
   
    
             </dd>
