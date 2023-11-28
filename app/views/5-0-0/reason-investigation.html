@@ -18,6 +18,11 @@ What has happened to the account – {{ serviceName }} – GOV.UK Prototype Kit
         {% if (data['add'] == "ID1st")  %}
         <form action="cya" method="post" novalidate>
   
+
+        {% elseif (data['upload-state'] == "uploadsingle")  %}
+        <form action="id-multiple" method="post" novalidate>
+        
+          
         {% else %}
           <form action="add-ids" method="post" novalidate>
 

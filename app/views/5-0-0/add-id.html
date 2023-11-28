@@ -14,7 +14,33 @@ Enter the User ID – {{ serviceName }} – GOV.UK Prototype Kit
 {% block content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <form action="add-reason" method="post" novalidate>
+
+        {% if (data['task'] == "getinfo") %}
+        <!-- <form action="get-are-you-sure" method="post" novalidate> -->
+          <form action="add-reason" method="post" novalidate>
+
+        {% else %}
+
+          {% if (data['add'] == "ID1st")  %}
+          <form action="add-reason" method="post" novalidate>
+
+  
+          {% else %}
+
+
+            {% if (data['reason'] == "Password compromised") %}
+            <form action="add-are-you-sure" method="post" novalidate>
+
+            {% else %}
+            <form action="cya" method="post" novalidate>
+
+            {% endif %}
+
+
+          {% endif %}
+
+
+        {% endif %}
 
 
         {% from "govuk/components/input/macro.njk" import govukInput %}

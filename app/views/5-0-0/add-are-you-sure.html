@@ -111,9 +111,15 @@
 
       
 
+      {% if (data['upload-state'] == "uploadsingle") %}
+      <form action="add-are-you-sure-answer" method="post" novalidate>
+
+      {% else %}
+      <form action="cya" method="post" novalidate>
+
+      {% endif %}
 
 
-        <form action="cya" method="post" novalidate>
 
       {% from "govuk/components/radios/macro.njk" import govukRadios %}
 
@@ -122,7 +128,7 @@
         name: "adddupe",
         fieldset: {
           legend: {
-            text: "Do you want to resubmit this information?",
+            text: "Do you want to submit this information?",
             isPageHeading: true,
             classes: "govuk-fieldset__legend--m"
           }

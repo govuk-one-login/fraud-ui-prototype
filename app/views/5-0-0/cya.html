@@ -149,7 +149,7 @@
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
 
-            {% if (data['userid'] == null) %}
+            {% if (data['user-id'] == null) %}
             User IDs
 
             {% else %}
@@ -158,8 +158,7 @@
 
           </dt>
           <dd class="govuk-summary-list__value">
-          
-            {% if (data['userid'] == null) %}
+            {% if (data['user-id'] == null) %}
             {{ data['id1'] }} <br>
             {{ data['id2'] }} <br>
             {{ data['id3'] }} <br>
@@ -173,7 +172,7 @@
 
 
             {% else %}
-            {{ data['userid'] }}
+            {{ data['user-id'] }}
 
             {% endif %}
 
@@ -181,7 +180,11 @@
  
           </dd>
           <dd class="govuk-summary-list__actions">
-            <a class="govuk-link" href="add-ids">
+            {% if (data['user-id'] != null) %}
+            <a class="govuk-link" href="add-id">
+              {% else %}
+              <a class="govuk-link" href="add-ids">
+              {% endif %}
               Change<span class="govuk-visually-hidden"> ids</span>
             </a>
           </dd>
@@ -214,8 +217,53 @@
         </div>
 
         {% endif %}
+        {% if (data['another1'] == "yes") %}
+
+
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Update reason
+          </dt>
+          <dd class="govuk-summary-list__value">
+            Accounts unblocked from using our services
+
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="add-reason">
+              Change<span class="govuk-visually-hidden"> date of birth</span>
+            </a>
+          </dd>
+        </div>
         
-     
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+
+            {% if (data['user-id'] == null) %}
+            User IDs
+
+            {% else %}
+            User ID
+            {% endif %}
+
+          </dt>
+          <dd class="govuk-summary-list__value">
+        9873398379832
+
+        
+ 
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="add-id">
+             
+              Change<span class="govuk-visually-hidden"> ids</span>
+            </a>
+          </dd>
+        </div>
+
+
+        {% endif %}
+
 
       </dl>
      
@@ -256,7 +304,7 @@
           Accept and submit
         </button>
 
-        <a class="govuk-button govuk-button--secondary" data-module="govuk-button" style="text-decoration: none" href="add-reason">
+        <a class="govuk-button govuk-button--secondary" data-module="govuk-button" style="text-decoration: none" href="add-reason?another1=yes">
           Add another update
         </a>
       </form>

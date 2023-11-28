@@ -48,13 +48,10 @@ router.post('/' + version + '/task-answer', function(request, response) {
 router.post('/' + version + '/add-format-answer', function(request, response) {
     var add = request.session.data['add']
     var formatfile = request.session.data['format-file']
-    var uploadstate = request.session.data['upload-state']
     if (formatfile == "yes"){
         response.redirect("upload-file")
     }
-    else if (uploadstate == "uploadsingle"){
-        response.redirect("id-multiple")
-    } 
+
     else if (add == "ID1st"){
         response.redirect("add-ids")
     } 
@@ -67,6 +64,7 @@ router.post('/' + version + '/add-format-answer', function(request, response) {
 
 router.post('/' + version + '/add-reason-answer', function(request, response) {
           var add = request.session.data['add']
+          var uploadstate = request.session.data['upload-state']
 
     var reason = request.session.data['reason']
     if (reason == "Account related"){
@@ -85,6 +83,9 @@ router.post('/' + version + '/add-reason-answer', function(request, response) {
     else if (add == "ID1st"){
         response.redirect("cya")
     }  
+    else if (uploadstate == "uploadsingle"){
+        response.redirect("id-multiple")
+    } 
 
     else {
         response.redirect("add-ids")
@@ -106,7 +107,7 @@ if (idmultiple == "no"){
 router.post('/' + version + '/add-more-answer', function(request, response) {
     var addmore = request.session.data['add-more']
     if (addmore == "yes"){
-        response.redirect("add-reason")
+        response.redirect("add-format")
     } else {
         response.redirect("cya")
     }
@@ -141,6 +142,18 @@ router.post('/' + version + '/get-options-are-you-sure-answer', function(request
         response.redirect("get-are-you-sure")
     }
 })
+
+router.post('/' + version + '/add-are-you-sure-answer', function(request, response) {
+    var adddupe = request.session.data['adddupe']
+    if (adddupe == "Yes"){
+        response.redirect("cya")
+    } else {
+        response.redirect("cancelled-add")
+    }
+})
+
+
+
 
 
 
