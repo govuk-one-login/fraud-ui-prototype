@@ -74,7 +74,7 @@ router.post('/' + version + '/add-reason-answer', function(request, response) {
     } else if (reason == "Account opted in or out from event changes"){
         response.redirect("reason-optin")
     } 
-    else if (reason == "Suspicion or Detection of Identity Fraud"){
+    else if (reason == "Suspicion or detection of identity fraud"){
         response.redirect("reason-id-fraud")
     }
     else if (reason == "User is being investigated"){
