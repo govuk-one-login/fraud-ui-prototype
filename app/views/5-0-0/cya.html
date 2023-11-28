@@ -148,8 +148,8 @@
 
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
-
-            {% if (data['user-id'] == null) %}
+            
+            {% if (data['user-id'] == false) or (data['id-multiple'] == "yes") %}
             User IDs
 
             {% else %}
@@ -158,11 +158,12 @@
 
           </dt>
           <dd class="govuk-summary-list__value">
-            {% if (data['user-id'] == null) %}
+            {% if (data['user-id'] == false) or (data['id-multiple'] == "yes") %}
             {{ data['id1'] }} <br>
             {{ data['id2'] }} <br>
             {{ data['id3'] }} <br>
             {{ data['id4'] }}
+
 
             {% if (data['adddupe'] == "Yes") %}
 
@@ -173,17 +174,18 @@
 
             {% else %}
             {{ data['user-id'] }}
-
             {% endif %}
 
         
  
           </dd>
           <dd class="govuk-summary-list__actions">
-            {% if (data['user-id'] != null) %}
-            <a class="govuk-link" href="add-id">
-              {% else %}
-              <a class="govuk-link" href="add-ids">
+            {% if (data['user-id'] == false) or (data['id-multiple'] == "yes") %}
+            <a class="govuk-link" href="add-ids">
+ 
+            {% else %}
+              <a class="govuk-link" href="add-id">
+
               {% endif %}
               Change<span class="govuk-visually-hidden"> ids</span>
             </a>

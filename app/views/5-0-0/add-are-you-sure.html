@@ -77,17 +77,12 @@
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
   
-              {% if (data['user-id'] == null) %}
-              User IDs
-  
-              {% else %}
               User ID
-              {% endif %}
   
             </dt>
             <dd class="govuk-summary-list__value">
               
-              {% if (data['user-id'] == null) %}
+              {% if (data['user-id'] == false) or (data['id-multiple'] == "yes") %}
               {{ data['id9'] }}
               {% else %}
               {{ data['user-id'] }}
@@ -115,12 +110,12 @@
 
 
       
-
-      {% if (data['upload-state'] == "uploadsingle") %}
-      <form action="add-are-you-sure-answer" method="post" novalidate>
-
-      {% else %}
+      {% if (data['id-multiple'] == "yes") or (data['user-id'] == false)  %}
       <form action="cya" method="post" novalidate>
+
+  
+      {% else %}
+      <form action="add-are-you-sure-answer" method="post" novalidate>
 
       {% endif %}
 
