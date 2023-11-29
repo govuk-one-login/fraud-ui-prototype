@@ -52,7 +52,6 @@ What has happened to the account – {{ serviceName }} – GOV.UK Prototype Kit
        {% endset -%}
         
 
-       {% if (data['release-statue'] == "MVP") %}
 
 
 
@@ -81,12 +80,6 @@ What has happened to the account – {{ serviceName }} – GOV.UK Prototype Kit
             {
               value: "Suspected stolen account",
               text: "Suspected stolen account"
-            },
-
-       
-            {
-              value: "Suspected sold Account",
-              text: "Suspected sold Account"
             },
 
             {
@@ -122,136 +115,9 @@ What has happened to the account – {{ serviceName }} – GOV.UK Prototype Kit
 
         
 
-        {% elseif (data['method'] == "Account takeover") or (data['method'] == "Agent misuse") %}
-
-
-        {{ govukRadios({
-          name: "source",
-          fieldset: {
-            legend: {
-              text: "What is the source of this information? (optional)",
-              isPageHeading: true,
-              classes: "govuk-fieldset__legend--l"
-            }
-          },
-          hint: {
-            text: "This is often called the rational code"
-        
-        },
-        
-
-
-           items: [
-            {
-              value: "Active criminal investigation",
-              text: "Active criminal investigation"
-            },
-  
-            {
-              value: "Suspected stolen account",
-              text: "Suspected stolen account"
-            },
+      
 
        
-            {
-              value: "Suspected Sold Account",
-              text: "Suspected Sold Account"
-            },
-
-            {
-              value: "Active intelligence enquiry",
-              text: "Active intelligence enquiry"
-            },
-            {
-              value: "Active customer contact",
-              text: "Active customer contact"
-            },
-
-            {
-              value: "Third party intelligence",
-              text: "Third party intelligence"
-            },
-            {
-              value: "I do not know",
-              text: "I do not know"
-            },
-            {
-              divider: "or"
-            },
-              {
-                value: "other source",
-                text: "Other",
-                conditional: {
-                  html: textHtml
-                }
-              }
-            ]
-          }) }}
-
-        
-
-
-        {% else %}
-
-
-
-{{ govukRadios({
-  name: "source",
-  fieldset: {
-    legend: {
-      text: "What is the source of this information? (optional)",
-      isPageHeading: true,
-      classes: "govuk-fieldset__legend--l"
-    }
-  },
-  hint: {
-    text: "This is often called the rational code"
-
-},
-
-
-  items: [
-  {
-    value: "Active criminal investigation",
-    text: "Active criminal investigation"
-  },
-
-  {
-    value: "Suspected stolen account",
-    text: "Suspected stolen account"
-  },
-
-
-  {
-    value: "Active intelligence enquiry",
-    text: "Active intelligence enquiry"
-  },
-  {
-    value: "Active customer contact",
-    text: "Active customer contact"
-  },
-
-  {
-    value: "Third party intelligence",
-    text: "Third party intelligence"
-  },
-  {
-    value: "I do not know",
-    text: "I do not know"
-  },
-  {
-    divider: "or"
-  },
-    {
-      value: "other source",
-      text: "Other",
-      conditional: {
-        html: textHtml
-      }
-    }
-  ]
-}) }}
-        {% endif %}
 
         {{ govukButton({
           text: "Continue"
