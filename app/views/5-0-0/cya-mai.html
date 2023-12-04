@@ -61,18 +61,10 @@
 
           </dt>
           <dd class="govuk-summary-list__value">
-            {% if (data['user-id'] == false) or (data['id-multiple'] == "yes") %}
-            {{ data['id1'] }} <br>
-            {{ data['id2'] }} <br>
-            {{ data['id3'] }} <br>
-            {{ data['id4'] }}
+            {% if (data['user-id'] == false) %}
+            {{ data['id1'] }}
 
-
-            {% if (data['adddupe'] == "Yes") %}
-
-            <br>{{ data['id9'] }}
-
-            {% endif %}
+          
 
 
             {% else %}
