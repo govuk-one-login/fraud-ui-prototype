@@ -2,6 +2,7 @@
 
 
 
+
 {% block beforeContent %}
 
 {% from "govuk/components/back-link/macro.njk" import govukBackLink %}
@@ -18,18 +19,10 @@
 
 
 <div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
 
     
-      {% if (data['manual-intervention-state'] == "on") %}
-      <form action="add-fraud-intervention" method="post" novalidate>
-        <h1 class="govuk-heading-l">
-          Google Authentication
-        </h1>
-           {{ govukButton({
-          text: "Sign in"
-        }) }}
-        {% else %}
+     
+        <div class="govuk-grid-column-two-thirds">
         <form action="task" method="post" novalidate>
 
 
@@ -73,7 +66,6 @@
       </p>
 
     </form>
-    {% endif %}
 
   </div>
 </div>

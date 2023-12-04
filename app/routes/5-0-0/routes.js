@@ -7,7 +7,7 @@ router.post('/' + version + '/setup-answer', function(request, response) {
     
     var manualinterventionstate = request.session.data['manual-intervention-state']
     if (manualinterventionstate == "on"){
-        response.redirect("login")
+        response.redirect("google-auth")
     }  else {
         response.redirect("./")
         
