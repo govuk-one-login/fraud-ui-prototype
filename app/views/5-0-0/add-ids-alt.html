@@ -14,7 +14,7 @@ What has happened to the account – {{ serviceName }} – GOV.UK Prototype Kit
 {% block content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <h1 class="govuk-heading-l">Start a manual intervention</h1>
+      <h1 class="govuk-heading-l">Submit a manual account intervention</h1>
       <p></p>
 
       <form action="cya" method="post" novalidate>
@@ -36,7 +36,7 @@ What has happened to the account – {{ serviceName }} – GOV.UK Prototype Kit
           id: "intervention",
           name: "intervention",
           label: {
-            text: "What is the intervention?"
+            text: "What is the intervention type?"
           },
        
 
@@ -90,59 +90,25 @@ What has happened to the account – {{ serviceName }} – GOV.UK Prototype Kit
 
         
 
-<!-- 
-        <div class="govuk-form-group">
-          <label class="govuk-label" for="subject">
-            Choose credential type
-          </label>
-
-          <select class="govuk-select" id="subject" name="subject" aria-describedby="subject-hint">
-            <option value="choose" selected>Choose credential type</option>
-            <option value="Password">Password</option>
-            <option value="Pin">Pin</option>
-            <option value="X509">X509</option>
-            <option value="fido2-platform">fido2-platform</option>
-            <option value="fido2-roaming">fido2-roaming</option>
-            <option value="fido-u2f">fido-u2f</option>
-            <option value="Verifiable-credential">Verifiable-credential</option>
-            <option value="Phone-voice">Phone-voice</option>
-            <option value="Phone-sms">Phone-sms</option>
-            <option value="App">App</option>
-          </select>
-        </div> -->
-
-
-        <div class="govuk-form-group">
-    
-
-          <label class="govuk-label" for="source">
-            Choose the intervention reason
-          </label>
-
-          <!-- <div id="source-hint" class="govuk-hint">
-            This is often called the rational code
-          </div> -->
-          <select class="govuk-select" id="source" name="source" aria-describedby="source-hint">
-            <option value="choose" selected>Choose the source</option>
-            <option value="Details found on compromised list">Details found on compromised list</option>
-            <option value="Intelligence internally and third parties">Intelligence internally and third parties</option>
-            <option value="Intelligence from criminal investigations">Intelligence from criminal investigations</option>
-            <option value="Usual monitoring exercises">Usual monitoring exercises</option>
-          </select>
-        </div>
-
         
    
 
-        <label class="govuk-label" for="more-detail">
-          Enter the HMRC user IDs
-        </label>
+
+      
+
+      <div class="govuk-form-group">
+
+        <label class="govuk-label" for="width-20">
+          What is the One Login subject ID? 
+               </label>
         <div id="user-id-hint" class="govuk-hint">
-          Please enter all user IDs, separated by a comma (,)<br>
-For example, 502135326, 96879212
-        </div>
-        <textarea class="govuk-textarea" id="user-id" name="user-id" rows="5" aria-describedby="user-id-hint"></textarea>
+          For example, 502135326
+          </div>
+        <input class="govuk-input govuk-input--width-20" id="width-20" name="width20" type="text">
+
       </div>
+    </div>
+
 
       
 

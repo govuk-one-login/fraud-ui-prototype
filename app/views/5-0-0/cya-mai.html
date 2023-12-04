@@ -14,48 +14,38 @@
 {% block content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds-from-desktop">
-      <h1 class="govuk-heading-l">Check the details before submitting your information</h1>
+      <h1 class="govuk-heading-l">Check the details before submitting intervention</h1>
       <!-- <h2 class="govuk-heading-m">Personal details</h2> -->
  
-      {% if (data['file-upload'] == "true") %}
-
-     
-
-
-
-      {% else %}
 
   
 
-      <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+      <dl class="govuk-summary-list govuk-!-margin-bottom-3">
 
  
 
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
-            Update reason
+            Intervention type
           </dt>
           <dd class="govuk-summary-list__value">
-            {% if (data['reason'] == null) %}
+            {% if (data['intervention'] == null) %}
             Credentials compromised
             {% else %}
-            {{ data['reason'] }}
+            {{ data['intervention'] }}
 
             {% endif %}
 
           </dd>
           <dd class="govuk-summary-list__actions">
-            <a class="govuk-link" href="add-reason">
-              Change<span class="govuk-visually-hidden"> date of birth</span>
-            </a>
+       
           </dd>
         </div>
 
+       
+      
 
-
-   
-
-    
+      
 
 
 
@@ -63,10 +53,10 @@
           <dt class="govuk-summary-list__key">
             
             {% if (data['user-id'] == false) or (data['id-multiple'] == "yes") %}
-            User IDs
+            One Login subject IDs
 
             {% else %}
-            User ID
+            One Login subject ID
             {% endif %}
 
           </dt>
@@ -93,74 +83,41 @@
  
           </dd>
           <dd class="govuk-summary-list__actions">
-            {% if (data['user-id'] == false) or (data['id-multiple'] == "yes") %}
-            <a class="govuk-link" href="add-ids">
- 
-            {% else %}
-              <a class="govuk-link" href="add-id">
-
-              {% endif %}
-              Change<span class="govuk-visually-hidden"> ids</span>
-            </a>
+     
+          
           </dd>
         </div>
 
        
-    
+       
 
-      <!-- <h2 class="govuk-heading-m">Now send your information</h2>
-      <p class="govuk-body">By submitting this application you are confirming that, to the best of your knowledge, the details you are providing are correct.</p>
-      -->
 
-   
+      </dl>
+     
+<p class="govuk-!-margin-bottom-6">
+      <a class="govuk-link" href="add-fraud-intervention">
+        Change details<span class="govuk-visually-hidden"> ids</span>
+    </a>
+  </p>
+
 
 
       {% from "govuk/components/button/macro.njk" import govukButton %}
 
 
-      {% if (data['file-upload'] == "true") %}
-  
-      <form action="confirmation" method="post" novalidate>
 
-      
 
-      <div class="govuk-button-group">
-        {{ govukButton({
-          text: "Accept and submit"
-        }) }}
-
-        <a class="govuk-link" href="cancelled-upload">Cancel</a>
-      </div>
-    </form>
-
-      {% else %}
-
-      {% if (data['add'] == "another1") %}
-      <form action="confirmation" method="post" novalidate>
-        <button class="govuk-button" data-module="govuk-button">
-          Accept and submit
-        </button>
-
-        <a class="govuk-button govuk-button--secondary" data-module="govuk-button" style="text-decoration: none" href="add-reason?another1=yes">
-          Add another update
-        </a>
-      </form>
-
-      
-      {% else %}
-      <form action="confirmation" method="post" novalidate>
+      <form action="confirmation-mai" method="post" novalidate>
         <input type="hidden" name="answers-checked" value="true">
         <button class="govuk-button" data-module="govuk-button">
           Accept and submit
         </button>
       </form>
-    {% endif %}
 
 
 
   
 
-      {% endif %}
 
 
 

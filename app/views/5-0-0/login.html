@@ -23,10 +23,15 @@
     
       {% if (data['manual-intervention-state'] == "on") %}
       <form action="add-fraud-intervention" method="post" novalidate>
+        <h1 class="govuk-heading-l">
+          Google Authentication
+        </h1>
+           {{ govukButton({
+          text: "Sign in"
+        }) }}
         {% else %}
         <form action="task" method="post" novalidate>
 
-      {% endif %}
 
 
       <h1 class="govuk-heading-l">
@@ -64,10 +69,12 @@
         text: "Sign in"
       }) }}
       <p class="govuk-body">
-        <a href="forgotten-password" class="govuk-link">Forgotten your password</a>.
+        <a href="forgotten-password" class="govuk-link">Forgotten your password</a>
       </p>
 
     </form>
+    {% endif %}
+
   </div>
 </div>
 

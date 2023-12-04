@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-Add fraud intervention – {{ serviceName }} – GOV.UK Prototype Kit
+What has happened to the account – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
 {% block beforeContent %}
@@ -14,118 +14,100 @@ Add fraud intervention – {{ serviceName }} – GOV.UK Prototype Kit
 {% block content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <h1 class="govuk-heading-l">Add fraud intervention</h1>
+      <h1 class="govuk-heading-l">Submit a manual account intervention</h1>
       <p></p>
 
-      <form action="cya" method="post" novalidate>
-
-
+      <form action="cya-mai" method="post" novalidate>
 
         <div class="govuk-form-group">
-          <label class="govuk-label" for="user-id">
-            Enter the User ID
-          </label>
-          <input class="govuk-input govuk-input--width-20" id="user-id" name="width20" type="text">
-        </div>
-        
+          <!-- <h2 class="govuk-label-wrapper">
+            <label class="govuk-label govuk-label--m" for="user-id">
+              Enter the User IDs
+            </label>
+          </h2> -->
+
+         
 
 
 
         {% from "govuk/components/select/macro.njk" import govukSelect %}
 
         {{ govukSelect({
-          id: "reason",
-          name: "reason",
+          id: "intervention",
+          name: "intervention",
           label: {
-            text: "What is the reason for this intervention?"
+            text: "What is the intervention type?"
           },
-            hint: {
-            text: "This is often refered to as the event type"
-          },
+       
+
           items: [
             {
               value: "choose",
               text: "Choose reason",
               selected: true
             },
-            {
-              value: "accounts",
-              text: "Account related"
-            },
-            {
-              value: "Identifier changed",
-              text: "Identifier changed"
-            },
-            {
-              value: "Identifier recylced",
-              text: "Identifier recylced"
-            },
-            {
-              value: "Password compromised",
-              text: "Password compromised"
-            },
-            {
-              value: "optin",
-              text: "Account opted in or out from event changes"
-            },
+  
+  {
+    value: "Temporary Suspension",
+    text: "Temporary Suspension"
+  },
+
+  {
+    value: "Unsuspend Temporary Suspension",
+    text: "Unsuspend Temporary Suspension"
+  },
+
  
-            {
-              value: "Recovery activated",
-                text: "Recovery activated"
-            },
-            {
-              value: "Recovered information changed",
-              text: "Recovered information changed"
-            }
+
+  {
+    value: "Indefinite Suspension",
+    text: "Indefinite Suspension"
+  },
+
+  {
+    value: "Unsuspend Indefinite Suspension",
+    text: "Unsuspend Indefinite Suspension"
+  },
+
+  {
+  value: "Reset Password",
+  text: "Reset Password"
+},
+{
+  value: "Reverify Identity",
+  text: "Reverify Identity"
+},
+{
+  value: "Reset Password and Reverify Identity",
+  text: "Reset Password and Reverify Identity"
+}
+
+
           ]
         }) }}
 
 
 
-
-<!-- 
-        <div class="govuk-form-group">
-          <label class="govuk-label" for="subject">
-            Choose credential type
-          </label>
-
-          <select class="govuk-select" id="subject" name="subject" aria-describedby="subject-hint">
-            <option value="choose" selected>Choose credential type</option>
-            <option value="Password">Password</option>
-            <option value="Pin">Pin</option>
-            <option value="X509">X509</option>
-            <option value="fido2-platform">fido2-platform</option>
-            <option value="fido2-roaming">fido2-roaming</option>
-            <option value="fido-u2f">fido-u2f</option>
-            <option value="Verifiable-credential">Verifiable-credential</option>
-            <option value="Phone-voice">Phone-voice</option>
-            <option value="Phone-sms">Phone-sms</option>
-            <option value="App">App</option>
-          </select>
-        </div> -->
-
-
-        <div class="govuk-form-group">
-    
-
-          <label class="govuk-label" for="source">
-            Choose the source for this information (optional)
-          </label>
-
-          <!-- <div id="source-hint" class="govuk-hint">
-            This is often called the rational code
-          </div> -->
-          <select class="govuk-select" id="source" name="source" aria-describedby="source-hint">
-            <option value="choose" selected>Choose the source</option>
-            <option value="Details found on compromised list">Details found on compromised list</option>
-            <option value="Intelligence internally and third parties">Intelligence internally and third parties</option>
-            <option value="Intelligence from criminal investigations">Intelligence from criminal investigations</option>
-            <option value="Usual monitoring exercises">Usual monitoring exercises</option>
-          </select>
-        </div>
+        
 
         
    
+
+
+      
+
+      <div class="govuk-form-group">
+
+        <label class="govuk-label" for="user-id">
+          What is the One Login subject ID? 
+               </label>
+        <div id="user-id-hint" class="govuk-hint">
+          For example, 502135326
+          </div>
+        <input class="govuk-input govuk-input--width-20" id="user-id" name="user-id" type="text">
+
+      </div>
+    </div>
 
 
       
