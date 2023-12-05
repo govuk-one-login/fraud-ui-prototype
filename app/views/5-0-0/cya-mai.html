@@ -1,14 +1,24 @@
 {% extends "layouts/main.html" %}
 
+{% block header %}
+{{ govukHeader({
+  homepageUrl: "#",
+  serviceName: "Manual account intervention",
+  serviceUrl: "#"
+}) }}
+{% endblock %}
+
 {% block pageTitle %}
-  Check your answers – {{ serviceName }} – GOV.UK Prototype Kit
+Check your answers – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
 {% block beforeContent %}
   {{ govukBackLink({
-    text: "Back",
-    href: "javascript:window.history.back()"
-  }) }}
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+
+
 {% endblock %}
 
 {% block content %}
@@ -52,12 +62,8 @@
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
             
-            {% if (data['user-id'] == false) or (data['id-multiple'] == "yes") %}
-            One Login subject IDs
-
-            {% else %}
+      
             One Login subject ID
-            {% endif %}
 
           </dt>
           <dd class="govuk-summary-list__value">

@@ -1,8 +1,19 @@
 {% extends "layouts/main.html" %}
 
+{% block header %}
+{{ govukHeader({
+  homepageUrl: "#",
+  serviceName: "Manual account intervention",
+  serviceUrl: "#"
+}) }}
+{% endblock %}
 
 {% block pageTitle %}
-  Confirmation page – {{ serviceName }} – GOV.UK Prototype Kit
+Confirmation  – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
 {% endblock %}
 
 {% block content %}
@@ -37,8 +48,8 @@
 
   
 
-      <a class="govuk-button" href="./google-auth">
-        Sign out
+      <a class="govuk-button govuk-button--govuk-brand-colour" style="background: #1d70b8;" href="./google-auth">
+        Sign out from your google auth
         </a>
 
     </div>

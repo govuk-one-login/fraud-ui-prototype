@@ -1,7 +1,15 @@
 {% extends "layouts/main.html" %}
 
+{% block header %}
+{{ govukHeader({
+  homepageUrl: "#",
+  serviceName: "Manual account intervention",
+  serviceUrl: "#"
+}) }}
+{% endblock %}
+
 {% block pageTitle %}
-What has happened to the account – {{ serviceName }} – GOV.UK Prototype Kit
+Submit manual account intervention – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
 {% block beforeContent %}
@@ -9,9 +17,13 @@ What has happened to the account – {{ serviceName }} – GOV.UK Prototype Kit
   text: "Back",
   href: "javascript:window.history.back()"
 }) }}
+
+
 {% endblock %}
 
 {% block content %}
+
+
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       <h1 class="govuk-heading-l">Submit a manual account intervention</h1>
@@ -93,7 +105,6 @@ What has happened to the account – {{ serviceName }} – GOV.UK Prototype Kit
         
    
 
-
       
 
       <div class="govuk-form-group">
@@ -104,7 +115,17 @@ What has happened to the account – {{ serviceName }} – GOV.UK Prototype Kit
         <div id="user-id-hint" class="govuk-hint">
           For example, 502135326
           </div>
-        <input class="govuk-input govuk-input--width-20" id="user-id" name="user-id" type="text">
+
+          {% if (data['user-id'] == false) %}
+          <input class="govuk-input govuk-input--width-20" id="user-id" name="user-id" type="text">
+
+
+          {% else %}
+          
+          <input class="govuk-input govuk-input--width-20" id="user-id" name="user-id" type="text" value="{{ data['user-id'] }}">
+
+          {% endif %}
+
 
       </div>
     </div>
