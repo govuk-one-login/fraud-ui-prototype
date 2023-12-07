@@ -1,14 +1,18 @@
 {% extends "layouts/main.html" %}
 
+
 {% block header %}
+
 {% include('./includes/header.html') %}
 {% endblock %}
+
 
 {% block pageTitle %}
 What would you like to do? – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
 {% block beforeContent %}
+
 
 {% endblock %}
 
@@ -20,11 +24,11 @@ What would you like to do? – {{ serviceName }} – GOV.UK Prototype Kit
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <h1 class="govuk-heading-l">Update shared fraud information</h1>
+      <h1 class="govuk-heading-l">Share fraud information with GOV.UK One Login</h1>
 
       
     <!-- <h1 class="govuk-heading-l">Send and receive Fraud Shared Signals</h1> -->
-    {% if (data['release-state'] == "MVP")  %}
+    <!-- {% if (data['release-state'] == "MVP")  %}
     <p>Use this service to download and add fraud information, often called shared signals.</p>
 
     {% else %}
@@ -36,7 +40,7 @@ What would you like to do? – {{ serviceName }} – GOV.UK Prototype Kit
 
     </p>
 
-    {% endif %}
+    {% endif %} -->
 
   
     {% if (data['notification'] == "yes") %}
@@ -53,7 +57,7 @@ What would you like to do? – {{ serviceName }} – GOV.UK Prototype Kit
     </div>
 
   <div class="govuk-grid-row">
-    <div class="govuk-grid-column-one-third">
+    <div class="govuk-grid-column-two-thirds">
 
       {% if (data['release-state'] == "MVP")  %}
       <div class="govuk-summary-card">
@@ -61,7 +65,7 @@ What would you like to do? – {{ serviceName }} – GOV.UK Prototype Kit
           
 
           <h2 class="govuk-summary-card__title">            
-            Download information</h2>
+            View fraud information from GOV.UK One Login</h2>
           
         </div>
         <div class="govuk-summary-card__content">
@@ -73,7 +77,15 @@ What would you like to do? – {{ serviceName }} – GOV.UK Prototype Kit
 
               {% else %}
 
-              <p><a href="get-reasons">Download latest fraud information from One Login</a></p>
+              <p>Download a .csv file with fraud information shared by GOV.UK One Login and other government services. For example, you can get information about users that have been blocked from accessing GOV.UK One Login or who are under investigation.</p>
+
+                <p>You can also download updates about any action GOV.UK One Login may have taken as a result of fraud information you've shared.</p>
+
+                  <p>You can only download information from the last 7 days. The information was last updated on 23 June 2023. </p>
+
+              <p><a href="get-reasons">Download GOV.UK One Login fraud information</a></p>
+
+
 
               {% endif %}
 
@@ -142,10 +154,10 @@ What would you like to do? – {{ serviceName }} – GOV.UK Prototype Kit
  
 </div>
 
-<div class="govuk-grid-column-one-third">
+<div class="govuk-grid-column-two-thirds">
   <div class="govuk-summary-card">
     <div class="govuk-summary-card__title-wrapper">
-      <h2 class="govuk-summary-card__title">Add information</h2>
+      <h2 class="govuk-summary-card__title">Share fraud information with GOV.UK One Login</h2>
     </div>
     <div class="govuk-summary-card__content">
       <dl class="govuk-summary-list">
@@ -154,7 +166,22 @@ What would you like to do? – {{ serviceName }} – GOV.UK Prototype Kit
           <p><a href="add-ids">Add fraud information to One Login using a form</a></p>
 
           {% elseif (data['release-state'] != null)  %}
-          <p><a href="add-reason">Add fraud information to One Login using a form</a></p>
+
+          <p>Use this to share information about fraud-related events in your service.</p>
+
+          <p>For each event you share, you'll need to include:</p>
+          <ul class="govuk-list govuk-list--bullet">
+            <li>the user ID</li>
+            <li>the reason why you're investigating the event as fraud</li>
+  
+          </ul>
+ 
+          <p>You'll also get the option to add details about the method of fraud and the source of your information for each event.</p>
+
+          <p><a href="add-reason">Share fraud information</a></p>
+
+
+
        
           {% else %}
           <p><a href="add-format">Add fraud information to One Login using a form or a file</a></p>

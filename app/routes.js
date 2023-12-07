@@ -22,5 +22,6 @@ require('./routes/2-0-0/routes.js')(router,myData);
 require('./routes/3-0-0/routes.js')(router,myData);
 require('./routes/4-0-0/routes.js')(router,myData);
 require('./routes/5-0-0/routes.js')(router,myData);
+require('./routes/5-0-1/routes.js')(router,myData);
 
 module.exports = router
