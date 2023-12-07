@@ -76,13 +76,8 @@ What would you like to do? – {{ serviceName }} – GOV.UK Prototype Kit
               <p>There are no fraud updates to download.</p>
 
               {% else %}
-
-              <p>Download a .csv file with fraud information shared by GOV.UK One Login and other government services. For example, you can get information about users that have been blocked from accessing GOV.UK One Login or who are under investigation.</p>
-
-                <p>You can also download updates about any action GOV.UK One Login may have taken as a result of fraud information you've shared.</p>
-
-                  <p>You can only download information from the last 7 days. The information was last updated on 23 June 2023. </p>
-
+              <p>Download a .csv file with fraud information shared by GOV.UK One Login and other government services from the last 7 days. </p>
+              <p>The information was last updated on 23 June 2023.</p>
               <p><a href="get-reasons">Download GOV.UK One Login fraud information</a></p>
 
 
@@ -167,16 +162,10 @@ What would you like to do? – {{ serviceName }} – GOV.UK Prototype Kit
 
           {% elseif (data['release-state'] != null)  %}
 
-          <p>Use this to share information about fraud-related events in your service.</p>
+          <p>Use this to share information about fraud-related events in your service with GOV.UK One Login and other government services.</p>
 
-          <p>For each event you share, you'll need to include:</p>
-          <ul class="govuk-list govuk-list--bullet">
-            <li>the user ID</li>
-            <li>the reason why you're investigating the event as fraud</li>
-  
-          </ul>
- 
-          <p>You'll also get the option to add details about the method of fraud and the source of your information for each event.</p>
+            <p>For each event you share, you'll need to include the user ID and the reason why you're investigating the event as fraud.</p>
+
 
           <p><a href="add-reason">Share fraud information</a></p>
 
@@ -247,8 +236,6 @@ What would you like to do? – {{ serviceName }} – GOV.UK Prototype Kit
 
 {% endif %}
 
-
-<p class="govuk-body govuk-!-margin-top-9"">Service last updated on 23 June </p>
 
 </div>
 
