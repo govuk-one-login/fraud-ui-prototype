@@ -47,48 +47,50 @@ Choose what type of fraud information you want to download– {{ serviceName }} 
 
 
 
-        <!-- <h1 class="govuk-heading-l">{{question}}</h1>
-        {% if (data['task'] == "getinfo") %}
+        <h1 class="govuk-heading-l">{{question}}</h1>
+        {% if (data['task'] != "viewinfo") %}
         <p>You can download information about any of the following different types of fraud-related events.</p>
-        {% endif %} -->
+        {% endif %}
+
 
 
 {{ govukCheckboxes({
   name: "get-reasons",
   fieldset: {
     legend: {
-      html: question,
+      text: "Select the types of fraud events you want information about",
       isPageHeading: true,
-      classes: "govuk-fieldset__legend--l"
+      classes: "govuk-fieldset__legend--m"
     }
   },
   
   hint: {
-    text: "Select all the types of events you want information about"
+    text: "Select all the types of events you're interested in"
   },
+
 
 
   items: [
   {
-    value: "Account disabled",
-    text: "Accounts blocked from using our services"
+    value: "Account blocked",
+    text: "Users that have been blocked from accessing GOV.UK One Login or another service"
   },
 
   {
-    value: "Account enabled",
-    text: "Accounts unblocked from using our services"
+    value: "Account unblocked",
+    text: "Users that have been unblocked from accessing GOV.UK One Login or another service"
   },
 
  
 
   {
     value: "Suspicion or detection of identity fraud",
-    text: "Suspicion or detection of identity fraud"
+    text: "Users that GOV.UK One Login suspects of committing fraud (including users under investigation)"
   },
 
   {
     value: "Password compromised",
-    text: "Password compromised"
+    text: "Users whose GOV.UK One Login has been compromised "
   }
 ]
 }) 
@@ -102,7 +104,13 @@ Choose what type of fraud information you want to download– {{ serviceName }} 
           text: "Continue"
         }) }}
       </form>
+
+      {% include('./includes/help.html') %}      
+
+
     </div>
+
+    
   </div>
 {% endblock %}
 
