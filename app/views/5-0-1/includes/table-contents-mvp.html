@@ -1,0 +1,298 @@
+{% if (data['notification'] == "yes") %}
+      
+      
+       
+<tr class="govuk-table__row">
+
+  <td class="govuk-table__cell">
+    {% if (data['rp'] == "HMRC") %}
+    {{ data['idHMRC1'] }}
+
+    {% else %}
+    {{ data['id1'] }}
+
+    {% endif %}
+
+    
+    <strong class="govuk-tag govuk-tag--blue">
+      New
+    </strong>
+  </th>
+
+  <td class="govuk-table__cell">Credential compromised</td>
+
+  <td class="govuk-table__cell">25 Oct 2023</td>
+
+  <td class="govuk-table__cell">Force identity check</td>
+
+</tr>
+
+     
+<tr class="govuk-table__row">
+
+  <td class="govuk-table__cell">{{ data['id2'] }}
+    <strong class="govuk-tag govuk-tag--blue">
+      New
+    </strong>
+  </th>
+
+  <td class="govuk-table__cell">Credential compromised</td>      
+
+  <td class="govuk-table__cell">25 Oct 2023</td>
+
+  <td class="govuk-table__cell">Force identity check</td>
+
+</tr>
+
+     
+<tr class="govuk-table__row">
+
+  <td class="govuk-table__cell">{{ data['id3'] }}
+    <strong class="govuk-tag govuk-tag--blue">
+      New
+    </strong>
+  </th>
+
+  <td class="govuk-table__cell">Credential compromised</td>
+
+  <td class="govuk-table__cell">25 Oct 2023</td>
+
+  <td class="govuk-table__cell">Force identity check</td>
+
+
+</tr>
+
+
+{% endif %}
+
+
+
+
+<tr class="govuk-table__row">
+
+  <td class="govuk-table__cell">
+
+    {% if (data['rp'] == "HMRC") %}
+    {{ data['idnonHMRC1'] }}
+    {% else %}
+    {{ data['id1'] }}
+
+    {% endif %}
+
+  </th>
+
+  <td class="govuk-table__cell">Account purged</td>
+
+  <td class="govuk-table__cell">25 Sept 2023</td>
+
+  <td class="govuk-table__cell">
+    
+        <strong class="govuk-tag govuk-tag--grey">
+In progress
+</strong>
+
+  </td>
+
+
+</tr>
+
+<tr class="govuk-table__row">
+
+  <td class="govuk-table__cell">{{ data['id2'] }}</th>
+
+  <td class="govuk-table__cell">Credential compromised</td>
+
+  <td class="govuk-table__cell">25 Sep 2023</td>
+
+
+  <td class="govuk-table__cell">Force identity check</td>
+
+
+</tr>
+
+<tr class="govuk-table__row">
+
+  <td class="govuk-table__cell">{{ data['id3'] }}</th>
+
+  <td class="govuk-table__cell">Account suspended</td>
+
+  <td class="govuk-table__cell">9 Oct 2023</td>
+
+  <td class="govuk-table__cell">Block account</td>
+
+
+</tr>
+
+<tr class="govuk-table__row">
+
+  <td class="govuk-table__cell">{{ data['id4'] }}</th>
+
+  <td class="govuk-table__cell">Recovery activated</td>
+
+  <td class="govuk-table__cell">9 Oct 2023</td>
+
+  <td class="govuk-table__cell">Reset password</td>
+
+
+</tr>
+
+<tr class="govuk-table__row">
+
+  <td class="govuk-table__cell">{{ data['id5'] }}</th>
+
+  <td class="govuk-table__cell">Identifier changed</td>
+
+  <td class="govuk-table__cell">9 Oct 2023</td>
+
+  <td class="govuk-table__cell">Force identity check<br>password reset</td>
+
+
+</tr>
+
+<tr class="govuk-table__row">
+
+  <td class="govuk-table__cell">{{ data['id6'] }}</th>
+
+  <td class="govuk-table__cell">Account purged</td>
+  <td class="govuk-table__cell">25 Sep 2023</td>
+
+
+  <td class="govuk-table__cell">Block account</td>
+
+
+</tr>
+
+<tr class="govuk-table__row">
+
+  <td class="govuk-table__cell">{{ data['id7'] }}</th>
+
+  <td class="govuk-table__cell">Credential compromised</td>
+
+  <td class="govuk-table__cell">25 Sep 2023</td>
+
+  <td class="govuk-table__cell">
+    
+        <strong class="govuk-tag govuk-tag--grey">
+In progress
+</strong>
+
+  </td>
+
+
+</tr>
+
+<tr class="govuk-table__row">
+
+  <td class="govuk-table__cell">{{ data['id8'] }}</th>
+
+  <td class="govuk-table__cell">Identifier recylced</td>
+
+  <td class="govuk-table__cell">9 Oct 2023</td>
+
+  <td class="govuk-table__cell">Suspend account</td>
+
+
+</tr>
+
+<tr class="govuk-table__row">
+
+  <td class="govuk-table__cell">{{ data['id9'] }}</th>
+
+  <td class="govuk-table__cell">Recovery activated</td>
+
+  <td class="govuk-table__cell">9 Oct 2023</td>
+
+  <td class="govuk-table__cell">Block account</td>
+
+
+</tr>
+
+<tr class="govuk-table__row">
+
+  <td class="govuk-table__cell">{{ data['id10'] }}</th>
+
+  <td class="govuk-table__cell">Identifier changed</td>
+
+  <td class="govuk-table__cell">9 Oct 2023</td>
+
+  <td class="govuk-table__cell">Force identity check<br>password reset</td>
+
+
+</tr>
+
+<tr class="govuk-table__row">
+
+  <td class="govuk-table__cell">{{ data['id11'] }}</th>
+
+  <td class="govuk-table__cell">Account purged</td>
+  <td class="govuk-table__cell">9 Oct 2023</td>
+
+
+  <td class="govuk-table__cell">Suspend account</td>
+
+
+</tr>
+
+<tr class="govuk-table__row">
+
+  <td class="govuk-table__cell">{{ data['id12'] }}</th>
+
+  <td class="govuk-table__cell">Recovery activated</td>
+
+  <td class="govuk-table__cell">9 Oct 2023</td>
+
+  <td class="govuk-table__cell">Force identity check</td>
+
+
+</tr>
+
+<tr class="govuk-table__row">
+
+  <td class="govuk-table__cell">{{ data['id13'] }}</th>
+
+  <td class="govuk-table__cell">Account purged</td>
+
+  <td class="govuk-table__cell">25 Sep 2023</td>
+
+  <td class="govuk-table__cell">Reset password</td>
+
+
+</tr>
+
+<tr class="govuk-table__row">
+
+  <td class="govuk-table__cell">{{ data['id14'] }}</th>
+
+  <td class="govuk-table__cell">Credential compromised</td>
+  <td class="govuk-table__cell">25 Sep 2023</td>
+
+  <td class="govuk-table__cell">Reset password</td>
+
+
+</tr>
+
+<tr class="govuk-table__row">
+
+  <td class="govuk-table__cell">{{ data['id15'] }}</th>
+
+  <td class="govuk-table__cell">Account suspended</td>
+  <td class="govuk-table__cell">9 Oct 2023</td>
+
+
+  <td class="govuk-table__cell">Force identity check<br>password reset</td>
+
+
+</tr>
+
+<tr class="govuk-table__row">
+
+  <td class="govuk-table__cell">{{ data['id16'] }}</th>
+
+  <td class="govuk-table__cell">Recovery activated</td>
+
+  <td class="govuk-table__cell">9 Oct 2023</td>
+
+  <td class="govuk-table__cell">Reset password</td>
+
+
+</tr>

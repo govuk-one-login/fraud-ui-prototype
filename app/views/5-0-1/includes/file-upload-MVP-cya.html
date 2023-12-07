@@ -1,0 +1,125 @@
+<h2 class="govuk-heading-m">File details</h2>
+
+<dl class="govuk-summary-list govuk-!-margin-bottom-9">
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      File upload
+    </dt>
+    <dd class="govuk-summary-list__value">
+
+
+      {% if (data['file-upload'] == "true") %}
+
+      rp-upload465.csv
+      {% endif %}
+     
+
+    </dd>
+    <dd class="govuk-summary-list__actions">
+      <a class="govuk-link" href="upload-file">
+        Change<span class="govuk-visually-hidden"> file</span>
+      </a>
+    </dd>
+  </div>
+
+</dl>
+
+<h2 class="govuk-heading-m">File contents</h2>
+
+
+
+<dl class="govuk-summary-list govuk-!-margin-bottom-9">
+
+
+
+
+
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Update reason
+    </dt>
+    <dd class="govuk-summary-list__value">
+      Credentials compromised
+    </dd>
+
+  </div>
+
+
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      User IDs
+    </dt>
+    <dd class="govuk-summary-list__value">
+    
+      {{ data['id1'] }} <br>
+      {{ data['id2'] }} <br>
+      {{ data['id3'] }} <br>
+      {{ data['id4'] }}
+    </dd>
+
+  </div>
+ 
+
+
+
+
+
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Update reason
+    </dt>
+    <dd class="govuk-summary-list__value">
+      Account suspended
+    </dd>
+
+  </div>
+
+
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      User IDs
+    </dt>
+    <dd class="govuk-summary-list__value">
+    
+      {{ data['id5'] }} <br>
+      {{ data['id6'] }} <br>
+      {{ data['id7'] }} <br>
+      {{ data['id8'] }}
+
+    </dd>
+
+  </div>
+
+
+
+
+
+
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Update reason
+    </dt>
+    <dd class="govuk-summary-list__value">
+      Identifier changed 
+    </dd>
+
+  </div>
+
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      User IDs
+    </dt>
+    <dd class="govuk-summary-list__value">
+    
+      {{ data['id5'] }} <br>
+      {{ data['id6'] }} <br>
+      {{ data['id7'] }} <br>
+      {{ data['id8'] }}
+    </dd>
+
+  </div>
+
+</dl>
+
+
+

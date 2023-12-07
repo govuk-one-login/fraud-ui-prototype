@@ -1,0 +1,127 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+What has happened to the account – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-l">Submit a manual account intervention</h1>
+      <p></p>
+
+      <form action="cya" method="post" novalidate>
+
+        <div class="govuk-form-group">
+          <!-- <h2 class="govuk-label-wrapper">
+            <label class="govuk-label govuk-label--m" for="user-id">
+              Enter the User IDs
+            </label>
+          </h2> -->
+
+         
+
+
+
+        {% from "govuk/components/select/macro.njk" import govukSelect %}
+
+        {{ govukSelect({
+          id: "intervention",
+          name: "intervention",
+          label: {
+            text: "What is the intervention type?"
+          },
+       
+
+          items: [
+            {
+              value: "choose",
+              text: "Choose reason",
+              selected: true
+            },
+  
+  {
+    value: "Temporary Suspension",
+    text: "Temporary Suspension"
+  },
+
+  {
+    value: "Unsuspend Temporary Suspension",
+    text: "Unsuspend Temporary Suspension"
+  },
+
+ 
+
+  {
+    value: "Indefinite Suspension",
+    text: "Indefinite Suspension"
+  },
+
+  {
+    value: "Unsuspend Indefinite Suspension",
+    text: "Unsuspend Indefinite Suspension"
+  },
+
+  {
+  value: "Reset Password",
+  text: "Reset Password"
+},
+{
+  value: "Reverify Identity",
+  text: "Reverify Identity"
+},
+{
+  value: "Reset Password and Reverify Identity",
+  text: "Reset Password and Reverify Identity"
+}
+
+
+          ]
+        }) }}
+
+
+
+        
+
+        
+   
+
+
+      
+
+      <div class="govuk-form-group">
+
+        <label class="govuk-label" for="width-20">
+          What is the One Login subject ID? 
+               </label>
+        <div id="user-id-hint" class="govuk-hint">
+          For example, 502135326
+          </div>
+        <input class="govuk-input govuk-input--width-20" id="width-20" name="width20" type="text">
+
+      </div>
+    </div>
+
+
+      
+
+
+
+
+
+        
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+      </form>
+    </div>
+  </div>
+{% endblock %}
