@@ -1,11 +1,7 @@
 {% extends "layouts/main.html" %}
 
-{% block header %}
-{% include('./includes/header.html') %}
-{% endblock %}
-
 {% block pageTitle %}
-Choose what type of fraud information you want to download– {{ serviceName }} – GOV.UK Prototype Kit
+Which fraud events– {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
 {% block beforeContent %}
@@ -35,7 +31,7 @@ Choose what type of fraud information you want to download– {{ serviceName }} 
       <form action="get-options" method="post" novalidate>
       {% endif %} -->
         <!-- Change content for all -->
-        {% set question = "Choose what type of fraud information you want to download" %}
+        {% set question = "What types of fraud activity do you want to download?" %}
         <!-- Change content for view -->
         {% if (data['task'] == "viewinfo") %}
         {% set question = "What types of fraud activity do you want to view?" %}
@@ -46,11 +42,8 @@ Choose what type of fraud information you want to download– {{ serviceName }} 
         {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
 
 
+        {% if (data['download-state'] != "getallreasons") %}
 
-        <!-- <h1 class="govuk-heading-l">{{question}}</h1>
-        {% if (data['task'] == "getinfo") %}
-        <p>You can download information about any of the following different types of fraud-related events.</p>
-        {% endif %} -->
 
 
 {{ govukCheckboxes({
@@ -64,7 +57,7 @@ Choose what type of fraud information you want to download– {{ serviceName }} 
   },
   
   hint: {
-    text: "Select all the types of events you want information about"
+    text: "Select all that apply."
   },
 
 
@@ -89,12 +82,71 @@ Choose what type of fraud information you want to download– {{ serviceName }} 
   {
     value: "Password compromised",
     text: "Password compromised"
-  }
+  },
+
+
+
+  {
+  value: "User is being investigated",
+  text: "User is being investigated"
+}
 ]
 }) 
 }}
 
 
+{% else %}
+
+
+{{ govukCheckboxes({
+  name: "waste",
+  fieldset: {
+    legend: {
+      html: question,
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--l"
+    }
+  },
+  
+  hint: {
+    text: "Select all that apply."
+  },
+
+
+  items: [
+  {
+    value: "Account disabled",
+    text: "Account disabled"
+  },
+
+  {
+    value: "Account enabled",
+    text: "Account enabled"
+  },
+
+ 
+
+  {
+    value: "Suspicion or detection of identity fraud",
+    text: "Suspicion or detection of identity fraud"
+  },
+
+  {
+    value: "Password compromised",
+    text: "Password compromised"
+  },
+
+
+
+  {
+  value: "User is being investigated",
+  text: "User is being investigated"
+}
+  ]
+}) 
+}}
+
+{% endif %}
 
         
 
@@ -105,6 +157,3 @@ Choose what type of fraud information you want to download– {{ serviceName }} 
     </div>
   </div>
 {% endblock %}
-
-
-

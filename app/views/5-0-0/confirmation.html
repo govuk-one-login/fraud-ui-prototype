@@ -1,8 +1,6 @@
 {% extends "layouts/main.html" %}
 
-{% block header %}
-{% include('./includes/header.html') %}
-{% endblock %}
+
 {% block pageTitle %}
   Confirmation page – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
@@ -18,8 +16,8 @@
       {% if (data['task'] == "getinfo") %}
       
       {{ govukPanel({
-        titleText: "The fraud information you selected is downloading",
-        html: ""
+        titleText: "Information downloaded",
+        html: "124 records are being downloaded from One Login"
       }) }}
      
       {% else %}
@@ -33,7 +31,7 @@
   
       {% if (data['task'] == "getinfo") %}
       <p>
-        A .csv with the GOV.UK One Login fraud information you selected is being downloaded. It should appear in your downloads folder soon.
+        Your downloaded .csv file should appear in your download folder shortly.
       </p>
       <h2 class="govuk-heading-m">
         What happens next
@@ -41,7 +39,7 @@
         {% if (data['task'] == "getinfo") %}
         {% if (data['release-state'] == "MVP") %}
         <p>
-          You can <a href="task?task=clear">view or share other fraud information</a>.
+          You can <a href="get-reasons">download other information</a>, or <a href="task?task=clear">carry out other tasks</a>.
         </p>
         {% else %}
         <p>
@@ -96,6 +94,10 @@
           What did you think of this service?
         </a> (takes 30 seconds)
       </p>
+
+      <a class="govuk-button" href="./login">
+        Sign out
+        </a>
 
     </div>
   </div>

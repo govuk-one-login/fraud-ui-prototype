@@ -1,11 +1,7 @@
 {% extends "layouts/main.html" %}
 
-{% block header %}
-{% include('./includes/header.html') %}
-{% endblock %}
-
 {% block pageTitle %}
-Confirm the types of fraud information you want to download – {{ serviceName }} – GOV.UK Prototype Kit
+Are you sure you want to download – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
 {% block beforeContent %}
@@ -18,7 +14,7 @@ Confirm the types of fraud information you want to download – {{ serviceName }
 {% block content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <form action="confirmation?task=getinfo" method="post" novalidate>
+      <form action="get-options-are-you-sure-answer" method="post" novalidate>
 
 
         <div class="govuk-form-group">
@@ -26,7 +22,7 @@ Confirm the types of fraud information you want to download – {{ serviceName }
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
               <h1 class="govuk-fieldset__heading">
 
-                Confirm the types of fraud information you want to download
+                Are you sure you want to download this information?
 <!-- 
                 {% if (data['get-options'] == "all") %}
                 all information?
@@ -48,19 +44,69 @@ Confirm the types of fraud information you want to download – {{ serviceName }
             </div> -->
             
 
-              <p>You’ve said you want to download the following types of GOV.UK One Login fraud information:</p>
-              
+
+              {% if (data['get-options'] == "all") %}
+              <p>There is currently 1000 records, the file size will be around 200mb.</p>
+              {% elseif (data['get-options'] == "30days") %}
+
+              <p>There is currently 100 records from the last 30 days, the file size will be around 200mb.</p>
+              {% elseif (data['get-options'] == "last-login") %}
+
+
+              <p> There is currently 100 records since you last logged in, the file size will be around 200mb.</p>
+
+
+              {% else %}
+
+              <p>There is currently 106 records from the following types of fraud activity:</p>
+              <!-- <div class="govuk-inset-text">
+                {{ data['get-reasons'] }}
+              </div> -->
+
               <ul class="govuk-list govuk-list--bullet">
                 <!-- <li> {{ data['get-reasons'] }}</li> -->
               <li>Accounts blocked from using our services</li>
               <li>Suspicion or detection of identity fraud</li>
               <li>Password compromised</li>
            </ul>
+              {% endif %} 
 
-            <p>There are currently 106 records for these types of information.
-            </p>
               
-      
+            
+            <!-- {% if (data['get-options'] == "certain-events") %}
+            <p class="govuk-body">You have selected:</p>
+              <ul class="govuk-list govuk-list--bullet">
+                   <li>Account related</li>
+                <li>Identifier changed or recylced</li>
+                <li>Credential compromised</li>
+              </ul>
+            {% endif %}  -->
+<!-- 
+            <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="get-confirm" name="get-confirm" type="radio" value="yes">
+                <label class="govuk-label govuk-radios__label" for="get-confirm">
+                  Yes
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="get-confirm-2" name="get-confirm" type="radio" value="no">
+                <label class="govuk-label govuk-radios__label" for="get-confirm-2">
+                  No
+                </label>
+              </div>
+            </div> -->
+
+            {{ govukCheckboxes({
+              "name": "get-confirm",
+              "items": [
+                {
+                  "value": "yes",
+                  "text": "Yes I want to download this information"
+                }
+              ]
+            }) }}
+
           </fieldset>
         </div>
 
@@ -80,11 +126,11 @@ Confirm the types of fraud information you want to download – {{ serviceName }
 
 <div class="govuk-button-group">
   {{ govukButton({
-    text: "Download fraud information"
+    text: "Continue"
   }) }}
 
+  <a class="govuk-link" href="./task">Cancel and return to the task page</a>
 </div>
-<p><a class="govuk-link" href="./task">Cancel and return to the task page</a></p>
 
       </form>
     </div>

@@ -6,7 +6,7 @@
 {% endblock %}
 
 {% block pageTitle %}
-What is the reason for this update? – {{ serviceName }} – GOV.UK Prototype Kit
+What type of fraud information do you want to share? – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
 {% block beforeContent %}
@@ -23,19 +23,17 @@ What is the reason for this update? – {{ serviceName }} – GOV.UK Prototype K
 
         {% from "govuk/components/radios/macro.njk" import govukRadios %}
 
+        <h1 class="govuk-heading-l">What type of fraud information do you want to share?</h1>
 
+        <!-- <p>Select the sort of fraud information about your service you'd like to share with GOV.UK One Login and other government services.</p> -->
         
         {{ govukRadios({
           name: "reason",
           fieldset: {
-            legend: {
-              text: "What is the reason for this update?",
-              isPageHeading: true,
-              classes: "govuk-fieldset__legend--l"
-            }
+   
           },
           hint: {
-            text: "This is often refered to as the event type"
+            text: "Select the sort of fraud information about your service you'd like to share with GOV.UK One Login and other government services"
         
         },
            items: [

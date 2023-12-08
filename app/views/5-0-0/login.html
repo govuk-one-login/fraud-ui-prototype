@@ -1,6 +1,7 @@
 {% extends "layouts/main.html" %}
 
 
+
 {% block beforeContent %}
 
 {% from "govuk/components/back-link/macro.njk" import govukBackLink %}
@@ -17,18 +18,20 @@
 
 
 <div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
 
     
-    
-        <div class="govuk-grid-column-two-thirds">
+      {% if (data['manual-intervention-state'] == "on") %}
+      <form action="add-fraud-intervention" method="post" novalidate>
+        {% else %}
         <form action="task" method="post" novalidate>
 
+      {% endif %}
 
 
       <h1 class="govuk-heading-l">
-        Sign in to {{ serviceName }}
+        Sign in to update fraud information
       </h1>
-<!-- <p>If you do not have an account yet, you can <a href="">[create one]</a></p> -->
     <!-- <form action="/mfa" method="post" novalidate> -->
 
       {% from "govuk/components/input/macro.njk" import govukInput %}
@@ -61,12 +64,10 @@
         text: "Sign in"
       }) }}
       <p class="govuk-body">
-        If you’ve forgotten your password, <a href="#" class="govuk-link">contact the GOV.UK One Login support team</a>. They'll
-        help you reset it.
+        You can         <a href="forgotten-password" class="govuk-link">reset your password</a> if you've forgotten it.
       </p>
 
     </form>
-
   </div>
 </div>
 
