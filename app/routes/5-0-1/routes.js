@@ -67,19 +67,13 @@ router.post('/' + version + '/add-reason-answer', function(request, response) {
           var uploadstate = request.session.data['upload-state']
 
     var reason = request.session.data['reason']
-    if (reason == "Account related"){
-        response.redirect("reason-accounts")
-    } else if (reason == "Password compromised"){
+    if (reason == "Password compromised"){
         response.redirect("reason-cc.html")
-    } else if (reason == "Account opted in or out from event changes"){
-        response.redirect("reason-optin")
     } 
-    else if (reason == "Suspicion or detection of identity fraud"){
+    else if (reason == "Users that GOV.UK One Login suspects of committing fraud"){
         response.redirect("reason-id-fraud")
     }
-    else if (reason == "User is being investigated"){
-        response.redirect("reason-investigation")
-    } 
+  
     else if (add == "ID1st"){
         response.redirect("cya")
     }  
@@ -91,6 +85,7 @@ router.post('/' + version + '/add-reason-answer', function(request, response) {
         response.redirect("add-ids")
     }
 })
+
 
 
 
