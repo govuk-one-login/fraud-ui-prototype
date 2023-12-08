@@ -4,6 +4,10 @@
 Which fraud events– {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
+{% block header %}
+{% include('./includes/header.html') %}
+{% endblock %}
+
 {% block beforeContent %}
   {{ govukBackLink({
   text: "Back",
