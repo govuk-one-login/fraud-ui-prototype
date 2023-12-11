@@ -1,6 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block header %}
+
 {% include('./includes/header.html') %}
 {% endblock %}
 
@@ -21,7 +22,6 @@ Enter the User IDs– {{ serviceName }} – GOV.UK Prototype Kit
         {% if (data['task'] == "getinfo") %}
         <!-- <form action="get-are-you-sure" method="post" novalidate> -->
           <form action="add-reason" method="post" novalidate>
-
         {% else %}
 
           {% if (data['add'] == "ID1st")  %}
@@ -50,7 +50,7 @@ Enter the User IDs– {{ serviceName }} – GOV.UK Prototype Kit
               <div class="govuk-form-group">
                 <h1 class="govuk-label-wrapper">
                   <label class="govuk-label govuk-label--l" for="user-id">
-                    What are the HMRC user IDs?
+                    What are the user IDs?
                     <!-- Enter the auth provider ID -->
 
                   </label>

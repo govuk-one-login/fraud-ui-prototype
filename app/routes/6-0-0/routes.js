@@ -63,33 +63,27 @@ router.post('/' + version + '/add-format-answer', function(request, response) {
 
 
 router.post('/' + version + '/add-reason-answer', function(request, response) {
-          var add = request.session.data['add']
-          var uploadstate = request.session.data['upload-state']
+    var add = request.session.data['add']
+    var uploadstate = request.session.data['upload-state']
 
-    var reason = request.session.data['reason']
-    if (reason == "Account related"){
-        response.redirect("reason-accounts")
-    } else if (reason == "Password compromised"){
-        response.redirect("reason-cc.html")
-    } else if (reason == "Account opted in or out from event changes"){
-        response.redirect("reason-optin")
-    } 
-    else if (reason == "Suspicion or detection of identity fraud"){
-        response.redirect("reason-id-fraud")
-    }
-    else if (reason == "User is being investigated"){
-        response.redirect("reason-investigation")
-    } 
-    else if (add == "ID1st"){
-        response.redirect("cya")
-    }  
-    else if (uploadstate == "uploadsingle"){
-        response.redirect("id-multiple")
-    } 
+var reason = request.session.data['reason']
+if (reason == "Password compromised"){
+  response.redirect("reason-cc.html")
+} 
+else if (reason == "Users that GOV.UK One Login suspects of committing fraud"){
+  response.redirect("reason-id-fraud")
+}
 
-    else {
-        response.redirect("add-ids")
-    }
+else if (add == "ID1st"){
+  response.redirect("cya")
+}  
+else if (uploadstate == "uploadsingle"){
+  response.redirect("id-multiple")
+} 
+
+else {
+  response.redirect("add-ids")
+}
 })
 
 
