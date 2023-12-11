@@ -1,0 +1,45 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+File not downloaded – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+{% include('./includes/header.html') %}
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+      <h1 class="govuk-heading-l">File not downloaded</h1>
+      {% if (data['release-state'] == "MVP")  %}
+      <p>
+        You chose not to download the file. You can <a href="get-reasons">
+          download other information</a>, or <a href="task">carry out other tasks</a>.
+      </p>
+      {% else %}
+      <p>
+        You chose not to download the file. You can <a href="get-options">
+          {% if (data['task'] == "getinfo") %}
+          download 
+          {% else %}
+          view
+          {% endif %}
+          other information</a>, or <a href="task">carry out other tasks</a>.
+      </p>
+      {% endif %}
+
+      
+
+
+    </div>
+
+  </div>
+{% endblock %}

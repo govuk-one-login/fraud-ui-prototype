@@ -1,0 +1,99 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Start page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+
+
+
+{% block beforeContent %}
+
+</div>
+<div class="govuk-masthead govuk-!-padding-top-1 govuk-!-padding-bottom-6 govuk-!-margin-bottom-2">
+  <div class="govuk-width-container">
+    
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds-from-desktop">
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+  
+  <h1 class="govuk-heading-xl">
+    A design history for <br>
+    Version {% include('../includes/version.html') %} of the Shared Signals UI
+    prototype 
+  </h1>
+        <p>
+          A record of how our service has iterated.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="govuk-width-container">
+
+
+{% endblock %}
+
+
+{% block content %}
+
+
+
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      
+
+  <span class="govuk-caption-l">{% include('../includes/date.html') %}</span>
+<h1 class="govuk-heading-l">Version {% include('../includes/version.html') %}</h1>
+
+      <p>This is the design story for the Shared Signals UI prototype {% include('../includes/version.html') %}.</p>
+         
+      <p>This iteration contains some significant changes, based on early insight from internal users. The main features of this initial prototype include:</p>
+      {% include('../includes/summary.html') %}
+
+
+<!-- 
+      <h2 class="govuk-heading-m">Refined MVP</h2>
+      <p>Expand on this</p>
+      <p><a href="../?release-state=MVP">View MVP journey</a></p> -->
+
+
+      <h2 class="govuk-heading-m">Iterated content for download journey</h2>
+      <h2 class="govuk-heading-m">Iterated content for start, login and task screen</h2>
+      <h2 class="govuk-heading-m">Added new service name</h2>
+      <h2 class="govuk-heading-m">Added help links</h2>
+      <h2 class="govuk-heading-m">Removed stand alone support page</h2>
+     
+
+      <h2 class="govuk-heading-m">To do</h2>
+    <ul class="govuk-list--bullet govuk-list">
+
+      <li>Iterate content for add journey</li>
+      
+    </ul>
+
+   
+
+      
+
+
+    </div>
+
+    <div class="govuk-grid-column-one-third">
+
+      
+
+    </div>
+  </div>
+
+  
+
+  
+
+{% endblock %}

@@ -1,0 +1,383 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+There was a problem with this submission – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+{% include('./includes/header.html') %}
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+
+      {% if (data['view-submission-history'] == "post-mvp-submission") %}
+
+      <h1 class="govuk-heading-l">There was a problem with this submission</h1>
+        {% else %}
+      <h1 class="govuk-heading-l">Check the details before sending your information</h1>
+      {% endif %}
+      
+
+      <div class="govuk-inset-text">
+
+      {% if (data['view-submission-history'] == "post-mvp-submission") %}
+
+       
+        Part of this submission was unable to be added to One Login due to issues with the information provided. 
+        
+
+
+      {% else %}
+       
+        This submission was unable to be added to One Login on 
+        {% if (data['date'] == null) %}
+        02 October 2023
+        {% else %}
+      
+        {{ data['date'] }}
+        {% endif %} due to a server issue. You can resubmit the information below.
+
+  
+      {% endif %}
+    </div>
+
+
+    {% if (data['view-submission-history'] == "post-mvp-submission") %}
+         <h2 class="govuk-heading-m">Updates errors</h2>
+         <p>You will need to check the information you provided, and make sure you are following the guidelines.</p>
+<dl class="govuk-summary-list govuk-!-margin-bottom-9">
+
+
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Submission date
+    </dt>
+    <dd class="govuk-summary-list__value">
+      
+      {% if (data['date'] == null) %}
+      02 October 2023
+      {% else %}
+    
+      {{ data['date'] }}
+      {% endif %}
+      
+    </dd>
+    <dd class="govuk-summary-list__actions">
+
+    </dd>
+  </div>
+
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Update reason
+    </dt>
+    <dd class="govuk-summary-list__value">
+      Credentials compromised
+    </dd>
+    <dd class="govuk-summary-list__actions">
+  
+    </dd>
+  </div>
+
+
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      User IDs
+    </dt>
+    <dd class="govuk-summary-list__value">
+    
+       joeblogs165683 <br>
+       joeblogs87683 <br>
+       joeblogs87654383 <br>
+       joeblogs87383
+
+    </dd>
+    <dd class="govuk-summary-list__actions">
+
+    </dd>
+  </div>
+
+
+
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Update reason
+    </dt>
+    <dd class="govuk-summary-list__value">
+      Account suspended
+    </dd>
+    <dd class="govuk-summary-list__actions">
+   
+    </dd>
+  </div>
+
+
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      User IDs
+    </dt>
+    <dd class="govuk-summary-list__value">
+    
+       claireahmeed165683 <br>
+       claireahmeed87654383 <br>
+       claireahmeed8765438387383
+
+    </dd>
+    <dd class="govuk-summary-list__actions">
+
+    </dd>
+  </div>
+
+</dl>
+
+
+
+<h2 class="govuk-heading-m">Successful updates</h2>
+<p>The following information was successfully added to One Login.</p>
+
+
+<dl class="govuk-summary-list govuk-!-margin-bottom-9">
+
+
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Submission date
+    </dt>
+    <dd class="govuk-summary-list__value">
+      
+      {% if (data['date'] == null) %}
+      02 October 2023
+      {% else %}
+    
+      {{ data['date'] }}
+      {% endif %}
+      
+    </dd>
+    <dd class="govuk-summary-list__actions">
+
+    </dd>
+  </div>
+
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Update reason
+    </dt>
+    <dd class="govuk-summary-list__value">
+      Credentials compromised
+    </dd>
+    <dd class="govuk-summary-list__actions">
+  
+    </dd>
+  </div>
+
+
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      User IDs
+    </dt>
+    <dd class="govuk-summary-list__value">
+    
+       joeblogs165683 <br>
+       joeblogs87683 <br>
+       joeblogs87654383 <br>
+       joeblogs87383
+
+    </dd>
+    <dd class="govuk-summary-list__actions">
+
+    </dd>
+  </div>
+
+
+
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Update reason
+    </dt>
+    <dd class="govuk-summary-list__value">
+      Account suspended
+    </dd>
+    <dd class="govuk-summary-list__actions">
+   
+    </dd>
+  </div>
+
+
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      User IDs
+    </dt>
+    <dd class="govuk-summary-list__value">
+    
+       claireahmeed165683 <br>
+       claireahmeed87654383 <br>
+       claireahmeed8765438387383
+
+    </dd>
+    <dd class="govuk-summary-list__actions">
+
+    </dd>
+  </div>
+
+</dl>
+
+    {% else %}
+
+   
+
+
+
+<dl class="govuk-summary-list govuk-!-margin-bottom-9">
+
+
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Submission date
+    </dt>
+    <dd class="govuk-summary-list__value">
+      
+      {% if (data['date'] == null) %}
+      02 October 2023
+      {% else %}
+    
+      {{ data['date'] }}
+      {% endif %}
+      
+    </dd>
+    <dd class="govuk-summary-list__actions">
+
+    </dd>
+  </div>
+
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Update reason
+    </dt>
+    <dd class="govuk-summary-list__value">
+      Credentials compromised
+    </dd>
+    <dd class="govuk-summary-list__actions">
+      <a class="govuk-link" href="reason">
+        Change<span class="govuk-visually-hidden">reason</span>
+      </a>
+    </dd>
+  </div>
+
+
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      User IDs
+    </dt>
+    <dd class="govuk-summary-list__value">
+    
+       joeblogs165683 <br>
+       joeblogs87683 <br>
+       joeblogs87654383 <br>
+       joeblogs87383
+
+    </dd>
+    <dd class="govuk-summary-list__actions">
+      <a class="govuk-link" href="add-ids">
+        Change<span class="govuk-visually-hidden"> ids</span>
+      </a>
+    </dd>
+  </div>
+
+
+
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Update reason
+    </dt>
+    <dd class="govuk-summary-list__value">
+      Account suspended
+    </dd>
+    <dd class="govuk-summary-list__actions">
+      <a class="govuk-link" href="reason">
+        Change<span class="govuk-visually-hidden">reason</span>
+      </a>
+    </dd>
+  </div>
+
+
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      User IDs
+    </dt>
+    <dd class="govuk-summary-list__value">
+    
+       claireahmeed165683 <br>
+       claireahmeed87654383 <br>
+       claireahmeed8765438387383
+
+    </dd>
+    <dd class="govuk-summary-list__actions">
+      <a class="govuk-link" href="add-ids">
+        Change<span class="govuk-visually-hidden"> ids</span>
+      </a>
+    </dd>
+  </div>
+
+
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Update reason
+    </dt>
+    <dd class="govuk-summary-list__value">
+      Identifier changed 
+    </dd>
+    <dd class="govuk-summary-list__actions">
+      <a class="govuk-link" href="reason">
+        Change<span class="govuk-visually-hidden">reason</span>
+      </a>
+    </dd>
+  </div>
+
+
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      User IDs
+    </dt>
+    <dd class="govuk-summary-list__value">
+    
+       Vikhbentley87678987<br>
+       Vikhbentley87654383 <br>
+       Vikhbentley8765432383 <br>
+       Vikhbentley8765438387383
+
+    </dd>
+    <dd class="govuk-summary-list__actions">
+      <a class="govuk-link" href="add-ids">
+        Change<span class="govuk-visually-hidden"> ids</span>
+      </a>
+    </dd>
+  </div>
+
+
+
+</dl>
+
+
+
+      <form action="confirmation" method="post" novalidate>
+        <input type="hidden" name="answers-checked" value="true">
+        <button class="govuk-button" data-module="govuk-button">
+          Accept and send
+        </button>
+      </form>
+
+      {% endif %}
+
+    </div>
+
+  </div>
+{% endblock %}

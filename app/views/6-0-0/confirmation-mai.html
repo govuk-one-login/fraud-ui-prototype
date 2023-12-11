@@ -1,0 +1,58 @@
+{% extends "layouts/main.html" %}
+
+{% block header %}
+{{ govukHeader({
+  homepageUrl: "#",
+  serviceName: "Manual account intervention",
+  serviceUrl: "#"
+}) }}
+{% endblock %}
+
+{% block pageTitle %}
+Confirmation  – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      
+
+  
+
+
+      {{ govukPanel({
+        titleText: "Account intervention submitted",
+        html: "Information submitted to One Login"
+      }) }}
+
+
+  
+        
+        <p>We've sent your account intervention to ???. </p>
+
+
+      <h2 class="govuk-heading-m">
+        What happens next
+      </h2>
+    
+      <p>You should see the infromation in [tool] within the next 24 hrs.</p>
+
+      <p>
+        You can <a href="add-fraud-intervention?task=clear">add another account intervention</a>.
+      </p>
+
+  
+
+      <a class="govuk-button govuk-button--govuk-brand-colour" style="background: #1d70b8;" href="./google-auth">
+        Sign out from your google auth
+        </a>
+
+    </div>
+  </div>
+
+{% endblock %}

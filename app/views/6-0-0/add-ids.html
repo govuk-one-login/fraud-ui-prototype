@@ -1,0 +1,71 @@
+{% extends "layouts/main.html" %}
+
+{% block header %}
+{% include('./includes/header.html') %}
+{% endblock %}
+
+{% block pageTitle %}
+Enter the User IDs– {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        {% if (data['task'] == "getinfo") %}
+        <!-- <form action="get-are-you-sure" method="post" novalidate> -->
+          <form action="add-reason" method="post" novalidate>
+
+        {% else %}
+
+          {% if (data['add'] == "ID1st")  %}
+          <form action="add-reason" method="post" novalidate>
+
+  
+          {% else %}
+
+
+            {% if (data['reason'] == "Password compromised") %}
+            <form action="add-are-you-sure" method="post" novalidate>
+
+            {% else %}
+            <form action="cya" method="post" novalidate>
+
+            {% endif %}
+
+
+          {% endif %}
+
+
+        {% endif %}
+
+
+
+              <div class="govuk-form-group">
+                <h1 class="govuk-label-wrapper">
+                  <label class="govuk-label govuk-label--l" for="user-id">
+                    What are the HMRC user IDs?
+                    <!-- Enter the auth provider ID -->
+
+                  </label>
+                </h1>
+                <div id="user-id-hint" class="govuk-hint">
+                  Please enter all user IDs, separated by a comma (,) 
+                  <br>For example, 502135326, 96879212
+                </div>
+                <textarea class="govuk-textarea" id="user-id" name="user-id" rows="5" aria-describedby="user-id-hint"></textarea>
+              </div>
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+      </form>
+    </div>
+  </div>
+{% endblock %}

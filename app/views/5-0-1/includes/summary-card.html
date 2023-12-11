@@ -6,7 +6,9 @@
     <h2 class="govuk-summary-card__title">
       Version {% include('../includes/version.html') %}
     </h2>
-
+    <a class="govuk-button govuk-body govuk-!-margin-bottom-0" data-module="govuk-button" href="/{% include('../includes/version.html') %}/?release-state=MVP">
+      Start prototype
+    </a>
   </div>
   <div class="govuk-summary-card__content">
     <dl class="govuk-summary-list">
@@ -15,8 +17,8 @@
           Phase
         </dt>
         <dd class="govuk-summary-list__value">
-          <strong class="govuk-tag govuk-tag--blue">
-            Content Design
+          <strong class="govuk-tag govuk-tag--yellow">
+            Research
           </strong>
         </dd>
  
@@ -38,11 +40,19 @@
 
           {% include('../includes/summary.html') %}
         
-          <a class="govuk-!-margin-bottom-0" data-module="govuk-button" href="/{% include('../includes/version.html') %}/?release-state=MVP">
-            Start prototype
-          </a>
+  
         </dd>
        </div>
+
+       <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Additional links
+        </dt>
+        <dd class="govuk-summary-list__value">
+          <a href="#">Link to content notes</a>
+        </dd>
+     
+      </div>
 
     </dl>
 

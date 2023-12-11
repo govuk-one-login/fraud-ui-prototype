@@ -1,0 +1,263 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+View fraud information – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+{% include('./includes/header.html') %}
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+ 
+
+    <h1 class="govuk-heading-l">
+      View fraud information
+    </h1>
+
+
+    {% if (data['tab-state'] == "on") %}
+
+    {% include('./includes/tabs.html') %}
+
+    {% endif %}
+
+    
+
+    {% if (data['search-state'] == "on") %}
+    <div class="govuk-form-group" style="background:#e1e1e1; padding: 20px;">
+      <label class="govuk-label" for="width-20">
+        <b>Search information</b>
+      </label>
+      <div id="search-hint" class="govuk-hint moj-search__hint ">
+        You can search by user id, event type or national insurance number
+      </div>
+      <input class="govuk-input govuk-input--width-20" id="width-20" name="width20" type="text">
+      <button class="govuk-button" data-module="govuk-button">
+        Search
+      </button>
+  </div>
+  {% endif %}
+
+
+  {% if (data['get-reasons'] != null) %}
+
+
+<!-- <div class="govuk-form-group govuk-!-margin-bottom-3">
+
+  <button class="govuk-button govuk-button--secondary govuk-tag govuk-!-margin-bottom-2" data-module="govuk-button">
+    Account related [X]
+  </button>
+
+  <button class="govuk-button govuk-button--secondary govuk-tag govuk-!-margin-bottom-2" data-module="govuk-button">
+    Identifier changed [X]
+  </button>
+
+  <button class="govuk-button govuk-button--secondary govuk-tag govuk-!-margin-bottom-2" data-module="govuk-button">
+    Credential compromised [X]
+  </button>
+</div> -->
+<div class="govuk-inset-text">
+  Showing fraud information based on chosen events; <b>Account related</b>, <b>Identifier changed or recylced</b>, <b>Credential compromised</b>.
+  </div>
+
+
+      {% endif %}
+
+  
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+      <div class="moj-filter-layout">
+
+        {% if (data['release-state'] == "MVP2") %}
+        {% else %}
+
+        {% include('./includes/filter.html') %}
+      
+        {% endif %}
+
+        <div class="moj-filter-layout__content">
+            {% if (data['js-state'] != "off") %}
+           
+            {% if (data['release-state'] != "MVP2") %}
+
+        
+          <div class="moj-action-bar">
+      
+            <div class="moj-action-bar__filter"></div>
+      
+            <div class="moj-button-menu">
+              <div class="moj-button-menu__wrapper">
+      
+      
+                   <a class="govuk-button govuk-button--secondary govuk-body govuk-!-margin-bottom-0" data-module="govuk-button" href="get-are-you-sure">
+                    Export information
+                  </a>
+                  
+ 
+            
+      
+              </div>
+            </div>
+
+          </div>
+
+          {% endif %}
+
+          {% else %}
+
+          <div class="govuk-grid-row">
+            <div class="govuk-grid-column-two-thirds">
+           
+          
+          <p><a class="govuk-button govuk-body govuk-button--secondary govuk-!-margin-right-1" data-module="govuk-button" href="get-reasons">
+            Filter events
+           </a> 
+           
+      
+          <a class="govuk-button govuk-button--secondary govuk-body govuk-!-margin-right-1" data-module="govuk-button" href="search-information">
+            Search information
+          </a>
+
+          <a class="govuk-button govuk-button--secondary govuk-body govuk-!-margin-bottom-0" data-module="govuk-button" href="get-are-you-sure">
+            Export information
+          </a>
+          </p>
+          </div>
+
+            <div class="govuk-grid-column-one-third">
+              <div class="govuk-form-group" style="float:right">
+                <label class="govuk-label" for="sort">
+                  Sort by
+                </label>
+                <select class="govuk-select" id="sort" name="sort">
+                  <option value="published">User ID</option>
+                  <option value="updated" selected>Event type</option>
+                  <option value="views">Date updated</option>
+                  <option value="status">Status</option>
+                </select>
+              </div>
+          </div>
+          </div>
+
+          {% endif %}
+
+          <!-- <div class="moj-scrollable-pane govuk-!-margin-bottom-3"> -->
+
+          <div class="govuk-!-margin-bottom-3">
+
+            {% if (data['js-state'] != "off") %}
+            <table class="govuk-table" data-module="moj-sortable-table">
+              {% else %}
+           <table class="govuk-table">
+          
+
+
+            {% endif %}
+
+      
+              <thead class="govuk-table__head">
+                <tr class="govuk-table__row">
+                  <th scope="col" class="govuk-table__header" aria-sort="none">User ID</th>
+                  <th scope="col" class="govuk-table__header" aria-sort="none">Event type</th>
+                  <th scope="col" class="govuk-table__header" aria-sort="ascending">Date updated</th>
+                  <th scope="col" class="govuk-table__header" aria-sort="none">Status</th>
+        
+      
+                </tr>
+              </thead>
+      
+              <tbody class="govuk-table__body">
+      
+           
+
+           {% if (data['release-state'] == "MVP2") %}
+           {% include('./includes/table-contents-mvp.html') %}
+
+           {% else %}
+   
+           {% include('./includes/table-contents.html') %}
+         
+           {% endif %}
+      
+              </tbody>
+            </table>
+      
+       
+
+          </div>
+
+          
+        </div>
+      
+      
+      
+      
+      </div>
+      
+    
+
+
+
+      <p style="float:right" class="govuk-!-text-align-right">Showing <b>1</b> to <b>40</b> of <b>90</b> fraud records</p>
+
+      
+
+    {% from "govuk/components/pagination/macro.njk" import govukPagination %}
+
+{{ govukPagination({
+  previous: {
+    href: "#"
+  },
+  next: {
+    href: "#"
+  },
+  items: [
+    {
+      number: 1,
+      href: "#"
+    },
+    {
+      number: 2,
+      current: true,
+      href: "#"
+    },
+    {
+      number: 3,
+      href: "#"
+    }
+  ]
+}) }}
+
+
+<a class="govuk-button govuk-body govuk-button--secondary govuk-!-margin-right-3" data-module="govuk-button" href="get-reasons">
+
+  Change events
+ </a>
+
+    <a class="govuk-button govuk-body govuk-!-margin-bottom-0" data-module="govuk-button" href="get-are-you-sure">
+      Export information
+    </a>
+ 
+    
+
+</div>
+</div>
+
+
+{% endblock %}

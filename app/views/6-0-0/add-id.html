@@ -1,0 +1,74 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Enter the User ID – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+{% include('./includes/header.html') %}
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {% if (data['task'] == "getinfo") %}
+        <!-- <form action="get-are-you-sure" method="post" novalidate> -->
+          <form action="add-reason" method="post" novalidate>
+
+        {% else %}
+
+          {% if (data['add'] == "ID1st")  %}
+          <form action="add-reason" method="post" novalidate>
+
+  
+          {% else %}
+
+
+            {% if (data['reason'] == "Password compromised") %}
+            <form action="add-are-you-sure" method="post" novalidate>
+
+            {% else %}
+            <form action="cya" method="post" novalidate>
+
+            {% endif %}
+
+
+          {% endif %}
+
+
+        {% endif %}
+
+
+        {% from "govuk/components/input/macro.njk" import govukInput %}
+
+        {{ govukInput({
+          label: {
+            text: "What is the HMRC user ID?
+            ",
+            classes: "govuk-label--l",
+            isPageHeading: true
+          },
+          hint: {
+            text: "For example, 502135326"
+          },
+          id: "user-id",
+          name: "user-id",
+          classes: "govuk-input--width-20"
+        }) }}
+        
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+      </form>
+    </div>
+  </div>
+{% endblock %}

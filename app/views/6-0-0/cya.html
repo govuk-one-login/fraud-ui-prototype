@@ -1,0 +1,374 @@
+{% extends "layouts/main.html" %}
+
+{% block header %}
+{% include('./includes/header.html') %}
+{% endblock %}
+
+{% block pageTitle %}
+  Check your answers – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+      <h1 class="govuk-heading-l">Check the details before submitting your information</h1>
+      <!-- <h2 class="govuk-heading-m">Personal details</h2> -->
+ 
+      {% if (data['file-upload'] == "true") %}
+
+      {% if (data['release-state'] == "MVP") %}
+      {% include('./includes/file-upload-MVP-cya.html') %}
+
+      {% else %}
+
+      {% include('./includes/file-upload-cya.html') %}
+      {% endif %}
+
+
+   
+
+      {% elseif (data['add'] == "ID1st")  %}
+      {% include('./includes/ID1st-cya.html') %}
+
+      {% else %}
+
+  
+
+      <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+
+ 
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Update reason
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {% if (data['reason'] == null) %}
+            Credentials compromised
+            {% else %}
+            {{ data['reason'] }}
+
+            {% endif %}
+
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="add-reason">
+              Change<span class="govuk-visually-hidden"> date of birth</span>
+            </a>
+          </dd>
+        </div>
+        {% if (data['reason'] == "Suspicion or detection of identity fraud") and (data['method'] == null)  %}
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Method used
+          </dt>
+          <dd class="govuk-summary-list__value">
+          
+            Not provided
+
+
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="add-reason">
+              Change<span class="govuk-visually-hidden"> date of birth</span>
+            </a>
+          </dd>
+        </div>
+        {% elseif (data['method'] != null) %}
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Method used
+          </dt>
+          <dd class="govuk-summary-list__value">
+          
+            {{ data['method'] }}
+
+
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="add-reason">
+              Change<span class="govuk-visually-hidden"> date of birth</span>
+            </a>
+          </dd>
+        </div>
+        {% endif %}
+
+        {% if (data['intervention'] != null) %}
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            
+            Active investigation
+
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['intervention'] }}
+
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="reason-investigation">
+              Change<span class="govuk-visually-hidden"> id number</span>
+            </a>
+          </dd>
+        </div>
+
+        {% endif %}
+
+        {% if (data['reason'] == "Suspicion or detection of identity fraud") or (data['reason'] == "Password compromised") and (data['method'] == null)  %}
+ 
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Information source
+          </dt>
+          <dd class="govuk-summary-list__value">
+            Not provided
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="source-id-fraud">
+              Change<span class="govuk-visually-hidden"> id number</span>
+            </a>
+          </dd>
+        </div>
+
+
+        {% elseif (data['source'] != null) %}
+
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            
+          
+            Information source
+
+          </dt>
+          <dd class="govuk-summary-list__value">
+           
+            {{ data['source'] }}
+            {% if (data['other-source'] != null) %}
+            <br>{{ data['other-source'] }}
+            {% endif %}
+
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            {% if (data['other-source'] != null) %}
+            <a class="govuk-link" href="source-id-fraud">
+              Change<span class="govuk-visually-hidden"> id number</span>
+            </a>
+            {% else %}
+            <a class="govuk-link" href="reason-cc">
+              Change<span class="govuk-visually-hidden"> id number</span>
+            </a>
+            {% endif %}
+
+
+
+            
+
+          
+          </dd>
+        </div>
+
+
+
+
+        {% endif %}
+
+
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            
+            {% if (data['user-id'] == false) or (data['id-multiple'] == "yes") %}
+            User IDs
+
+            {% else %}
+            User ID
+            {% endif %}
+
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {% if (data['user-id'] == false) or (data['id-multiple'] == "yes") %}
+            {{ data['id1'] }} <br>
+            {{ data['id2'] }} <br>
+            {{ data['id3'] }} <br>
+            {{ data['id4'] }}
+
+
+            {% if (data['adddupe'] == "Yes") %}
+
+            <br>{{ data['id9'] }}
+
+            {% endif %}
+
+
+            {% else %}
+            {{ data['user-id'] }}
+            {% endif %}
+
+        
+ 
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            {% if (data['user-id'] == false) or (data['id-multiple'] == "yes") %}
+            <a class="govuk-link" href="add-ids">
+ 
+            {% else %}
+              <a class="govuk-link" href="add-id">
+
+              {% endif %}
+              Change<span class="govuk-visually-hidden"> ids</span>
+            </a>
+          </dd>
+        </div>
+
+        {% if (data['adddupe'] != null) %}
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            
+          
+            Resubmit information
+
+
+          </dt>
+          <dd class="govuk-summary-list__value">
+                       {{ data['adddupe'] }}
+
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="add-are-you-sure">
+              Change<span class="govuk-visually-hidden"> id number</span>
+            </a>
+
+
+            
+
+          
+          </dd>
+        </div>
+
+        {% endif %}
+        {% if (data['another1'] == "yes") %}
+
+
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Update reason
+          </dt>
+          <dd class="govuk-summary-list__value">
+            Accounts unblocked from using our services
+
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="add-reason">
+              Change<span class="govuk-visually-hidden"> date of birth</span>
+            </a>
+          </dd>
+        </div>
+        
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+
+            {% if (data['user-id'] == null) %}
+            User IDs
+
+            {% else %}
+            User ID
+            {% endif %}
+
+          </dt>
+          <dd class="govuk-summary-list__value">
+        9873398379832
+
+        
+ 
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="add-id">
+             
+              Change<span class="govuk-visually-hidden"> ids</span>
+            </a>
+          </dd>
+        </div>
+
+
+        {% endif %}
+
+
+      </dl>
+     
+
+      
+      {% endif %}
+
+      <!-- <h2 class="govuk-heading-m">Now send your information</h2>
+      <p class="govuk-body">By submitting this application you are confirming that, to the best of your knowledge, the details you are providing are correct.</p>
+      -->
+
+   
+
+
+      {% from "govuk/components/button/macro.njk" import govukButton %}
+
+
+      {% if (data['file-upload'] == "true") %}
+  
+      <form action="confirmation" method="post" novalidate>
+
+      
+
+      <div class="govuk-button-group">
+        {{ govukButton({
+          text: "Accept and submit"
+        }) }}
+
+        <a class="govuk-link" href="cancelled-upload">Cancel</a>
+      </div>
+    </form>
+
+      {% else %}
+
+      {% if (data['add'] == "another1") %}
+      <form action="confirmation" method="post" novalidate>
+        <button class="govuk-button" data-module="govuk-button">
+          Accept and submit
+        </button>
+
+        <a class="govuk-button govuk-button--secondary" data-module="govuk-button" style="text-decoration: none" href="add-reason?another1=yes">
+          Add another update
+        </a>
+      </form>
+
+      
+      {% else %}
+      <form action="confirmation" method="post" novalidate>
+        <input type="hidden" name="answers-checked" value="true">
+        <button class="govuk-button" data-module="govuk-button">
+          Accept and submit
+        </button>
+      </form>
+    {% endif %}
+
+
+
+  
+
+      {% endif %}
+
+
+
+      
+    </div>
+
+  </div>
+{% endblock %}
