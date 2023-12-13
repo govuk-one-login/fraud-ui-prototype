@@ -24,7 +24,7 @@ Check your answers – {{ serviceName }} – GOV.UK Prototype Kit
 {% block content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds-from-desktop">
-      <h1 class="govuk-heading-l">Check the details before submitting intervention</h1>
+      <h1 class="govuk-heading-l">Check the details before submitting the intervention</h1>
       <!-- <h2 class="govuk-heading-m">Personal details</h2> -->
  
 
@@ -98,7 +98,12 @@ Check your answers – {{ serviceName }} – GOV.UK Prototype Kit
     </a>
   </p>
 
+  <h2 class="govuk-heading-m">Now send your application</h2>
 
+
+  <div class="govuk-inset-text">
+    By submitting this intervention you are aware of the impact this will have on the user and to the best of your knowledge, the details you are providing are correct.
+  </div>
 
       {% from "govuk/components/button/macro.njk" import govukButton %}
 

@@ -31,105 +31,155 @@ Submit manual account intervention – {{ serviceName }} – GOV.UK Prototype Ki
 
       <form action="cya-mai" method="post" novalidate>
 
-        <div class="govuk-form-group">
-          <!-- <h2 class="govuk-label-wrapper">
-            <label class="govuk-label govuk-label--m" for="user-id">
-              Enter the User IDs
-            </label>
-          </h2> -->
 
          
+          <div class="govuk-form-group">
+
+            <h2 class="govuk-label-wrapper">
+              <label class="govuk-label govuk-label--s" for="user-id">
+                What is the One Login subject ID? 
+              </label>
+            </h2>
+            <!-- <label class="govuk-label" for="user-id">
+              What is the One Login subject ID? 
+                   </label> -->
+            <div id="user-id-hint" class="govuk-hint">
+              For example, 502135326
+              </div>
+    
+              {% if (data['user-id'] == false) %}
+              <input class="govuk-input govuk-input--width-20" id="user-id" name="user-id" type="text">
+    
+    
+              {% else %}
+              
+              <input class="govuk-input govuk-input--width-20" id="user-id" name="user-id" type="text" value="{{ data['user-id'] }}">
+    
+              {% endif %}
+    
+    
+          </div>
 
 
 
-        {% from "govuk/components/select/macro.njk" import govukSelect %}
+          <div class="govuk-form-group">
 
-        {{ govukSelect({
-          id: "intervention",
-          name: "intervention",
-          label: {
-            text: "What is the intervention type?"
-          },
-       
+            <!-- <label class="govuk-label" for="user-id">
+              What is the intervention type?
+                   </label> -->
+      
 
-          items: [
-            {
-              value: "choose",
-              text: "Choose reason",
-              selected: true
+          {% from "govuk/components/radios/macro.njk" import govukRadios %}
+          {% if (data['user'] == "admin") %}
+
+          {{ govukRadios({
+            name: "intervention",
+            fieldset: {
+              legend: {
+                text: "What is the intervention?",
+                isPageHeading: false,
+                classes: "govuk-fieldset__legend--s"
+              }
             },
-  
-  {
-    value: "Temporary Suspension",
-    text: "Temporary Suspension"
-  },
+            hint: {
+              text: "You'll need an account to prove your identity and complete your Self Assessment."
+            },
+          items: [
+    
 
-  {
-    value: "Unsuspend Temporary Suspension",
-    text: "Unsuspend Temporary Suspension"
-  },
 
- 
-
-  {
-    value: "Indefinite Suspension",
-    text: "Indefinite Suspension"
-  },
-
-  {
-    value: "Unsuspend Indefinite Suspension",
-    text: "Unsuspend Indefinite Suspension"
-  },
-
-  {
-  value: "Reset Password",
-  text: "Reset Password"
-},
-{
-  value: "Reverify Identity",
-  text: "Reverify Identity"
-},
-{
-  value: "Reset Password and Reverify Identity",
-  text: "Reset Password and Reverify Identity"
-}
-
+          {
+            value: "Indefinite Suspension",
+            text: "Indefinite Suspension",
+            hint: {
+              text: "Supporting content to infrom the user of the impact on the user"
+            }
+          },
+          
+          {
+            value: "Unsuspend Indefinite Suspension",
+            text: "Unsuspend Indefinite Suspension",
+            hint: {
+              text: "Supporting content to infrom the user of the impact on the user"
+            }
+          }
 
           ]
         }) }}
+        {% else %}
+
+
+        {{ govukRadios({
+          name: "intervention",
+          fieldset: {
+            legend: {
+              text: "What is the intervention?",
+              isPageHeading: false,
+              classes: "govuk-fieldset__legend--s"
+            }
+          },
+          hint: {
+            text: "You'll need an account to prove your identity and complete your Self Assessment."
+          },
+        items: [
+  
+
+
+        
+        
+        {
+          value: "Temporary Suspension",
+          text: "Temporary Suspension",
+          hint: {
+            text: "Supporting content to infrom the user of the impact on the user"
+          }
+        },
+
+        {
+          value: "Unsuspend Temporary Suspension",
+          text: "Unsuspend Temporary Suspension",
+          hint: {
+            text: "Supporting content to infrom the user of the impact on the user"
+          }
+        },
 
 
 
+        {
+        value: "Reset Password",
+        text: "Reset Password",
+        hint: {
+          text: "Supporting content to infrom the user of the impact on the user"
+        }
+      },
+      {
+        value: "Reverify Identity",
+        text: "Reverify Identity",
+        hint: {
+          text: "Supporting content to infrom the user of the impact on the user"
+        }
+      },
+      {
+        value: "Reset Password and Reverify Identity",
+        text: "Reset Password and Reverify Identity",
+        hint: {
+          text: "Supporting content to infrom the user of the impact on the user"
+        }
+      }
+
+
+        ]
+      }) }}
+        {% endif %}
+
+
+      </div>
         
 
         
    
 
-      
-
-      <div class="govuk-form-group">
-
-        <label class="govuk-label" for="user-id">
-          What is the One Login subject ID? 
-               </label>
-        <div id="user-id-hint" class="govuk-hint">
-          For example, 502135326
-          </div>
-
-          {% if (data['user-id'] == false) %}
-          <input class="govuk-input govuk-input--width-20" id="user-id" name="user-id" type="text">
-
-
-          {% else %}
-          
-          <input class="govuk-input govuk-input--width-20" id="user-id" name="user-id" type="text" value="{{ data['user-id'] }}">
-
-          {% endif %}
-
-
-      </div>
-    </div>
-
+  
 
       
 
