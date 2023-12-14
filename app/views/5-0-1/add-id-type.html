@@ -1,5 +1,10 @@
 {% extends "layouts/main.html" %}
 
+{% block header %}
+
+{% include('./includes/header.html') %}
+{% endblock %}
+
 {% block pageTitle %}
 What is the reason for the update – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
@@ -14,46 +19,53 @@ What is the reason for the update – {{ serviceName }} – GOV.UK Prototype Kit
 {% block content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <form action="add-id" method="post" novalidate>
+      <form action="add-ids" method="post" novalidate>
 
         {% from "govuk/components/radios/macro.njk" import govukRadios %}
 
 
-        
+
         {{ govukRadios({
-          name: "addreason",
+          name: "id
+          -type",
           fieldset: {
             legend: {
-              text: "What is the reason for the update",
+              text: "What are you concerned about? ",
               isPageHeading: true,
               classes: "govuk-fieldset__legend--l"
             }
           },
-          hint: {
-            text: "This is often refered to as the event"
-        
-        },
+     
            items: [
+
             {
-              value: "accounts",
-              text: "Account related"
+              value: "User Identifier Code",
+              text: "User ID(s)"
             },
             {
-              value: "identifier",
-              text: "Identifier changed or recylced"
+              value: "IP Address",
+              text: "IP Address"
             },
             {
-              value: "credential",
-              text: "Credential compromised"
+              value: "Email Address",
+              text: "Email Address"
             },
             {
-              value: "optin",
-              text: "Account Opted in or out from RISC exchanges"
+              value: "Passport Number",
+              text: "Passport Number"
             },
  
             {
-              value: "recovery",
-              text: "Recovery requested or information changed"
+              value: "Driving Licence Number",
+              text: "Driving Licence Number"
+            },
+            {
+              value: "Biometric Residency Permit Number",
+              text: "Biometric Residency Permit Number"
+            },
+            {
+              value: "National Insurance Number",
+              text: "National Insurance Number"
             }
           ]
         }) }}
