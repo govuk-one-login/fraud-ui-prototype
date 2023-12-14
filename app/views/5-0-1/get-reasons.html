@@ -49,6 +49,54 @@ What type of fraud information do you want to download?– {{ serviceName }} –
 
 
 
+
+        {% if (data['release-state'] == "MVP")  %}
+
+        {{ govukCheckboxes({
+          name: "get-reasons",
+          fieldset: {
+         
+          },
+          
+          hint: {
+            text: "Select all that apply."
+          },
+        
+        
+        
+        
+          items: [
+        
+          {
+            value: "Users that GOV.UK One Login suspects of committing fraud",
+            text: "Users that GOV.UK One Login suspects of committing fraud (including users under investigation)"
+          },
+        
+          {
+            value: "Users that have been blocked",
+            text: "Users that have been blocked from accessing GOV.UK One Login or another service"
+          },
+        
+          {
+            value: "Users that have been unblocked",
+            text: "Users that have been unblocked from accessing GOV.UK One Login or another service"
+          },
+        
+        
+          {
+            value: "Password compromised",
+            text: "Users whose GOV.UK One Login may have been compromised"
+          }
+        ]
+        }) 
+        }}
+
+        
+
+        {% else %}
+ 
+
+
 {{ govukCheckboxes({
   name: "get-reasons",
   fieldset: {
@@ -60,13 +108,16 @@ What type of fraud information do you want to download?– {{ serviceName }} –
   },
 
 
-
-
   items: [
 
   {
-    value: "Users that GOV.UK One Login suspects of committing fraud",
-    text: "Users that GOV.UK One Login suspects of committing fraud (including users under investigation)"
+    value: "Things that GOV.UK One Login suspects of being involved in fraud",
+    text: "Things that GOV.UK One Login suspects of being involved in fraud "
+  },
+
+  {
+    value: "Users or devices that GOV.UK One Login no longer suspects of committing fraud",
+    text: "Users or devices that GOV.UK One Login no longer suspects of committing fraud"
   },
 
   {
@@ -77,16 +128,13 @@ What type of fraud information do you want to download?– {{ serviceName }} –
   {
     value: "Users that have been unblocked",
     text: "Users that have been unblocked from accessing GOV.UK One Login or another service"
-  },
-
-
-  {
-    value: "Password compromised",
-    text: "Users whose GOV.UK One Login may have been compromised"
   }
+
 ]
 }) 
 }}
+
+{% endif %}
 
         
 

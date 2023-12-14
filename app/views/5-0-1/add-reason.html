@@ -28,19 +28,26 @@ What type of fraud information do you want to share? – {{ serviceName }} – G
         <p>Choose what type of fraud-related events you'd like to share with GOV.UK One Login.</p>
 
 
-        {% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
+        <!-- {% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
 
         {{ govukInsetText({
           text: "At the moment, you can only share one type of event at a time using this service."
-        }) }}
+        }) }} -->
+
+
+        {% if (data['release-state'] == "MVP")  %}
+
+
 
         {{ govukRadios({
           name: "reason",
           fieldset: {
-   
+         
           },
-       
+
+
            items: [
+
            {
             value: "Users that GOV.UK One Login suspects of committing fraud",
             text: "Users that GOV.UK One Login suspects of committing fraud (including users under investigation)"
@@ -59,7 +66,7 @@ What type of fraud information do you want to share? – {{ serviceName }} – G
         
           {
             value: "Password compromised",
-            text: "Users whose GOV.UK One Login has been compromised "
+            text: "Users whose GOV.UK One Login may have been compromised"
           }
 
             
@@ -67,6 +74,45 @@ What type of fraud information do you want to share? – {{ serviceName }} – G
         }) }}
 
 
+                
+        {% else %}
+
+
+
+        {{ govukRadios({
+          name: "reason",
+          fieldset: {
+         
+          },
+
+
+           items: [
+
+
+           {
+            value: "Things that GOV.UK One Login suspects of being involved in fraud",
+            text: "Things that GOV.UK One Login suspects of being involved in fraud "
+          },
+        
+          {
+            value: "Users or devices that GOV.UK One Login no longer suspects of committing fraud",
+            text: "Users or devices that GOV.UK One Login no longer suspects of committing fraud"
+          },
+        
+          {
+            value: "Users that have been blocked",
+            text: "Users that have been blocked from accessing GOV.UK One Login or another service"
+          },
+        
+          {
+            value: "Users that have been unblocked",
+            text: "Users that have been unblocked from accessing GOV.UK One Login or another service"
+          }
+
+            
+          ]
+        }) }}
+        {% endif %}
         
    
 

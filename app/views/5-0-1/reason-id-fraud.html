@@ -30,7 +30,7 @@ What has happened to the account – {{ serviceName }} – GOV.UK Prototype Kit
           name: "method",
           fieldset: {
             legend: {
-              text: "What is the suspected method used? (optional)",
+              text: "What is the reason for this submission? (optional)",
               isPageHeading: true,
               classes: "govuk-fieldset__legend--l"
             }
@@ -39,36 +39,49 @@ What has happened to the account – {{ serviceName }} – GOV.UK Prototype Kit
 
 
            items: [
+
+           {
+            value: "Password Compromise",
+            text: "Suspected Password Compromised"
+          },
+
             {
               value: "Impersonation",
-              text: "Impersonation"
+              text: "Suspected Impersonation"
             },
   
             {
               value: "Coercion",
-              text: "Coercion"
+              text: "Suspected Coercion"
             },
 
             {
               value: "Account takeover",
-              text: "Account takeover",
+              text: "Suspected Account takeover",
               hint: {
                 text:"Cybercriminals gained access to online accounts"
+              }
+            },
+            {
+              value: "Synthetic identity",
+              text: "Suspected Synthetic identity", 
+              hint: {
+                text: "Use a both fake information with real data"
               }
             },
 
             {
               value: "Agent misuse",
-              text: "Agent misuse"
+              text: "Suspected Agent misuse"
             },
 
+
             {
-              value: "Synthetic identity",
-              text: "Synthetic identity", 
-              hint: {
-                text: "Use a both fake information with real data"
-              }
+              value: "Suspected Eligibility Fraud",
+              text: "Suspected Eligibility Fraud"
             },
+
+      
 
               {
                 value: "I do not know",
@@ -82,6 +95,8 @@ What has happened to the account – {{ serviceName }} – GOV.UK Prototype Kit
 
 
       
+
+
 
 
 

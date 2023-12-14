@@ -67,19 +67,13 @@ router.post('/' + version + '/add-reason-answer', function(request, response) {
           var uploadstate = request.session.data['upload-state']
 
     var reason = request.session.data['reason']
-    if (reason == "Password compromised"){
-        response.redirect("reason-cc.html")
-    } 
+ if (reason == "Things that GOV.UK One Login suspects of being involved in fraud"){
+        response.redirect("add-id-type")
+    }
     else if (reason == "Users that GOV.UK One Login suspects of committing fraud"){
         response.redirect("reason-id-fraud")
     }
   
-    else if (add == "ID1st"){
-        response.redirect("cya")
-    }  
-    else if (uploadstate == "uploadsingle"){
-        response.redirect("id-multiple")
-    } 
 
     else {
         response.redirect("add-ids")

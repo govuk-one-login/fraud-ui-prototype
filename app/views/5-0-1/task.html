@@ -42,7 +42,7 @@ What would you like to do? – {{ serviceName }} – GOV.UK Prototype Kit
     {% endif %} -->
 
   
-    {% if (data['notification'] == "yes") %}
+    {% if (data['release-state'] != "MVP")  %}
 
     <div class="govuk-inset-text">
       There are 3 updates for events you have previously downloaded or viewed
@@ -59,7 +59,6 @@ What would you like to do? – {{ serviceName }} – GOV.UK Prototype Kit
     <div class="govuk-grid-column-two-thirds">
       <p>You're signed in as <strong>example@email.com</strong></p>
 
-      {% if (data['release-state'] == "MVP")  %}
       <div class="govuk-summary-card">
         <div class="govuk-summary-card__title-wrapper">
           
@@ -78,7 +77,14 @@ What would you like to do? – {{ serviceName }} – GOV.UK Prototype Kit
               {% else %}
               <p>Download a .csv file with fraud information shared by GOV.UK One Login and other government services in the last 7 days.</p>
               <p>The information was last updated on 23 June 2023.</p>
+              {% if (data['release-state'] != "MVP")  %}
+              <p><a href="view-information">View fraud information</a></p>
+
+              {% else %}
               <p><a href="get-reasons">Download fraud information</a></p>
+
+              {% endif %}
+
 
 
 
@@ -93,41 +99,7 @@ What would you like to do? – {{ serviceName }} – GOV.UK Prototype Kit
         </div>
         
       </div>
-     
-
  
-
-      {% else %}
-      <div class="govuk-summary-card">
-        <div class="govuk-summary-card__title-wrapper">
-          <h2 class="govuk-summary-card__title">View information
-
-
-          <!-- {% if (data['notification'] == "yes") %}
-    
-          <strong class="govuk-tag govuk-tag--red">
-            3 updates
-          </strong>
-        {% endif %} -->
-
-          </h2>
-          
-
-
-        </div>
-        <div class="govuk-summary-card__content">
-          <dl class="govuk-summary-list">
-            <div class="govuk-summary-list__row">
-              
-              <p><a href="view-information">View and download latest fraud information from One Login</a></p>
-    
-    
-    
-            </div>
-          </dl>
-        </div>
-      </div>
-      {% endif %}
 
  
 </div>
@@ -152,7 +124,13 @@ What would you like to do? – {{ serviceName }} – GOV.UK Prototype Kit
 
 
 
+
+          {% if (data['release-state'] == "MVP")  %}
           <p><a href="add-reason">Share fraud information</a></p>
+       
+          {% else %}
+          <p><a href="add-format">Share fraud information</a></p>
+          {% endif %}
 
 
 
@@ -167,32 +145,40 @@ What would you like to do? – {{ serviceName }} – GOV.UK Prototype Kit
       </dl>
     </div>
   </div>
+
+
+      
+  {% if (data['release-state'] != "MVP")  %}
+
+    <div class="govuk-summary-card">
+      <div class="govuk-summary-card__title-wrapper">
+        <h2 class="govuk-summary-card__title">View fraud information you have shared with GOV.UK One Login</h2>
+      </div>
+      <div class="govuk-summary-card__content">
+        <dl class="govuk-summary-list">
+          <div class="govuk-summary-list__row">
+            <p>Use this to view information about fraud-related events in your service you prevously shared with GOV.UK One Login and other government services.</p>
+
+
+            <p><a href="view-submission-history">View your previous submissions</a></p>
+  
+  
+  
+          </div>
+        </dl>
+      </div>
+    </div>
+  
+  
+
+  {% endif %}
+
   {% include('./includes/help.html') %}      
 
 
 </div>
-{% if (data['release-state'] == null)  %}
-
-<div class="govuk-grid-column-two-thirds">
-  <div class="govuk-summary-card">
-    <div class="govuk-summary-card__title-wrapper">
-      <h2 class="govuk-summary-card__title">View submissions</h2>
-    </div>
-    <div class="govuk-summary-card__content">
-      <dl class="govuk-summary-list">
-        <div class="govuk-summary-list__row">
-          <p><a href="view-submission-history">View your previous submissions to One Login</a></p>
 
 
-
-        </div>
-      </dl>
-    </div>
-  </div>
-
-
-</div>
-{% endif %}
 
 
 </div>
