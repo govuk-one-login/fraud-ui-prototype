@@ -1,11 +1,8 @@
 {% extends "layouts/main.html" %}
 
 {% block header %}
-{{ govukHeader({
-  homepageUrl: "#",
-  serviceName: "Manual account intervention",
-  serviceUrl: "#"
-}) }}
+
+{% include('./includes/header-fai.html') %}
 {% endblock %}
 
 {% block pageTitle %}
@@ -27,7 +24,7 @@ Confirmation  – {{ serviceName }} – GOV.UK Prototype Kit
 
       {{ govukPanel({
         titleText: "Account intervention submitted",
-        html: "Information submitted to One Login"
+        html: ""
       }) }}
 
 
@@ -43,15 +40,10 @@ Confirmation  – {{ serviceName }} – GOV.UK Prototype Kit
       <p>You should see the infromation in [tool] within the next 24 hrs.</p>
 
       <p>
-        You can <a href="add-fraud-intervention?task=clear">add another account intervention</a>.
+        You can return back to <a href="fraud-admin-interface">the GOV.UK One Login Fraud Admin Interface</a>.
       </p>
 
   
-
-      <a class="govuk-button govuk-button--govuk-brand-colour" style="background: #1d70b8;" href="./google-auth">
-        Sign out from your google auth
-        </a>
-
     </div>
   </div>
 
