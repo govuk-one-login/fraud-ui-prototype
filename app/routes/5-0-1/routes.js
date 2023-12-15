@@ -67,7 +67,7 @@ router.post('/' + version + '/add-reason-answer', function(request, response) {
           var uploadstate = request.session.data['upload-state']
 
     var reason = request.session.data['reason']
- if (reason == "Things that GOV.UK One Login suspects of being involved in fraud"){
+ if (reason == "Users that GOV.UK One Login suspects of being involved in fraud"){
         response.redirect("add-id-type")
     }
     else if (reason == "Users that GOV.UK One Login suspects of committing fraud"){

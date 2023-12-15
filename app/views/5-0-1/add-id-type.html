@@ -19,18 +19,17 @@ What is the reason for the update – {{ serviceName }} – GOV.UK Prototype Kit
 {% block content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <form action="add-ids" method="post" novalidate>
+      <form action="reason-id-fraud" method="post" novalidate>
 
         {% from "govuk/components/radios/macro.njk" import govukRadios %}
 
 
 
         {{ govukRadios({
-          name: "id
-          -type",
+          name: "id-type",
           fieldset: {
             legend: {
-              text: "What are you concerned about? ",
+              text: "What user information are you concerned about? ",
               isPageHeading: true,
               classes: "govuk-fieldset__legend--l"
             }

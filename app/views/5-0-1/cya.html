@@ -65,6 +65,82 @@
             </a>
           </dd>
         </div>
+
+        {% if (data['reason'] == "Users that GOV.UK One Login suspects of being involved in fraud") %}
+        
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Information type
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {% if (data['id-type'] == null) %}
+            Email address
+            {% else %}
+            {{ data['id-type'] }}
+
+            {% endif %}
+
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="add-reason">
+              Change<span class="govuk-visually-hidden"> date of birth</span>
+            </a>
+          </dd>
+        </div>
+        {% endif %}
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            
+            {% if (data['id-type'] == null) %}
+            
+              {% if (data['user-id'] == false) or (data['id-multiple'] == "yes") %}
+              User IDs
+
+              {% else %}
+              User ID
+              {% endif %}
+
+            {% else %}
+            {{ data['id-type'] }}
+            {% endif %}
+
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {% if (data['user-id'] == false) or (data['id-multiple'] == "yes") %}
+            {{ data['id1'] }} <br>
+            {{ data['id2'] }} <br>
+            {{ data['id3'] }} <br>
+            {{ data['id4'] }}
+
+
+            {% if (data['adddupe'] == "Yes") %}
+
+            <br>{{ data['id9'] }}
+
+            {% endif %}
+
+
+            {% else %}
+            {{ data['user-id'] }}
+            {% endif %}
+
+        
+ 
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            {% if (data['user-id'] == false) or (data['id-multiple'] == "yes") %}
+            <a class="govuk-link" href="add-ids">
+ 
+            {% else %}
+              <a class="govuk-link" href="add-id">
+
+              {% endif %}
+              Change<span class="govuk-visually-hidden"> ids</span>
+            </a>
+          </dd>
+        </div>
+
         {% if (data['reason'] == "Suspicion or detection of identity fraud") and (data['method'] == null)  %}
 
         <div class="govuk-summary-list__row">
@@ -185,51 +261,7 @@
 
 
 
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            
-            {% if (data['user-id'] == false) or (data['id-multiple'] == "yes") %}
-            User IDs
-
-            {% else %}
-            User ID
-            {% endif %}
-
-          </dt>
-          <dd class="govuk-summary-list__value">
-            {% if (data['user-id'] == false) or (data['id-multiple'] == "yes") %}
-            {{ data['id1'] }} <br>
-            {{ data['id2'] }} <br>
-            {{ data['id3'] }} <br>
-            {{ data['id4'] }}
-
-
-            {% if (data['adddupe'] == "Yes") %}
-
-            <br>{{ data['id9'] }}
-
-            {% endif %}
-
-
-            {% else %}
-            {{ data['user-id'] }}
-            {% endif %}
-
         
- 
-          </dd>
-          <dd class="govuk-summary-list__actions">
-            {% if (data['user-id'] == false) or (data['id-multiple'] == "yes") %}
-            <a class="govuk-link" href="add-ids">
- 
-            {% else %}
-              <a class="govuk-link" href="add-id">
-
-              {% endif %}
-              Change<span class="govuk-visually-hidden"> ids</span>
-            </a>
-          </dd>
-        </div>
 
         {% if (data['adddupe'] != null) %}
 
