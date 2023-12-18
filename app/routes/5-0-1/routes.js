@@ -65,7 +65,7 @@ router.post('/' + version + '/add-format-answer', function(request, response) {
 router.post('/' + version + '/add-reason-answer', function(request, response) {
 var reason = request.session.data['reason']
 if (reason == "Password compromised"){
-  response.redirect("reason-cc.html")
+    response.redirect("add-ids")
 } 
 
 else {

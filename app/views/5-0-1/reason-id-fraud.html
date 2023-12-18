@@ -25,8 +25,11 @@ What has happened to the account – {{ serviceName }} – GOV.UK Prototype Kit
 
        {% from "govuk/components/radios/macro.njk" import govukRadios %}
 
-       {% if (data['id-type'] == "User Identifier Code")  %}
-
+       {% if (data['id-type'] == "User Identifier Code")
+       or 
+       (data['reason'] == "Users that have been blocked") or
+       (data['reason'] == "Users that have been unblocked") or
+       (data['reason'] == "Password compromised")  %}
 
 
 

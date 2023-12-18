@@ -19,9 +19,41 @@ Enter the User IDs– {{ serviceName }} – GOV.UK Prototype Kit
 {% block content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
+
+      {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+      {% if (data['reason'] == "Password compromised")  %}
+      <form action="source-id-fraud" method="post" novalidate>
+
+      {% else %}
       <form action="reason-id-fraud" method="post" novalidate>
 
-      
+      {% endif %}
+
+
+
+        {% if (data['reason'] == "Users that have been blocked") or (data['reason'] == "Users that have been unblocked") or (data['reason'] == "Password compromised")   %}
+        
+
+
+        <div class="govuk-form-group">
+          <h1 class="govuk-label-wrapper">
+            <label class="govuk-label govuk-label--l" for="user-id">
+              What are the User ID(s)?
+              <!-- Enter the auth provider ID -->
+
+            </label>
+          </h1>
+          <div id="user-id-hint" class="govuk-hint">
+            Please enter all entries, separated by a comma (,) 
+            <br>For example, 502135326, 96879212
+          </div>
+          <textarea class="govuk-textarea" id="user-id" name="user-id" rows="5" aria-describedby="user-id-hint"></textarea>
+        </div>
+
+        {% else %}
+       
+
 
         {% from "govuk/components/radios/macro.njk" import govukRadios %}
 
@@ -73,7 +105,6 @@ Enter the User IDs– {{ serviceName }} – GOV.UK Prototype Kit
 
 
 
-
               <div class="govuk-form-group">
                 <h1 class="govuk-label-wrapper">
                   <label class="govuk-label govuk-label--m" for="user-id">
@@ -88,6 +119,9 @@ Enter the User IDs– {{ serviceName }} – GOV.UK Prototype Kit
                 </div>
                 <textarea class="govuk-textarea" id="user-id" name="user-id" rows="5" aria-describedby="user-id-hint"></textarea>
               </div>
+
+
+        {% endif %}
 
         {{ govukButton({
           text: "Continue"
