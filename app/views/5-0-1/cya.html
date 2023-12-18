@@ -179,7 +179,7 @@
         </div>
         {% endif %}
 
-        {% if (data['intervention'] != null) %}
+        <!-- {% if (data['intervention'] != null) %}
 
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
@@ -198,26 +198,8 @@
           </dd>
         </div>
 
-        {% endif %}
+        {% endif %} -->
 
-        {% if (data['reason'] == "Suspicion or detection of identity fraud") or (data['reason'] == "Password compromised") and (data['method'] == null)  %}
- 
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            Information source
-          </dt>
-          <dd class="govuk-summary-list__value">
-            Not provided
-          </dd>
-          <dd class="govuk-summary-list__actions">
-            <a class="govuk-link" href="source-id-fraud">
-              Change<span class="govuk-visually-hidden"> id number</span>
-            </a>
-          </dd>
-        </div>
-
-
-        {% elseif (data['source'] != null) %}
 
 
         <div class="govuk-summary-list__row">
@@ -229,9 +211,15 @@
           </dt>
           <dd class="govuk-summary-list__value">
            
+            {% if (data['source'] == null) %}
+            Not provided
+            {% else %}
+
+
             {{ data['source'] }}
             {% if (data['other-source'] != null) %}
             <br>{{ data['other-source'] }}
+            {% endif %}
             {% endif %}
 
           </dd>
@@ -257,7 +245,7 @@
 
 
 
-        {% endif %}
+     
 
 
 
