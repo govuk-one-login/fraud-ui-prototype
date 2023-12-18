@@ -33,15 +33,35 @@ Confirmation  – {{ serviceName }} – GOV.UK Prototype Kit
       {% else %}
      
       {{ govukPanel({
-        titleText: "Hashed data request submitted",
+        titleText: "Hashed data created",
         html: ""
       }) }}
 
 
-      <p>We've sent your request to ???. </p>
 
       {% endif %}
   
+
+      {{ govukInput({
+        label: {
+          text: "Request hashed data",
+          classes: "govuk-label--m",
+          isPageHeading: true
+        },
+        hint: {
+          text: "Copy the data to use use in other tools"
+        },
+        id: "hashed-data",
+        name: "hashed-data",
+        disabled: true,
+        value: "**************",
+        classes: "govuk-input--width-20"
+      }) }}
+
+        {{ govukButton({
+          text: "Copy hashed data"
+        }) }}
+
         
 
 
@@ -49,7 +69,10 @@ Confirmation  – {{ serviceName }} – GOV.UK Prototype Kit
         What happens next
       </h2>
     
+      {% if (data['hashed-data'] == null) %}
+
       <p>You should see the information in [tool] within the next 24 hrs.</p>
+      {% endif %}
 
       <p>
         You can return back to <a href="fraud-admin-interface">the GOV.UK One Login Fraud Admin Interface</a>.
