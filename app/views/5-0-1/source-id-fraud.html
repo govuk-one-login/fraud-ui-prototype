@@ -20,7 +20,10 @@ What has happened to the account – {{ serviceName }} – GOV.UK Prototype Kit
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      {% if (data['add'] == "ID1st")  %}
+      <form action="cya" method="post" novalidate>
+
+        
+      <!-- {% if (data['add'] == "ID1st")  %}
       <form action="cya" method="post" novalidate>
 
         {% elseif (data['upload-state'] == "uploadsingle")  %}
@@ -29,7 +32,7 @@ What has happened to the account – {{ serviceName }} – GOV.UK Prototype Kit
         {% else %}
         <form action="add-ids" method="post" novalidate>
 
-      {% endif %}
+      {% endif %} -->
 
 
 
@@ -78,49 +81,27 @@ What has happened to the account – {{ serviceName }} – GOV.UK Prototype Kit
 
            items: [
             {
-              value: "Intelligence from RP",
-              text: "Intelligence from RP"
+              value: "Intelligence from user investigation",
+              text: "Intelligence from user investigation"
          
            
             },
   
             {
-              value: "Intelligence from Third Party",
-              text: "Intelligence from Third Party"
+              value: "Intelligence from customer contact",
+              text: "Intelligence from customer contact"
             },
 
             {
-              value: "Intelligence from Criminal Investigation",
-              text: "Intelligence from Criminal Investigation"
+              value: "Intelligence from active criminal investigation",
+              text: "Intelligence from active criminal investigation"
             },
             {
-              value: "Intelligence from Private Investigation",
-              text: "Intelligence from Private Investigation"
-            },
-
-            {
-              value: "Intelligence from Usual Monitoring Exercises",
-              text: "Intelligence from Usual Monitoring Exercises"
+              value: "Intelligence from private investigation",
+              text: "Intelligence from private investigation"
             },
 
-            {
-              value: "Intelligence from Compromised List",
-              text: "Intelligence from Compromised List"
-            },
-
-            {
-              value: "Intelligence from Customer Contact",
-              text: "Intelligence from Customer Contact"
-            },
-            {
-            value: "Active Criminal Investigation",
-            text: "Active Criminal Investigation"
-          },
-          {
-          value: "Active Private Investigation",
-          text: "Active Private Investigation"
-        },
-
+           
             {
               value: "I do not know",
               text: "I do not know"

@@ -25,6 +25,10 @@ What has happened to the account – {{ serviceName }} – GOV.UK Prototype Kit
 
        {% from "govuk/components/radios/macro.njk" import govukRadios %}
 
+       {% if (data['id-type'] == "User Identifier Code")  %}
+
+
+
 
         {{ govukRadios({
           name: "method",
@@ -41,7 +45,7 @@ What has happened to the account – {{ serviceName }} – GOV.UK Prototype Kit
            items: [
 
            {
-            value: "Password Compromise",
+            value: "Password Compromised",
             text: "Suspected Password Compromised"
           },
 
@@ -96,6 +100,46 @@ What has happened to the account – {{ serviceName }} – GOV.UK Prototype Kit
 
       
 
+
+        {% else %}
+
+
+        {{ govukRadios({
+          name: "method",
+          fieldset: {
+            legend: {
+              text: "What is the reason for this submission? (optional)",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+     
+
+
+           items: [
+
+           {
+            value: "Suspected Stolen",
+            text: "Suspected Stolen"
+          },
+
+          {
+            value: "Suspected Loste",
+            text: "Suspected Lost"
+          },
+
+              {
+                value: "I do not know",
+                text: "I do not know"
+              }
+
+           
+            
+          ]
+        }) }}
+
+ 
+        {% endif %}
 
 
 

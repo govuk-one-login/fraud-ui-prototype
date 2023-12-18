@@ -63,25 +63,14 @@ router.post('/' + version + '/add-format-answer', function(request, response) {
 
 
 router.post('/' + version + '/add-reason-answer', function(request, response) {
-          var add = request.session.data['add']
-          var uploadstate = request.session.data['upload-state']
+var reason = request.session.data['reason']
+if (reason == "Password compromised"){
+  response.redirect("reason-cc.html")
+} 
 
-    var reason = request.session.data['reason']
- if (reason == "Users that you suspect of being involved in fraud"){
-        response.redirect("add-id-type")
-    }
-
-    else if (reason == "Users that you no longer suspect of being involved in fraud"){
-        response.redirect("add-id-type")
-    }
-    else if (reason == "Users that GOV.UK One Login suspects of committing fraud"){
-        response.redirect("reason-id-fraud")
-    }
-  
-
-    else {
-        response.redirect("add-ids")
-    }
+else {
+  response.redirect("add-ids")
+}
 })
 
 
