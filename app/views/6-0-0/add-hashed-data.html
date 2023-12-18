@@ -1,0 +1,62 @@
+{% extends "layouts/main.html" %}
+
+{% block header %}
+{{ govukHeader({
+  homepageUrl: "#",
+  serviceName: "Manual account intervention",
+  serviceUrl: "#"
+}) }}
+{% endblock %}
+
+{% block pageTitle %}
+Submit manual account intervention – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+
+
+{% endblock %}
+
+{% block content %}
+
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-l">Request hashed data</h1>
+      <div id="user-id-hint" class="govuk-hint">
+        For example, 502135326
+        </div>
+
+      <form action="confirmation-mai" method="post" novalidate>
+
+     
+
+      <div class="govuk-form-group">
+
+       
+     
+        <input class="govuk-input govuk-input--width-20" id="hashed-data" name="hashed-data" type="text">
+
+
+      </div>
+
+
+      
+
+
+
+
+
+        
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+      </form>
+    </div>
+  </div>
+{% endblock %}

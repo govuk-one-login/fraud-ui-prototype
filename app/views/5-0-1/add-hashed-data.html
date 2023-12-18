@@ -1,0 +1,89 @@
+{% extends "layouts/main.html" %}
+
+{% block header %}
+{{ govukHeader({
+  homepageUrl: "#",
+  serviceName: "Manual account intervention",
+  serviceUrl: "#"
+}) }}
+{% endblock %}
+
+{% block pageTitle %}
+Submit manual account intervention – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+
+
+{% endblock %}
+
+{% block content %}
+
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-l">Submit a manual account intervention</h1>
+      <p></p>
+
+      <form action="cya-mai" method="post" novalidate>
+
+        <div class="govuk-form-group">
+          <!-- <h2 class="govuk-label-wrapper">
+            <label class="govuk-label govuk-label--m" for="user-id">
+              Enter the User IDs
+            </label>
+          </h2> -->
+
+         
+
+
+        
+
+        
+   
+
+      
+
+      <div class="govuk-form-group">
+
+        <label class="govuk-label" for="user-id">
+          What is the One Login subject ID? 
+               </label>
+        <div id="user-id-hint" class="govuk-hint">
+          For example, 502135326
+          </div>
+
+          {% if (data['user-id'] == false) %}
+          <input class="govuk-input govuk-input--width-20" id="user-id" name="user-id" type="text">
+
+
+          {% else %}
+          
+          <input class="govuk-input govuk-input--width-20" id="user-id" name="user-id" type="text" value="{{ data['user-id'] }}">
+
+          {% endif %}
+
+
+      </div>
+    </div>
+
+
+      
+
+
+
+
+
+        
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+      </form>
+    </div>
+  </div>
+{% endblock %}
