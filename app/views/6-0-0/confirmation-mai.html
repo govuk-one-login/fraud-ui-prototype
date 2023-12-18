@@ -19,19 +19,8 @@ Confirmation  – {{ serviceName }} – GOV.UK Prototype Kit
     <div class="govuk-grid-column-two-thirds">
       
       
-      {% if (data['hashed-data'] == null) %}
+      {% if (data['task'] == "hashed") %}
        
-      {{ govukPanel({
-        titleText: "Account intervention submitted",
-        html: ""
-      }) }}
-
-
-      <p>We've sent your account intervention to ???. </p>
-
-
-      {% else %}
-     
       {{ govukPanel({
         titleText: "Hashed data created",
         html: ""
@@ -39,8 +28,21 @@ Confirmation  – {{ serviceName }} – GOV.UK Prototype Kit
 
 
 
+
+      {% else %}
+     
+   
+      {{ govukPanel({
+        titleText: "Account intervention submitted",
+        html: ""
+      }) }}
+
+      <p>We've sent your account intervention to ???. </p>
+
+
       {% endif %}
   
+      {% if (data['task'] == "hashed") %}
 
       {{ govukInput({
         label: {
@@ -62,14 +64,15 @@ Confirmation  – {{ serviceName }} – GOV.UK Prototype Kit
           text: "Copy hashed data"
         }) }}
 
-        
+        {% endif %}
+
 
 
       <h2 class="govuk-heading-m">
         What happens next
       </h2>
     
-      {% if (data['hashed-data'] == null) %}
+      {% if (data['task'] == "mai") %}
 
       <p>You should see the information in [tool] within the next 24 hrs.</p>
       {% endif %}
