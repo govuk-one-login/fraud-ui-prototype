@@ -1,8 +1,14 @@
 {% extends "layouts/main.html" %}
 
 {% block header %}
+{% if (data['task'] == "hashed") %}
+{% include('./includes/header-fai-hashed.html') %}
 
-{% include('./includes/header-fai.html') %}
+{% else %}
+{% include('./includes/header-fai-mai.html') %}
+
+{% endif %}
+
 {% endblock %}
 
 {% block pageTitle %}
