@@ -1,11 +1,12 @@
 {% extends "layouts/main.html" %}
 
 {% block header %}
+
 {% include('./includes/header.html') %}
 {% endblock %}
 
 {% block pageTitle %}
-What is the reason for this update? – {{ serviceName }} – GOV.UK Prototype Kit
+What type of fraud information do you want to share? – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
 {% block beforeContent %}
@@ -18,24 +19,26 @@ What is the reason for this update? – {{ serviceName }} – GOV.UK Prototype K
 {% block content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <form action="add-reason-answer" method="post" novalidate>
+      <form action="add-ids" method="post" novalidate>
 
+        {% from "govuk/components/radios/macro.njk" import govukRadios %}
 
         <h1 class="govuk-heading-l">What type of fraud information do you want to share?</h1>
 
         <p>Choose what type of fraud-related events you'd like to share with GOV.UK One Login.</p>
 
-        {% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
+
+        <!-- {% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
 
         {{ govukInsetText({
           text: "At the moment, you can only share one type of event at a time using this service."
-        }) }}
+        }) }} -->
 
 
-        {% from "govuk/components/radios/macro.njk" import govukRadios %}
+        {% if (data['release-state'] == "MVP")  %}
 
 
-        
+
         {{ govukRadios({
           name: "reason",
           fieldset: {
@@ -45,6 +48,46 @@ What is the reason for this update? – {{ serviceName }} – GOV.UK Prototype K
 
            items: [
 
+
+           {
+            value: "Users that you suspect of being involved in fraud",
+            text: "Users that you suspect of being involved in fraud (including users who passwords may have been compromised)"
+          },
+        
+        
+          {
+            value: "Users that you no longer suspect of being involved in fraud",
+            text: "Users that you no longer suspect of being involved in fraud"
+          },
+
+          {
+            value: "Users that have been blocked",
+            text: "Users that have been blocked from accessing your services"
+          },
+        
+          {
+            value: "Users that have been unblocked",
+            text: "Users that have been unblocked from accessing your services"
+          }
+
+            
+          ]
+        }) }}
+
+
+                
+        {% else %}
+
+
+
+        {{ govukRadios({
+          name: "reason",
+          fieldset: {
+         
+          },
+
+
+           items: [
 
 
            {
@@ -57,7 +100,7 @@ What is the reason for this update? – {{ serviceName }} – GOV.UK Prototype K
             value: "Users that you no longer suspect of being involved in fraud",
             text: "Users that you no longer suspect of being involved in fraud"
           },
-          
+        
           {
             value: "Users that have been blocked",
             text: "Users that have been blocked from accessing GOV.UK One Login or another service"
@@ -66,18 +109,12 @@ What is the reason for this update? – {{ serviceName }} – GOV.UK Prototype K
           {
             value: "Users that have been unblocked",
             text: "Users that have been unblocked from accessing GOV.UK One Login or another service"
-          },
-        
-          {
-            value: "Password compromised",
-            text: "Users whose GOV.UK One Login may have been compromised"
           }
 
             
           ]
         }) }}
-
-
+        {% endif %}
         
    
 

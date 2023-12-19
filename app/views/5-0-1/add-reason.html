@@ -19,7 +19,7 @@ What type of fraud information do you want to share? – {{ serviceName }} – G
 {% block content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <form action="add-reason-answer" method="post" novalidate>
+      <form action="add-ids" method="post" novalidate>
 
         {% from "govuk/components/radios/macro.njk" import govukRadios %}
 
@@ -51,7 +51,7 @@ What type of fraud information do you want to share? – {{ serviceName }} – G
 
            {
             value: "Users that you suspect of being involved in fraud",
-            text: "Users that you suspect of being involved in fraud"
+            text: "Users that you suspect of being involved in fraud (including users who passwords may have been compromised)"
           },
         
         
@@ -68,11 +68,6 @@ What type of fraud information do you want to share? – {{ serviceName }} – G
           {
             value: "Users that have been unblocked",
             text: "Users that have been unblocked from accessing your services"
-          },
-        
-          {
-            value: "Password compromised",
-            text: "Users whose GOV.UK One Login may have been compromised"
           }
 
             

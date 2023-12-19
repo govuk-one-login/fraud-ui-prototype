@@ -62,29 +62,29 @@ router.post('/' + version + '/add-format-answer', function(request, response) {
 
 
 
-router.post('/' + version + '/add-reason-answer', function(request, response) {
-    var add = request.session.data['add']
-    var uploadstate = request.session.data['upload-state']
+// router.post('/' + version + '/add-reason-answer', function(request, response) {
+//     var add = request.session.data['add']
+//     var uploadstate = request.session.data['upload-state']
 
-var reason = request.session.data['reason']
-if (reason == "Password compromised"){
-  response.redirect("reason-cc.html")
-} 
-else if (reason == "Users that GOV.UK One Login suspects of committing fraud"){
-  response.redirect("reason-id-fraud")
-}
+// var reason = request.session.data['reason']
+// if (reason == "Password compromised"){
+//   response.redirect("reason-cc.html")
+// } 
+// else if (reason == "Users that GOV.UK One Login suspects of committing fraud"){
+//   response.redirect("reason-id-fraud")
+// }
 
-else if (add == "ID1st"){
-  response.redirect("cya")
-}  
-else if (uploadstate == "uploadsingle"){
-  response.redirect("id-multiple")
-} 
+// else if (add == "ID1st"){
+//   response.redirect("cya")
+// }  
+// else if (uploadstate == "uploadsingle"){
+//   response.redirect("id-multiple")
+// } 
 
-else {
-  response.redirect("add-ids")
-}
-})
+// else {
+//   response.redirect("add-ids")
+// }
+// })
 
 
 

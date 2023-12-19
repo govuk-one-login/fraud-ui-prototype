@@ -19,48 +19,109 @@ Enter the User IDs– {{ serviceName }} – GOV.UK Prototype Kit
 {% block content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-        {% if (data['task'] == "getinfo") %}
-        <!-- <form action="get-are-you-sure" method="post" novalidate> -->
-          <form action="add-reason" method="post" novalidate>
+
+      {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+      {% if (data['reason'] == "Password compromised")  %}
+      <form action="source-id-fraud" method="post" novalidate>
+
+      {% else %}
+      <form action="reason-id-fraud" method="post" novalidate>
+
+      {% endif %}
+
+
+
+        {% if (data['reason'] == "Users that have been blocked") or (data['reason'] == "Users that have been unblocked") or (data['reason'] == "Password compromised")   %}
+        
+
+
+        <div class="govuk-form-group">
+          <h1 class="govuk-label-wrapper">
+            <label class="govuk-label govuk-label--l" for="user-id">
+              What are the user IDs?
+              <!-- Enter the auth provider ID -->
+
+            </label>
+          </h1>
+          <div id="user-id-hint" class="govuk-hint">
+            Please enter all entries, separated by a comma (,) 
+            <br>For example, 502135326, 96879212
+          </div>
+          <textarea class="govuk-textarea" id="user-id" name="user-id" rows="5" aria-describedby="user-id-hint"></textarea>
+        </div>
+
         {% else %}
-
-          {% if (data['add'] == "ID1st")  %}
-          <form action="add-reason" method="post" novalidate>
-
-  
-          {% else %}
+       
 
 
-            {% if (data['reason'] == "Password compromised") %}
-            <form action="add-are-you-sure" method="post" novalidate>
-
-            {% else %}
-            <form action="cya" method="post" novalidate>
-
-            {% endif %}
+        {% from "govuk/components/radios/macro.njk" import govukRadios %}
 
 
-          {% endif %}
 
+        {{ govukRadios({
+          name: "id-type",
+          fieldset: {
+            legend: {
+              text: "What type of user information are you sharing?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+      
+           items: [
 
-        {% endif %}
+            {
+              value: "User login details",
+              text: "User login details"
+            },
+            {
+              value: "IP Address",
+              text: "IP Address"
+            },
+            {
+              value: "Email Address",
+              text: "Email Address"
+            },
+            {
+              value: "Passport Number",
+              text: "Passport Number"
+            },
+ 
+            {
+              value: "Driving Licence Number",
+              text: "Driving Licence Number"
+            },
+            {
+              value: "Biometric Residency Permit Number",
+              text: "Biometric Residency Permit Number"
+            },
+            {
+              value: "National Insurance Number",
+              text: "National Insurance Number"
+            }
+          ]
+        }) }}
 
 
 
               <div class="govuk-form-group">
                 <h1 class="govuk-label-wrapper">
-                  <label class="govuk-label govuk-label--l" for="user-id">
-                    What are the user IDs?
+                  <label class="govuk-label govuk-label--m" for="user-id">
+                    Enter the user information
                     <!-- Enter the auth provider ID -->
 
                   </label>
                 </h1>
                 <div id="user-id-hint" class="govuk-hint">
-                  Please enter all user IDs, separated by a comma (,) 
+                  Please enter all entries, separated by a comma (,) 
                   <br>For example, 502135326, 96879212
                 </div>
                 <textarea class="govuk-textarea" id="user-id" name="user-id" rows="5" aria-describedby="user-id-hint"></textarea>
               </div>
+
+
+        {% endif %}
 
         {{ govukButton({
           text: "Continue"

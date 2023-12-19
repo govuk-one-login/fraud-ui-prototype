@@ -1,6 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block header %}
+
 {% include('./includes/header.html') %}
 {% endblock %}
 
@@ -19,7 +20,10 @@ What has happened to the account – {{ serviceName }} – GOV.UK Prototype Kit
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      {% if (data['add'] == "ID1st")  %}
+      <form action="cya" method="post" novalidate>
+
+        
+      <!-- {% if (data['add'] == "ID1st")  %}
       <form action="cya" method="post" novalidate>
 
         {% elseif (data['upload-state'] == "uploadsingle")  %}
@@ -28,7 +32,7 @@ What has happened to the account – {{ serviceName }} – GOV.UK Prototype Kit
         {% else %}
         <form action="add-ids" method="post" novalidate>
 
-      {% endif %}
+      {% endif %} -->
 
 
 
@@ -77,28 +81,27 @@ What has happened to the account – {{ serviceName }} – GOV.UK Prototype Kit
 
            items: [
             {
-              value: "Active criminal investigation",
-              text: "Active criminal investigation"
+              value: "Intelligence from user investigation",
+              text: "Intelligence from user investigation"
+         
+           
             },
   
             {
-              value: "Suspected stolen account",
-              text: "Suspected stolen account"
+              value: "Intelligence from customer contact",
+              text: "Intelligence from customer contact"
             },
 
             {
-              value: "Active intelligence enquiry",
-              text: "Active intelligence enquiry"
+              value: "Intelligence from active criminal investigation",
+              text: "Intelligence from active criminal investigation"
             },
             {
-              value: "Active customer contact",
-              text: "Active customer contact"
+              value: "Intelligence from private investigation",
+              text: "Intelligence from private investigation"
             },
 
-            {
-              value: "Third party intelligence",
-              text: "Third party intelligence"
-            },
+           
             {
               value: "I do not know",
               text: "I do not know"
@@ -119,6 +122,8 @@ What has happened to the account – {{ serviceName }} – GOV.UK Prototype Kit
 
         
 
+
+       
       
 
        

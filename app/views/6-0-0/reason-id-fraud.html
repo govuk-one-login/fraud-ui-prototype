@@ -2,6 +2,7 @@
 {% extends "layouts/main.html" %}
 
 {% block header %}
+
 {% include('./includes/header.html') %}
 {% endblock %}
 
@@ -24,12 +25,19 @@ What has happened to the account – {{ serviceName }} – GOV.UK Prototype Kit
 
        {% from "govuk/components/radios/macro.njk" import govukRadios %}
 
+       {% if (data['id-type'] == "User login details")
+       or 
+       (data['reason'] == "Users that have been blocked") or
+       (data['reason'] == "Users that have been unblocked") or
+       (data['reason'] == "Password compromised")  %}
+
+
 
         {{ govukRadios({
           name: "method",
           fieldset: {
             legend: {
-              text: "What is the suspected method used? (optional)",
+              text: "What do you suspect has happened to the user login details?",
               isPageHeading: true,
               classes: "govuk-fieldset__legend--l"
             }
@@ -38,36 +46,49 @@ What has happened to the account – {{ serviceName }} – GOV.UK Prototype Kit
 
 
            items: [
+
+           {
+            value: "Password Compromised",
+            text: "Suspected Password Compromised"
+          },
+
             {
               value: "Impersonation",
-              text: "Impersonation"
+              text: "Suspected Impersonation"
             },
   
             {
               value: "Coercion",
-              text: "Coercion"
+              text: "Suspected Coercion"
             },
 
             {
               value: "Account takeover",
-              text: "Account takeover",
+              text: "Suspected Account takeover",
               hint: {
                 text:"Cybercriminals gained access to online accounts"
+              }
+            },
+            {
+              value: "Synthetic identity",
+              text: "Suspected Synthetic identity", 
+              hint: {
+                text: "Use a both fake information with real data"
               }
             },
 
             {
               value: "Agent misuse",
-              text: "Agent misuse"
+              text: "Suspected Agent misuse"
             },
 
+
             {
-              value: "Synthetic identity",
-              text: "Synthetic identity", 
-              hint: {
-                text: "Use a both fake information with real data"
-              }
+              value: "Suspected Eligibility Fraud",
+              text: "Suspected Eligibility Fraud"
             },
+
+      
 
               {
                 value: "I do not know",
@@ -81,6 +102,47 @@ What has happened to the account – {{ serviceName }} – GOV.UK Prototype Kit
 
 
       
+
+
+        {% else %}
+
+
+        <h1 class="govuk-heading-l">What do you suspect has happened to the {{ data['id-type'] }}?</h1>
+
+
+        {{ govukRadios({
+          name: "method",
+          fieldset: {
+         
+          },
+     
+
+
+           items: [
+
+           {
+            value: "Suspected stolen",
+            text: "Suspected stolen"
+          },
+
+          {
+            value: "Suspected lost",
+            text: "Suspected lost"
+          },
+
+              {
+                value: "I do not know",
+                text: "I do not know"
+              }
+
+           
+            
+          ]
+        }) }}
+
+ 
+        {% endif %}
+
 
 
 

@@ -25,7 +25,7 @@ What has happened to the account – {{ serviceName }} – GOV.UK Prototype Kit
 
        {% from "govuk/components/radios/macro.njk" import govukRadios %}
 
-       {% if (data['id-type'] == "User Identifier Code")
+       {% if (data['id-type'] == "User login details")
        or 
        (data['reason'] == "Users that have been blocked") or
        (data['reason'] == "Users that have been unblocked") or
@@ -37,7 +37,7 @@ What has happened to the account – {{ serviceName }} – GOV.UK Prototype Kit
           name: "method",
           fieldset: {
             legend: {
-              text: "What is the reason for this submission? (optional)",
+              text: "What do you suspect has happened to the user login details?",
               isPageHeading: true,
               classes: "govuk-fieldset__legend--l"
             }
@@ -107,14 +107,13 @@ What has happened to the account – {{ serviceName }} – GOV.UK Prototype Kit
         {% else %}
 
 
+        <h1 class="govuk-heading-l">What do you suspect has happened to the {{ data['id-type'] }}?</h1>
+
+
         {{ govukRadios({
           name: "method",
           fieldset: {
-            legend: {
-              text: "What is the reason for this submission? (optional)",
-              isPageHeading: true,
-              classes: "govuk-fieldset__legend--l"
-            }
+         
           },
      
 
@@ -122,13 +121,13 @@ What has happened to the account – {{ serviceName }} – GOV.UK Prototype Kit
            items: [
 
            {
-            value: "Suspected Stolen",
-            text: "Suspected Stolen"
+            value: "Suspected stolen",
+            text: "Suspected stolen"
           },
 
           {
-            value: "Suspected Lost",
-            text: "Suspected Lost"
+            value: "Suspected lost",
+            text: "Suspected lost"
           },
 
               {
