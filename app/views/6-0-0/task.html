@@ -42,7 +42,7 @@ What would you like to do? – {{ serviceName }} – GOV.UK Prototype Kit
     {% endif %} -->
 
   
-    {% if (data['release-state'] != "MVP")  %}
+    {% if (data['release-state'] == "MVP2")  %}
 
     <div class="govuk-inset-text">
       There are 3 updates for events you have previously downloaded or viewed
@@ -112,31 +112,21 @@ What would you like to do? – {{ serviceName }} – GOV.UK Prototype Kit
     <div class="govuk-summary-card__content">
       <dl class="govuk-summary-list">
         <div class="govuk-summary-list__row">
-          {% if (data['add'] == "ID1st")  %}
-          <p><a href="add-ids">Add fraud information to One Login using a form</a></p>
-
-          {% elseif (data['release-state'] != null)  %}
-
+      
           <p>Use this to share information about fraud-related events in your service with GOV.UK One Login and other government services.</p>
 
-            <p>For each event you add, you’ll need to include the user ID and select what type of fraud you suspect it to be about.
+            <p>For each event you add, you'll need to include the user ID and select what type of fraud you suspect it to be about.
             </p>
+         
 
 
-
-
-          {% if (data['release-state'] == "MVP")  %}
-          <p><a href="add-reason">Share fraud information</a></p>
-       
-          {% else %}
+          {% if (data['release-state'] == "MVP2") or (data['upload-state'] == "csv")  %}
           <p><a href="add-format">Share fraud information</a></p>
-          {% endif %}
 
-
-
-       
+      
           {% else %}
-          <p><a href="add-format">Add fraud information to One Login using a form or a file</a></p>
+          <p><a href="add-reason">Share fraud information</a></p>
+
           {% endif %}
 
 
@@ -148,30 +138,7 @@ What would you like to do? – {{ serviceName }} – GOV.UK Prototype Kit
 
 
       
-  {% if (data['release-state'] != "MVP")  %}
 
-    <div class="govuk-summary-card">
-      <div class="govuk-summary-card__title-wrapper">
-        <h2 class="govuk-summary-card__title">View fraud information you have shared with GOV.UK One Login</h2>
-      </div>
-      <div class="govuk-summary-card__content">
-        <dl class="govuk-summary-list">
-          <div class="govuk-summary-list__row">
-            <p>Use this to view information about fraud-related events in your service you prevously shared with GOV.UK One Login and other government services.</p>
-
-
-            <p><a href="view-submission-history">View your previous submissions</a></p>
-  
-  
-  
-          </div>
-        </dl>
-      </div>
-    </div>
-  
-  
-
-  {% endif %}
 
   {% include('./includes/help.html') %}      
 

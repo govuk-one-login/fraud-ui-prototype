@@ -1,0 +1,89 @@
+{% extends "layouts/main.html" %}
+
+{% block header %}
+{% include('./includes/header.html') %}
+{% endblock %}
+
+{% block pageTitle %}
+Confirm the type of fraud information you want to download – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form action="confirmation?task=addinfo" method="post" novalidate>
+
+
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset" aria-describedby="get-confirm-hint">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+              <h1 class="govuk-fieldset__heading">
+
+                Confirm the type of fraud information you want to upload
+<!-- 
+                {% if (data['get-options'] == "all") %}
+                all information?
+                {% elseif (data['get-options'] == "30days") %}
+                all information from the last 30 days?
+                {% elseif (data['get-options'] == "last-login") %}
+                all information since you last logged in?
+
+                {% else %}
+                
+                all information from the selected fraud activity?
+                {% endif %}    -->
+                
+
+              </h1>
+            </legend>
+            <!-- <div id="get-confirm-hint" class="govuk-hint">
+              This includes changing your last name or spelling your name differently.
+            </div> -->
+            
+
+              <p>You've said you want to upload information about the following types of fraud events:</p>
+              
+              <ul class="govuk-list govuk-list--bullet">
+                <!-- <li> {{ data['get-reasons'] }}</li> -->
+    
+             
+              <li>16 users that you suspect of being involved in fraud</li>
+              <li>5 users that you no longer suspect of being involved in fraud</li>
+              <li>25 users that have been blocked from accessing your services</li>
+           </ul>
+      
+
+          </fieldset>
+
+              
+        {% from "govuk/components/button/macro.njk" import govukButton %}
+
+        <div class="govuk-button-group">
+          {{ govukButton({
+            text: "Upload"
+          }) }}
+        
+        </div>
+        <p><a class="govuk-link" href="./task">Cancel and go back to download and share fraud information</a></p>
+
+        </div>
+
+
+     
+
+
+
+      </form>
+
+      {% include('./includes/help.html') %}      
+
+    </div>
+  </div>
+{% endblock %}
