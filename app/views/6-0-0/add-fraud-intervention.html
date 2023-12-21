@@ -22,23 +22,68 @@ Submit manual account intervention – {{ serviceName }} – GOV.UK Prototype Ki
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <h1 class="govuk-heading-l">Submit a manual account intervention</h1>
-      <p></p>
-
+      <h1 class="govuk-heading-l">
+        Manual account intervention details</h1>
       <form action="cya-mai" method="post" novalidate>
 
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="account-number">
+            User ID
+          </label>
+          <div id="account-number-hint" class="govuk-hint">
+            For example, URN502135326
+          </div>
+
+          {% if (data['user-id'] == false) %}
+          <input class="govuk-input govuk-input--width-30" id="user-id" name="user-id" type="text">
+
+
+          {% else %}
+          
+          <input class="govuk-input govuk-input--width-30" id="user-id" name="user-id" type="text" value="{{ data['user-id'] }}">
+
+          {% endif %}
+
+
+        </div>
+
+        {% if (data['fraud-admin-state'] == "case") %}
+
+      
+
+
+        
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="account-number">
+            Case reference or URL
+          </label>
+          <div id="account-number-hint" class="govuk-hint">
+            You can find it on xxx, yyy or zzz
+          </div>
+
+          {% if (data['user-id'] == false) %}
+          <input class="govuk-input govuk-input--width-20" id="case-reference" name="case-reference" type="text">
+
+
+          {% else %}
+          
+          <input class="govuk-input govuk-input--width-20" id="case-reference" name="case-reference" type="text" value="{{ data['case-reference'] }}">
+
+          {% endif %}
+
+
+        </div>
+        {% endif %}
 
          
-          <div class="govuk-form-group">
+          <!-- <div class="govuk-form-group">
 
             <h2 class="govuk-label-wrapper">
               <label class="govuk-label govuk-label--s" for="user-id">
                 What is the user ID? 
               </label>
             </h2>
-            <!-- <label class="govuk-label" for="user-id">
-              What is the user ID? 
-                   </label> -->
+        
             <div id="user-id-hint" class="govuk-hint">
               For example, URN502135326
               </div>
@@ -54,7 +99,7 @@ Submit manual account intervention – {{ serviceName }} – GOV.UK Prototype Ki
               {% endif %}
     
     
-          </div>
+          </div> -->
 
 
 
@@ -64,6 +109,11 @@ Submit manual account intervention – {{ serviceName }} – GOV.UK Prototype Ki
               What is the intervention type?
                    </label> -->
       
+                   <label class="govuk-label" for="account-number">
+                    Intervention type
+                  </label>
+               
+
 
           {% from "govuk/components/radios/macro.njk" import govukRadios %}
           {% if (data['user'] == "admin") %}
@@ -71,11 +121,7 @@ Submit manual account intervention – {{ serviceName }} – GOV.UK Prototype Ki
           {{ govukRadios({
             name: "intervention",
             fieldset: {
-              legend: {
-                text: "What is the intervention?",
-                isPageHeading: false,
-                classes: "govuk-fieldset__legend--s"
-              }
+           
             },
        
           items: [
@@ -148,11 +194,7 @@ Submit manual account intervention – {{ serviceName }} – GOV.UK Prototype Ki
         {{ govukCheckboxes({
           name: "intervention",
           fieldset: {
-            legend: {
-              text: "What is the intervention?",
-              isPageHeading: true,
-              classes: "govuk-fieldset__legend--s"
-            }
+          
           },
           hint: {
             text: "Select all that apply."
@@ -181,6 +223,7 @@ Submit manual account intervention – {{ serviceName }} – GOV.UK Prototype Ki
 
       
         {% endif %}
+
 
 
 

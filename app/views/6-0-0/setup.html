@@ -54,7 +54,7 @@
 
 
         {{ govukRadios({
-          name: "manual-intervention-state",
+          name: "fraud-admin-state",
           fieldset: {
             legend: {
               text: "Fraud Admin Interface",
@@ -67,7 +67,11 @@
            {
             value: "on",
               text: "Fraud Admin Interface on"
-            }
+            },
+            {
+              value: "case",
+                text: "Fraud Admin Interface on with case reference"
+              }
         
           ]
         }) }}

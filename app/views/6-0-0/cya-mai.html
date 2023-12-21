@@ -61,6 +61,37 @@ Check your answers – {{ serviceName }} – GOV.UK Prototype Kit
           </dd>
         </div>
 
+        {% if (data['fraud-admin-state'] == "case") %}
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            
+      
+            Case reference or URL
+
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {% if (data['case-reference'] == false) %}
+            {{ data['id1'] }}
+
+          
+
+
+            {% else %}
+            {{ data['case-reference'] }}
+            {% endif %}
+
+        
+ 
+          </dd>
+          <dd class="govuk-summary-list__actions">
+     
+          
+          </dd>
+        </div>
+
+        {% endif %}
+
        
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
