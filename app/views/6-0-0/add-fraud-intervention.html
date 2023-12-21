@@ -33,14 +33,14 @@ Submit manual account intervention – {{ serviceName }} – GOV.UK Prototype Ki
 
             <h2 class="govuk-label-wrapper">
               <label class="govuk-label govuk-label--s" for="user-id">
-                What is the One Login subject ID? 
+                What is the user ID? 
               </label>
             </h2>
             <!-- <label class="govuk-label" for="user-id">
-              What is the One Login subject ID? 
+              What is the user ID? 
                    </label> -->
             <div id="user-id-hint" class="govuk-hint">
-              For example, 502135326
+              For example, URN502135326
               </div>
     
               {% if (data['user-id'] == false) %}
@@ -81,18 +81,40 @@ Submit manual account intervention – {{ serviceName }} – GOV.UK Prototype Ki
           items: [
     
 
+          {
+            value: "Reset password",
+            text: "Reset password",
+            hint: {
+              text: "Supporting content to inform the user of the impact on the user"
+            }
+          },
+          {
+            value: "Reverify identity",
+            text: "Reverify identity",
+            hint: {
+              text: "Supporting content to inform the user of the impact on the user"
+            }
+          },
+          {
+            value: "Reset password and Reverify identity",
+            text: "Reset password and Reverify identity",
+            hint: {
+              text: "Supporting content to inform the user of the impact on the user"
+            }
+          },
+
             
         {
-          value: "Temporary Suspension",
-          text: "Temporary Suspension",
+          value: "Temporary suspension",
+          text: "Temporary suspension",
           hint: {
             text: "Supporting content to inform the user of the impact on the user"
           }
         },
 
         {
-          value: "Unsuspend Temporary Suspension",
-          text: "Unsuspend Temporary Suspension",
+          value: "Unsuspend temporary suspension",
+          text: "Unsuspend temporary suspension",
           hint: {
             text: "Supporting content to inform the user of the impact on the user"
           }
@@ -101,16 +123,16 @@ Submit manual account intervention – {{ serviceName }} – GOV.UK Prototype Ki
         
 
           {
-            value: "Indefinite Suspension",
-            text: "Indefinite Suspension",
+            value: "Indefinite suspension",
+            text: "Indefinite suspension",
             hint: {
               text: "Supporting content to inform the user of the impact on the user"
             }
           },
           
           {
-            value: "Unsuspend Indefinite Suspension",
-            text: "Unsuspend Indefinite Suspension",
+            value: "Unsuspend Indefinite suspension",
+            text: "Unsuspend Indefinite suspension",
             hint: {
               text: "Supporting content to inform the user of the impact on the user"
             }
@@ -121,51 +143,49 @@ Submit manual account intervention – {{ serviceName }} – GOV.UK Prototype Ki
         {% else %}
 
 
-        {{ govukRadios({
+        {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+
+        {{ govukCheckboxes({
           name: "intervention",
           fieldset: {
             legend: {
               text: "What is the intervention?",
-              isPageHeading: false,
+              isPageHeading: true,
               classes: "govuk-fieldset__legend--s"
             }
           },
-  
-        items: [
-  
-
+          hint: {
+            text: "Select all that apply."
+          },
+          items: [
+           
+        {
+          value: "Reset password",
+          text: "Reset password",
+          hint: {
+            text: "Supporting content to inform the user of the impact on the user"
+          }
+        },
+        {
+          value: "Reverify identity",
+          text: "Reverify identity",
+          hint: {
+            text: "Supporting content to inform the user of the impact on the user"
+          }
+        }
+          ]
+        }) }}
 
         
+
+
       
-
-
-        {
-        value: "Reset Password",
-        text: "Reset Password",
-        hint: {
-          text: "Supporting content to inform the user of the impact on the user"
-        }
-      },
-      {
-        value: "Reverify Identity",
-        text: "Reverify Identity",
-        hint: {
-          text: "Supporting content to inform the user of the impact on the user"
-        }
-      },
-      {
-        value: "Reset Password and Reverify Identity",
-        text: "Reset Password and Reverify Identity",
-        hint: {
-          text: "Supporting content to inform the user of the impact on the user"
-        }
-      }
-
-
-        ]
-      }) }}
         {% endif %}
 
+
+
+
+      
 
       </div>
         

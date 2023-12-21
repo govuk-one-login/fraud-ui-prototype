@@ -31,23 +31,6 @@ Check your answers – {{ serviceName }} – GOV.UK Prototype Kit
 
  
 
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            Intervention type
-          </dt>
-          <dd class="govuk-summary-list__value">
-            {% if (data['intervention'] == null) %}
-            Credentials compromised
-            {% else %}
-            {{ data['intervention'] }}
-
-            {% endif %}
-
-          </dd>
-          <dd class="govuk-summary-list__actions">
-       
-          </dd>
-        </div>
 
       
 
@@ -55,7 +38,7 @@ Check your answers – {{ serviceName }} – GOV.UK Prototype Kit
           <dt class="govuk-summary-list__key">
             
       
-            One Login subject ID
+            User ID
 
           </dt>
           <dd class="govuk-summary-list__value">
@@ -79,7 +62,24 @@ Check your answers – {{ serviceName }} – GOV.UK Prototype Kit
         </div>
 
        
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Intervention type
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {% if (data['intervention'] == null) %}
+            Credentials compromised
+            {% else %}
+            {{ data['intervention'] }}
+
+            {% endif %}
+
+          </dd>
+          <dd class="govuk-summary-list__actions">
        
+          </dd>
+        </div>
+
 
 
       </dl>
@@ -93,21 +93,51 @@ Check your answers – {{ serviceName }} – GOV.UK Prototype Kit
   <!-- <h2 class="govuk-heading-m">Now send your application</h2> -->
 
 
+  {{ govukCheckboxes({
+    "name": "get-confirm",
+    "items": [
+      {
+        "value": "yes",
+        "text": "I am aware of the impact this will have on the user and to the best of your knowledge, the details you are providing are correct.
+        "
+      }
+    ]
+  }) }}
+
+
+  <!-- <div class="govuk-warning-text">
+    <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+    <strong class="govuk-warning-text__text">
+      <span class="govuk-visually-hidden">Warning</span>
+      By submitting this intervention you are aware of the impact this will have on the user and to the best of your knowledge, the details you are providing are correct.
+
+    </strong>
+  </div>
+
+
   <div class="govuk-inset-text">
     By submitting this intervention you are aware of the impact this will have on the user and to the best of your knowledge, the details you are providing are correct.
-  </div>
+
+  </div> -->
 
       {% from "govuk/components/button/macro.njk" import govukButton %}
 
 
       <form action="confirmation-mai" method="post" novalidate>
-        <input type="hidden" name="answers-checked" value="true">
-        <button class="govuk-button" data-module="govuk-button">
-          Accept and submit
-        </button>
+
+        <div class="govuk-button-group">
+          <button type="submit" class="govuk-button" data-module="govuk-button">
+            Accept and submit
+          </button>
+          <a class="govuk-link" href="fraud-admin-interface">Cancel</a>
+        </div>
+
       </form>
 
 
+
+
+   
 
   
 

@@ -50,27 +50,33 @@ Confirmation  – {{ serviceName }} – GOV.UK Prototype Kit
   
       {% if (data['task'] == "hashed") %}
 
-      {{ govukInput({
-        label: {
-          text: "Your hashed data",
-          classes: "govuk-label--m",
-          isPageHeading: true
-        },
-        hint: {
-          text: "Copy the data to use use in other tools"
-        },
-        id: "hashed-data",
-        name: "hashed-data",
-        disabled: true,
-        value: "**************",
-        classes: "govuk-input--width-20"
-      }) }}
+      <h2 class="govuk-heading-s">
+        Telephone number you'd like to hash
+      </h2>
+      
+      <p>01555 555 555</p>
 
-        {{ govukButton({
-          text: "Copy hashed data"
-        }) }}
+
+
+        <div class="govuk-form-group">
+          <h1 class="govuk-label-wrapper">
+            <label class="govuk-label govuk-label--m" for="event-name">
+              Your hashed data
+            </label>
+          </h1>
+          <div id="event-name-hint" class="govuk-hint">
+            Copy the data to use use in other tools
+          </div>
+          <input class="govuk-input govuk-input--width-20" id="event-name" name="eventName" disabled value="9876545876567890" type="text">
+          <button type="submit" class="govuk-button" data-module="govuk-button">
+            Copy hashed data
+          </button>
+        </div>
+
 
         {% endif %}
+
+
 
 
 
@@ -82,10 +88,17 @@ Confirmation  – {{ serviceName }} – GOV.UK Prototype Kit
 
       <p>You should see the information in [tool] within the next 24 hrs.</p>
       {% endif %}
-
+      {% if (data['task'] == "hashed") %}
+      <p>
+        You can <a href="add-hashed-data?task=hashed">request more hashed information</a> or return back to <a href="fraud-admin-interface">the GOV.UK One Login Fraud Admin Interface</a>.
+      </p>
+      {% else %}
       <p>
         You can return back to <a href="fraud-admin-interface">the GOV.UK One Login Fraud Admin Interface</a>.
       </p>
+      {% endif %}
+
+    
 
   
     </div>
