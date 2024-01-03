@@ -5,8 +5,8 @@ module.exports = function (router) {
 // Add your routes here
 router.post('/' + version + '/setup-answer', function(request, response) {
     
-    var manualinterventionstate = request.session.data['manual-intervention-state']
-    if (manualinterventionstate == "on"){
+    var manualinterventionstate = request.session.data['fraud-admin-state']
+    if (manualinterventionstate != null){
         response.redirect("google-auth")
     }  else {
         response.redirect("./")
