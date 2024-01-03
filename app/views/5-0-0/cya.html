@@ -196,6 +196,11 @@
 
           </dt>
           <dd class="govuk-summary-list__value">
+            
+            {% if (data['user-id'] == "many") %}
+            21 user ids added
+            {% else %}
+
             {% if (data['user-id'] == false) or (data['id-multiple'] == "yes") %}
             {{ data['id1'] }} <br>
             {{ data['id2'] }} <br>
@@ -214,7 +219,8 @@
             {{ data['user-id'] }}
             {% endif %}
 
-        
+                    {% endif %}
+
  
           </dd>
           <dd class="govuk-summary-list__actions">
