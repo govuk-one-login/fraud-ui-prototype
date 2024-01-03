@@ -95,6 +95,27 @@
 
 
 
+{{ govukRadios({
+  name: "many-id",
+  fieldset: {
+    legend: {
+      text: "Larger number of IDs",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--m"
+    }
+  },
+ 
+   items: [
+   {
+    value: "true",
+      text: "More than 20 ids"
+    }
+
+  ]
+}) }}
+
+
+
 
         <!-- {{ govukRadios({
           name: "download-state",
