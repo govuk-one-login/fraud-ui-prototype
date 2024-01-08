@@ -25,7 +25,7 @@ What has happened to the account – {{ serviceName }} – GOV.UK Prototype Kit
 
        {% from "govuk/components/radios/macro.njk" import govukRadios %}
 
-       {% if (data['id-type'] == "User login details")
+       {% if (data['id-type'] == "Uniform Resource Name (URN)")
        or 
        (data['reason'] == "Users that have been blocked") or
        (data['reason'] == "Users that have been unblocked") or
@@ -37,7 +37,7 @@ What has happened to the account – {{ serviceName }} – GOV.UK Prototype Kit
           name: "method",
           fieldset: {
             legend: {
-              text: "What do you suspect has happened to the user login details?",
+              text: "What do you suspect has happened to the Uniform Resource Name (URN)?",
               isPageHeading: true,
               classes: "govuk-fieldset__legend--l"
             }

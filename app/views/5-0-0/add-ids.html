@@ -50,14 +50,14 @@ Enter the User IDs– {{ serviceName }} – GOV.UK Prototype Kit
               <div class="govuk-form-group">
                 <h1 class="govuk-label-wrapper">
                   <label class="govuk-label govuk-label--l" for="user-id">
-                    What are the user IDs?
+                    What is the user Uniform Resource Name (URN)?
                     <!-- Enter the auth provider ID -->
 
                   </label>
                 </h1>
                 <div id="user-id-hint" class="govuk-hint">
-                  Please enter all user IDs, separated by a comma (,) 
-                  <br>For example, 502135326, 96879212
+               For example,<br>
+               urn:fdc:gov.uk:2022:56P4CMsGh_02YOlWpd8PAOI-2sVlB2nsNU7mcLZYhYw=, 
                 </div>
                 <textarea class="govuk-textarea" id="user-id" name="user-id" rows="5" aria-describedby="user-id-hint"></textarea>
               </div>
@@ -65,6 +65,39 @@ Enter the User IDs– {{ serviceName }} – GOV.UK Prototype Kit
         {{ govukButton({
           text: "Continue"
         }) }}
+
+        <details class="govuk-details">
+          <summary class="govuk-details__summary">
+            <span class="govuk-details__summary-text">
+              Help with URN
+            </span>
+          </summary>
+          <div class="govuk-details__text">
+            Supporting content letting the user know how to get hold of a URN if they need suppport.
+          
+
+          </div>
+        </details>
+
+        <details class="govuk-details">
+          <summary class="govuk-details__summary">
+            <span class="govuk-details__summary-text">
+              Help with adding multiple URNs
+            </span>
+          </summary>
+          <div class="govuk-details__text">
+
+       
+            Please enter all user URNs, separated by a comma (,) <br>
+
+            For example,<br>
+            urn:fdc:gov.uk:2022:56P4CMsGh_02YOlWpd8PAOI-2sVlB2nsNU7mcLZYhYw=, urn:fdc:gov.uk:2023:56P4CMsGh_02Y9PWpd8PAOI-2sVlB2nsNU7mcLZYhOw= 
+          
+    
+          </div>
+        </details>
+
+
       </form>
     </div>
   </div>
