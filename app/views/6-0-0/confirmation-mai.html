@@ -27,23 +27,34 @@ Confirmation  – {{ serviceName }} – GOV.UK Prototype Kit
     
       {% if (data['task'] == "hashed") %}
        
-      {{ govukPanel({
-        titleText: "Hashed data created",
-        html: "test.user@digital.cabinet-office.gov.uk"
-      }) }}
-
-
+      <div class="govuk-panel govuk-panel--confirmation">
+        <h1 class="govuk-panel__title">
+          Hashed data created for
+        </h1>
+        <div class="govuk-panel__body">
+            {% if (data['hashed-data'] == false) %}
+            test.user@digital.cabinet-office.gov.uk
+            {% else %}
+            {{ data['hashed-data'] }}
+            {% endif %}
      
-      
+        </div>
+      </div>
 
-
+  
       {% else %}
      
    
-      {{ govukPanel({
-        titleText: "Account intervention submitted",
-        html: ""
-      }) }}
+      <div class="govuk-panel govuk-panel--confirmation">
+        <h1 class="govuk-panel__title">
+          Account intervention submitted
+        </h1>
+        <div class="govuk-panel__body">
+    
+        </div>
+      </div>
+
+
 
       <!-- <p>We've sent your account intervention to ???. </p> -->
 
