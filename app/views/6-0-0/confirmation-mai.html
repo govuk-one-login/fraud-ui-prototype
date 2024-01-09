@@ -24,15 +24,17 @@ Confirmation  – {{ serviceName }} – GOV.UK Prototype Kit
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       
-      
+    
       {% if (data['task'] == "hashed") %}
        
       {{ govukPanel({
         titleText: "Hashed data created",
-        html: "for 01555 555 555"
+        html: "test.user@digital.cabinet-office.gov.uk"
       }) }}
 
 
+     
+      
 
 
       {% else %}
@@ -43,7 +45,7 @@ Confirmation  – {{ serviceName }} – GOV.UK Prototype Kit
         html: ""
       }) }}
 
-      <p>We've sent your account intervention to ???. </p>
+      <!-- <p>We've sent your account intervention to ???. </p> -->
 
 
       {% endif %}
@@ -81,7 +83,7 @@ Confirmation  – {{ serviceName }} – GOV.UK Prototype Kit
     
       {% if (data['task'] == "mai") %}
 
-      <p>You should see the information in [tool] within the next 24 hrs.</p>
+      <p>You should see the updated information within the next 24 hrs.</p>
       {% endif %}
       {% if (data['task'] == "hashed") %}
       <p>
