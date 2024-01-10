@@ -29,7 +29,17 @@ What has happened to the account – {{ serviceName }} – GOV.UK Prototype Kit
        or 
        (data['reason'] == "Users that have been blocked") or
        (data['reason'] == "Users that have been unblocked") or
-       (data['reason'] == "Password compromised")  %}
+       (data['reason'] == "Password compromised") or
+       (data['reason'] == "Users that you suspect of being involved in fraud (including users who passwords may have been compromised)")  %}
+       
+       
+       {% set question = "What do you suspect has happened to the Uniform Resource Name (URN)?" %}
+
+       {% if (data['release-state'] == "MVP")  %}
+       {% set question = "What do you suspect has happened to the user id?" %}
+       {% set hint = "" %}
+
+       {% endif %}
 
 
 
@@ -37,7 +47,7 @@ What has happened to the account – {{ serviceName }} – GOV.UK Prototype Kit
           name: "method",
           fieldset: {
             legend: {
-              text: "What do you suspect has happened to the Uniform Resource Name (URN)?",
+              html: question,
               isPageHeading: true,
               classes: "govuk-fieldset__legend--l"
             }
