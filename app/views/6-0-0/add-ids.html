@@ -22,7 +22,7 @@ Enter the User IDs– {{ serviceName }} – GOV.UK Prototype Kit
 
       {% from "govuk/components/radios/macro.njk" import govukRadios %}
 
-      {% if (data['reason'] == "Password compromised")  %}
+      {% if (data['reason'] == "Users who passwords may have been compromised")  %}
       <form action="source-id-fraud" method="post" novalidate>
 
       {% else %}
@@ -32,7 +32,7 @@ Enter the User IDs– {{ serviceName }} – GOV.UK Prototype Kit
 
 
 
-        {% if (data['reason'] == "Users that have been blocked") or (data['reason'] == "Users that have been unblocked") or (data['reason'] == "Password compromised")   %}
+        {% if (data['reason'] == "Users that have been blocked") or (data['reason'] == "Users that have been unblocked") or (data['reason'] == "Users who passwords may have been compromised")   %}
         
 
 
