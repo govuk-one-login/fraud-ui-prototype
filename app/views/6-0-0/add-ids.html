@@ -33,23 +33,27 @@ Enter the User IDs– {{ serviceName }} – GOV.UK Prototype Kit
 
         {% if (data['reason'] == "Users that have been blocked") or (data['reason'] == "Users that have been unblocked") or (data['reason'] == "Users who passwords may have been compromised") or
         (data['release-state'] == "MVP")  %}
-        
 
+        
 
         <div class="govuk-form-group">
           <h1 class="govuk-label-wrapper">
             <label class="govuk-label govuk-label--l" for="user-id">
-              What are the user IDs?
+              What is the user Uniform Resource Name (URN)?
               <!-- Enter the auth provider ID -->
 
             </label>
           </h1>
           <div id="user-id-hint" class="govuk-hint">
-            Please enter all entries, separated by a comma (,) 
-            <br>For example, 502135326, 96879212
+         For example,<br>
+         urn:fdc:gov.uk:2022:56P4CMsGh_02YOlWpd8PAOI-2sVlB2nsNU7mcLZYhYw=, 
           </div>
           <textarea class="govuk-textarea" id="user-id" name="user-id" rows="5" aria-describedby="user-id-hint"></textarea>
         </div>
+
+
+
+
 
         {% else %}
        
@@ -127,7 +131,7 @@ Enter the User IDs– {{ serviceName }} – GOV.UK Prototype Kit
           text: "Continue"
         }) }}
 
-        <!-- <details class="govuk-details">
+        <details class="govuk-details">
           <summary class="govuk-details__summary">
             <span class="govuk-details__summary-text">
               Help with URN
@@ -138,7 +142,25 @@ Enter the User IDs– {{ serviceName }} – GOV.UK Prototype Kit
           
 
           </div>
-        </details> -->
+        </details>
+
+        <details class="govuk-details">
+          <summary class="govuk-details__summary">
+            <span class="govuk-details__summary-text">
+              Help with adding multiple URNs
+            </span>
+          </summary>
+          <div class="govuk-details__text">
+
+       
+            Please enter all user URNs, separated by a comma (,) <br>
+
+            For example,<br>
+            urn:fdc:gov.uk:2022:56P4CMsGh_02YOlWpd8PAOI-2sVlB2nsNU7mcLZYhYw=, urn:fdc:gov.uk:2023:56P4CMsGh_02Y9PWpd8PAOI-2sVlB2nsNU7mcLZYhOw= 
+          
+    
+          </div>
+        </details>
 
       </form>
     </div>
