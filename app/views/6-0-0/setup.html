@@ -76,10 +76,31 @@
             value: "on",
               text: "Fraud Admin Interface on"
             },
+        
             {
               value: "case",
                 text: "Fraud Admin Interface on with case reference"
               }
+        
+          ]
+        }) }}
+
+
+        {{ govukRadios({
+          name: "fraud-admin-user-state",
+          fieldset: {
+            legend: {
+              text: "Fraud Admin standard user",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--m"
+            }
+          },
+         
+           items: [
+           {
+            value: "standard",
+              text: "Non privileged view "
+            }
         
           ]
         }) }}
