@@ -189,32 +189,44 @@ Submit manual account intervention – {{ serviceName }} – GOV.UK Prototype Ki
         {% else %}
 
 
-        {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
 
-        {{ govukCheckboxes({
-          name: "intervention",
-          fieldset: {
-          
-          },
-          hint: {
-            text: "Select all that apply."
-          },
-          items: [
+          {{ govukRadios({
+            name: "intervention",
+            fieldset: {
            
-        {
-          value: "Reset password",
-          text: "Reset password",
-          hint: {
-            text: "Supporting content to inform the user of the impact on the user"
+            },
+       
+          items: [
+    
+
+          {
+            value: "Reset password",
+            text: "Reset password",
+            hint: {
+              text: "Supporting content to inform the user of the impact on the user"
+            }
+          },
+          {
+            value: "Reverify identity",
+            text: "Reverify identity",
+            hint: {
+              text: "Supporting content to inform the user of the impact on the user"
+            }
+          },
+          {
+            value: "Reset password and Reverify identity",
+            text: "Reset password and Reverify identity",
+            hint: {
+              text: "Supporting content to inform the user of the impact on the user"
+            }
+          },
+          {
+            value: "Temporary suspension",
+            text: "Temporary suspension",
+            hint: {
+              text: "Supporting content to inform the user of the impact on the user"
+            }
           }
-        },
-        {
-          value: "Reverify identity",
-          text: "Reverify identity",
-          hint: {
-            text: "Supporting content to inform the user of the impact on the user"
-          }
-        }
           ]
         }) }}
 
