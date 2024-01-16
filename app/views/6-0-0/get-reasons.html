@@ -19,12 +19,13 @@ What type of fraud information do you want to download?– {{ serviceName }} –
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      {% if (data['release-state'] == "MVP") %}
-      <form action="get-are-you-sure" method="post" novalidate>
+      {% if (data['release-state'] == "MVP2") %}
+        <form action="view-information" method="post" novalidate>
+
         <!-- <form action="add-ids?task=getinfo" method="post" novalidate> -->
 
       {% else %}
-      <form action="view-information" method="post" novalidate>
+      <form action="get-are-you-sure" method="post" novalidate>
 
       {% endif %}
 
@@ -48,6 +49,11 @@ What type of fraud information do you want to download?– {{ serviceName }} –
         {% endif %}
 
 
+        {% if (data['notification'] == "yes")  %}
+        {% set update = "yes" %}
+
+        {% endif %}
+
 
 {{ govukCheckboxes({
   name: "get-reasons",
@@ -66,17 +72,21 @@ What type of fraud information do you want to download?– {{ serviceName }} –
 
   {
     value: "Users that GOV.UK One Login suspects of committing fraud",
-    text: "Users that GOV.UK One Login suspects of committing fraud (including users under investigation)"
+    text: "Users that GOV.UK One Login suspects of committing fraud (including users under investigation)",
+    checked: update
   },
 
   {
     value: "Users that have been blocked",
-    text: "Users that have been blocked from accessing GOV.UK One Login or another service"
+    text: "Users that have been blocked from accessing GOV.UK One Login or another service",
+    checked: update
+
   },
 
   {
     value: "Users that have been unblocked",
     text: "Users that have been unblocked from accessing GOV.UK One Login or another service"
+
   },
 
 
