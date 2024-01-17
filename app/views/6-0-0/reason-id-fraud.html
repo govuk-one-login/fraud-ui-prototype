@@ -25,7 +25,7 @@ What has happened to the account – {{ serviceName }} – GOV.UK Prototype Kit
 
        {% from "govuk/components/radios/macro.njk" import govukRadios %}
 
-       {% if (data['id-type'] == "Uniform Resource Name (URN)")
+       {% if (data['id-type'] == "GOV.UK One Login identifier")
        or 
        (data['reason'] == "Users that have been blocked") or
        (data['reason'] == "Users that have been unblocked") or
@@ -33,10 +33,10 @@ What has happened to the account – {{ serviceName }} – GOV.UK Prototype Kit
        (data['reason'] == "Users that you suspect of being involved in fraud (including users who passwords may have been compromised)")  %}
        
        
-       {% set question = "What do you suspect has happened to the Uniform Resource Name (URN)?" %}
+       {% set question = "What do you suspect has happened to the GOV.UK One Login identifier?" %}
 
        {% if (data['release-state'] == "MVP")  %}
-       {% set question = "What do you suspect has happened to the user id?" %}
+       {% set question = "What do you suspect has happened to the GOV.UK One Login identifier?" %}
        {% set hint = "" %}
 
        {% endif %}

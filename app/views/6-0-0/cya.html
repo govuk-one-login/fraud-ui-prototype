@@ -95,10 +95,10 @@
             {% if (data['id-type'] == null) %}
             
               {% if (data['user-id'] == false) or (data['id-multiple'] == "yes") %}
-              User IDs
+              GOV.UK One Login identifiers
 
               {% else %}
-              User ID
+              GOV.UK One Login identifier
               {% endif %}
 
             {% else %}
@@ -109,7 +109,14 @@
           <dd class="govuk-summary-list__value">
 
             {% if (data['many-id'] == "true") %}
-            21 user ids added
+            {% if (data['id-type'] == "GOV.UK One Login identifier") %}
+
+            21 GOV.UK One Login identifiers added
+            {% else %}
+
+            21 {{ data['id-type'] }}es added
+            {% endif %}
+
             {% else %}
 
             {% if (data['user-id'] == false) or (data['id-multiple'] == "yes") %}
