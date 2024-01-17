@@ -32,7 +32,7 @@ Enter the User IDs– {{ serviceName }} – GOV.UK Prototype Kit
 
 
         {% if (data['reason'] == "Users that have been blocked") or (data['reason'] == "Users that have been unblocked") or (data['reason'] == "Users who passwords may have been compromised") or
-        (data['release-state'] == "MVP")  %}
+        (data['release-state'] != "MVPadd")  %}
 
         
 

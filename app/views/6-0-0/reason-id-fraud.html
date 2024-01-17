@@ -24,18 +24,18 @@ What has happened to the account – {{ serviceName }} – GOV.UK Prototype Kit
 
 
        {% from "govuk/components/radios/macro.njk" import govukRadios %}
+  
+      
 
-       {% if (data['id-type'] == "GOV.UK One Login identifier")
-       or 
+       {% if (data['id-type'] == "GOV.UK One Login identifier") or 
        (data['reason'] == "Users that have been blocked") or
        (data['reason'] == "Users that have been unblocked") or
-       (data['reason'] == "Password compromised") or
-       (data['reason'] == "Users that you suspect of being involved in fraud (including users who passwords may have been compromised)")  %}
-       
-       
-       {% set question = "What do you suspect has happened to the GOV.UK One Login identifier?" %}
+      (data['release-state'] != "MVPadd") or
 
-       {% if (data['release-state'] == "MVP")  %}
+       (data['reason'] == "Password compromised") %}
+    
+       {% set question = "What do you suspect has happened to the GOV.UK One Login identifier?" %}
+       {% if (data['release-state'] != "MVPadd")  %}
        {% set question = "What do you suspect has happened to the GOV.UK One Login identifier?" %}
        {% set hint = "" %}
 

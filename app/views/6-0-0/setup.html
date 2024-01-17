@@ -38,10 +38,10 @@
            items: [
  
            {
-            value: "MVP",
-              text: "MVP add",
+            value: "MVPadd",
+              text: "Post MVP add",
               hint: {
-                text: "Removes any reference to post MVP device concern"
+                text: "Adds reference to post MVP device concern"
               }
             },
 
@@ -55,6 +55,106 @@
              
         
         
+          ]
+        }) }}
+
+
+
+
+
+
+{{ govukRadios({
+  name: "upload-state",
+  fieldset: {
+    legend: {
+      text: "Upload functionality",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--m"
+    }
+  },
+ 
+   items: [
+   {
+    value: "csv",
+      text: "Add by CSV"
+    },
+   {
+    value: "uploadsingle",
+      text: "Upload single on"
+    }
+
+  ]
+}) }}
+
+
+
+{{ govukRadios({
+  name: "many-id",
+  fieldset: {
+    legend: {
+      text: "Larger number of IDs",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--m"
+    }
+  },
+ 
+   items: [
+   {
+    value: "true",
+      text: "More than 20 ids"
+    }
+
+  ]
+}) }}
+
+
+        {{ govukRadios({
+          name: "notification",
+          fieldset: {
+            legend: {
+              text: "Notification",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--m"
+            }
+          },
+         
+           items: [
+  
+            {
+              value: "yes",
+              text: "Notification on"
+            },
+            {
+              value: "no updates",
+              text: "No updates"
+            }
+  
+          ]
+        }) }}
+
+
+
+        {{ govukRadios({
+          name: "add",
+          fieldset: {
+            legend: {
+              text: "Add order",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--m"
+            }
+          },
+         
+           items: [
+
+            {
+              value: "ID1st",
+              text: "Add ID first "
+            },
+            {
+              value: "another1",
+              text: "Add another on"
+            }
+  
           ]
         }) }}
 
@@ -108,267 +208,6 @@
 
 
 
-
-{{ govukRadios({
-  name: "upload-state",
-  fieldset: {
-    legend: {
-      text: "Upload functionality",
-      isPageHeading: true,
-      classes: "govuk-fieldset__legend--m"
-    }
-  },
- 
-   items: [
-   {
-    value: "csv",
-      text: "Add by CSV"
-    },
-   {
-    value: "uploadsingle",
-      text: "Upload single on"
-    }
-
-  ]
-}) }}
-
-
-
-{{ govukRadios({
-  name: "many-id",
-  fieldset: {
-    legend: {
-      text: "Larger number of IDs",
-      isPageHeading: true,
-      classes: "govuk-fieldset__legend--m"
-    }
-  },
- 
-   items: [
-   {
-    value: "true",
-      text: "More than 20 ids"
-    }
-
-  ]
-}) }}
-
-
-
-
-        <!-- {{ govukRadios({
-          name: "download-state",
-          fieldset: {
-            legend: {
-              text: "Download functionality",
-              isPageHeading: true,
-              classes: "govuk-fieldset__legend--m"
-            }
-          },
-         
-           items: [
-           {
-            value: "off",
-            text: "Download task off"
-          }
-  
-          ]
-        }) }} -->
-
-        <!-- {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
-
-        {{ govukCheckboxes({
-          name: "view-state",
-          fieldset: {
-            legend: {
-              text: "View functionality",
-              isPageHeading: true,
-              classes: "govuk-fieldset__legend--l"
-            }
-          },
-          hint: {
-            text: "Select all that apply."
-          },
-          items: [
-          {
-            value: "js-off",
-            text: "JS Disabled"
-          },
-          {
-            value: "filter-on",
-            text: "Filter on"
-          },
-          {
-            value: "search-on",
-            text: "Search on"
-          },
-          {
-            value: "notification-on",
-            text: "Notification on"
-          }
-          ]
-        }) }} -->
-
-
-
-
-
-
-        {{ govukRadios({
-          name: "js-state",
-          fieldset: {
-            legend: {
-              text: "Javascript status",
-              isPageHeading: true,
-              classes: "govuk-fieldset__legend--m"
-            }
-          },
-         
-           items: [
-            {
-              value: "off",
-              text: "Disabled"
-            }
-  
-          ]
-        }) }}
-
-
-        <!-- {{ govukRadios({
-          name: "filter-state",
-          fieldset: {
-            legend: {
-              text: "Filter status",
-              isPageHeading: true,
-              classes: "govuk-fieldset__legend--m"
-            }
-          },
-         
-           items: [
-            {
-              value: "on",
-              text: "Filter on"
-            }
-  
-          ]
-        }) }} -->
-
-        <!-- {{ govukRadios({
-          name: "search-state",
-          fieldset: {
-            legend: {
-              text: "Search status",
-              isPageHeading: true,
-              classes: "govuk-fieldset__legend--m"
-            }
-          },
-         
-           items: [
-            {
-              value: "on",
-              text: "Enabled"
-            }
-  
-          ]
-        }) }} -->
-
-
-        <!-- {{ govukRadios({
-          name: "view-submission-history",
-          fieldset: {
-            legend: {
-              text: "Submission history",
-              isPageHeading: true,
-              classes: "govuk-fieldset__legend--m"
-            }
-          },
-         
-           items: [
-  
-            {
-              value: "post-mvp-submission",
-              text: "Submission history on"
-            }
-  
-          ]
-        }) }} -->
-
-
-<!-- 
-        {{ govukRadios({
-          name: "homepage-state",
-          fieldset: {
-            legend: {
-              text: "Tiles status",
-              isPageHeading: true,
-              classes: "govuk-fieldset__legend--m"
-            }
-          },
-         
-           items: [
-            {
-              value: "off",
-              text: "Off"
-            }
-  
-          ]
-        }) }} -->
-
-
-
-        {{ govukRadios({
-          name: "notification",
-          fieldset: {
-            legend: {
-              text: "Notification",
-              isPageHeading: true,
-              classes: "govuk-fieldset__legend--m"
-            }
-          },
-         
-           items: [
-  
-            {
-              value: "yes",
-              text: "Notification on"
-            },
-            {
-              value: "no updates",
-              text: "No updates"
-            }
-  
-          ]
-        }) }}
-
-
-
-
-        {{ govukRadios({
-          name: "add",
-          fieldset: {
-            legend: {
-              text: "Add order",
-              isPageHeading: true,
-              classes: "govuk-fieldset__legend--m"
-            }
-          },
-         
-           items: [
-
-            {
-              value: "ID1st",
-              text: "Add ID first "
-            },
-            {
-              value: "another1",
-              text: "Add another on"
-            }
-  
-          ]
-        }) }}
-
-
-        
 
 
         
