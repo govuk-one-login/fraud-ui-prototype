@@ -21,9 +21,7 @@ What type of fraud information do you want to download?– {{ serviceName }} –
     <div class="govuk-grid-column-two-thirds">
       {% if (data['release-state'] == "MVP2") %}
         <form action="view-information" method="post" novalidate>
-
         <!-- <form action="add-ids?task=getinfo" method="post" novalidate> -->
-
       {% else %}
       <form action="get-are-you-sure" method="post" novalidate>
 
@@ -44,9 +42,7 @@ What type of fraud information do you want to download?– {{ serviceName }} –
 
 
         <h1 class="govuk-heading-l">{{question}}</h1>
-        {% if (data['task'] != "viewinfo") %}
-        <p>You can download a .csv file with information about different types of fraud-related events from GOV.UK One Login and the services that use it.</p>
-        {% endif %}
+   
 
 
         {% if (data['notification'] == "yes")  %}

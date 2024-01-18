@@ -23,48 +23,32 @@
       </h1>
 
 
-
       <p>GOV.UK One Login shares fraud-related information with the government services that are using it. This is sometimes called 'shared signals'.</p>
 
         <p>You can use this service to:</p>
         <ul class="govuk-list govuk-list--bullet">
 
-
-
-        {% if (data['release-state'] == "MVP")  %}
-
         <li>share information with GOV.UK One Login about fraud-related events in your service</li>
         <li>download fraud information that GOV.UK One Login and other services have shared in the last 7 days, including any updates from GOV.UK One Login about fraud events you’ve shared</li>
   
-        {% else %}
-        <li>share information with GOV.UK One Login about fraud-related events in your service</li>
-        <li>download fraud information that GOV.UK One Login and other services have shared in the last 7 days, including any updates from GOV.UK One Login about fraud events you’ve shared</li>
-        <li>view previous submissions</li>
-        {% endif %}
+    
+        </ul>
+
+      <p>You'll need to sign in to use this service. </p>
 
 
-   
-</ul>
-
-<p>You'll need to sign in to use this service. </p>
-
-
-{{ govukButton({
-  text: "Sign in",
-  href: "login",
-  isStartButton: true
-}) }}
+      {{ govukButton({
+        text: "Sign in",
+        href: "login",
+        isStartButton: true
+      }) }}
 
 
-<h2 class="govuk-heading-m">If you do not have an account</h2>
+      <h2 class="govuk-heading-m">If you do not have an account</h2>
 
 
       <p>If you need to use this service and you do not have an account yet, email the GOV.UK One Login Fraud Team on <a href="#">email@digital.cabinet-office.gov.uk</a>.</p>
 
-   
-
- 
-  
 
     </div>
 
