@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-What has happened to the account – {{ serviceName }} – GOV.UK Prototype Kit
+hat has happened to the accounts – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
 {% block beforeContent %}
@@ -14,44 +14,41 @@ What has happened to the account – {{ serviceName }} – GOV.UK Prototype Kit
 {% block content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-
-
-        <form action="cya" method="post" novalidate>
+      <form action="cya" method="post" novalidate>
 
 
         {% from "govuk/components/radios/macro.njk" import govukRadios %}
-
 
         {{ govukRadios({
           name: "reason",
           fieldset: {
             legend: {
-              text: "What has happened to the accounts",
+              text: "What has happened to the accounts?",
               isPageHeading: true,
               classes: "govuk-fieldset__legend--l"
             }
           },
   
+    
            items: [
             {
-              value: "accounts credential changes are required",
-              text: "Accounts credential changes are required"
+              value: "Opted into event changes",
+              text: "They have opted into event changes"
             },
             {
-              value: "Accounts are purged",
-              text: "Accounts are purged"
+              value: "Requested to opt out of event changes",
+              text: "They have requested to opt out of event changes"
             },
             {
-              value: "Accounts are disabled",
-              text: "Accounts are disabled"
+              value: "Cancelled a request to opt out of event changes",
+              text: "They have cancelled a request to opt out of event changes"
             },
             {
-              value: "Accounts are enabled",
-              text: "Accounts are enabled"
+              value: "Opted out of event changes",
+              text: "They have opted out of event changes"
             }
           ]
         }) }}
-
 
 
 

@@ -1,0 +1,131 @@
+{% extends "layouts/main.html" %}
+
+
+{% block header %}
+
+{% include('./includes/header-fai.html') %}
+{% endblock %}
+
+
+{% block pageTitle %}
+Fraud Admin Interface – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+
+{% endblock %}
+
+
+{% block content %}
+
+
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-l">GOV.UK One Login Fraud Admin Interface</h1>
+
+      <p>You're signed in as <strong>example@digital.cabinet-office.gov.uk</strong></p>
+
+  </div>
+    </div>
+
+  <div class="govuk-grid-row">
+
+
+<div class="govuk-grid-column-one-third">
+  <div class="govuk-summary-card">
+    <div class="govuk-summary-card__title-wrapper">
+      <h2 class="govuk-summary-card__title">Submit a Manual Account Intervention</h2>
+    </div>
+    <div class="govuk-summary-card__content">
+      <dl class="govuk-summary-list">
+        <div class="govuk-summary-list__row">
+  
+          <p>Be sure to understand the impact on the end users, before submitting an intervention.</p>
+          {% if (data['fraud-admin-user-state'] == "standard") %}
+          <p><a href="add-fraud-intervention?task=mai&user=standard">Submit intervention</a></p>
+
+          {% else %}
+          <p><a href="add-fraud-intervention?task=mai&user=admin">Submit intervention</a></p>
+
+          {% endif %}
+
+        </div>
+      </dl>
+    </div>
+  </div>
+
+</div>
+
+<div class="govuk-grid-column-one-third">
+
+      
+
+    <div class="govuk-summary-card">
+      <div class="govuk-summary-card__title-wrapper">
+        <h2 class="govuk-summary-card__title">Request hashed information</h2>
+      </div>
+      <div class="govuk-summary-card__content">
+        <dl class="govuk-summary-list">
+          <div class="govuk-summary-list__row">
+            <p>Use this to request hashed information email address, phone numbers etc.</p>
+
+
+            <p><a href="add-hashed-data?task=hashed">Request hashed information</a></p>
+  
+  
+  
+          </div>
+        </dl>
+      </div>
+    </div>
+  
+  
+
+
+
+
+</div>
+
+
+{% if (data['admin'] == "yes") %}
+  <div class="govuk-grid-column-one-third">
+    <div class="govuk-summary-card">
+    <div class="govuk-summary-card__title-wrapper">
+      <h2 class="govuk-summary-card__title">Manage users</h2>
+    </div>
+    <div class="govuk-summary-card__content">
+      <dl class="govuk-summary-list">
+        <div class="govuk-summary-list__row">
+          <p><a href="view-submission-history">Manage access for users withing your department</a></p>
+
+
+        </div>
+      </dl>
+    </div>
+  </div>
+</div>
+
+{% endif %}
+
+
+
+</div>
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}

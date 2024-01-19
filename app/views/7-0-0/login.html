@@ -1,0 +1,74 @@
+{% extends "layouts/main.html" %}
+
+
+
+
+{% block beforeContent %}
+
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "index"
+}) }}
+
+{% endblock %}
+
+{% block content %}
+
+
+
+<div class="govuk-grid-row">
+    
+    
+        <div class="govuk-grid-column-two-thirds">
+        <form action="task" method="post" novalidate>
+
+
+
+      <h1 class="govuk-heading-l">
+        Sign in to share fraud information for GOV.UK One Login
+      </h1>
+<!-- <p>If you do not have an account yet, you can <a href="">[create one]</a></p> -->
+    <!-- <form action="/mfa" method="post" novalidate> -->
+
+      {% from "govuk/components/input/macro.njk" import govukInput %}
+
+{{ govukInput({
+  label: {
+    text: "Username"
+  },
+  id: "username",
+  name: "username",
+  autocomplete: "username",
+  classes: "govuk-input--width-20",
+  spellcheck: false
+}) }}
+
+{{ govukInput({
+  label: {
+    text: "Password"
+  },
+  id: "password",
+  name: "password",
+  autocomplete: "password",
+  classes: "govuk-input--width-20",
+  spellcheck: false
+}) }}
+
+  
+
+      {{ govukButton({
+        text: "Sign in"
+      }) }}
+      <p class="govuk-body">
+        If you've forgotten your password, <a href="#" class="govuk-link">contact the GOV.UK One Login support team</a>. They'll
+        help you reset it.
+      </p>
+
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,78 @@
+{% extends "layouts/main.html" %}
+
+{% block header %}
+{% include('./includes/header.html') %}
+{% endblock %}
+
+{% block pageTitle %}
+Confirm the type of fraud information you want to download – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form action="confirmation?task=getinfo" method="post" novalidate>
+
+
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset" aria-describedby="get-confirm-hint">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+              <h1 class="govuk-fieldset__heading">
+
+                Confirm the type of fraud information you want to download
+
+                
+
+              </h1>
+            </legend>
+      
+            
+
+              <p>You've said you want to download information about the following types of fraud events:</p>
+              
+              <ul class="govuk-list govuk-list--bullet">
+                <!-- <li> {{ data['get-reasons'] }}</li> -->
+             
+              <li>Users that GOV.UK One Login suspects of committing fraud</li>
+              <li>Users that have been blocked</li>
+
+
+           </ul>
+
+            <p>There are currently 106 records for these types of events.</p>
+      
+
+          </fieldset>
+
+              
+        {% from "govuk/components/button/macro.njk" import govukButton %}
+
+        <div class="govuk-button-group">
+          {{ govukButton({
+            text: "Download"
+          }) }}
+        
+        </div>
+        <p><a class="govuk-link" href="./task">Cancel and go back to download and share fraud information</a></p>
+
+        </div>
+
+
+     
+
+
+
+      </form>
+
+      {% include('./includes/help.html') %}      
+
+    </div>
+  </div>
+{% endblock %}

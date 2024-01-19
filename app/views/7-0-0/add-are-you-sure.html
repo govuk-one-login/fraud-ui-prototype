@@ -1,0 +1,162 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Check your answers – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+      <h1 class="govuk-heading-l">Fraud information previously submitted</h1>
+<p>The following fraud information was submitted on 11 November 2023. Resubmitting this information will cause a new investigation.
+</p>
+      <dl class="govuk-summary-list">
+
+     
+        <dl class="govuk-summary-list">
+  
+
+  
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Update reason
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Password compromised
+  
+            </dd>
+            <dd class="govuk-summary-list__actions">
+         
+            </dd>
+          </div>
+  
+  
+ 
+  
+       
+  
+  
+  
+  
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              
+            
+              Information source
+  
+            </dt>
+            <dd class="govuk-summary-list__value">
+             
+              {% if (data['source'] == null) %}
+              Not provided
+  
+              {% else %}
+              {{ data['source'] }}
+              {% endif %}
+              
+            </dd>
+            <dd class="govuk-summary-list__actions">
+            
+  
+  
+  
+              
+  
+            
+            </dd>
+          </div>
+  
+  
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+  
+              User ID
+  
+            </dt>
+            <dd class="govuk-summary-list__value">
+              
+              {% if (data['user-id'] == false) or (data['id-multiple'] == "yes") %}
+              {{ data['id9'] }}
+              {% else %}
+              {{ data['user-id'] }}
+              {% endif %}
+
+  
+   
+            </dd>
+            <dd class="govuk-summary-list__actions">
+         
+            </dd>
+          </div>
+  
+
+     
+
+      </dl>
+    
+
+
+     
+
+      </dl>
+
+
+
+      
+      {% if (data['id-multiple'] == "yes") or (data['user-id'] == false)  %}
+      <form action="cya" method="post" novalidate>
+
+  
+      {% else %}
+      <form action="add-are-you-sure-answer" method="post" novalidate>
+
+      {% endif %}
+
+
+
+      {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+      {{ govukRadios({
+        classes: "govuk-radios--inline",
+        name: "adddupe",
+        fieldset: {
+          legend: {
+            text: "Do you want to submit this information?",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--m"
+          }
+        },
+   
+        items: [
+          {
+            value: "Yes",
+            text: "Yes"
+          },
+          {
+            value: "No",
+            text: "No"
+          }
+        ]
+      }) }}
+          <input type="hidden" name="answers-checked" value="true">
+          <button class="govuk-button" data-module="govuk-button">
+            Continue
+          </button>
+        </form>
+  
+
+
+
+
+      
+    </div>
+
+  </div>
+{% endblock %}

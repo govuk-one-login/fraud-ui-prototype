@@ -1,0 +1,185 @@
+
+{% extends "layouts/main.html" %}
+
+{% block header %}
+
+{% include('./includes/header.html') %}
+{% endblock %}
+
+{% block pageTitle %}
+What has happened to the account – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form action="source-id-fraud" method="post" novalidate>
+
+
+       {% from "govuk/components/radios/macro.njk" import govukRadios %}
+  
+      
+
+       {% if (data['id-type'] == "GOV.UK One Login identifier") or 
+       (data['reason'] == "Users that have been blocked") or
+       (data['reason'] == "Users that have been unblocked") or
+      (data['release-state'] != "MVPadd") or
+
+       (data['reason'] == "Password compromised") %}
+    
+       {% set question = "What do you suspect has happened to the GOV.UK One Login identifier?" %}
+       {% if (data['release-state'] != "MVPadd")  %}
+       {% set question = "What do you suspect has happened to the GOV.UK One Login identifier?" %}
+       {% set hint = "" %}
+
+       {% endif %}
+
+
+
+        {{ govukRadios({
+          name: "method",
+          fieldset: {
+            legend: {
+              html: question,
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+     
+
+
+           items: [
+
+         
+
+            {
+              value: "Impersonation",
+              text: "Suspected Impersonation"
+            },
+  
+            {
+              value: "Coercion",
+              text: "Suspected Coercion"
+            },
+
+            {
+              value: "Account takeover",
+              text: "Suspected Account takeover",
+              hint: {
+                text:"Cybercriminals gained access to online accounts"
+              }
+            },
+            {
+              value: "Synthetic identity",
+              text: "Suspected Synthetic identity", 
+              hint: {
+                text: "Use of fake information with real data"
+              }
+            },
+
+            {
+              value: "Agent misuse",
+              text: "Suspected Agent misuse"
+            },
+
+
+            {
+              value: "Suspected Eligibility Fraud",
+              text: "Suspected Eligibility Fraud"
+            },
+
+      
+
+              {
+                value: "I do not know",
+                text: "I do not know"
+              }
+
+           
+            
+          ]
+        }) }}
+
+
+      
+
+
+        {% else %}
+
+
+        <h1 class="govuk-heading-l">What do you suspect has happened to the {{ data['id-type'] }}?</h1>
+
+
+        {{ govukRadios({
+          name: "method",
+          fieldset: {
+         
+          },
+     
+
+
+           items: [
+
+           {
+            value: "Suspected stolen",
+            text: "Suspected stolen"
+          },
+
+          {
+            value: "Suspected lost",
+            text: "Suspected lost"
+          },
+
+              {
+                value: "I do not know",
+                text: "I do not know"
+              }
+
+           
+            
+          ]
+        }) }}
+
+ 
+        {% endif %}
+
+
+
+
+
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+      </form>
+
+        
+      <!-- <details class="govuk-details" data-module="govuk-details">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+            Help with fraud methods
+          </span>
+        </summary>
+        <div class="govuk-details__text">
+          <strong>Account takeover </strong><br>
+          This is when cybercriminals have gained access to online accounts and use them to withdraw money, make purchases or extract information they can sell or use to access your other accounts.
+          </p>
+          <p>
+          <strong>Synthetic identity </strong><br>
+          Instead of stealing an identity, fraudsters use a blend of fake information with real data, such as national insurance numbers, names, address etc to create fictitious identities and credit profiles.
+          </p>
+
+        </div>
+      </details> -->
+
+    
+    </div>
+  </div>
+{% endblock %}

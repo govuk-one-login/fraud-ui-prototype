@@ -4,7 +4,6 @@
 //
 
 
-
 const govukPrototypeKit = require('govuk-prototype-kit')
 const router = govukPrototypeKit.requests.setupRouter()
 
@@ -24,5 +23,6 @@ require('./routes/4-0-0/routes.js')(router,myData);
 require('./routes/5-0-0/routes.js')(router,myData);
 require('./routes/5-0-1/routes.js')(router,myData);
 require('./routes/6-0-0/routes.js')(router,myData);
+require('./routes/7-0-0/routes.js')(router,myData);
 
 module.exports = router

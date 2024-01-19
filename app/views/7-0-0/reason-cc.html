@@ -1,0 +1,92 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+What has happened to the account – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+
+      {% if (data['add'] == "ID1st")  %}
+        <form action="add-are-you-sure" method="post" novalidate>
+
+
+        {% elseif (data['upload-state'] == "uploadsingle")  %}
+        <form action="id-multiple" method="post" novalidate>
+        
+      {% else %}
+      <form action="add-ids" method="post" novalidate>
+      {% endif %}
+
+
+
+       {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+
+        {{ govukRadios({
+          name: "source",
+          fieldset: {
+            legend: {
+              text: "What is the source of this information? (optional)",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          hint: {
+            text: "This is often called the rationale code"
+        
+        },
+           items: [
+            {
+              value: "Details found on compromised list",
+              text: "Details found on compromised list"
+            },
+  
+            {
+              value: "Intelligence internally and third parties",
+              text: "Intelligence internally and third parties"
+            },
+
+            {
+              value: "Intelligence from criminal investigations",
+              text: "Intelligence from criminal investigations"
+            },
+
+            {
+              value: "Usual monitoring exercises",
+              text: "Usual monitoring exercises"
+            },
+            {
+              value: "I do not know",
+              text: "I do not know"
+            }
+          ]
+        }) }}
+
+
+      
+
+
+
+
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+      </form>
+
+        
+
+    
+    </div>
+  </div>
+{% endblock %}
