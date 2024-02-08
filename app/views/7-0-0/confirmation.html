@@ -35,30 +35,28 @@
 
   
       {% if (data['task'] == "getinfo") %}
+      
       <p>
         A .csv file with the GOV.UK One Login fraud information you selected is being downloaded. It should appear in your downloads folder soon.
       </p>
       <h2 class="govuk-heading-m">
         What happens next
       </h2>
-        {% if (data['task'] == "getinfo") %}
-        {% if (data['release-state'] == "MVP") %}
-        <p>
-          You can <a href="task?task=clear">download or share other fraud information</a>.
-        </p>
-        {% else %}
-        <p>
-          You can <a href="view-information">download other information</a>, or <a href="task?task=clear">carry out other tasks</a>.
-        </p>
-        {% endif %}
+        
+            {% if (data['release-state'] == "MVPadd") or (data['release-state'] == "MVP2") %}
+            <p>
+              You can <a href="get-options">view other information</a>, or <a href="task?task=clear">carry out other tasks</a>.
+            </p>
 
-    
-        {% else %}
-        <p>
-          You can <a href="get-options">view other information</a>, or <a href="task?task=clear">carry out other tasks</a>.
-        </p>
+          
+            {% else %}
+            <p>
+              You can <a href="task?task=clear">download or share other fraud information</a>.
+            </p>
+      
+            {% endif %}
 
-        {% endif %}
+
         {% else %}
         
         <p>We've sent your fraud information to One Login fraud analysts. </p>
@@ -67,38 +65,29 @@
       <h2 class="govuk-heading-m">
         What happens next
       </h2>
-      {% if (data['release-state'] != "MVP") %}
 
       <p>They will look to provide an update or intervention within 2-3 working days.</p>
+
+
+      {% if (data['release-state'] == "MVPadd") or (data['release-state'] == "MVP2") %}
       <p>
         You can view previously submitted data, or <a href="task?task=clear">carry out other tasks</a>.
       </p>
-
+   
       {% else %}
+
+    
       <p>
         You can <a href="task?task=clear">download or share other fraud information</a>.
       </p>
+
+
       {% endif %}
-
-    
-
-
      
       {% endif %}   
 
 
-    
-
-
-
-      <!-- <p>
-        They will contact you either to confirm your registration, or to ask for more information.
-      </p> -->
-      <!-- <p>
-        <a href="#">
-          What did you think of this service?
-        </a> (takes 30 seconds)
-      </p> -->
+  
 
       {% include('./includes/help.html') %}      
 
