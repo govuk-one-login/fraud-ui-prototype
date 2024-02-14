@@ -9,12 +9,7 @@
   Check your answers – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
-{% block beforeContent %}
-  {{ govukBackLink({
-    text: "Back",
-    href: "javascript:window.history.back()"
-  }) }}
-{% endblock %}
+
 
 {% block content %}
   <div class="govuk-grid-row">
@@ -22,24 +17,6 @@
       <h1 class="govuk-heading-l">Check the details before submitting your information</h1>
       <!-- <h2 class="govuk-heading-m">Personal details</h2> -->
  
-      {% if (data['file-upload'] == "true") %}
-
-      {% if (data['release-state'] == "MVP2") %}
-      {% include('./includes/file-upload-MVP-cya.html') %}
-
-      {% else %}
-
-      {% include('./includes/file-upload-cya.html') %}
-      {% endif %}
-
-
-  
-
-      {% elseif (data['add'] == "ID1st")  %}
-      {% include('./includes/ID1st-cya.html') %}
-
-      {% else %}
-
   
 
       <dl class="govuk-summary-list govuk-!-margin-bottom-9">
@@ -182,43 +159,6 @@
           </dd>
         </div>
 
-        <!-- <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            Suspicion
-          </dt>
-          <dd class="govuk-summary-list__value">
-          
-            {{ data['method'] }}
-
-
-          </dd>
-          <dd class="govuk-summary-list__actions">
-            <a class="govuk-link" href="reason-id-fraud">
-              Change<span class="govuk-visually-hidden"> date of birth</span>
-            </a>
-          </dd>
-        </div> -->
-
-        <!-- {% if (data['intervention'] != null) %}
-
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            
-            Active investigation
-
-          </dt>
-          <dd class="govuk-summary-list__value">
-            {{ data['intervention'] }}
-
-          </dd>
-          <dd class="govuk-summary-list__actions">
-            <a class="govuk-link" href="reason-investigation">
-              Change<span class="govuk-visually-hidden"> id number</span>
-            </a>
-          </dd>
-        </div>
-
-        {% endif %} -->
 
 
 
@@ -347,16 +287,6 @@
 
 
       </dl>
-     
-
-      
-      {% endif %}
-
-      <!-- <h2 class="govuk-heading-m">Now send your information</h2>
-      <p class="govuk-body">By submitting this application you are confirming that, to the best of your knowledge, the details you are providing are correct.</p>
-      -->
-
-   
 
 
       {% from "govuk/components/button/macro.njk" import govukButton %}
