@@ -32,13 +32,12 @@
             Credentials compromised
             {% else %}
             {{ data['reason'] }}
-
             {% endif %}
 
           </dd>
           <dd class="govuk-summary-list__actions">
             <a class="govuk-link" href="add-reason">
-              Change<span class="govuk-visually-hidden"> date of birth</span>
+              Change<span class="govuk-visually-hidden"> reason</span>
             </a>
           </dd>
         </div>
@@ -71,7 +70,7 @@
             
             {% if (data['id-type'] == null) %}
             
-              {% if (data['user-id'] == false) or (data['id-multiple'] == "yes") %}
+              {% if (data['user-id'] == false) or (data['id-multiple'] == "yes") or (data['many-id'] == "true") %}
               GOV.UK One Login identifiers
 
               {% else %}
@@ -86,13 +85,7 @@
           <dd class="govuk-summary-list__value">
 
             {% if (data['many-id'] == "true") %}
-            {% if (data['id-type'] == "GOV.UK One Login identifier") %}
-
-            21 GOV.UK One Login identifiers added
-            {% else %}
-
-            21 {{ data['id-type'] }}es added
-            {% endif %}
+            21 added
 
             {% else %}
 
@@ -205,11 +198,6 @@
 
 
 
-     
-
-
-
-        
 
         {% if (data['adddupe'] != null) %}
 
@@ -330,9 +318,6 @@
       </form>
     {% endif %}
 
-
-
-  
 
       {% endif %}
 
