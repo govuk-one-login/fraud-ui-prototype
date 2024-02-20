@@ -10,6 +10,7 @@ What has happened to the account – {{ serviceName }} – GOV.UK Prototype Kit
 
 
 {% block beforeContent %}
+{% include('./includes/phase-banner.html') %}
   {{ govukBackLink({
   text: "Back",
   href: "javascript:window.history.back()"

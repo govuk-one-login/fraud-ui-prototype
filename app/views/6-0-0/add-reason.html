@@ -10,6 +10,7 @@ What type of fraud information do you want to share? – {{ serviceName }} – G
 {% endblock %}
 
 {% block beforeContent %}
+{% include('./includes/phase-banner.html') %}
   {{ govukBackLink({
   text: "Back",
   href: "javascript:window.history.back()"

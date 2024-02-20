@@ -9,6 +9,8 @@ What type of fraud information do you want to download?– {{ serviceName }} –
 {% endblock %}
 
 {% block beforeContent %}
+{% include('./includes/phase-banner.html') %}
+
   {{ govukBackLink({
   text: "Back",
   href: "javascript:window.history.back()"

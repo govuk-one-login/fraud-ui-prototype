@@ -10,6 +10,10 @@
   Confirmation page – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
+{% block beforeContent %}
+{% include('./includes/phase-banner.html') %}
+{% endblock %}
+
 {% block content %}
 
   <div class="govuk-grid-row">
