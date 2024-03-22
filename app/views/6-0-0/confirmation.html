@@ -89,10 +89,25 @@
    
       {% else %}
 
+
+
+      {% if (data['release-state'] == "no-download") %}
+      <p>
+        You can <a href="task?task=clear">share other fraud information</a>.
+      </p>
+        
+      
+
     
+      {% else %}
       <p>
         You can <a href="task?task=clear">download or share other fraud information</a>.
       </p>
+
+      {% endif %}
+
+    
+      
 
 
       {% endif %}

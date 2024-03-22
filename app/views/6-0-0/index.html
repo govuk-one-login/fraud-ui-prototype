@@ -26,14 +26,24 @@
 
       <p>GOV.UK One Login shares fraud-related information with the government services that are using it. This is sometimes called 'shared signals'.</p>
 
-        <p>You can use this service to:</p>
+      {% if (data['release-state'] == "no-download") %}
+      <p>You can use this service to share information with GOV.UK One Login about fraud-related events in your service</p>
+        
+      
+
+    
+      {% else %}
+      <p>You can use this service to:</p>
         <ul class="govuk-list govuk-list--bullet">
 
         <li>share information with GOV.UK One Login about fraud-related events in your service</li>
         <li>download fraud information that GOV.UK One Login and other services have shared in the last 7 days, including any updates from GOV.UK One Login about fraud events you’ve shared</li>
-  
-    
+
         </ul>
+
+      {% endif %}
+
+        
 
       <p>You'll need to sign in to use this service. </p>
 
