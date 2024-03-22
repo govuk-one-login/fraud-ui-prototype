@@ -62,6 +62,81 @@ What would you like to do? – {{ serviceName }} – GOV.UK Prototype Kit
     <div class="govuk-grid-column-two-thirds">
       <p>You're signed in as <strong>example@email.com</strong></p>
 
+      {% if (data['release-state'] == "no-download") %}
+      
+        <div class="govuk-summary-card">
+          <div class="govuk-summary-card__title-wrapper">
+            <h2 class="govuk-summary-card__title">Share fraud information with GOV.UK One Login</h2>
+          </div>
+          <div class="govuk-summary-card__content">
+            <dl class="govuk-summary-list">
+              <div class="govuk-summary-list__row">
+            
+                <p>Use this to share information about fraud-related events in your service with GOV.UK One Login and other government services.</p>
+      
+                  <p>For each event you add, you'll need to include the user ID and select what type of fraud you suspect it to be about.
+                  </p>
+               
+      
+      
+                {% if (data['release-state'] == "MVP2") or (data['upload-state'] == "csv")  %}
+                <p><a href="add-format">Share fraud information</a></p>
+      
+            
+                {% else %}
+                <p><a href="add-reason">Share fraud information</a></p>
+      
+                {% endif %}
+      
+      
+      
+              </div>
+            </dl>
+          </div>
+        </div>
+      
+      
+        {% if (data['release-state'] == "MVP2") %}
+      
+        <div class="govuk-summary-card">
+          <div class="govuk-summary-card__title-wrapper">
+            <h2 class="govuk-summary-card__title">View previous submissions</h2>
+          </div>
+          <div class="govuk-summary-card__content">
+            <dl class="govuk-summary-list">
+              <div class="govuk-summary-list__row">
+                <p>Use this to view information you previously submitted about fraud-related events to GOV.UK One Login.</p>
+                <p><a href="view-submission-history">View previous submissions</a></p>
+      
+      
+              </div>
+            </dl>
+          </div>
+        </div>
+      
+      
+      
+      {% endif %}
+        
+      
+      
+            
+      
+      
+        {% include('./includes/help.html') %}      
+      
+      
+      </div>
+        
+      
+
+    
+      {% else %}
+      
+
+      
+      
+
       <div class="govuk-summary-card">
         <div class="govuk-summary-card__title-wrapper">
           
@@ -181,6 +256,7 @@ What would you like to do? – {{ serviceName }} – GOV.UK Prototype Kit
 
 
 </div>
+{% endif %}
 
 
 
