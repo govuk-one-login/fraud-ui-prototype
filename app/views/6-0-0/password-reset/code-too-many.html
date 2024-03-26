@@ -1,0 +1,32 @@
+{% extends "layouts/main.html" %}
+
+
+
+
+{% block beforeContent %}
+{% include('../includes/phase-banner.html') %}
+
+
+{% endblock %}
+
+{% block content %}
+
+
+
+<div class="govuk-grid-row">
+    
+    
+        <div class="govuk-grid-column-two-thirds">
+        <form action="confirmation" method="post" novalidate>
+
+
+          <h1 class="govuk-heading-l">You entered the wrong security code too many times</h1>
+          <p class="govuk-body">You need to wait 15 minutes.</p>
+          <p class="govuk-body">You can then <a href="mfa">get a new code</a> and try again.</p>
+
+     
+    </form>
+  </div>
+</div>
+
+{% endblock %}
