@@ -27,11 +27,11 @@ Submit manual account intervention – {{ serviceName }} – GOV.UK Prototype Ki
       <form action="cya-mai" method="post" novalidate>
 
         <div class="govuk-form-group">
-          <label class="govuk-label" for="account-number">
-            User ID
+          <label class="govuk-label govuk-label--m" for="account-number">
+            GOV.UK One Login subject identifier
           </label>
           <div id="account-number-hint" class="govuk-hint">
-            For example, URN502135326
+            For example, urn:fdc:gov.uk:2022:pgt1qOf7zW2tMCZg4V5LEU-mT-GTSX7xqJ6RJekw9l
           </div>
 
           {% if (data['user-id'] == false) %}
@@ -54,11 +54,11 @@ Submit manual account intervention – {{ serviceName }} – GOV.UK Prototype Ki
 
         
         <div class="govuk-form-group">
-          <label class="govuk-label" for="account-number">
+          <label class="govuk-label govuk-label--m" for="account-number">
             Case reference or ticket URL (optional)
           </label>
           <div id="account-number-hint" class="govuk-hint">
-            You can find these in Zendesk or ServiceNow.
+            You can find these in Zendesk or ServiceNow
           </div>
 
           {% if (data['user-id'] == false) %}
@@ -109,7 +109,7 @@ Submit manual account intervention – {{ serviceName }} – GOV.UK Prototype Ki
               What is the intervention type?
                    </label> -->
       
-                   <label class="govuk-label" for="account-number">
+                   <label class="govuk-label govuk-label--m" for="account-number">
                     Intervention type
                   </label>
                
@@ -131,21 +131,21 @@ Submit manual account intervention – {{ serviceName }} – GOV.UK Prototype Ki
             value: "Reset password",
             text: "Reset password",
             hint: {
-              text: "The user will have to reset their password when they next sign in."
+              text: "The user will have to reset their password when they next sign in"
             }
           },
           {
             value: "Reverify identity",
             text: "Reverify identity",
             hint: {
-              text: "The user will have to prove their identity again, the next time they access a service that needs it."
+              text: "The user will have to prove their identity again the next time they access a service that needs it"
             }
           },
           {
             value: "Reset password and reverify identity",
             text: "Reset password and reverify identity",
             hint: {
-              text: "The user will have to either reset their password or prove their identity, the next time they access a service."
+              text: "The user will have to either reset their password or prove their identity the next time they access a service"
             }
           },
 
@@ -154,7 +154,7 @@ Submit manual account intervention – {{ serviceName }} – GOV.UK Prototype Ki
           value: "Temporary suspension",
           text: "Temporary suspension",
           hint: {
-            text: "The user will not be able to sign in until the suspension is removed or changed to an ‘indefinite suspension’."
+            text: "The user will not be able to sign in until the temporary suspension is removed"
           }
         },
 
@@ -162,7 +162,7 @@ Submit manual account intervention – {{ serviceName }} – GOV.UK Prototype Ki
           value: "Unsuspend temporary suspension",
           text: "Unsuspend temporary suspension",
           hint: {
-            text: "Remove any temporary interventions including ‘password reset’ and ‘reverify identity’."
+            text: "This removes any temporary interventions including ‘reset password’ and ‘reverify identity’"
           }
         },
 
@@ -172,7 +172,7 @@ Submit manual account intervention – {{ serviceName }} – GOV.UK Prototype Ki
             value: "Indefinite suspension",
             text: "Indefinite suspension",
             hint: {
-              text: "The user cannot access this GOV.UK One Login anymore. The ‘indefinite suspension’ can only be removed by someone with ‘admin’ permissions."
+              text: "The user cannot access this GOV.UK One Login anymore"
             }
           },
           
@@ -180,7 +180,7 @@ Submit manual account intervention – {{ serviceName }} – GOV.UK Prototype Ki
             value: "Unsuspend indefinite suspension",
             text: "Unsuspend indefinite suspension",
             hint: {
-              text: "You must have ‘admin’ permissions to do this. The user will be able to access this GOV.UK One Login again. "
+              text: "This removes an ‘indefinite suspension’. The user will be able to access this GOV.UK One Login again "
             }
           }
 
@@ -203,33 +203,32 @@ Submit manual account intervention – {{ serviceName }} – GOV.UK Prototype Ki
             value: "Reset password",
             text: "Reset password",
             hint: {
-              text: "The user will have to reset their password when they next sign in."
+              text: "The user will have to reset their password when they next sign in"
             }
           },
           {
             value: "Reverify identity",
             text: "Reverify identity",
             hint: {
-              text: "The user will have to prove their identity again, the next time they access a service that needs it."
+              text: "The user will have to prove their identity again the next time they access a service that needs it"
             }
           },
           {
             value: "Reset password and reverify identity",
             text: "Reset password and reverify identity",
             hint: {
-              text: "The user will have to either reset their password or prove their identity, the next time they access a service."
+              text: "The user will have to either reset their password or prove their identity the next time they access a service "
             }
           },
           {
             value: "Temporary suspension",
             text: "Temporary suspension",
             hint: {
-              text: "The user will not be able to sign in until the suspension is removed or changed to an ‘indefinite suspension’."
+              text: "The user will not be able to sign in until the temporary suspension is removed"
             }
           }
           ]
         }) }}
-
 
         
 

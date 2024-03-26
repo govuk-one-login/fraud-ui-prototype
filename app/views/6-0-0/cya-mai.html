@@ -38,7 +38,7 @@ Check your answers – {{ serviceName }} – GOV.UK Prototype Kit
           <dt class="govuk-summary-list__key">
             
       
-            User ID
+            GOV.UK One Login subject identifier
 
           </dt>
           <dd class="govuk-summary-list__value">
@@ -124,16 +124,7 @@ Check your answers – {{ serviceName }} – GOV.UK Prototype Kit
   <!-- <h2 class="govuk-heading-m">Now send your application</h2> -->
 
 
-  {{ govukCheckboxes({
-    "name": "get-confirm",
-    "items": [
-      {
-        "value": "yes",
-        "text": "I am aware of the impact this will have on the user and to the best of my knowledge, the details I'm providing are correct.
-        "
-      }
-    ]
-  }) }}
+  <p class="govuk-body">By submitting this intervention, I am aware of the impact this will have on the user and to the best of my knowledge, the details I'm providing are correct.</p>
 
 
   <!-- <div class="govuk-warning-text">
