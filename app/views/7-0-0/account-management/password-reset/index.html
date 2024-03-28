@@ -9,7 +9,7 @@
   <div class="govuk-width-container">
     
     <div class="govuk-grid-row">
-      <div class="govuk-grid-column-two-thirds-from-desktop">
+      <div class="govuk-grid-column-two-thirds">
 
   {{ govukBackLink({
     text: "Back",
@@ -31,7 +31,25 @@
 </div>
 
 <div class="govuk-width-container">
+  <div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
 
+    <br>
+
+    <div class="govuk-warning-text">
+      <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+      <strong class="govuk-warning-text__text">
+        <span class="govuk-visually-hidden">Warning</span>
+        This prototype does not show all screen logic of the password reset journey. Refer to the Mural, linked below for detailed screen logic.
+      </strong>
+    </div>
+
+    <h2 class="govuk-heading-m">Key links</h2>
+    <p><a href="/">Mural board of full screen flow</a></p>
+    <p><a href="/">Jira Epic</a></p>
+
+
+  
             
 
       <table class="govuk-table">
@@ -48,30 +66,31 @@
             <td class="govuk-table__cell"><p class="govuk-body">Changes include:</p>
               <ul class="govuk-list govuk-list--bullet">
                 <li>added reset password link</li>
+                <li>added 'show password' component</li>
                 <li>changes to content</li>
               </ul></td>
           </tr>
           <tr class="govuk-table__row">
-            <td class="govuk-table__cell"><a href="/login">What is your government email address?</a></td>
+            <td class="govuk-table__cell"><a href="email">What is your government email address?</a></td>
             
             <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--blue">New screen</strong></td>
           </tr>
           <tr class="govuk-table__row">
-            <td class="govuk-table__cell"><a href="/login">Check your email</a></td>
+            <td class="govuk-table__cell"><a href="otp">Check your email</a></td>
             <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--blue">
               New screen
             </strong></td>
           </tr>
           <tr class="govuk-table__row">
-            <td class="govuk-table__cell"><a href="/login">Check your phone</a></td>
+            <td class="govuk-table__cell"><a href="mfa">Check your phone</a></td>
+            <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--green">No change</strong></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell"><a href="reset">Rest your password</a></td>
             <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--blue">New screen</strong></td>
           </tr>
           <tr class="govuk-table__row">
-            <td class="govuk-table__cell"><a href="/login">Rest your password</a></td>
-            <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--blue">New screen</strong></td>
-          </tr>
-          <tr class="govuk-table__row">
-            <td class="govuk-table__cell"><a href="/login">Your password has been reset</a></td>
+            <td class="govuk-table__cell"><a href="reset-confirmation">Your password has been reset</a></td>
             <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--blue">New screen</strong></td>
           </tr>
         </tbody>
@@ -88,34 +107,32 @@
         </thead>
         <tbody class="govuk-table__body">
           <tr class="govuk-table__row">
-            <td class="govuk-table__cell"><a href="/no-account-found">No account found</a></td>
-            <strong class="govuk-tag govuk-tag--blue">New screen</strong>
-          </tr>
-          <tr class="govuk-table__row">
-            <td class="govuk-table__cell"><a href="/login">Get security code (email)</a></td>
-            
+            <td class="govuk-table__cell"><a href="no-account-found">No account found</a></td>
             <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--blue">New screen</strong></td>
           </tr>
           <tr class="govuk-table__row">
-            <td class="govuk-table__cell"><a href="/login">Get security code (phone)</a></td>
+            <td class="govuk-table__cell"><a href="get-code-email">Get security code (email)</a></td>
+            <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--blue">New screen</strong></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell"><a href="get-code-phone">Get security code (phone)</a></td>
             <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--blue">
               New screen
             </strong></td>
           </tr>
           <tr class="govuk-table__row">
-            <td class="govuk-table__cell"><a href="/login">You entered the wrong security code too many times</a></td>
+            <td class="govuk-table__cell"><a href="code-too-many">You entered the wrong security code too many times</a></td>
             <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--blue">New screen</strong></td>
           </tr>
           <tr class="govuk-table__row">
-            <td class="govuk-table__cell"><a href="/login">You cannot get a security code at the moment</a></td>
-            <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--blue">New screen</strong></td>
-          </tr>
-          <tr class="govuk-table__row">
-            <td class="govuk-table__cell"><a href="/login">Your password has been reset</a></td>
+            <td class="govuk-table__cell"><a href="cannot-get-code">You cannot get a security code at the moment</a></td>
             <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--blue">New screen</strong></td>
           </tr>
         </tbody>
       </table>
+      
+      </div>
+      </div>
 
 
 {% endblock %}

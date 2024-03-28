@@ -18,7 +18,7 @@
   
   <h1 class="govuk-heading-xl">
     
-    Shared signals password reset
+    User onboarding and account management
     
   </h1>
   <a href="password-reset/login" role="button" class="govuk-button govuk-button--inverse" data-module="govuk-button">
@@ -29,16 +29,19 @@
   </div>
 </div>
 
+<br>
 <div class="govuk-width-container">
 
-            
+  <h2 class="govuk-heading-l">Super admin user account activation</h2>
+  
+          
 
       <table class="govuk-table">
         <caption class="govuk-table__caption govuk-table__caption--m govuk-!-margin-top-9" >Happy path screens</caption>
         <thead class="govuk-table__head">
           <tr class="govuk-table__row">
             <th scope="col" class="govuk-table__header">Screen</th>
-            <th scope="col" class="govuk-table__header">Changes from MVP</th>
+            <th scope="col" class="govuk-table__header">Changes</th>
           </tr>
         </thead>
         <tbody class="govuk-table__body">
@@ -51,26 +54,28 @@
               </ul></td>
           </tr>
           <tr class="govuk-table__row">
-            <td class="govuk-table__cell"><a href="/login">What is your government email address?</a></td>
-            
-            <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--blue">New screen</strong></td>
-          </tr>
-          <tr class="govuk-table__row">
             <td class="govuk-table__cell"><a href="/login">Check your email</a></td>
-            <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--blue">
-              New screen
-            </strong></td>
+            <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--green">No changes</strong></td>
           </tr>
           <tr class="govuk-table__row">
-            <td class="govuk-table__cell"><a href="/login">Check your phone</a></td>
+            <td class="govuk-table__cell"><a href="/login">Enter your phone number</a></td>
             <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--blue">New screen</strong></td>
           </tr>
           <tr class="govuk-table__row">
-            <td class="govuk-table__cell"><a href="/login">Rest your password</a></td>
+            <td class="govuk-table__cell"><a href="super-admin-activate/mfa-activate">Check your phone</a></td>
+            <td class="govuk-table__cell"><p class="govuk-body">Changes include:</p>
+              <ul class="govuk-list govuk-list--bullet">
+                <li>same as phone MFA screen for sign in, but added 'use different phone number' link</li>
+                
+              </ul></td>
+          </tr>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell"><a href="/7-0-0/account-management/super-admin-activate/activate-confirmation">Your account has been activated</a></td>
             <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--blue">New screen</strong></td>
           </tr>
           <tr class="govuk-table__row">
-            <td class="govuk-table__cell"><a href="/login">Your password has been reset</a></td>
+            <td class="govuk-table__cell"><a href="/7-0-0/account-management/super-admin-activate/task">Task screen (with super admin permissions)</a></td>
             <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--blue">New screen</strong></td>
           </tr>
         </tbody>
