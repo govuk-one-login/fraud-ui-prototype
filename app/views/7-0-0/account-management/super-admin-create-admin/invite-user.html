@@ -1,0 +1,97 @@
+{% extends "layouts/main.html" %}
+
+
+
+
+{% block beforeContent %}
+{% include('/7-0-0/includes/phase-banner.html') %}
+
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+
+{% endblock %}
+
+{% block content %}
+
+
+
+<div class="govuk-grid-row">
+    
+    
+        <div class="govuk-grid-column-two-thirds">
+        <form action="access-level" method="post" novalidate>
+
+
+
+      <h1 class="govuk-heading-l">
+        Invite a team member
+      </h1>
+
+<!-- <p>If you do not have an account yet, you can <a href="">[create one]</a></p> -->
+    <!-- <form action="/mfa" method="post" novalidate> -->
+      <p>We will email them an invitation link to join the service.</p>
+
+
+      {% from "govuk/components/input/macro.njk" import govukInput %}
+
+      <div class="govuk-form-group">
+        <label class="govuk-label " for="width-20">
+          Government email address
+        </label>
+        <input class="govuk-input govuk-input--width-20" id="width-20" name="width20" type="text">
+      </div>
+  
+
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset">
+            <legend class="govuk-fieldset__legend">
+              Choose access level
+            </legend>
+          </legend>
+          <div class="govuk-radios" data-module="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="access" name="access" type="radio" value="admin">
+              <label class="govuk-label govuk-radios__label" for="access">
+                Admin
+              </label>
+              <div id="access-item-hint" class="govuk-hint govuk-radios__hint">
+                They will be able to invite and manage users below admin level, share and download fraud information
+              </div>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="access-2" name="access" type="radio" value="standard">
+              <label class="govuk-label govuk-radios__label" for="access-2">
+                Standard
+              </label>
+              <div id="access-2-item-hint" class="govuk-hint govuk-radios__hint">
+                They will be able to share and download fraud information
+              </div>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="access-3" name="whereDoYouLive" type="radio" value="download-only">
+              <label class="govuk-label govuk-radios__label" for="access-3">
+                Download only
+              </label>
+              <div id="access-3-item-hint" class="govuk-hint govuk-radios__hint">
+                They will be able to download fraud information only
+              </div>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+
+      {{ govukButton({
+        text: "Continue"
+      }) }}
+      
+    </form>
+
+
+  </div>
+</div>
+
+{% endblock %}

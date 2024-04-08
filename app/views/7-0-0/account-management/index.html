@@ -9,7 +9,7 @@
   <div class="govuk-width-container">
     
     <div class="govuk-grid-row">
-      <div class="govuk-grid-column-two-thirds-from-desktop">
+      <div class="govuk-grid-column-two-thirds">
 
   {{ govukBackLink({
     text: "Back",
@@ -21,9 +21,6 @@
     User onboarding and account management
     
   </h1>
-  <a href="password-reset/login" role="button" class="govuk-button govuk-button--inverse" data-module="govuk-button">
-    Start happy path prototype
-  </a>
       </div>
     </div>
   </div>
@@ -32,7 +29,7 @@
 <br>
 <div class="govuk-width-container">
 
-  <h2 class="govuk-heading-l">Super admin user account activation</h2>
+  <h2 class="govuk-heading-l">Account activation - lead user</h2>
   
           
 
@@ -47,11 +44,7 @@
         <tbody class="govuk-table__body">
           <tr class="govuk-table__row">
             <td class="govuk-table__cell"><a href="/7-0-0/account-management/password-reset/login">Sign in</a></td>
-            <td class="govuk-table__cell"><p class="govuk-body">Changes include:</p>
-              <ul class="govuk-list govuk-list--bullet">
-                <li>added reset password link</li>
-                <li>changes to content</li>
-              </ul></td>
+            <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--green">No changes</strong></td>
           </tr>
           <tr class="govuk-table__row">
             <td class="govuk-table__cell"><a href="/login">Check your email</a></td>
@@ -63,19 +56,22 @@
           </tr>
           <tr class="govuk-table__row">
             <td class="govuk-table__cell"><a href="super-admin-activate/mfa-activate">Check your phone</a></td>
-            <td class="govuk-table__cell"><p class="govuk-body">Changes include:</p>
-              <ul class="govuk-list govuk-list--bullet">
-                <li>same as phone MFA screen for sign in, but added 'use different phone number' link</li>
-                
-              </ul></td>
+            <td class="govuk-table__cell">
+              <strong class="govuk-tag govuk-tag--blue">New screen</strong>
+              <p class="govuk-body">same as phone MFA screen for sign in, but added 'use different phone number' link</p>
+            </td>
           </tr>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell"><a href="/login">Reset your password</a></td>
+            <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--green">No changes</strong></td>
           </tr>
           <tr class="govuk-table__row">
             <td class="govuk-table__cell"><a href="/7-0-0/account-management/super-admin-activate/activate-confirmation">Your account has been activated</a></td>
             <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--blue">New screen</strong></td>
           </tr>
           <tr class="govuk-table__row">
-            <td class="govuk-table__cell"><a href="/7-0-0/account-management/super-admin-activate/task">Task screen (with super admin permissions)</a></td>
+            <td class="govuk-table__cell"><a href="/7-0-0/account-management/super-admin-activate/task">Task screen (with lead user permissions)</a></td>
             <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--blue">New screen</strong></td>
           </tr>
         </tbody>

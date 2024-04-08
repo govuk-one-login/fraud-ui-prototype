@@ -1,0 +1,76 @@
+{% extends "layouts/main.html" %}
+
+
+
+{% block beforeContent %}
+{% include('/7-0-0/includes/phase-banner.html') %}
+
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+
+{% endblock %}
+
+{% block content %}
+
+
+
+<div class="govuk-grid-row">
+    
+    
+        <div class="govuk-grid-column-two-thirds">
+        <form action="otp" method="post" novalidate>
+
+
+
+      <h1 class="govuk-heading-l">
+        Sign in to share fraud information for GOV.UK One Login
+      </h1>
+<!-- <p>If you do not have an account yet, you can <a href="">[create one]</a></p> -->
+    <!-- <form action="/mfa" method="post" novalidate> -->
+
+      {% from "govuk/components/input/macro.njk" import govukInput %}
+
+{{ govukInput({
+  label: {
+    text: "Government email address"
+  },
+  id: "username",
+  name: "username",
+  autocomplete: "username",
+  classes: "govuk-input--width-20",
+  spellcheck: false
+}) }}
+
+<input type="hidden" name="_csrf" value="R5llNOhf-XOT-AHiIgPkphEHnEIHIHcEh0Wo" class="govuk-input--width-20">
+<div class="govuk-show-password govuk-input--width-30" data-module="show-password" data-disable-form-submit-check="false" data-show-text="Show" data-hide-text="Hide" data-show-full-text="Show password" data-hide-full-text="Hide password" data-announce-show="Your password is shown" data-announce-hide="Your password is hidden">
+    
+<div class="govuk-form-group">
+<label class="govuk-label" for="password">
+Password
+</label>
+<div class="govuk-input__wrapper"><div class="govuk-show-password__input-wrapper"><input class="govuk-input govuk-!-width-two-thirds govuk-password-input govuk-input--with-password" id="password" name="password" type="password" spellcheck="false" aria-describedby="password-hint" autocomplete="new-password" aria-autocomplete="list"><button class="govuk-show-password__toggle" aria-controls="password" type="button" aria-label="Show password">Show</button><span class="govuk-visually-hidden" aria-live="polite">Your password is hidden</span></div><span class="govuk-input__icon govuk-input__icon--right" onclick="togglePasswordVisibility('password', this)"></span><span class="govuk-visually-hidden" aria-live="polite">Your password is hidden</span> 
+</div>
+</div>
+
+
+  
+
+      {{ govukButton({
+        text: "Sign in"
+      }) }}
+
+      <p class="govuk-body">
+        <a href="email" class="govuk-link">I have forgotten my password</a>
+        
+      </p>
+
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}

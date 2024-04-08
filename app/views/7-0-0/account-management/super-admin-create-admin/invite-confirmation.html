@@ -1,0 +1,47 @@
+{% extends "layouts/main.html" %}
+
+
+
+
+{% block beforeContent %}
+{% include('/7-0-0/includes/phase-banner.html') %}
+
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+
+
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form action="/7-0-0/account-management/manage-users" method="post" novalidate>
+
+      
+    
+     
+        <h1 class="govuk-heading-l">Invitation email sent</h1>
+
+
+        <p class="govuk-body">We have sent an invitation link to john.doe@example.gov.uk.</p>
+
+        <p class="govuk-body">It will expire in 1 week.</p>
+
+
+        <p class="govuk-body"><a href="manage-users">Back to manage users</a></p>
+        
+
+        
+      
+    
+
+         
+        </form>
+    </div>
+  </div>
+
+  
+
+
+
+{% endblock %}

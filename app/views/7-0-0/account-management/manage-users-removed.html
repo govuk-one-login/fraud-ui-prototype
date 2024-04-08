@@ -18,6 +18,19 @@
     <div class="govuk-grid-column-two-thirds">
       <form action="/7-0-0/account-management/super-admin-create-admin/email" method="post" novalidate>
 
+        <div class="govuk-notification-banner govuk-notification-banner--success" role="alert" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+          <div class="govuk-notification-banner__header">
+            <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+              Success
+            </h2>
+          </div>
+          <div class="govuk-notification-banner__content">
+            <h3 class="govuk-notification-banner__heading">
+              You have removed jane.doe@example.gov.uk
+            </h3>
+          </div>
+        </div>
+
       
     
      
@@ -55,24 +68,6 @@
                 <td class="govuk-table__cell"><a href="delete">Remove user</a></td>
               </tr>
                 
-            </tbody>
-          </table>
-
-          <table class="govuk-table">
-            <caption class="govuk-table__caption govuk-table__caption--m">Pending invitations</caption>
-            <thead class="govuk-table__head">
-              <tr class="govuk-table__row">
-                <th scope="col" class="govuk-table__header">Username</th>
-                <th scope="col" class="govuk-table__header">Access level</th>
-                <th scope="col" class="govuk-table__header">Action</th>
-              </tr>
-            </thead>
-            <tbody class="govuk-table__body">
-              <tr class="govuk-table__row">
-                <th scope="row" class="govuk-table__header">jane.doe@example.gov.uk</th>
-                <td class="govuk-table__cell">Standard</td>
-                <td class="govuk-table__cell"><a href="delete">Remove user</a></td>
-              </tr>
             </tbody>
           </table>
 

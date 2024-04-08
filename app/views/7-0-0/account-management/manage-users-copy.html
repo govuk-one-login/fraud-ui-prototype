@@ -1,0 +1,65 @@
+{% extends "layouts/main.html" %}
+
+{% block beforeContent %}
+{% include('/7-0-0/includes/phase-banner.html') %}
+
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "index"
+}) }}
+
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form action="/7-0-0/account-management/super-admin-create-admin/email" method="post" novalidate>
+
+      
+    
+     
+        <h1 class="govuk-heading-l">Manage users in your organisation</h1>
+
+
+        <button type="Submit" data-prevent-double-click="true" class="govuk-button" data-module="govuk-button" href="/login">
+          Invite a team member
+          </button>
+
+          <dl class="govuk-summary-list">
+            <div class="govuk-summary-list__row">
+              <h2 class="govuk-heading-s">john.doe@example.gov.uk (you)</h2>
+              <p class="govuk-body">Team lead user <a>Change</a>           
+            </div>
+          </dl>
+         
+
+             
+
+          <table class="govuk-table">
+            <caption class="govuk-table__caption govuk-table__caption--m">Pending invitations</caption>
+            <thead class="govuk-table__head">
+              <tr class="govuk-table__row">
+                <th scope="col" class="govuk-table__header">Username</th>
+                <th scope="col" class="govuk-table__header">Access level</th>
+              </tr>
+            </thead>
+            <tbody class="govuk-table__body">
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header"><a href="/task">jane.doe@example.gov.uk</a></th>
+                <td class="govuk-table__cell">Admin</td>
+            </tbody>
+          </table>
+
+         
+        </form>
+    </div>
+  </div>
+
+  
+
+
+
+{% endblock %}
