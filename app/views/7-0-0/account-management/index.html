@@ -28,13 +28,25 @@
 
 <br>
 <div class="govuk-width-container">
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
 
-  <h2 class="govuk-heading-l">Account activation - lead user</h2>
-  
-          
+      <div class="govuk-warning-text">
+        <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+        <strong class="govuk-warning-text__text">
+          <span class="govuk-visually-hidden">Warning</span>
+          This prototype does not show all screen logic of the password reset journey. Refer to the Mural, linked below for detailed screen logic.
+        </strong>
+      </div>
+
+  <h2 class="govuk-heading-l">Lead user account activation</h2>
+
+  <a href="/7-0-0/account-management/password-reset/login" class="govuk-button" data-module="govuk-button">
+    Start prototype
+  </a>
+
 
       <table class="govuk-table">
-        <caption class="govuk-table__caption govuk-table__caption--m govuk-!-margin-top-9" >Happy path screens</caption>
         <thead class="govuk-table__head">
           <tr class="govuk-table__row">
             <th scope="col" class="govuk-table__header">Screen</th>
@@ -47,14 +59,6 @@
             <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--green">No changes</strong></td>
           </tr>
           <tr class="govuk-table__row">
-            <td class="govuk-table__cell"><a href="/login">Check your email</a></td>
-            <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--green">No changes</strong></td>
-          </tr>
-          <tr class="govuk-table__row">
-            <td class="govuk-table__cell"><a href="/login">Enter your phone number</a></td>
-            <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--blue">New screen</strong></td>
-          </tr>
-          <tr class="govuk-table__row">
             <td class="govuk-table__cell"><a href="super-admin-activate/mfa-activate">Check your phone</a></td>
             <td class="govuk-table__cell">
               <strong class="govuk-tag govuk-tag--blue">New screen</strong>
@@ -63,23 +67,24 @@
           </tr>
           </tr>
           <tr class="govuk-table__row">
-            <td class="govuk-table__cell"><a href="/login">Reset your password</a></td>
+            <td class="govuk-table__cell"><a href="super-admin-activate/reset">Reset your password</a></td>
             <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--green">No changes</strong></td>
           </tr>
           <tr class="govuk-table__row">
-            <td class="govuk-table__cell"><a href="/7-0-0/account-management/super-admin-activate/activate-confirmation">Your account has been activated</a></td>
+            <td class="govuk-table__cell"><a href="/7-0-0/account-management/super-admin-activate/activate-confirmation">You have activated your account</a></td>
             <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--blue">New screen</strong></td>
           </tr>
           <tr class="govuk-table__row">
-            <td class="govuk-table__cell"><a href="/7-0-0/account-management/super-admin-activate/task">Task screen (with lead user permissions)</a></td>
-            <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--blue">New screen</strong></td>
+            <td class="govuk-table__cell"><a href="/7-0-0/account-management/super-admin-activate/task">Task screen</a></td>
+            <td class="govuk-table__cell"><p class="govuk-body">
+                Added 'manage users section' for team lead and admins</p>
+            
           </tr>
         </tbody>
       </table>
 
 
       <table class="govuk-table">
-        <caption class="govuk-table__caption govuk-table__caption--m govuk-!-margin-top-9" >Unhappy path screens</caption>
         <thead class="govuk-table__head">
           <tr class="govuk-table__row">
             <th scope="col" class="govuk-table__header">Screen</th>
@@ -120,6 +125,112 @@
           </tr>
         </tbody>
       </table>
+
+      <br>
+      <br>
+
+
+
+      <h2 class="govuk-heading-l">Super admin user invites user via UI</h2>
+
+      <a href="/7-0-0/account-management/password-reset/login" class="govuk-button" data-module="govuk-button">
+        Start prototype
+      </a>
+  
+          
+
+      <table class="govuk-table">
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header">Screen</th>
+            <th scope="col" class="govuk-table__header">Changes</th>
+          </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell"><a href="/7-0-0/account-management/password-reset/login">Manage users</a></td>
+            <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--blue">New screen</strong></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell"><a href="/login">What level of access?</a></td>
+            <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--blue">New screen</strong></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell"><a href="/login">Enter their email address</a></td>
+            <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--blue">New screen</strong></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell"><a href="super-admin-activate/mfa-activate">Invitation sent</a></td>
+            <td class="govuk-table__cell">
+              <strong class="govuk-tag govuk-tag--blue">New screen</strong>
+              <p class="govuk-body">same as phone MFA screen for sign in, but added 'use different phone number' link</p>
+            </td>
+          </tr>
+          </tr>
+        </tbody>
+      </table>
+
+      <br>
+      <br>
+
+      <h2 class="govuk-heading-l">User account activation</h2>
+
+
+      <table class="govuk-table">
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header">Screen</th>
+            <th scope="col" class="govuk-table__header">Changes</th>
+          </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell"><a href="super-admin-activate/mfa-activate">Check your email</a></td>
+            <td class="govuk-table__cell">
+              <strong class="govuk-tag govuk-tag--blue">New screen</strong>
+              <p class="govuk-body">same as phone MFA screen for sign in, but added 'use different phone number' link</p>
+            </td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell"><a href="super-admin-activate/mfa-activate">Check your phone</a></td>
+            <td class="govuk-table__cell">
+              <strong class="govuk-tag govuk-tag--blue">New screen</strong>
+              <p class="govuk-body">same as phone MFA screen for sign in, but added 'use different phone number' link</p>
+            </td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell"><a href="super-admin-activate/mfa-activate">Check your phone</a></td>
+            <td class="govuk-table__cell">
+              <strong class="govuk-tag govuk-tag--blue">New screen</strong>
+              <p class="govuk-body">same as phone MFA screen for sign in, but added 'use different phone number' link</p>
+            </td>
+          </tr>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell"><a href="/login">Reset your password</a></td>
+            <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--green">No changes</strong></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell"><a href="/7-0-0/account-management/super-admin-activate/activate-confirmation">You have activated your account</a></td>
+            <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--blue">New screen</strong></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell"><a href="/7-0-0/account-management/super-admin-activate/task">Task screen (with lead user permissions)</a></td>
+            <td class="govuk-table__cell"><p class="govuk-body">Changes include:</p>
+              <ul class="govuk-list govuk-list--bullet">
+                <li>added 'manage users section' for team lead and admins</li>
+              </ul></td>
+          </tr>
+        </tbody>
+      </table>
+
+
+
+      </div>
+      </div>
+
+
+     
 
 
 {% endblock %}
