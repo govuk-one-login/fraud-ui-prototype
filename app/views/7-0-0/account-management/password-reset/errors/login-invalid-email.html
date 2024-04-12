@@ -24,6 +24,21 @@
         <div class="govuk-grid-column-two-thirds">
         <form action="" method="post" novalidate>
 
+          <div class="govuk-error-summary" data-module="govuk-error-summary">
+            <div role="alert">
+              <h2 class="govuk-error-summary__title">
+                There is a problem
+              </h2>
+              <div class="govuk-error-summary__body">
+                <ul class="govuk-list govuk-error-summary__list">
+                  <li>
+                    <a href="#">Enter your email address in the correct format, like name@example.com</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
 
 
       <h1 class="govuk-heading-l">
@@ -42,12 +57,14 @@
         <div class="govuk-grid-column-two-thirds">
 
 
-      <div class="govuk-form-group">
+      <div class="govuk-form-group govuk-form-group--error">
         <label class="govuk-label" for="email">
          Government email address
         </label>
-        
-        <input class="govuk-input govuk-input--width-20 " id="email-number" name="email" type="text">
+        <p id="email-error" class="govuk-error-message">
+          <span class="govuk-visually-hidden">Error:</span> Enter your email address in the correct format, like name@example.com
+        </p>
+        <input class="govuk-input govuk-input--width-20 govuk-input--error" id="email-number" name="email" type="text" aria-describedby="email-hint email-error">
       </div>
 
       <div class="govuk-form-group govuk-password-input" data-module="govuk-password-input">
@@ -61,7 +78,6 @@
           </button>
         </div>
       </div>
-    
 
       {{ govukButton({
         text: "Sign in"

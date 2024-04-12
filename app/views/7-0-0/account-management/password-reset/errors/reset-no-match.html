@@ -1,0 +1,108 @@
+{% extends "layouts/main.html" %}
+
+
+
+
+{% block beforeContent %}
+{% include('/7-0-0/includes/phase-banner.html') %}
+
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+
+
+{% endblock %}
+
+{% block content %}
+
+
+
+<div class="govuk-grid-row">
+    
+    
+        <div class="govuk-grid-column-two-thirds">
+        <form action="reset-confirmation" method="post" novalidate>
+
+          <div class="govuk-error-summary" data-module="govuk-error-summary">
+            <div role="alert">
+              <h2 class="govuk-error-summary__title">
+                There is a problem
+              </h2>
+              <div class="govuk-error-summary__body">
+                <ul class="govuk-list govuk-error-summary__list">
+                  <li>
+                    <a href="#">Enter the same password in both fields</a>
+                  </li>
+                  
+                </ul>
+              </div>
+            </div>
+          </div>
+
+
+          <h1 class="govuk-heading-l">Reset your password</h1>
+
+          
+
+
+          
+
+          <div class="govuk-form-group govuk-form-group--error govuk-password-input" data-module="govuk-password-input">
+            <label class="govuk-label" for="password-input">
+              Enter a new password
+            </label>
+            <div id="password-hint" class="govuk-hint">
+              It must be at least 8 characters and must include letters and numbers. Do not use a very common password, such as ‘password’ or a sequence of numbers.
+            </div>
+            <p id="email-error" class="govuk-error-message">
+              <span class="govuk-visually-hidden">Error:</span>Enter the same password in both fields
+            </p>
+            <div class="govuk-input__wrapper govuk-password-input__wrapper">
+              <input class="govuk-input govuk-password-input__input govuk-js-password-input-input govuk-input--error" id="password-input" name="password" type="password" spellcheck="false" autocomplete="current-password" autocapitalize="none" aria-describedby="password-hint password-error">
+              <button type="button" class="govuk-button govuk-button--secondary  govuk-password-input__toggle govuk-js-password-input-toggle" data-module="govuk-button" aria-controls="password-input" aria-label="Show password" hidden>
+                Show
+              </button>
+            </div>
+          </div>
+
+
+          <div class="govuk-form-group govuk-form-group--error govuk-password-input" data-module="govuk-password-input">
+            <label class="govuk-label" for="password-input">
+              Re-type password
+            </label>
+            <p id="email-error" class="govuk-error-message">
+              <span class="govuk-visually-hidden">Error:</span>Enter the same password in both fields
+            </p>
+            <div class="govuk-input__wrapper govuk-password-input__wrapper">
+              <input class="govuk-input govuk-password-input__input govuk-js-password-input-input govuk-input--error" id="password-input" name="password" type="password" spellcheck="false" autocomplete="current-password" autocapitalize="none" aria-describedby="password-hint password-error">
+              <button type="button" class="govuk-button govuk-button--secondary  govuk-password-input__toggle govuk-js-password-input-toggle" data-module="govuk-button" aria-controls="password-input" aria-label="Show password" hidden>
+                Show
+              </button>
+            </div>
+          </div>
+
+
+
+            <details class="govuk-details" data-module="govuk-details">
+              <summary class="govuk-details__summary">
+                <span class="govuk-details__summary-text">
+                  How to create a secure password
+                </span>
+              </summary>
+              <div class="govuk-details__text">
+                <p class="govuk-body">A good way to create a secure and memorable password is to use 3 random words. You can use numbers, symbols and spaces.</p>
+                <p class="govuk-body">You should use a password that you do not use for anything else.</p>
+              </div>
+            </details>
+
+  
+      {{ govukButton({
+        text: "Continue"
+      }) }}
+    
+      
+    </form>
+    <!--% include('/7-0-0/includes/help.html') %} -->
+
+  </div>
+</div>
+
+{% endblock %}
