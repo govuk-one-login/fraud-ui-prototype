@@ -35,9 +35,9 @@ What has happened to the account – {{ serviceName }} – GOV.UK Prototype Kit
 
        (data['reason'] == "Password compromised") %}
     
-       {% set question = "What do you suspect has happened to the GOV.UK One Login identifier?" %}
+       {% set question = "What do you suspect has happened to the GOV.UK One Login subject identifier?" %}
        {% if (data['release-state'] != "MVPadd")  %}
-       {% set question = "What do you suspect has happened to the GOV.UK One Login identifier?" %}
+       {% set question = "What do you suspect has happened to the GOV.UK One Login subject identifier?" %}
        {% set hint = "" %}
 
        {% endif %}
