@@ -39,7 +39,7 @@
       {% from "govuk/components/input/macro.njk" import govukInput %}
 
       <div class="govuk-form-group">
-        <label class="govuk-label " for="width-20">
+        <label class="govuk-label govuk-label--m" for="width-20">
           Government email address
         </label>
         <input class="govuk-input govuk-input--width-20" id="width-20" name="width20" type="text">
@@ -48,20 +48,12 @@
 
       <div class="govuk-form-group">
         <fieldset class="govuk-fieldset">
-            <legend class="govuk-fieldset__legend">
-              Choose access level
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+              Access level
             </legend>
           </legend>
           <div class="govuk-radios" data-module="govuk-radios">
-            <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="access" name="access" type="radio" value="admin">
-              <label class="govuk-label govuk-radios__label" for="access">
-                Admin
-              </label>
-              <div id="access-item-hint" class="govuk-hint govuk-radios__hint">
-                They will be able to invite and manage users below admin level, share and download fraud information
-              </div>
-            </div>
+            
             <div class="govuk-radios__item">
               <input class="govuk-radios__input" id="access-2" name="access" type="radio" value="standard">
               <label class="govuk-label govuk-radios__label" for="access-2">
@@ -78,6 +70,15 @@
               </label>
               <div id="access-3-item-hint" class="govuk-hint govuk-radios__hint">
                 They will be able to download fraud information only
+              </div>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="access" name="access" type="radio" value="admin">
+              <label class="govuk-label govuk-radios__label" for="access">
+                Admin
+              </label>
+              <div id="access-item-hint" class="govuk-hint govuk-radios__hint">
+                They will be able to invite and manage users below admin level, share and download fraud information
               </div>
             </div>
           </div>
