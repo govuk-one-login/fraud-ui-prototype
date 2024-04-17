@@ -1,0 +1,49 @@
+{% extends "layouts/main.html" %}
+
+{% block beforeContent %}
+{% include('/7-0-0/includes/phase-banner.html') %}
+
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "index"
+}) }}
+
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form action="/7-0-0/account-management/super-admin-create-admin/email" method="post" novalidate>
+
+      
+    
+     
+        <h1 class="govuk-heading-l">Manage users in your organisation</h1>
+
+
+        <button type="Submit" data-prevent-double-click="true" class="govuk-button" data-module="govuk-button" href="/login">
+          Invite a team member
+          </button>
+
+  
+
+              <h2 class="govuk-heading-s">john.doe@example.gov.uk (you)</h2>
+              <p class="govuk-body">Lead user</p>
+          
+              
+              <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+          
+           
+        
+        </form>
+    </div>
+  </div>
+
+  
+
+
+
+{% endblock %}

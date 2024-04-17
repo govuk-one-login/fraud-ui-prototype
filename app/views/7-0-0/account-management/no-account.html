@@ -4,7 +4,7 @@
 
 
 {% block beforeContent %}
-{% include('../includes/phase-banner.html') %}
+{% include('/7-0-0/includes/phase-banner.html') %}
 
 {% from "govuk/components/back-link/macro.njk" import govukBackLink %}
 
@@ -15,12 +15,21 @@
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <form action="/login" method="post" novalidate>
+      <form action="/7-0-0/task" method="post" novalidate>
 
       
     
      
-        <h1 class="govuk-heading-l">Your password has been reset</h1>
+        <h1 class="govuk-heading-l">You do not have an account</h1>
+
+        <p>There is no account for <strong>email@example.com</strong></p>
+
+        <p><a href="login">Try signing in again</a></p>
+
+
+        <p>Contact your team lead or the <a href="/">GOV.UK One Login support team</a>.</strong></p>
+
+
 
         
       

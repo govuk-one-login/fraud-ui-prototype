@@ -1,0 +1,79 @@
+{% extends "layouts/main.html" %}
+
+
+
+
+{% block beforeContent %}
+{% include('/7-0-0/includes/phase-banner.html') %}
+
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+
+{% endblock %}
+
+{% block content %}
+
+
+
+<div class="govuk-grid-row">
+    
+    
+        <div class="govuk-grid-column-two-thirds">
+        <form action="create-confirmation" method="post" novalidate>
+
+
+
+          <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset">
+              <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                <h1 class="govuk-fieldset__heading">
+                  What level of access do they require?
+                </h1>
+              </legend>
+              <div class="govuk-radios" data-module="govuk-radios">
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="access" name="access" type="radio" value="admin">
+                  <label class="govuk-label govuk-radios__label" for="access">
+                    Admin
+                  </label>
+                  <div id="access-item-hint" class="govuk-hint govuk-radios__hint">
+                    They will be able to manage users below admin level, share and download fraud information
+                  </div>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="access-2" name="access" type="radio" value="standard">
+                  <label class="govuk-label govuk-radios__label" for="access-2">
+                    Standard
+                  </label>
+                  <div id="access-2-item-hint" class="govuk-hint govuk-radios__hint">
+                    They will be able to share and download fraud information
+                  </div>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="access-3" name="whereDoYouLive" type="radio" value="download-only">
+                  <label class="govuk-label govuk-radios__label" for="access-3">
+                    Download only
+                  </label>
+                  <div id="access-3-item-hint" class="govuk-hint govuk-radios__hint">
+                    They will be able to download fraud information
+                  </div>
+                </div>
+              </div>
+            </fieldset>
+          </div>
+
+          <button type="Submit" data-prevent-double-click="true" class="govuk-button" data-module="govuk-button">
+            Continue
+            </button>
+      
+    </form>
+
+
+  </div>
+</div>
+
+{% endblock %}

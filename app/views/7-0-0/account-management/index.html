@@ -1,0 +1,251 @@
+{% extends "layouts/main.html" %}
+
+
+
+
+{% block beforeContent %}
+</div>
+<div class="govuk-masthead govuk-!-padding-top-1 govuk-!-padding-bottom-6 govuk-!-margin-bottom-2">
+  <div class="govuk-width-container">
+    
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+  
+  <h1 class="govuk-heading-xl">
+    
+    User onboarding and account management
+    
+  </h1>
+      </div>
+    </div>
+  </div>
+</div>
+
+<br>
+<div class="govuk-width-container">
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <div class="govuk-warning-text">
+        <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+        <strong class="govuk-warning-text__text">
+          <span class="govuk-visually-hidden">Warning</span>
+          This prototype does not show all screen logic of the journeys. Refer to the Mural, linked below for detailed screen logic.
+        </strong>
+      </div>
+
+      <p><a href="/">
+        Detailed screen flow for build - Mural</a></p>
+
+  <h2 class="govuk-heading-l">Lead user activates account during onboarding video call</h2>
+
+  <p><a href="/7-0-0/account-management/super-admin-activate/login">
+  Start journey in prototype</a></p>
+
+
+      <table class="govuk-table">
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header">Screen</th>
+            <th scope="col" class="govuk-table__header">Changes</th>
+          </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell"><a href="/7-0-0/account-management/super-admin-activate/login">Sign in</a></td>
+            <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--green">No changes</strong></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell"><a href="/7-0-0/account-management/super-admin-activate/phone">Enter your phone number</a></td>
+            <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--blue">New screen</strong></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell"><a href="super-admin-activate/mfa-activate">Check your phone</a></td>
+            <td class="govuk-table__cell">
+              <strong class="govuk-tag govuk-tag--blue">New screen</strong>
+              <p class="govuk-body">same as phone MFA screen for sign in, but added 'use different phone number' link</p>
+            </td>
+          </tr>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell"><a href="super-admin-activate/reset">Reset your password</a></td>
+            <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--green">No changes</strong></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell"><a href="/7-0-0/account-management/super-admin-activate/activate-confirmation">You have activated your account</a></td>
+            <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--blue">New screen</strong></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell"><a href="/7-0-0/account-management/super-admin-activate/task">Task screen</a></td>
+            <td class="govuk-table__cell"><p class="govuk-body">
+                Added 'manage users section' - visible to Lead users and Admin users only</p>
+            
+          </tr>
+        </tbody>
+      </table>
+
+      <br>
+      <br>
+
+
+
+      <h2 class="govuk-heading-l">Lead user invites a team member</h2>
+
+    <p> <a href="/7-0-0/account-management/super-admin-invite-admin">
+        Start journey in prototype
+      </a></p>
+  
+          
+
+      <table class="govuk-table">
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header">Screen</th>
+            <th scope="col" class="govuk-table__header">Changes</th>
+          </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell"><a href="/7-0-0/account-management/manage-users">Manage users</a></td>
+            <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--blue">New screen</strong></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell"><a href="super-admin-invite-admin/access-level">What level of access? (Lead user permissions)</a></td>
+            <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--blue">New screen</strong></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell"><a href="super-admin-invite-admin/email">Enter their email address</a></td>
+            <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--blue">New screen</strong></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell"><a href="super-admin-invite-admin/cya">Check the details</a></td>
+            <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--blue">New screen</strong>></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell"><a href="super-admin-activate/invite-confirmation">Invitation sent</a></td>
+            <td class="govuk-table__cell">
+              <strong class="govuk-tag govuk-tag--blue">New screen</strong>
+            </td>
+          </tr>
+          </tr>
+        </tbody>
+      </table>
+
+      <br>
+    </br>
+
+
+      <h2 class="govuk-heading-l">Team member activates account from email invite</h2>
+
+      <p><a href="/7-0-0/account-management/admin-activate">
+        Start journey in prototype</a></p>
+      
+
+
+      <table class="govuk-table">
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header">Screen</th>
+            <th scope="col" class="govuk-table__header">Changes</th>
+          </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell"><a href="super-admin-activate/mfa-activate">Check your email</a></td>
+            <td class="govuk-table__cell">
+              same as lead user journey
+            </td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell"><a href="/7-0-0/account-management/super-admin-activate/phone">Enter your phone number</a></td>
+            <td class="govuk-table__cell">same as lead user journey</td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell"><a href="super-admin-activate/mfa-activate">Check your phone</a></td>
+            <td class="govuk-table__cell">
+              <p class="govuk-body">same as lead user journey</p>
+            </td>
+          </tr>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell"><a href="/login">Create your password</a></td>
+            <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--blue">New screen</strong>
+            </td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell"><a href="/7-0-0/account-management/super-admin-activate/activate-confirmation">You have activated your account</a></td>
+            <td class="govuk-table__cell">Same as lead user journey</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <br>
+      <br>
+      <h2 class="govuk-heading-l">Admin user invites a team member</h2>
+
+  
+      <p>Same invite screens as a lead user above, but an admin only invite 'Standard users' and 'download only' users</p>
+
+    <table class="govuk-table">
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header">Screen</th>
+          <th scope="col" class="govuk-table__header">Changes</th>
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell"><a href="super-admin-invite-admin/access-level">What level of access? (Admin user permissions)</a></td>
+          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--blue">New screen</strong></td>
+        </tr>
+        
+      </tbody>
+    </table>
+
+    <br>
+    <br>
+
+
+    <h2 class="govuk-heading-l">Lead user deletes a team member</h2>
+
+
+
+    <table class="govuk-table">
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header">Screen</th>
+          <th scope="col" class="govuk-table__header">Changes</th>
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell"><a href="super-admin-invite-admin/access-level">Manage users</a></td>
+          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--blue">New screen</strong></td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell"><a href="super-admin-invite-admin/access-level">Are you sure you want to remove (email)?</a></td>
+          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--blue">New screen</strong></td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell"><a href="super-admin-invite-admin/access-level">Manage users screen with 'user removed' banner</a></td>
+          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--blue">New screen</strong></td>
+        </tr>
+        
+      </tbody>
+    </table>
+
+
+
+      </div>
+      </div>
+
+
+     
+
+
+{% endblock %}

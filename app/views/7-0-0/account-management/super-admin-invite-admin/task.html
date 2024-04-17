@@ -1,0 +1,223 @@
+{% extends "layouts/main.html" %}
+
+
+{% block header %}
+
+{% include('7-0-0/includes/header.html') %}
+{% endblock %}
+
+
+{% block pageTitle %}
+What would you like to do? – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{% include('7-0-0/includes/phase-banner.html') %}
+
+
+{% endblock %}
+
+
+{% block content %}
+
+
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-l">{{serviceName}}</h1>
+
+      
+    <!-- <h1 class="govuk-heading-l">Send and receive Fraud Shared Signals</h1> -->
+    <!-- {% if (data['release-state'] == "MVP")  %}
+    <p>Use this service to download and add fraud information, often called shared signals.</p>
+
+    {% else %}
+    <p>Use this service to view, download and add fraud information, often called shared signals. 
+      {% if (data['release-state'] == null)  %}
+  
+      You can also view your previously submitted information.    
+      {% endif %}
+
+    </p>
+
+    {% endif %} -->
+
+    {% if (data['notification'] == "yes")  %}
+
+    <div class="govuk-inset-text">
+      There are 3 updates for events you have previously downloaded or viewed, <a href="get-reasons">download fraud information
+    </a>
+    </div>
+
+ 
+  {% endif %}
+  
+  </div>
+    </div>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <p>You're signed in as <strong>example@email.com</strong></p>
+
+      <div class="govuk-summary-card">
+        <div class="govuk-summary-card__title-wrapper">
+          
+
+          <h2 class="govuk-summary-card__title">            
+            Download fraud information from GOV.UK One Login</h2>
+          
+        </div>
+        <div class="govuk-summary-card__content">
+          <dl class="govuk-summary-list">
+            <div class="govuk-summary-list__row">
+              
+              {% if (data['notification'] == "no updates")  %}
+
+              <p>Download a .csv file with fraud information shared by GOV.UK One Login and other government services in the last 7 days.</p>
+              <p>The information was last updated on 23 December 2023, and there are no new fraud updates to download, since your last download.</p>
+
+              <p><a href="get-reasons">Download fraud information</a></p>
+
+
+              {% else %}
+              <p>Download a .csv file with fraud information shared by GOV.UK One Login and other government services in the last 7 days.</p>
+              <p>The information was last updated on 23 December 2023.</p>
+              {% if (data['release-state'] == "MVP2") %}
+              <p><a href="view-information">View fraud information</a></p>
+
+              {% else %}
+              <p><a href="get-reasons">Download fraud information</a></p>
+
+              {% endif %}
+
+
+
+
+              {% endif %}
+
+    
+      
+    
+    
+            </div>
+          </dl>
+        </div>
+        
+      </div>
+ 
+
+ 
+</div>
+
+<div class="govuk-grid-column-two-thirds">
+  <div class="govuk-summary-card">
+    <div class="govuk-summary-card__title-wrapper">
+      <h2 class="govuk-summary-card__title">Share fraud information with GOV.UK One Login</h2>
+    </div>
+    <div class="govuk-summary-card__content">
+      <dl class="govuk-summary-list">
+        <div class="govuk-summary-list__row">
+      
+          <p>Use this to share information about fraud-related events in your service with GOV.UK One Login and other government services.</p>
+
+            <p>For each event you add, you'll need to include the user ID and select what type of fraud you suspect it to be about.
+            </p>
+         
+
+
+          {% if (data['release-state'] == "MVP2") or (data['upload-state'] == "csv")  %}
+          <p><a href="add-format">Share fraud information</a></p>
+
+      
+          {% else %}
+          <p><a href="add-reason">Share fraud information</a></p>
+
+          {% endif %}
+
+
+
+        </div>
+      </dl>
+    </div>
+  </div>
+
+
+  {% if (data['release-state'] == "MVP2") %}
+
+  <div class="govuk-summary-card">
+    <div class="govuk-summary-card__title-wrapper">
+      <h2 class="govuk-summary-card__title">View previous submissions</h2>
+    </div>
+    <div class="govuk-summary-card__content">
+      <dl class="govuk-summary-list">
+        <div class="govuk-summary-list__row">
+          <p>Use this to view information you previously submitted about fraud-related events to GOV.UK One Login.</p>
+          <p><a href="view-submission-history">View previous submissions</a></p>
+
+
+        </div>
+      </dl>
+    </div>
+  </div>
+
+
+
+{% endif %}
+    
+
+
+</div>
+
+
+
+
+</div>
+
+
+
+
+
+<div class="govuk-grid-row">
+<div class="govuk-grid-column-two-thirds">
+  <div class="govuk-summary-card">
+    <div class="govuk-summary-card__title-wrapper">
+      <h2 class="govuk-summary-card__title">Manage users</h2>
+    </div>
+    <div class="govuk-summary-card__content">
+      <dl class="govuk-summary-list">
+        <div class="govuk-summary-list__row">
+          <p><a href="/7-0-0/account-management/manage-users">Manage access for users within your department</a></p>
+
+
+        </div>
+      </dl>
+    </div>
+
+    
+  </div>
+
+  {% include('7-0-0/includes/help.html') %}    
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+{% endblock %}

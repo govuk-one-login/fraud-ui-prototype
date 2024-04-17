@@ -1,0 +1,138 @@
+{% extends "layouts/main.html" %}
+
+
+
+
+{% block beforeContent %}
+</div>
+<div class="govuk-masthead govuk-!-padding-top-1 govuk-!-padding-bottom-6 govuk-!-margin-bottom-2">
+  <div class="govuk-width-container">
+    
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+  
+  <h1 class="govuk-heading-xl">
+
+    
+    Password reset for Shared signals UI
+    
+  </h1>
+  <a href="/7-0-0/account-management/password-reset/login" role="button" class="govuk-button govuk-button--inverse" data-module="govuk-button">
+    Start happy path prototype
+  </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="govuk-width-container">
+  <div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <br>
+
+    <div class="govuk-warning-text">
+      <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+      <strong class="govuk-warning-text__text">
+        <span class="govuk-visually-hidden">Warning</span>
+        This prototype does not show all screen logic of the password reset journey. Refer to the Mural, linked below for detailed screen logic.
+      </strong>
+    </div>
+
+    
+    <p><a href="/">Detailed screen flow - Mural </a></p>
+  
+
+
+  
+            
+
+      <table class="govuk-table">
+        <caption class="govuk-table__caption govuk-table__caption--m govuk-!-margin-top-9" >Happy path screens</caption>
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header">Screen</th>
+            <th scope="col" class="govuk-table__header">Changes from MVP</th>
+          </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell"><a href="/7-0-0/account-management/password-reset/login">Sign in</a></td>
+            <td class="govuk-table__cell"><p class="govuk-body">Changes include:</p>
+              <ul class="govuk-list govuk-list--bullet">
+                <li>added reset password link</li>
+                <li>added 'show password' component</li>
+                <li>changes to content</li>
+              </ul></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell"><a href="email">Enter your government email address</a></td>
+            
+            <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--blue">New screen</strong></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell"><a href="otp">Check your email</a></td>
+            <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--blue">
+              New screen
+            </strong></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell"><a href="mfa">Check your phone</a></td>
+            <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--green">No change</strong></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell"><a href="reset">Reset your password</a></td>
+            <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--blue">New screen</strong></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell"><a href="reset-confirmation">Your password has been reset</a></td>
+            <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--blue">New screen</strong></td>
+          </tr>
+        </tbody>
+      </table>
+
+
+      <table class="govuk-table">
+        <caption class="govuk-table__caption govuk-table__caption--m govuk-!-margin-top-9" >Unhappy path screens</caption>
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header">Screen</th>
+            <th scope="col" class="govuk-table__header">Changes from MVP</th>
+          </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell"><a href="no-account-found">No account found</a></td>
+            <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--blue">New screen</strong></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell"><a href="get-code-email">Get security code (email)</a></td>
+            <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--blue">New screen</strong></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell"><a href="get-code-phone">Get security code (phone)</a></td>
+            <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--blue">
+              New screen
+            </strong></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell"><a href="code-too-many">You entered the wrong security code too many times</a></td>
+            <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--blue">New screen</strong></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell"><a href="cannot-get-code">You cannot get a security code at the moment</a></td>
+            <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--blue">New screen</strong></td>
+          </tr>
+        </tbody>
+      </table>
+      
+      </div>
+      </div>
+
+
+{% endblock %}

@@ -1,0 +1,41 @@
+{% extends "layouts/main.html" %}
+
+
+
+
+{% block beforeContent %}
+{% include('../includes/phase-banner.html') %}
+
+
+{% endblock %}
+
+{% block content %}
+
+
+
+<div class="govuk-grid-row">
+    
+    
+        <div class="govuk-grid-column-two-thirds">
+        <form action="confirmation" method="post" novalidate>
+
+
+          <h1 class="govuk-heading-l">Get security code</h1>
+
+          <div class="govuk-inset-text">
+          We have sent an email to: <span class="govuk-!-font-weight-bold">email@address.com</span>
+          </div>
+          
+<p class="govuk-body">Your email might take a few minutes to arrive. If you do not get an email, check your spam folder.</p>
+
+
+<button type="Submit" data-prevent-double-click="true" class="govuk-button" data-module="govuk-button">
+  Get security code
+  </button>
+
+     
+    </form>
+  </div>
+</div>
+
+{% endblock %}
