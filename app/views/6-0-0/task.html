@@ -151,14 +151,14 @@ What would you like to do? – {{ serviceName }} – GOV.UK Prototype Kit
               
               {% if (data['notification'] == "no updates")  %}
 
-              <p>Download a .csv file with fraud information shared by GOV.UK One Login and other government services in the last 7 days.</p>
+              <p>Download a .csv file with fraud information shared by GOV.UK One Login and other government services in the last 14 days.</p>
               <p>The information was last updated on 23 December 2023, and there are no new fraud updates to download, since your last download.</p>
 
               <p><a href="get-reasons">Download fraud information</a></p>
 
 
               {% else %}
-              <p>Download a .csv file with fraud information shared by GOV.UK One Login and other government services in the last 7 days.</p>
+              <p>Download a .csv file with fraud information shared by GOV.UK One Login and other government services in the last 14 days.</p>
               <!-- <p>The information was last updated on 23 December 2023.</p> -->
               {% if (data['release-state'] == "MVP2") %}
               <p><a href="view-information">View fraud information</a></p>
