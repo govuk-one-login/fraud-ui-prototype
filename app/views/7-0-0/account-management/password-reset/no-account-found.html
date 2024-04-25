@@ -1,0 +1,41 @@
+{% extends "layouts/main.html" %}
+
+
+
+
+{% block beforeContent %}
+{% include('/7-0-0/includes/phase-banner.html') %}
+
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+
+
+
+{% endblock %}
+
+{% block content %}
+
+
+
+<div class="govuk-grid-row">
+    
+    
+        <div class="govuk-grid-column-two-thirds">
+        <form action="check-email" method="post" novalidate>
+
+
+          <h1 class="govuk-heading-l">You do not have an account</h1>
+
+          
+          <p>There is no account found for: <span class="govuk-!-font-weight-bold">email@address.com</span></p>
+          
+          
+<p><a href="login">Try signing in again</a></p>
+
+{% include('/7-0-0/includes/help.html') %}
+
+     
+    </form>
+  </div>
+</div>
+
+{% endblock %}
