@@ -34,11 +34,10 @@
           Email address
         </dt>
         <dd class="govuk-summary-list__value">
-          {% if (data['id-type'] == null) %}
+          {% if (data['invite-email'] == null) %}
           name@example.gov.uk
           {% else %}
-          {{ data['id-type'] }}
-
+          {{ data['invite-email'] }}
           {% endif %}
 
       
@@ -58,10 +57,10 @@
           Access level
         </dt>
         <dd class="govuk-summary-list__value">
-          {% if (data['reason'] == null) %}
+          {% if (data['access'] == null) %}
           Admin
           {% else %}
-          {{ data['reason'] }}
+          {{ data['access'] }}
           {% endif %}
 
         
@@ -76,7 +75,7 @@
     </dl>
    
 <p class="govuk-!-margin-bottom-6">
-    <a class="govuk-link" href="add-fraud-intervention">
+    <a class="govuk-link" href="invite-user">
       Change details<span class="govuk-visually-hidden"> ids</span>
   </a>
 </p>
@@ -92,7 +91,7 @@
 
 
   
-      <form action="confirmation" method="post" novalidate>
+      <form action="invite-confirmation" method="post" novalidate>
 
       
 
@@ -101,7 +100,7 @@
           text: "Send invitation email"
         }) }}
 
-        <a class="govuk-link" href="cancelled-upload">Cancel</a>
+        <a class="govuk-link" href="/7-0-0/account-management/manage-users">Cancel</a>
       </div>
     </form>
 

@@ -23,7 +23,7 @@
     
     
         <div class="govuk-grid-column-two-thirds">
-        <form action="access-level" method="post" novalidate>
+        <form action="cya" method="post" novalidate>
 
 
 
@@ -39,10 +39,10 @@
       {% from "govuk/components/input/macro.njk" import govukInput %}
 
       <div class="govuk-form-group">
-        <label class="govuk-label govuk-label--m" for="width-20">
+        <label class="govuk-label govuk-label--m" for="invite-email">
           Government email address
         </label>
-        <input class="govuk-input govuk-input--width-20" id="width-20" name="width20" type="text">
+        <input class="govuk-input govuk-input--width-20" id="invite-emmail" name="invite-email" type="text">
       </div>
   
 
@@ -55,8 +55,8 @@
           <div class="govuk-radios" data-module="govuk-radios">
             
             <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="access-2" name="access" type="radio" value="standard">
-              <label class="govuk-label govuk-radios__label" for="access-2">
+              <input class="govuk-radios__input" id="access" name="access" type="radio" value="Standard">
+              <label class="govuk-label govuk-radios__label" for="access">
                 Standard
               </label>
               <div id="access-2-item-hint" class="govuk-hint govuk-radios__hint">
@@ -64,8 +64,8 @@
               </div>
             </div>
             <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="access-3" name="whereDoYouLive" type="radio" value="download-only">
-              <label class="govuk-label govuk-radios__label" for="access-3">
+              <input class="govuk-radios__input" id="access-2" name="access" type="radio" value="Download only">
+              <label class="govuk-label govuk-radios__label" for="access-2">
                 Download only
               </label>
               <div id="access-3-item-hint" class="govuk-hint govuk-radios__hint">
@@ -73,8 +73,8 @@
               </div>
             </div>
             <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="access" name="access" type="radio" value="admin">
-              <label class="govuk-label govuk-radios__label" for="access">
+              <input class="govuk-radios__input" id="access-3" name="access" type="radio" value="Admin">
+              <label class="govuk-label govuk-radios__label" for="access-3">
                 Admin
               </label>
               <div id="access-item-hint" class="govuk-hint govuk-radios__hint">
