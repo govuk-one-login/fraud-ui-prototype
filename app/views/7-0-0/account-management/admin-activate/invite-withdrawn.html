@@ -1,0 +1,42 @@
+{% extends "layouts/main.html" %}
+
+
+
+
+{% block beforeContent %}
+{% include('/7-0-0/includes/phase-banner.html') %}
+
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+
+
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      
+
+      
+    
+     
+        <h1 class="govuk-heading-l">Invitation withdrawn</h1>
+
+        <p class="govuk-body">Your invitation has been withdrawn. You will need to ask a team lead or admin to invite you.</p>
+
+        
+      
+        {% include('/7-0-0/includes/help.html') %}
+
+      
+
+         
+        
+    </div>
+  </div>
+
+  
+
+
+
+{% endblock %}
