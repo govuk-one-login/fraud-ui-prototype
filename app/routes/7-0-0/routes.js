@@ -1,5 +1,5 @@
 module.exports = function (router) {
-    var version = "6-0-0";
+    var version = "7-0-0";
 
     
 // Add your routes here
@@ -61,3 +61,4 @@ router.post('/' + version + '/add-are-you-sure-answer', function(request, respon
 
 
 }
+

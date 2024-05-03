@@ -22,13 +22,10 @@
   }) }}
   
   <h1 class="govuk-heading-xl">
-    A design history for <br>
-    Version {% include('../includes/version.html') %} of the Shared Signals UI
-    prototype 
+    A design history for the Shared Signals UI prototype 
   </h1>
         <p>
           A record of how our service has iterated.<br>
-          <em>12 January 2024</em>
         </p>
       </div>
     </div>
@@ -51,26 +48,30 @@
       
 
   <span class="govuk-caption-l">{% include('../includes/date.html') %}</span>
-<h1 class="govuk-heading-l">Version {% include('../includes/version.html') %}</h1>
+<h1 class="govuk-heading-l">Password reset</h1>
 
-      <p>This is the design story for the Shared Signals UI prototype {% include('../includes/version.html') %}.</p>
          
-      <p>This iteration contains some significant changes, based on early insight from internal users. The main features of this initial prototype include:</p>
+      <p>The main features of this release include:</p>
       {% include('../includes/summary.html') %}
 
+      <br>
 
-      <h2 class="govuk-heading-m">H2 heading</h2>
 
-      <h3 class="govuk-heading-s">H3 heading</h3>
-      
-      <p>Content to follow</p>
-      <p>Content with a link <a href="#" title="Link to setup screen">to screen</a>.</p>
-      
-      <img style="border:1px solid;" class="govuk-!-margin-bottom-4 govuk-!-margin-top-3" src="/public/images/v6upload.png" width="100%" alt="Are you sure upload screen">
+      <h2 class="govuk-heading-m">Background</h2>
+
+      <p>The password reset journey has been designed for SSF UI users to reset their password, using a ‘I have forgotten my password’ link on the sign in screen. The designs created match the existing password reset pattern in the public facing screens of GOV UK One Login.</p>
+
+
+      <h3 class="govuk-heading-s">Impoved security for mfa codes</h3>
+      <p>New unhappy path screens have been introduced if a user has entered an MFA or OTP too many times, which apply a temporary block onto the account for 15 minutes - to align to GOV.UK One Login public facing</p>
+
+
+     
 
       <h2 class="govuk-heading-m">To do</h2>
     <ul class="govuk-list--bullet govuk-list">
-      <li>Todo list to follow</li>
+      <li>Future scope - look at ways for users to change their 2FA, if they lose access to their phone number</li>
+      <li>Test password reset journey with Fraud analysts</li>
     </ul>
 
 

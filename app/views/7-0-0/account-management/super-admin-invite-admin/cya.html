@@ -23,53 +23,67 @@
  
   
 
-      <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+    
 
- 
+    <dl class="govuk-summary-list govuk-!-margin-bottom-3">
 
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            Access level
-          </dt>
-          <dd class="govuk-summary-list__value">
-            {% if (data['reason'] == null) %}
-            Admin
-            {% else %}
-            {{ data['reason'] }}
-            {% endif %}
 
-          </dd>
-          <dd class="govuk-summary-list__actions">
-            <a class="govuk-link" href="add-reason">
-              Change<span class="govuk-visually-hidden"> reason</span>
-            </a>
-          </dd>
-        </div>
-        
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            Email address
-          </dt>
-          <dd class="govuk-summary-list__value">
-            {% if (data['id-type'] == null) %}
-            name@example.gov.uk
-            {% else %}
-            {{ data['id-type'] }}
 
-            {% endif %}
-
-          </dd>
-          <dd class="govuk-summary-list__actions">
-            <a class="govuk-link" href="add-reason">
-              Change<span class="govuk-visually-hidden"> date of birth</span>
-            </a>
-          </dd>
-        </div>
-       
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Email address
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {% if (data['invite-email'] == null) %}
+          name@example.gov.uk
+          {% else %}
+          {{ data['invite-email'] }}
+          {% endif %}
 
       
 
-      </dl>
+        </dd>
+        <dd class="govuk-summary-list__actions">
+   
+        
+        </dd>
+      </div>
+
+    
+
+     
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Access level
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {% if (data['access'] == null) %}
+          Admin
+          {% else %}
+          {{ data['access'] }}
+          {% endif %}
+
+        
+        </dd>
+        <dd class="govuk-summary-list__actions">
+     
+        </dd>
+      </div>
+
+
+
+    </dl>
+   
+<p class="govuk-!-margin-bottom-6">
+    <a class="govuk-link" href="invite-user">
+      Change details<span class="govuk-visually-hidden"> ids</span>
+  </a>
+</p>
+      
+
+      
+
+      
 
 
       {% from "govuk/components/button/macro.njk" import govukButton %}
@@ -77,7 +91,7 @@
 
 
   
-      <form action="confirmation" method="post" novalidate>
+      <form action="invite-confirmation" method="post" novalidate>
 
       
 
@@ -86,7 +100,7 @@
           text: "Send invitation email"
         }) }}
 
-        <a class="govuk-link" href="cancelled-upload">Cancel</a>
+        <a class="govuk-link" href="/7-0-0/account-management/manage-users">Cancel</a>
       </div>
     </form>
 
