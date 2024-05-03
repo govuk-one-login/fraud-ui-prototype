@@ -25,7 +25,23 @@
         <div class="govuk-grid-column-two-thirds">
         <form action="cya" method="post" novalidate>
 
-
+          <div class="govuk-error-summary" data-module="govuk-error-summary">
+            <div role="alert">
+              <h2 class="govuk-error-summary__title">
+                There is a problem
+              </h2>
+              <div class="govuk-error-summary__body">
+                <ul class="govuk-list govuk-error-summary__list">
+                  <li>
+                    <a href="#">Enter a different email address, an account already exists</a>
+                  </li>
+                  <li>
+                    <a href="#">Select the access level</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
 
       <h1 class="govuk-heading-l">
         Invite a team member
@@ -38,20 +54,26 @@
 
       {% from "govuk/components/input/macro.njk" import govukInput %}
 
-      <div class="govuk-form-group">
+      <div class="govuk-form-group govuk-form-group--error">
         <label class="govuk-label govuk-label--m" for="invite-email">
           Government email address
         </label>
+        <p id="access-error" class="govuk-error-message">
+          <span class="govuk-visually-hidden">Error:</span>Enter a different email address, an account already exists
+        </p>
         <input class="govuk-input govuk-input--width-20" id="invite-emmail" name="invite-email" type="text">
       </div>
   
 
-      <div class="govuk-form-group">
+      <div class="govuk-form-group govuk-form-group--error">
         <fieldset class="govuk-fieldset">
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
               Access level
             </legend>
           </legend>
+          <p id="access-error" class="govuk-error-message">
+            <span class="govuk-visually-hidden">Error:</span> Select the access level
+          </p>
           <div class="govuk-radios" data-module="govuk-radios">
             
             <div class="govuk-radios__item">
