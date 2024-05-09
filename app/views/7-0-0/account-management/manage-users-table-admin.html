@@ -15,33 +15,19 @@
 {% block content %}
 
   <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
+    
       <form action="/7-0-0/account-management/super-admin-create-admin/email" method="post" novalidate>
 
-
-        <div class="govuk-notification-banner govuk-notification-banner--success" role="alert" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
-          <div class="govuk-notification-banner__header">
-            <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
-              Success
-            </h2>
-          </div>
-          <div class="govuk-notification-banner__content">
-            <h3 class="govuk-notification-banner__heading">
-              You have removed name@example.gov.uk
-            </h3>
-          </div>
-        </div>
-      </div>
-      </div>
       
     
      
-        <h1 class="govuk-heading-l">Manage users in your department</h1>
+        <h1 class="govuk-heading-l">Manage users in your organisation</h1>
 
 
         <button type="Submit" data-prevent-double-click="true" class="govuk-button" data-module="govuk-button" href="/login">
           Invite a team member
           </button>
+
 
           <table class="govuk-table">
             <thead class="govuk-table__head">
@@ -55,24 +41,24 @@
             <tbody class="govuk-table__body">
               <caption class="govuk-table__caption govuk-table__caption--m">Active users</caption>
               <tr class="govuk-table__row">
-                <td class="govuk-table__cell">john.doe@example.gov.uk (you)</td>
+                <td class="govuk-table__cell">john.doe@example.gov.uk</td>
                 <td class="govuk-table__cell">Super admin</td>
-                <td class="govuk-table__cell">Not available</td>
+                <td class="govuk-table__cell"></td>
               </tr>
               <tr class="govuk-table__row">
-                <td class="govuk-table__cell">alex.bloggs@example.gov.uk</td>
+                <td class="govuk-table__cell">alex.bloggs@example.gov.uk (you)</td>
                 <td class="govuk-table__cell">Admin</td>
-                <td class="govuk-table__cell">Not available</td>
+                <td class="govuk-table__cell"></td>
               </tr>
               <tr class="govuk-table__row">
                 <td class="govuk-table__cell">carrie.bloggs@example.gov.uk</td>
                 <td class="govuk-table__cell">Admin</td>
-                <td class="govuk-table__cell">Not available</td>
+                <td class="govuk-table__cell"></td>
               </tr>
               <tr class="govuk-table__row">
                 <td class="govuk-table__cell">joe.bloggs@example.gov.uk</td>
                 <td class="govuk-table__cell">Admin</td>
-                <td class="govuk-table__cell">Not available</td>
+                <td class="govuk-table__cell"></td>
               </tr>
               <tr class="govuk-table__row">
                 <td class="govuk-table__cell">paul.paulsen@example.gov.uk</td>
@@ -151,12 +137,7 @@
             </tbody>
           </table>
 
-          
-          <div class="govuk-grid-row">
-            <div class="govuk-grid-column-two-thirds">
-          
          
-          {% include('/7-0-0/includes/help.html') %}
         </form>
     </div>
   </div>

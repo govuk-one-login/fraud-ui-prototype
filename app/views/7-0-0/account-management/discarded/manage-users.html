@@ -1,0 +1,191 @@
+{% extends "layouts/main.html" %}
+
+{% block beforeContent %}
+{% include('/7-0-0/includes/phase-banner.html') %}
+
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "index"
+}) }}
+
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form action="/7-0-0/account-management/super-admin-invite-admin/invite-user" method="post" novalidate>
+
+      
+    
+     
+        <h1 class="govuk-heading-l">Manage users in your department</h1>
+
+
+        <button type="Submit" data-prevent-double-click="true" class="govuk-button" data-module="govuk-button" href="super-admin-invite-admin/invite-user">
+          Invite a team member
+          </button>
+
+          <h2 class=govuk-heading-m>Lead users</h2>
+
+          <dl class="govuk-summary-list">
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__value">
+                jane.doe@example.gov.uk (you)
+              </dt>
+            </div>
+            
+          </dl>
+
+
+          <h2 class=govuk-heading-m>Admin users</h2>
+
+          <dl class="govuk-summary-list">
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__value">
+                john.doe@example.gov.uk
+              </dt>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="#">Remove user<span class="govuk-visually-hidden"> name</span></a>
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__value">
+                jane.doe@example.gov.uk
+              </dt>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="#">Remove user<span class="govuk-visually-hidden"> date of birth</span></a>
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__value">
+                joe.bloggs@example.gov.uk
+              </dt>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="#">Remove user<span class="govuk-visually-hidden"> address</span></a>
+              </dd>
+            </div>
+          </dl>
+
+
+          <h2 class=govuk-heading-m>Standard users</h2>
+
+          <dl class="govuk-summary-list">
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__value">
+                jane.doe@example.gov.uk
+              </dt>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="#">Remove user<span class="govuk-visually-hidden"> name</span></a>
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__value">
+                john.doe@example.gov.uk
+              </dt>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="#">Remove user<span class="govuk-visually-hidden"> date of birth</span></a>
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__value">
+                joe.bloggs@example.gov.uk
+              </dt>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="#">Remove user<span class="govuk-visually-hidden"> address</span></a>
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__value">
+                jane.doe@example.gov.uk
+              </dt>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="#">Remove user<span class="govuk-visually-hidden"> name</span></a>
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__value">
+                john.doe@example.gov.uk
+              </dt>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="#">Remove user<span class="govuk-visually-hidden"> date of birth</span></a>
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__value">
+                joe.bloggs@example.gov.uk
+              </dt>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="#">Remove user<span class="govuk-visually-hidden"> address</span></a>
+              </dd>
+            </div>
+          </dl>
+
+          <h2 class=govuk-heading-m>Download only users</h2>
+
+          <dl class="govuk-summary-list">
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__value">
+                jane.doe@example.gov.uk
+              </dt>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="#">Remove user<span class="govuk-visually-hidden"> name</span></a>
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__value">
+                jane.doe@example.gov.uk
+              </dt>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="#">Remove user<span class="govuk-visually-hidden"> date of birth</span></a>
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__value">
+                jane.doe@example.gov.uk
+              </dt>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="#">Remove user<span class="govuk-visually-hidden"> address</span></a>
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__value">
+                jane.doe@example.gov.uk (invite sent)
+              </dt>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="#">Remove user<span class="govuk-visually-hidden"> name</span></a>
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__value">
+                jane.doe@example.gov.uk
+              </dt>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="#">Remove user<span class="govuk-visually-hidden"> date of birth</span></a>
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__value">
+                jane.doe@example.gov.uk
+              </dt>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="#">Remove user<span class="govuk-visually-hidden"> address</span></a>
+              </dd>
+            </div>
+          </dl>
+
+    
+          
+         
+          {% include('/7-0-0/includes/help.html') %}
+        </form>
+    </div>
+  </div>
+
+  
+
+
+
+{% endblock %}
