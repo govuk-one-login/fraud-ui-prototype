@@ -15,171 +15,138 @@
 {% block content %}
 
   <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
-      <form action="/7-0-0/account-management/super-admin-invite-admin/invite-user" method="post" novalidate>
+    
+      <form action="/7-0-0/account-management/super-admin-create-admin/email" method="post" novalidate>
 
       
     
      
-        <h1 class="govuk-heading-l">Manage users in your department</h1>
+        <h1 class="govuk-heading-l">Manage users in your organisation</h1>
 
 
-        <button type="Submit" data-prevent-double-click="true" class="govuk-button" data-module="govuk-button" href="super-admin-invite-admin/invite-user">
+        <button type="Submit" data-prevent-double-click="true" class="govuk-button" data-module="govuk-button" href="/login">
           Invite a team member
           </button>
 
-          <h2 class=govuk-heading-m>Lead users</h2>
 
-          <dl class="govuk-summary-list">
-            <div class="govuk-summary-list__row">
-              <dt class="govuk-summary-list__value">
-                jane.doe@example.gov.uk (you)
-              </dt>
-            </div>
-            
-          </dl>
+          <table class="govuk-table">
+            <thead class="govuk-table__head">
+              <tr class="govuk-table__row">
+                <th scope="col" class="govuk-table__header">Government email address</th>
+                <th scope="col" class="govuk-table__header">Access level</th>
+                <th scope="col" class="govuk-table__header">Action</th>
 
+              </tr>
+            </thead>
+            <tbody class="govuk-table__body">
+              <caption class="govuk-table__caption govuk-table__caption--m">Active users</caption>
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell">john.doe@example.gov.uk (you)</td>
+                <td class="govuk-table__cell">Super admin</td>
+                <td class="govuk-table__cell">Not available</td>
+              </tr>
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell">alex.bloggs@example.gov.uk</td>
+                <td class="govuk-table__cell">Admin</td>
+                <td class="govuk-table__cell">Not available</td>
+              </tr>
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell">carrie.bloggs@example.gov.uk</td>
+                <td class="govuk-table__cell">Admin</td>
+                <td class="govuk-table__cell">Not available</td>
+              </tr>
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell">joe.bloggs@example.gov.uk</td>
+                <td class="govuk-table__cell">Admin</td>
+                <td class="govuk-table__cell">Not available</td>
+              </tr>
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell">paul.paulsen@example.gov.uk</td>
+                <td class="govuk-table__cell">Share and download</td>
+                <td class="govuk-table__cell"><a href="delete">Remove user</a></td>
+              </tr>
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell">paul.paulsen@example.gov.uk</td>
+                <td class="govuk-table__cell">Share and download</td>
+                <td class="govuk-table__cell"><a href="delete">Remove user</a></td>
+              </tr>
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell">first.last@digital.example.gov.uk</td>
+                <td class="govuk-table__cell">Share and download</td>
+                <td class="govuk-table__cell"><a href="delete">Remove user</a></td>
+              </tr>
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell">paul.paulsen@example.gov.uk</td>
+                <td class="govuk-table__cell">Share and download</td>
+                <td class="govuk-table__cell"><a href="delete">Remove user</a></td>
+              </tr>
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell">paul.paulsen@example.gov.uk</td>
+                <td class="govuk-table__cell">Share and download</td>
+                <td class="govuk-table__cell"><a href="delete">Remove user</a></td>
+              </tr>
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell">paul.paulsen@example.gov.uk</td>
+                <td class="govuk-table__cell">Share and download</td>
+                <td class="govuk-table__cell"><a href="delete">Remove user</a></td>
+              </tr>
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell">paul.paulsen@example.gov.uk</td>
+                <td class="govuk-table__cell">Download</td>
+                <td class="govuk-table__cell"><a href="delete">Remove user</a></td>
+              </tr>
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell">paul.paulsen@example.gov.uk</td>
+                <td class="govuk-table__cell">Download</td>
+                <td class="govuk-table__cell"><a href="delete">Remove user</a></td>
+              </tr>
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell">paul.paulsen@example.gov.uk</td>
+                <td class="govuk-table__cell">Download</td>
+                <td class="govuk-table__cell"><a href="delete">Remove user</a></td>
+              </tr>
+                
+            </tbody>
+          </table>
 
-          <h2 class=govuk-heading-m>Admin users</h2>
+          <table class="govuk-table">
+            <caption class="govuk-table__caption govuk-table__caption--m">Pending invitations</caption>
+            <thead class="govuk-table__head">
+              <tr class="govuk-table__row">
+                <th scope="col" class="govuk-table__header">Username</th>
+                <th scope="col" class="govuk-table__header">Access level</th>
+                <th scope="col" class="govuk-table__header">Action</th>
+              </tr>
+            </thead>
+            <tbody class="govuk-table__body">
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell">adam.bloggs@example.gov.uk</td>
+                <td class="govuk-table__cell">Share and download</td>
+                <td class="govuk-table__cell"><a href="delete">Withdraw invite</a></td>
+              </tr>
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell">bea.bloggs@example.gov.uk</td>
+                <td class="govuk-table__cell">Download</td>
+                <td class="govuk-table__cell"><a href="delete">Withdraw invite</a></td>
+              </tr>
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell">carrie.bloggs@example.gov.uk</td>
+                <td class="govuk-table__cell">Download</td>
+                <td class="govuk-table__cell"><a href="delete">Withdraw invite</a></td>
+              </tr>
+            </tbody>
+          </table>
 
-          <dl class="govuk-summary-list">
-            <div class="govuk-summary-list__row">
-              <dt class="govuk-summary-list__value">
-                john.doe@example.gov.uk
-              </dt>
-              <dd class="govuk-summary-list__actions">
-                <a class="govuk-link" href="#">Remove user<span class="govuk-visually-hidden"> name</span></a>
-              </dd>
-            </div>
-            <div class="govuk-summary-list__row">
-              <dt class="govuk-summary-list__value">
-                jane.doe@example.gov.uk
-              </dt>
-              <dd class="govuk-summary-list__actions">
-                <a class="govuk-link" href="#">Remove user<span class="govuk-visually-hidden"> date of birth</span></a>
-              </dd>
-            </div>
-            <div class="govuk-summary-list__row">
-              <dt class="govuk-summary-list__value">
-                joe.bloggs@example.gov.uk
-              </dt>
-              <dd class="govuk-summary-list__actions">
-                <a class="govuk-link" href="#">Remove user<span class="govuk-visually-hidden"> address</span></a>
-              </dd>
-            </div>
-          </dl>
-
-
-          <h2 class=govuk-heading-m>Standard users</h2>
-
-          <dl class="govuk-summary-list">
-            <div class="govuk-summary-list__row">
-              <dt class="govuk-summary-list__value">
-                jane.doe@example.gov.uk
-              </dt>
-              <dd class="govuk-summary-list__actions">
-                <a class="govuk-link" href="#">Remove user<span class="govuk-visually-hidden"> name</span></a>
-              </dd>
-            </div>
-            <div class="govuk-summary-list__row">
-              <dt class="govuk-summary-list__value">
-                john.doe@example.gov.uk
-              </dt>
-              <dd class="govuk-summary-list__actions">
-                <a class="govuk-link" href="#">Remove user<span class="govuk-visually-hidden"> date of birth</span></a>
-              </dd>
-            </div>
-            <div class="govuk-summary-list__row">
-              <dt class="govuk-summary-list__value">
-                joe.bloggs@example.gov.uk
-              </dt>
-              <dd class="govuk-summary-list__actions">
-                <a class="govuk-link" href="#">Remove user<span class="govuk-visually-hidden"> address</span></a>
-              </dd>
-            </div>
-            <div class="govuk-summary-list__row">
-              <dt class="govuk-summary-list__value">
-                jane.doe@example.gov.uk
-              </dt>
-              <dd class="govuk-summary-list__actions">
-                <a class="govuk-link" href="#">Remove user<span class="govuk-visually-hidden"> name</span></a>
-              </dd>
-            </div>
-            <div class="govuk-summary-list__row">
-              <dt class="govuk-summary-list__value">
-                john.doe@example.gov.uk
-              </dt>
-              <dd class="govuk-summary-list__actions">
-                <a class="govuk-link" href="#">Remove user<span class="govuk-visually-hidden"> date of birth</span></a>
-              </dd>
-            </div>
-            <div class="govuk-summary-list__row">
-              <dt class="govuk-summary-list__value">
-                joe.bloggs@example.gov.uk
-              </dt>
-              <dd class="govuk-summary-list__actions">
-                <a class="govuk-link" href="#">Remove user<span class="govuk-visually-hidden"> address</span></a>
-              </dd>
-            </div>
-          </dl>
-
-          <h2 class=govuk-heading-m>Download only users</h2>
-
-          <dl class="govuk-summary-list">
-            <div class="govuk-summary-list__row">
-              <dt class="govuk-summary-list__value">
-                jane.doe@example.gov.uk
-              </dt>
-              <dd class="govuk-summary-list__actions">
-                <a class="govuk-link" href="#">Remove user<span class="govuk-visually-hidden"> name</span></a>
-              </dd>
-            </div>
-            <div class="govuk-summary-list__row">
-              <dt class="govuk-summary-list__value">
-                jane.doe@example.gov.uk
-              </dt>
-              <dd class="govuk-summary-list__actions">
-                <a class="govuk-link" href="#">Remove user<span class="govuk-visually-hidden"> date of birth</span></a>
-              </dd>
-            </div>
-            <div class="govuk-summary-list__row">
-              <dt class="govuk-summary-list__value">
-                jane.doe@example.gov.uk
-              </dt>
-              <dd class="govuk-summary-list__actions">
-                <a class="govuk-link" href="#">Remove user<span class="govuk-visually-hidden"> address</span></a>
-              </dd>
-            </div>
-            <div class="govuk-summary-list__row">
-              <dt class="govuk-summary-list__value">
-                jane.doe@example.gov.uk (invite sent)
-              </dt>
-              <dd class="govuk-summary-list__actions">
-                <a class="govuk-link" href="#">Remove user<span class="govuk-visually-hidden"> name</span></a>
-              </dd>
-            </div>
-            <div class="govuk-summary-list__row">
-              <dt class="govuk-summary-list__value">
-                jane.doe@example.gov.uk
-              </dt>
-              <dd class="govuk-summary-list__actions">
-                <a class="govuk-link" href="#">Remove user<span class="govuk-visually-hidden"> date of birth</span></a>
-              </dd>
-            </div>
-            <div class="govuk-summary-list__row">
-              <dt class="govuk-summary-list__value">
-                jane.doe@example.gov.uk
-              </dt>
-              <dd class="govuk-summary-list__actions">
-                <a class="govuk-link" href="#">Remove user<span class="govuk-visually-hidden"> address</span></a>
-              </dd>
-            </div>
-          </dl>
-
-    
+         
+          <div class="govuk-grid-row">
+            <div class="govuk-grid-column-two-thirds">
           
          
           {% include('/7-0-0/includes/help.html') %}
+        </form>
+    </div>
+  </div>
+         
         </form>
     </div>
   </div>
