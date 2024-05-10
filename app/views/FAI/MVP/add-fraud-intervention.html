@@ -1,0 +1,266 @@
+{% extends "layouts/main.html" %}
+{% block header %}
+
+{% include('./includes/header-fai-mai.html') %}
+{% endblock %}
+
+{% block pageTitle %}
+Submit manual account intervention – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+
+
+{% endblock %}
+
+{% block content %}
+
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-l">
+        Manual account intervention details</h1>
+      <form action="cya-mai" method="post" novalidate>
+
+        <div class="govuk-form-group">
+          <label class="govuk-label govuk-label--m" for="account-number">
+            GOV.UK One Login subject identifier
+          </label>
+          <div id="account-number-hint" class="govuk-hint">
+            For example, urn:fdc:gov.uk:2022:pgt1qOf7zW2tMCZg4V5LEU-mT-GTSX7xqJ6RJekw9l
+          </div>
+
+          {% if (data['user-id'] == false) %}
+          <input class="govuk-input govuk-input--width-30" id="user-id" name="user-id" type="text">
+
+
+          {% else %}
+          
+          <input class="govuk-input govuk-input--width-30" id="user-id" name="user-id" type="text" value="{{ data['user-id'] }}">
+
+          {% endif %}
+
+
+        </div>
+
+     
+
+      
+
+
+        
+        <div class="govuk-form-group">
+          <label class="govuk-label govuk-label--m" for="account-number">
+            Case reference or ticket URL (optional)
+          </label>
+          <div id="account-number-hint" class="govuk-hint">
+            You can find these in Zendesk or ServiceNow
+          </div>
+
+      
+
+
+          
+          
+          <input class="govuk-input govuk-input--width-20" id="case-reference" name="case-reference" type="text" value="{{ data['case-reference'] }}">
+
+          
+
+
+        </div>
+        
+
+         
+          <!-- <div class="govuk-form-group">
+
+            <h2 class="govuk-label-wrapper">
+              <label class="govuk-label govuk-label--s" for="user-id">
+                What is the user ID? 
+              </label>
+            </h2>
+        
+            <div id="user-id-hint" class="govuk-hint">
+              For example, URN502135326
+              </div>
+    
+              {% if (data['user-id'] == false) %}
+              <input class="govuk-input govuk-input--width-30" id="user-id" name="user-id" type="text">
+    
+    
+              {% else %}
+              
+              <input class="govuk-input govuk-input--width-30" id="user-id" name="user-id" type="text" value="{{ data['user-id'] }}">
+    
+              {% endif %}
+    
+    
+          </div> -->
+
+
+
+          <div class="govuk-form-group">
+
+            <!-- <label class="govuk-label" for="user-id">
+              What is the intervention type?
+                   </label> -->
+      
+                   <label class="govuk-label govuk-label--m" for="account-number">
+                    Intervention type
+                  </label>
+               
+
+
+          {% from "govuk/components/radios/macro.njk" import govukRadios %}
+          {% if (data['user'] == "admin") %}
+
+          {{ govukRadios({
+            name: "intervention",
+            fieldset: {
+           
+            },
+       
+          items: [
+    
+
+          {
+            value: "Reset password",
+            text: "Reset password",
+            hint: {
+              text: "The user will have to reset their password next time they sign in"
+            }
+          },
+          {
+            value: "Reverify identity",
+            text: "Reverify identity",
+            hint: {
+              text: "The user will have to prove their identity again next time they access a service that needs it"
+            }
+          },
+          {
+            value: "Reset password and reverify identity",
+            text: "Reset password and reverify identity",
+            hint: {
+              text: "The user will have to reset their password next time they sign in and prove their identity next time they access a service that needs it"
+            }
+          },
+
+            
+        {
+          value: "Temporary suspension",
+          text: "Temporary suspension",
+          hint: {
+            text: "The user will not be able to sign in until the temporary suspension is removed"
+          }
+        },
+
+        {
+          value: "Unsuspend temporary suspension",
+          text: "Unsuspend temporary suspension",
+          hint: {
+            text: "This removes any temporary interventions including ‘reset password’ and ‘reverify identity’"
+          }
+        },
+
+        
+
+          {
+            value: "Indefinite suspension",
+            text: "Indefinite suspension",
+            hint: {
+              text: "The user cannot sign in to or use this GOV.UK One Login anymore"
+            }
+          },
+          
+          {
+            value: "Unsuspend indefinite suspension",
+            text: "Unsuspend indefinite suspension",
+            hint: {
+              text: "This removes an ‘indefinite suspension’. The user can sign in to and use this GOV.UK One Login again"
+            }
+          }
+
+          ]
+        }) }}
+        {% else %}
+
+
+
+          {{ govukRadios({
+            name: "intervention",
+            fieldset: {
+           
+            },
+       
+          items: [
+    
+
+          {
+            value: "Reset password",
+            text: "Reset password",
+            hint: {
+              text: "The user will have to reset their password next time they sign in"
+            }
+          },
+          {
+            value: "Reverify identity",
+            text: "Reverify identity",
+            hint: {
+              text: "The user will have to prove their identity again next time they access a service that needs it"
+            }
+          },
+          {
+            value: "Reset password and reverify identity",
+            text: "Reset password and reverify identity",
+            hint: {
+              text: "The user will have to reset their password next time they sign in and prove their identity next time they access a service that needs it"
+            }
+          },
+          {
+            value: "Temporary suspension",
+            text: "Temporary suspension",
+            hint: {
+              text: "The user will not be able to sign in until the temporary suspension is removed"
+            }
+          }
+          ]
+        }) }}
+
+        
+
+
+      
+        {% endif %}
+
+
+
+
+
+      
+
+      </div>
+        
+
+        
+   
+
+  
+
+      
+
+
+
+
+
+        
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+      </form>
+    </div>
+  </div>
+{% endblock %}

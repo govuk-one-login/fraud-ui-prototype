@@ -1,0 +1,153 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Start page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+
+
+
+{% block beforeContent %}
+
+</div>
+<div class="govuk-masthead govuk-!-padding-top-1 govuk-!-padding-bottom-6 govuk-!-margin-bottom-2">
+  <div class="govuk-width-container">
+    
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds-from-desktop">
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+  
+  <h1 class="govuk-heading-xl">
+    A design history for <br>
+    Version {% include('../includes/version.html') %} of the Shared Signals UI
+    prototype 
+  </h1>
+        <p>
+          A record of how our service has iterated.<br>
+          <em>25 March 2024</em>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="govuk-width-container">
+
+
+{% endblock %}
+
+
+{% block content %}
+
+
+
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      
+
+  <span class="govuk-caption-l">{% include('../includes/date.html') %}</span>
+<h1 class="govuk-heading-l">Version {% include('../includes/version.html') %}</h1>
+
+      <p>This is the design story for the Shared Signals UI prototype {% include('../includes/version.html') %}.</p>
+         
+      <p>This iteration contains some significant changes, based on early insight from internal users. The main features of this initial prototype include:</p>
+      {% include('../includes/summary.html') %}
+
+
+      <h2 class="govuk-heading-m">Video walkthorughs - from design state in January 2024</h2>
+
+      <h3 class="govuk-heading-s">Download journey</h3>
+      <iframe src="https://drive.google.com/file/d/1FJuTNxcc2cGNmAU5N_Ti6W9JbEZWMpHt/preview" width="680" height="400" allow="autoplay"></iframe>
+      <p><em>Download journey including updated content</em></p>
+
+      <h3 class="govuk-heading-s">Share journey</h3>
+      <iframe src="https://drive.google.com/file/d/1CnpO979ZzbbnBkHijVHCmnAqLJBJ1c65/preview" width="680" height="400" allow="autoplay"></iframe>
+      <p><em>Add journey post MVP featuring device concern</em></p>
+
+
+      <h3 class="govuk-heading-s">Upload via CSV and post MVP</h3>
+      <iframe src="https://drive.google.com/file/d/1qXSWaumyDO-YQ-CaPfpV07yJr-cn-2ZZ/preview" width="680" height="400" allow="autoplay"></iframe>
+      <p><em>Upload via CSV file and other post MVP functionality - Notifications and View</em></p>
+
+
+
+      <h2 class="govuk-heading-m">Iterated content for Start, Login and Task page</h2>
+      <p>This version saw some considerable changes, due to some great work by a Content Designer who recently joined the team.
+
+        <img style="border:1px solid;" class="govuk-!-margin-bottom-4 govuk-!-margin-top-3" src="/public/images/v6task.png" width="100%" alt="Task page screenshot">
+       
+        <a href="https://docs.google.com/document/d/1XABKOxue_H5mLefXJplXDJD9BRo3cj-p-tGmkwo707E/edit">Link to content notes</a></p>
+
+
+
+        <h2 class="govuk-heading-m">Iterated content for download journey</h2>
+
+        <p>The content work also covered the <a href="../get-reasons?release-state=MVP">download journey</a>.</p>
+
+        
+        <p>An initial rewording of the Service name was introduce, however a full workshop will be needed.</p>
+        <img style="border:1px solid;" class="govuk-!-margin-bottom-4 govuk-!-margin-top-3 govuk-!-margin-right-3" src="/public/images/v6getreason.png" width="100%" alt="Get reason">
+
+        <p>Note: Content describing when the information was last updated was de-scoped from MVP due to timeframes, however this will be explored with wider download improvements in MVP+. Mention of "other services" has also been removed from download content due to policy.</p>
+
+        <h2 class="govuk-heading-m">Changed download method</h2>
+        <p>Previously, the CSV file would automatically download once a user reached the confirmation screen.  This is has now changed to a manual download button, this is an accessibililty improvement, and due to the MVP design not using Javascript.</p>
+
+        <h2 class="govuk-heading-m">Changed download options available for MVP</h2>
+      <p>'Users whose GOV.UK One Login may have been compromised' was removed as a download option for MVP, as scope for MVP focuses on user ID subjects only, with device and credential concerns to be added as MVP+ functionality.</p>
+
+
+      <h2 class="govuk-heading-m">Added help links</h2>
+      <p>Content was added on all screens to provide users a channel for support. For MVP, the link will send an email to the UCD team, so that UCD can triage all contact from users in private beta.</p>
+
+      <h2 class="govuk-heading-m">Added feeback link</h2>
+      <p>A Beta phase banner was added, to provide users with a channel for their feedback about the service. For MVP, the link will send an email to the UCD team, so that UCD can triage all contact from users in private beta.</p>
+
+      <h2 class="govuk-heading-m">Removed stand alone support page</h2>
+      <p>Due to the MVP approach to support channels, the need to a stand alone support screen was reviewed, and instead a link to a shared email address was added.</p>
+     
+
+      <h2 class="govuk-heading-m">Updated flow for the add journey, to factor in device concerns</h2>
+      <p>Post MVP fucntionality includes allowing for users to add information that relates to other user attributes, which include IP address, email addresses etc.</p>
+      <img style="border:1px solid;" class="govuk-!-margin-bottom-4 govuk-!-margin-top-3" src="/public/images/add-id.png" width="100%" alt="Task page screenshot">
+   
+      <h2 class="govuk-heading-m">Updated upload CSV for post MVP</h2>
+      <p>Post MVP fucntionality includes allowing for users to add information by a CSV. The initial design upon reflection seems very bloated, and due to changes in retention poilcy and startegic ambition of the project this new light touch approach is worth exploring.</p>
+      <p>To see this option you should select "Add by CSV" on the <a href="../setup" title="Link to setup screen">setup screen</a>.</p>
+      
+      <img style="border:1px solid;" class="govuk-!-margin-bottom-4 govuk-!-margin-top-3" src="/public/images/v6upload.png" width="100%" alt="Are you sure upload screen">
+      <p><a href="../upload-are-you-sure" title="Link to setup screen">Link to confirm upload screen</a></p>
+      
+      <h2 class="govuk-heading-m">To do</h2>
+    <ul class="govuk-list--bullet govuk-list">
+      <li>Carry out Service name workshop</li>
+      <li>Iterate content for add journey</li>
+      <li>Iterate event types and rationales based on changes to the information architecture and Tech Arch solution</li>
+      <li>Challenge the assumption that users want to view information in our service</li>
+      <li>Look at ways to support users while keeping the short retention window on the data</li>
+    </ul>
+
+   
+
+      
+
+
+    </div>
+
+    <div class="govuk-grid-column-one-third">
+
+      
+
+    </div>
+  </div>
+
+  
+
+  
+
+{% endblock %}
