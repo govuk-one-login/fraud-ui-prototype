@@ -42,7 +42,7 @@
       <p><a href="https://app.mural.co/t/governmentdigitalservice1334/m/governmentdigitalservice1334/1714057653990/f37bca100738bd5c7f26186a344b1d1f9be49a90?sender=u7fe68ddc99e5b0d8f5fc5544">
         Detailed screen flow for dev build - Mural</a></p>
 
-  <h2 class="govuk-heading-l">Lead user activates account during onboarding video call</h2>
+  <h2 class="govuk-heading-l">Super admin user activates account during onboarding video call</h2>
 
   <p><a href="/7-0-0/account-management/super-admin-activate/login">
   Start journey in prototype</a></p>
@@ -61,6 +61,18 @@
             <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--green">No changes</strong></td>
           </tr>
           <tr class="govuk-table__row">
+            <td class="govuk-table__cell"><a href="super-admin-activate/otp">Check your email</a></td>
+            <td class="govuk-table__cell">
+              <strong class="govuk-tag govuk-tag--blue">New screen</strong>
+            </td>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell"><a href="/7-0-0/account-management/super-admin-activate/mfa-method">Choose how to get security codes</a></td>
+              <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--blue">New screen</strong></td>
+            </tr>
+
+
+
+          <tr class="govuk-table__row">
             <td class="govuk-table__cell"><a href="/7-0-0/account-management/super-admin-activate/phone">Enter your phone number</a></td>
             <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--blue">New screen</strong></td>
           </tr>
@@ -71,6 +83,9 @@
               <p class="govuk-body">same as phone MFA screen for sign in, but added 'use different phone number' link</p>
             </td>
           </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell"><a href="/7-0-0/account-management/super-admin-activate/mfa-app-set-up">Set up an authenticator app</a></td>
+            <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--blue">New screen</strong></td>
           </tr>
           <tr class="govuk-table__row">
             <td class="govuk-table__cell"><a href="super-admin-activate/reset">Reset your password</a></td>
@@ -83,7 +98,7 @@
           <tr class="govuk-table__row">
             <td class="govuk-table__cell"><a href="/7-0-0/account-management/super-admin-activate/task">Task screen</a></td>
             <td class="govuk-table__cell"><p class="govuk-body">
-                Added 'manage users section' - visible to Lead users and Admin users only</p>
+                Added 'manage users section' - visible to Super admin users and Admin users only</p>
             
           </tr>
         </tbody>
@@ -94,7 +109,7 @@
 
 
 
-      <h2 class="govuk-heading-l">Lead user invites a team member</h2>
+      <h2 class="govuk-heading-l">Super admin user invites a team member</h2>
 
     <p> <a href="/7-0-0/account-management/manage-users">
         Start journey in prototype
@@ -111,7 +126,7 @@
         </thead>
         <tbody class="govuk-table__body">
           <tr class="govuk-table__row">
-            <td class="govuk-table__cell"><a href="/7-0-0/account-management/manage-users">Manage users (with lead user permissions)</a></td>
+            <td class="govuk-table__cell"><a href="/7-0-0/account-management/manage-users">Manage users (with Super admin user permissions)</a></td>
             <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--blue">New screen</strong></td>
           </tr>
           <tr class="govuk-table__row">
@@ -154,18 +169,28 @@
           <tr class="govuk-table__row">
             <td class="govuk-table__cell"><a href="super-admin-activate/mfa-activate">Check your email</a></td>
             <td class="govuk-table__cell">
-              same as lead user journey
+              same as Super admin user journey
             </td>
           </tr>
           <tr class="govuk-table__row">
+            <td class="govuk-table__cell"><a href="/7-0-0/account-management/admin-activate/mfa-method">Choose how to get security codes</a></td>
+            <td class="govuk-table__cell">same as Super admin user journey</td>
+          </tr>
+
+          <tr class="govuk-table__row">
             <td class="govuk-table__cell"><a href="/7-0-0/account-management/super-admin-activate/phone">Enter your phone number</a></td>
-            <td class="govuk-table__cell">same as lead user journey</td>
+            <td class="govuk-table__cell">same as Super admin user journey</td>
           </tr>
           <tr class="govuk-table__row">
             <td class="govuk-table__cell"><a href="super-admin-activate/mfa-activate">Check your phone</a></td>
             <td class="govuk-table__cell">
-              <p class="govuk-body">same as lead user journey</p>
+              <p class="govuk-body">same as Super admin user journey</p>
             </td>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell"><a href="admin-activate/mfa-app-set-up">Set up authenticator app</a></td>
+              <td class="govuk-table__cell">
+                <p class="govuk-body">same as Super admin user journey</p>
+              </td>
           </tr>
           </tr>
           <tr class="govuk-table__row">
@@ -175,7 +200,7 @@
           </tr>
           <tr class="govuk-table__row">
             <td class="govuk-table__cell"><a href="/7-0-0/account-management/super-admin-activate/activate-confirmation">You have activated your account</a></td>
-            <td class="govuk-table__cell">Same as lead user journey</td>
+            <td class="govuk-table__cell">Same as Super admin user journey</td>
           </tr>
         </tbody>
       </table>
@@ -185,7 +210,7 @@
       <h2 class="govuk-heading-l">Admin user invites a team member</h2>
 
   
-      <p>Same invite screen as a lead user above, but an admin only invite 'Standard users' and 'download only' users</p>
+      <p>Same invite screen as a Super admin user above, but an admin only invite 'Standard users' and 'download only' users</p>
 
     <table class="govuk-table">
       <thead class="govuk-table__head">
@@ -206,8 +231,40 @@
     <br>
     <br>
 
+    <h2 class="govuk-heading-l">Super admin user or admin user withdraws an invite</h2>
 
-    <h2 class="govuk-heading-l">Lead user or admin user deletes a team member</h2>
+
+
+    <table class="govuk-table">
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header">Screen</th>
+          <th scope="col" class="govuk-table__header">Changes</th>
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell"><a href="manage-users">Manage users</a></td>
+          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--blue">New screen</strong></td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell"><a href="withdraw-invite">Are you sure you want to withdraw the invite?</a></td>
+          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--blue">New screen</strong></td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell"><a href="manage-users-withdrawn">Manage users screen with 'invite withdrawn' banner</a></td>
+          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--blue">New screen</strong></td>
+        </tr>
+        
+      </tbody>
+    </table>
+
+    <br>
+    <br>
+
+
+
+    <h2 class="govuk-heading-l">Super admin user or admin user deletes a team member</h2>
 
 
 

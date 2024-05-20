@@ -1,0 +1,59 @@
+{% extends "layouts/main.html" %}
+
+
+
+{% block beforeContent %}
+{% include('/7-0-0/includes/phase-banner.html') %}
+
+
+{% endblock %}
+
+{% block content %}
+
+
+
+
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-l govuk-!-margin-top-0 govuk-!-margin-bottom-3">Enter the 6 digit security code you see in your authenticator app</h1>
+
+
+
+
+
+
+
+<div class="govuk-form-group">
+
+
+<input class="govuk-input govuk-input--width-10 govuk-!-font-weight-bold" id="code" name="code" type="text" spellcheck="false" autocomplete="one-time-code" inputmode="numeric">
+
+</div>
+
+
+
+
+
+
+
+
+
+
+<button type="Submit" data-prevent-double-click="true" class="govuk-button" data-module="govuk-button">
+Continue
+</button>
+
+
+
+
+
+</form>
+
+{% include('/7-0-0/includes/help.html') %}
+  </div>
+</div>
+
+{% endblock %}
