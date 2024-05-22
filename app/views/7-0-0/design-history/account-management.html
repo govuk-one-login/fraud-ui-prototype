@@ -1,0 +1,105 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Start page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+
+
+
+{% block beforeContent %}
+
+</div>
+<div class="govuk-masthead govuk-!-padding-top-1 govuk-!-padding-bottom-6 govuk-!-margin-bottom-2">
+  <div class="govuk-width-container">
+    
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds-from-desktop">
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+  
+  <h1 class="govuk-heading-xl">
+    A design history for the Shared Signals UI prototype 
+  </h1>
+        <p>
+          A record of how our service has iterated.<br>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="govuk-width-container">
+
+
+{% endblock %}
+
+
+{% block content %}
+
+
+
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      
+
+  <span class="govuk-caption-l">{% include('../includes/date.html') %}</span>
+<h1 class="govuk-heading-l">User onboarding and account management</h1>
+
+         
+      <p>The main features of this release include:</p>
+      {% include('../includes/summary-account-management.html') %}
+
+      <br>
+
+
+      <h2 class="govuk-heading-m">Background</h2>
+
+      <p>For SSF-UI MVP, user accounts are manually created by the SSF-UI dev team. As user numbers of the UI scale, it is impractical for the team to manually create accounts for all users, so users will need a way of creating accounts themselves.</p>
+
+      <p>At time of design, there were no users for the Shared signals UI to research with, so the designs have been created following recommendations from our service designer and product managers. Design patterns have also been replicated from existing services like the GOV.UK One Login admin tool.</p>
+
+      <h3 class="govuk-heading-s">Super admin onboarding</h3>
+      <p>In order for GOV.UK One Login to control who has access to the UI, a named super admin user from a government organisation will need to be onboarded manually by the dev team over a video call. Designs for this particular journey were contrained to the capabilities of 'cognito', the back end user platform.</p>
+      
+
+      <h3 class="govuk-heading-s">User onboarding</h3>
+      <p>Once a super admin exists, they can then invite other users. Following recommendations from our service designer, PM and BA, the access levels are: <ul  class="govuk-list--bullet govuk-list"><li>share and download - a standard access level for most users</li>
+        <li>download only - a user type identified from previous user research, such as service desk users</li>  <li>admin - who can share and download, as well as invite or remove 'share and download' or 'download' users</li></ul></p>
+  
+
+
+      <h3 class="govuk-heading-s">Manage users screen</h3>
+      <p>This is only accessed only be super admin or admin users. It displays a list of the users from the organisation, with the option to remove the user, or withdraw an invite to a user.</p>
+      <p>For this first phase of account management, it was agreed between UCD and product manager that should any details of an account need to change, like email address, or 2FA method, then the account should be removed and re-created.</p>
+
+     
+
+      <h2 class="govuk-heading-m">To do</h2>
+    <ul class="govuk-list--bullet govuk-list">
+      <li>Use user research to validate the decision to separate user account groups by government organisation, rather than service</li>
+      <li>Use user research to validate the access level options and associated rules (i.e. admin cannot delete admins or super admins)</li>
+      <li>Iterate the designs from insight learnt in research </li>
+      <li>Design future functionality, like the management of users own profile details</li>
+    </ul>
+
+
+
+    </div>
+
+    <div class="govuk-grid-column-one-third">
+
+      
+
+    </div>
+  </div>
+
+  
+
+  
+
+{% endblock %}
