@@ -32,9 +32,9 @@
           <table class="govuk-table">
             <thead class="govuk-table__head">
               <tr class="govuk-table__row">
-                <th scope="col" class="govuk-table__header">Username</th>
-                <th scope="col" class="govuk-table__header">Access level</th>
-                <th scope="col" class="govuk-table__header">Action</th>
+                <th scope="col" class="govuk-table__header govuk-!-width-one-half">Goverment email address</th>
+                <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Access level</th>
+                <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Action</th>
 
               </tr>
             </thead>
@@ -43,7 +43,7 @@
               <tr class="govuk-table__row">
                 <td class="govuk-table__cell">john.doe@example.gov.uk (you)</td>
                 <td class="govuk-table__cell">Super admin</td>
-                <td class="govuk-table__cell"></td>
+                <td class="govuk-table__cell">Not available</td>
               </tr>
             </tbody>
           </table>
@@ -52,16 +52,16 @@
           <table class="govuk-table">
             <thead class="govuk-table__head">
               <tr class="govuk-table__row">
-                <th scope="col" class="govuk-table__header">Username</th>
-                <th scope="col" class="govuk-table__header">Access level</th>
-                <th scope="col" class="govuk-table__header">Action</th>
+                <th scope="col" class="govuk-table__header govuk-!-width-one-half">Government email address</th>
+                <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Access level</th>
+                <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Action</th>
 
               </tr>
             </thead>
             <tbody class="govuk-table__body">
               <caption class="govuk-table__caption govuk-table__caption--m">Pending invitations</caption>
               <tr class="govuk-table__row">
-                <td class="govuk-table__cell">john.doe@example.gov.uk (you)</td>
+                <td class="govuk-table__cell">jane.doe@example.gov.uk</td>
                 <td class="govuk-table__cell">Admin</td>
                 <td class="govuk-table__cell"><a href="withdraw-invite">Withdraw invite</a></td>
               </tr>
@@ -70,7 +70,14 @@
 
 
          
+        
+          <div class="govuk-grid-row">
+            <div class="govuk-grid-column-two-thirds">
+          
+         
+          {% include('/7-0-0/includes/help.html') %}
         </form>
+    </div>
     </div>
   </div>
 
