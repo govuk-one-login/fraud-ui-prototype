@@ -1,0 +1,106 @@
+{% extends "layouts/main.html" %}
+
+
+{% block header %}
+
+{% include('../includes/header.html') %}
+{% endblock %}
+
+{% block pageTitle %}
+  Confirmation page – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{% include('../includes/phase-banner.html') %}
+{% endblock %}
+
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      
+
+  
+
+      {% if (data['task'] == "getinfo") %}
+      
+      <h1 class="govuk-heading-l">Download the fraud information</h1>
+     
+      {% else %}
+      {{ govukPanel({
+        titleText: "Information submitted",
+        html: "Fraud information submitted to GOV.UK One Login"
+      }) }}
+      {% endif %}   
+
+
+  
+      {% if (data['task'] == "getinfo") %}
+      
+      <p>
+        A .csv file with the GOV.UK One Login fraud information you selected is ready to download.</p>
+        <p>The file might take a few seconds to download. Once downloaded, it should appear in your downloads folder.
+      </p>
+
+      <button type="submit" class="govuk-button" data-module="govuk-button">
+        Download fraud information (CSV)
+      </button>
+      
+      <h2 class="govuk-heading-m">
+        What happens next
+      </h2>
+        
+            {% if (data['release-state'] == "MVPadd") or (data['release-state'] == "MVP2") %}
+            <p>
+              You can <a href="get-options">view other information</a>, or <a href="task?task=clear">carry out other tasks</a>.
+            </p>
+
+          
+            {% else %}
+            <p>
+              You can <a href="task?task=clear">download or share other fraud information</a>.
+            </p>
+      
+            {% endif %}
+
+
+        {% else %}
+        
+        <p>We've sent your fraud information to GOV.UK One Login fraud analysts. </p>
+
+
+      <h2 class="govuk-heading-m">
+        What happens next
+      </h2>
+
+      <p>They will look to provide an update or intervention within 2-3 working days.</p>
+
+
+      {% if (data['release-state'] == "MVPadd") or (data['release-state'] == "MVP2") %}
+      <p>
+        You can view previously submitted data, or <a href="task?task=clear">carry out other tasks</a>.
+      </p>
+   
+      {% else %}
+
+    
+      <p>
+        You can <a href="task?task=clear">download or share other fraud information</a>.
+      </p>
+
+
+      {% endif %}
+     
+      {% endif %}   
+
+
+  
+
+      {% include('../includes/help.html') %}      
+
+
+    </div>
+  </div>
+
+{% endblock %}

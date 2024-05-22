@@ -1,0 +1,130 @@
+{% extends "layouts/main.html" %}
+
+{% block header %}
+{% include('../includes/header.html') %}
+{% endblock %}
+
+{% block pageTitle %}
+What type of fraud information do you want to download?– {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{% include('../includes/phase-banner.html') %}
+
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <div class="govuk-error-summary" data-module="govuk-error-summary">
+        <div role="alert">
+          <h2 class="govuk-error-summary__title">
+            There is a problem
+          </h2>
+          <div class="govuk-error-summary__body">
+            <ul class="govuk-list govuk-error-summary__list">
+              <li>
+                <a href="#">No records available to download for users that GOV.UK One Login suspect of committing fraud</a>
+              </li>
+              <li>
+                <a href="#">No records available to download for users that have been blocked</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      {% if (data['release-state'] == "MVP2") %}
+        <form action="view-information" method="post" novalidate>
+        <!-- <form action="add-ids?task=getinfo" method="post" novalidate> -->
+      {% else %}
+      <form action="get-are-you-sure" method="post" novalidate>
+
+      {% endif %}
+
+
+      <!-- {% if (data['task'] == "viewinfo") %}
+      <form action="view-information" method="post" novalidate>
+        {% else %}
+      <form action="get-options" method="post" novalidate>
+      {% endif %} -->
+        <!-- Change content for all -->
+        {% set question = "What type of fraud information do you want to download?" %}
+  
+
+        {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+
+
+
+        <h1 class="govuk-heading-l">{{question}}</h1>
+   
+
+
+        {% if (data['notification'] == "yes")  %}
+        {% set update = "yes" %}
+
+        {% endif %}
+
+
+{{ govukCheckboxes({
+  name: "get-reasons",
+  fieldset: {
+ 
+  },
+  
+  hint: {
+    text: "Select all that apply."
+  },
+
+
+  errorMessage: {
+    text: "Selection not available to download"
+  },
+
+  items: [
+
+  {
+    value: "Users that GOV.UK One Login suspects of committing fraud",
+    text: "Users that GOV.UK One Login suspects of committing fraud (including users under investigation)",
+    checked: update
+  },
+
+  {
+    value: "Users that have been blocked",
+    text: "Users that have been blocked from accessing their GOV.UK One Login",
+    checked: update
+
+  },
+
+  {
+    value: "Users that have been unblocked",
+    text: "Users that have been unblocked from accessing their GOV.UK One Login"
+
+  }
+]
+}) 
+}}
+
+        
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+      </form>
+
+      {% include('../includes/help.html') %}      
+
+
+    </div>
+
+    
+  </div>
+{% endblock %}
+
+
+

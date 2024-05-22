@@ -1,0 +1,31 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+File not downloaded – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{% include('../includes/phase-banner.html') %}
+
+
+{% endblock %}
+
+
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-l">There is no fraud information available to download from the last 14 days</h1>
+
+      
+        <p>We currently don't have any records from the last 14 days, come back later.</p>
+
+        <p><a href="/">Cancel and go back to download and share fraud information</a></p>
+        
+    
+      
+      <!-- <p class="govuk-body">We saved your answers. They will be available for 30 days.</p> -->
+      {% include('../includes/help.html') %} 
+    </div>
+  </div>
+{% endblock %}

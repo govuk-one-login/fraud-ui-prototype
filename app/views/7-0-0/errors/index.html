@@ -1,0 +1,143 @@
+{% extends "layouts/main.html" %}
+
+
+
+
+{% block beforeContent %}
+</div>
+<div class="govuk-masthead govuk-!-padding-top-1 govuk-!-padding-bottom-6 govuk-!-margin-bottom-2">
+  <div class="govuk-width-container">
+    
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+  
+  <h1 class="govuk-heading-xl">
+    
+    Error screens
+    
+  </h1>
+      </div>
+    </div>
+  </div>
+</div>
+
+<br>
+<div class="govuk-width-container">
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <div class="govuk-warning-text">
+        <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+        <strong class="govuk-warning-text__text">
+          <span class="govuk-visually-hidden">Warning</span>
+          This prototype does not show all screen logic of the journeys. Refer to the Mural, linked below for detailed screen logic.
+        </strong>
+      </div>
+
+      <p><a href="https://app.mural.co/t/governmentdigitalservice1334/m/governmentdigitalservice1334/1714057653990/f37bca100738bd5c7f26186a344b1d1f9be49a90?sender=u7fe68ddc99e5b0d8f5fc5544">
+        Detailed screen flow for dev build - Mural</a></p>
+
+        <h2 class="govuk-heading-l">Error screens</h2>
+
+        
+
+        <table class="govuk-table">
+          <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+              <th scope="col" class="govuk-table__header">Screen</th>
+              <th scope="col" class="govuk-table__header">Changes</th>
+            </tr>
+          </thead>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell"><a href="/7-0-0/errors/service-problem">There is a problem with the service (500 error)</a></td>
+              <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--blue">New screen</strong></td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell"><a href="/7-0-0/errors/page-not-found">Page not found (404 error)</a></td>
+              <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--blue">New screen</strong></td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell"><a href="/7-0-0/errors/download-problem">Tthere was a problem downloading the fraud information</a></td>
+              <td class="govuk-table__cell">
+                <strong class="govuk-tag govuk-tag--blue">New screen</strong>
+              </td>
+              </tr>
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell"><a href="/7-0-0/errors/share-problem">There was a problem submitting the fraud information</a></td>
+                <td class="govuk-table__cell">
+                  <strong class="govuk-tag govuk-tag--blue">New screen</strong>
+                </td>
+            </tr>
+            
+           
+            
+           
+          </tbody>
+        </table>
+
+        <br>
+        <br>
+  
+
+  
+        <h2 class="govuk-heading-l">No information to download (changes to download journey screens)</h2>
+
+        
+
+      <table class="govuk-table">
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header">Screen</th>
+            <th scope="col" class="govuk-table__header">Changes</th>
+          </tr>
+        </thead>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell"><a href="/7-0-0/errors/get-reasons-grey">What type of fraud information do you want to download?</a></td>
+            <td class="govuk-table__cell"><ul>
+              <li>Added record numbers for all selections</li>
+              <li>Checkboxes disabled if record number is 0</li>
+            </ul></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell"><a href="/7-0-0/errors/download-none">No fraud information to download</a></td>
+            <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--blue">New screen</strong></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell"><a href="get-are-you-sure">Confirm the type of fraud information</a></td>
+            <td class="govuk-table__cell">Added record numbers for all selections
+            </td>
+          </tr>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell"><a href="super-admin-activate/reset">Download the fraud information</a></td>
+            <td class="govuk-table__cell"><ul>
+              <li>Removed confirmation panel</li>
+              <li>Different H1</li>
+            </ul></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <br>
+      <br>
+
+
+
+   
+
+
+
+
+      </div>
+      </div>
+
+
+     
+
+
+{% endblock %}

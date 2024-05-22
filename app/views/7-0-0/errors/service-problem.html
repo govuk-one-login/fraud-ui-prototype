@@ -5,10 +5,8 @@ File not downloaded – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
 {% block beforeContent %}
-  {{ govukBackLink({
-  text: "Back",
-  href: "javascript:window.history.back()"
-}) }}
+{% include('../includes/phase-banner.html') %}
+  
 {% endblock %}
 {% set mainClasses = "govuk-main-wrapper--l" %}
 
@@ -18,9 +16,11 @@ File not downloaded – {{ serviceName }} – GOV.UK Prototype Kit
       <h1 class="govuk-heading-l">Sorry, there is a problem with the service</h1>
       <p class="govuk-body">Try again later.</p>
       <!-- <p class="govuk-body">We saved your answers. They will be available for 30 days.</p> -->
-      <p class="govuk-body">
-        <a class="govuk-link" href="#">Contact the One Login Shared Signals support team</a> if you have an urgent need to shared fraud information.
-      </p>
+      
+
+
+  {% include('../includes/help.html') %}
     </div>
   </div>
+
 {% endblock %}
