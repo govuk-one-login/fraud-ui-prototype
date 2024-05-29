@@ -1,0 +1,91 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Start page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+
+
+
+{% block beforeContent %}
+
+</div>
+<div class="govuk-masthead govuk-!-padding-top-1 govuk-!-padding-bottom-6 govuk-!-margin-bottom-2">
+  <div class="govuk-width-container">
+    
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds-from-desktop">
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+  
+  <h1 class="govuk-heading-xl">
+    A design history for the Shared Signals UI prototype 
+  </h1>
+        <p>
+          A record of how our service has iterated.<br>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="govuk-width-container">
+
+
+{% endblock %}
+
+
+{% block content %}
+
+
+
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      
+
+  <span class="govuk-caption-l">{% include('../includes/date.html') %}</span>
+<h1 class="govuk-heading-l">Error screens</h1>
+
+        
+
+
+      <h2 class="govuk-heading-m">Background</h2>
+
+      <p>For SSF-UI MVP, error screens had not been designed. This piece of work introduces some unhappy path screens into the shared signals UI.</p>
+
+      
+      <p>Error screens included as part of this work include:</p><ul class="govuk-list--bullet govuk-list">
+        <li>A 500 error, if there is an unexpected problem with the service, such as a server issue</li>
+        <li>A 404 error, if the user enters a URL which does not exist</li>
+        <li>A problem when a user is submitting fraud information</li>
+        <li>A problem when a user is downloading fraud information</li>
+        <li>Improvements to the downnload jounrney flow, so that users are aware of how many records there are available to download, or if there are no records available to download</li>
+      </ul>
+ 
+
+      <h2 class="govuk-heading-m">To do</h2>
+    <ul class="govuk-list--bullet govuk-list">
+      <li>Content review of all error screens</li>
+      <li>Use user research to validate our expectation that fraud analysts should only be able to download a file if we have records available to download.</li>
+    </ul>
+
+
+
+    </div>
+
+    <div class="govuk-grid-column-one-third">
+
+      
+
+    </div>
+  </div>
+
+  
+
+  
+
+{% endblock %}
