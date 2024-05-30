@@ -1,0 +1,77 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form action="google-auth" method="post" novalidate>
+        <h1 class="govuk-heading-xl govuk-!-margin-bottom-2">Prototype setup</h1>
+
+        <div id="setup-hint" class="govuk-hint">
+          Setup the Fraud Admin UI prototype based on product milestone
+        </div>
+        {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+
+        {{ govukRadios({
+          name: "fraud-admin-hashed",
+          fieldset: {
+            legend: {
+              text: "Request hashed information",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--m"
+            }
+          },
+         
+           items: [
+           {
+            value: "on",
+              text: "Turn on 'request hashed information' feature"
+            }
+        
+          ]
+        }) }}
+
+        {{ govukRadios({
+          name: "fraud-admin-user-state",
+          fieldset: {
+            legend: {
+              text: "Fraud Admin user type",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--m"
+            }
+          },
+         
+           items: [
+           {
+            value: "standard",
+              text: "Standard user - non privileged view"
+            }
+        
+          ]
+        }) }}
+
+
+
+
+
+
+        
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+      </form>
+    </div>
+  </div>
+{% endblock %}

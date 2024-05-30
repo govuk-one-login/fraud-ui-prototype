@@ -1,0 +1,122 @@
+
+<div class="govuk-tabs" data-module="govuk-tabs">
+    <h2 class="govuk-tabs__title">
+      Contents
+    </h2>
+    <ul class="govuk-tabs__list">
+      <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
+        <a class="govuk-tabs__tab" href="#past-day">
+          Search information
+        </a>
+      </li>
+      <li class="govuk-tabs__list-item">
+        <a class="govuk-tabs__tab" href="#past-week">
+          Filter
+        </a>
+      </li>
+   
+    </ul>
+    <div class="govuk-tabs__panel" id="past-day">
+
+      <div class="govuk-form-group">
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+          <h2 class="govuk-fieldset__heading">
+            Search
+          </h2>
+        </legend>
+        <div id="search-hint" class="govuk-hint moj-search__hint ">
+          You can search by user id, event type or national insurance number
+        </div>
+        <input class="govuk-input govuk-input--width-20" id="width-20" name="width20" type="text">
+        <button class="govuk-button" data-module="govuk-button">
+          Search
+        </button>
+    </div>
+
+    </div>
+    <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="past-week">
+      <form action="/form-handler" method="post" novalidate>
+
+        <h2 class="govuk-heading-m">
+          Filter
+        </h2>
+      {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+    
+
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-one-half">
+          {{ govukCheckboxes({
+            name: "get-reasons",
+            classes: "govuk-checkboxes--small",
+            fieldset: {
+          
+            },
+            
+          
+            items: [
+            {
+              value: "accounts",
+              text: "Account related"
+            },
+            {
+              value: "Identifier changed",
+              text: "Identifier changed"
+            },
+            {
+              value: "Identifier recylced",
+              text: "Identifier recylced"
+            },
+            {
+              value: "Credential compromised",
+              text: "Credential compromised"
+            }
+        
+          ]
+          }) 
+          }}
+      
+          </div>
+
+
+          <div class="govuk-grid-column-one-half">
+            {{ govukCheckboxes({
+              name: "get-reasons",
+              classes: "govuk-checkboxes--small",
+              fieldset: {
+             
+              },
+              
+            
+            
+              items: [
+      
+              {
+                value: "optin",
+                text: "Account opted in or out from event changes"
+              },
+            
+              {
+                value: "Recovery activated",
+                  text: "Recovery activated"
+              },
+              {
+                value: "Recovered information changed",
+                text: "Recovered information changed"
+              }
+            ]
+            }) 
+            }}
+        
+            </div>
+          </div>
+
+      {{ govukButton({
+        text: "Filter results",
+        class: "govuk-!-margin-bottom-0"
+      }) }}
+      </form>
+
+
+    </div>
+
+  </div>

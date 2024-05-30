@@ -1,0 +1,99 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Start page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+
+
+
+{% block beforeContent %}
+
+</div>
+<div class="govuk-masthead govuk-!-padding-top-1 govuk-!-padding-bottom-6 govuk-!-margin-bottom-2">
+  <div class="govuk-width-container">
+    
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds-from-desktop">
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+  
+  <h1 class="govuk-heading-xl">
+    Design history for the Fraud Admin UI
+    prototype 
+  </h1>
+        <p>
+          A record of how our service has iterated.<br>
+          <em>29 May 2024</em>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="govuk-width-container">
+
+
+{% endblock %}
+
+
+{% block content %}
+
+
+
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      
+
+  <span class="govuk-caption-l">{% include('../includes/date.html') %}</span>
+<h1 class="govuk-heading-l">Fraud Admin UI MVP</h1>
+
+      <p>The Fraud admin UI was designed by Barry Khan (who left GDS in January 2024). There was less documented about how the Fraud admin interface design was iterated, compared to the Shared Signals UI.</p>
+         
+      <p>The main features of Fraud Admin UI MVP included:</p>
+      <ul class="govuk-list--bullet govuk-list">
+        <li>Applying a manual account intervention</li>
+        <li>Hashing email addresses and telephone numbers</li>
+      </ul>
+
+      <h2 class="govuk-heading-m">Removal of hashing during dev build:</h2>
+
+      <p>During dev build of the Fraud admin interface, the hashing feature was de-scoped due to delivery timeframes. This is to be brought back into the UI as an MVP+ feature. To view the prototype with this feature, click 'set up prototype' and select the 'request hashed information' radio.</p>
+
+      <h2 class="govuk-heading-m">Changes to navigation during dev build:</h2>
+      <p>During dev build the navigation header design was changed without involvement from UCD. The back links on the 'manual account interventions details' screen and 'what is the email address / telephone number screen' were removed, and replaced with a 'home' navigation item in the header to take users back to the landing screen.  The navigation has since been changed to reflect the dev build, however there may not be a need to have a secondary navigation header in the design at all. Consider removing this as part of MVP+.</p>
+
+      <h2 class="govuk-heading-m">Content review of account interventions</h2>
+      <p>Melanie Ring did a great job at 2i'ing the content for the account interventions screens. The content is now reflected in the designs.  Her design rationales are wirtten up <a href="https://docs.google.com/document/d/1I1IKdoXl4yFZHJVsFqbxUgqTtZK38VC0I6ns109ddAs/edit#heading=h.o7rdq83bla1p"> in this document</a>.</p>
+
+
+
+      <h2 class="govuk-heading-m">To do</h2>
+    <ul class="govuk-list--bullet govuk-list">
+      <li>Build on the features of the fraud admin interface for MVP+ and iterate with user research</li>
+      <li>Challenge the need for the header navigation in the UI - this has been built in the design but may not be the simplest way to navigate in the UI.</li>
+    </ul>
+
+   
+
+      
+
+
+    </div>
+
+    <div class="govuk-grid-column-one-third">
+
+      
+
+    </div>
+  </div>
+
+  
+
+  
+
+{% endblock %}
