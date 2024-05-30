@@ -58,25 +58,36 @@ Fraud Admin Interface – {{ serviceName }} – GOV.UK Prototype Kit
 
 </div>
 
-{% if (data['hashed'] == "on") %}
+{% if (data['fraud-admin-hashed'] == "on") %}
 
-<div class="govuk-summary-card">
-  <div class="govuk-summary-card__title-wrapper">
-    <h2 class="govuk-summary-card__title">Request hashed information</h2>
+<div class="govuk-grid-column-one-third">
+
+      
+
+  <div class="govuk-summary-card">
+    <div class="govuk-summary-card__title-wrapper">
+      <h2 class="govuk-summary-card__title">Request hashed information</h2>
+    </div>
+    <div class="govuk-summary-card__content">
+      <dl class="govuk-summary-list">
+        <div class="govuk-summary-list__row">
+          <p>Use this to request hashed information email address, phone numbers etc.</p>
+
+
+          <p><a href="add-hashed-data?task=hashed">Request hashed information</a></p>
+
+
+
+        </div>
+      </dl>
+    </div>
   </div>
-  <div class="govuk-summary-card__content">
-    <dl class="govuk-summary-list">
-      <div class="govuk-summary-list__row">
-        <p>Use this to request hashed information email address, phone numbers etc.</p>
-
-
-        <p><a href="add-hashed-data?task=hashed">Request hashed information</a></p>
 
 
 
-      </div>
-    </dl>
-  </div>
+
+
+
 </div>
 
 
