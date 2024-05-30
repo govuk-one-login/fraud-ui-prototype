@@ -87,17 +87,18 @@ Confirmation  – {{ serviceName }} – GOV.UK Prototype Kit
 
 
 
-      <h2 class="govuk-heading-m">
-        What happens next
-      </h2>
     
       {% if (data['task'] == "mai") %}
 
-      <p>You should see the updated information within the next 24 hrs.</p>
+      <p>Account intervention submitted</p>
       {% endif %}
       {% if (data['task'] == "hashed") %}
       <p>
-        You can <a href="add-hashed-data?task=hashed">request more hashed information</a> or return back to <a href="fraud-admin-interface">the GOV.UK One Login Fraud Admin Interface</a>.
+        <h2 class="govuk-heading-m">
+          What happens next
+        </h2> 
+
+        <p>You can <a href="add-hashed-data?task=hashed">request more hashed information</a> or return back to <a href="fraud-admin-interface">the GOV.UK One Login Fraud Admin Interface</a>.</p>
       </p>
       {% else %}
       <p>
