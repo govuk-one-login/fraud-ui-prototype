@@ -10,10 +10,7 @@ Check your answers – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
 {% block beforeContent %}
-  {{ govukBackLink({
-  text: "Back",
-  href: "javascript:window.history.back()"
-}) }}
+
 
 
 {% endblock %}
@@ -61,7 +58,7 @@ Check your answers – {{ serviceName }} – GOV.UK Prototype Kit
           </dd>
         </div>
 
-        {% if (data['fraud-admin-state'] == "case") %}
+      
 
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
@@ -90,7 +87,7 @@ Check your answers – {{ serviceName }} – GOV.UK Prototype Kit
           </dd>
         </div>
 
-        {% endif %}
+      
 
        
         <div class="govuk-summary-list__row">
