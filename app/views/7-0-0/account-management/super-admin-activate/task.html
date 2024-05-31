@@ -80,8 +80,8 @@ What would you like to do? – {{ serviceName }} – GOV.UK Prototype Kit
 
 
               {% else %}
-              <p>Download a .csv file with fraud information shared by GOV.UK One Login and other government services in the last 7 days.</p>
-              <p>The information was last updated on 23 December 2023.</p>
+              <p>Download a .csv file with fraud information shared by GOV.UK One Login in the last 14 days.</p>
+             
               {% if (data['release-state'] == "MVP2") %}
               <p><a href="view-information">View fraud information</a></p>
 
@@ -118,7 +118,7 @@ What would you like to do? – {{ serviceName }} – GOV.UK Prototype Kit
       <dl class="govuk-summary-list">
         <div class="govuk-summary-list__row">
       
-          <p>Use this to share information about fraud-related events in your service with GOV.UK One Login and other government services.</p>
+          <p>Use this to share information about fraud-related events in your service with GOV.UK One Login.</p>
 
             <p>For each event you add, you'll need to include the user ID and select what type of fraud you suspect it to be about.
             </p>
